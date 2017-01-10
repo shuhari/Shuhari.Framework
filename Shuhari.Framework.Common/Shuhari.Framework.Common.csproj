@@ -54,6 +54,8 @@
     <Compile Include="Resources\AssemblyResource.cs" />
     <Compile Include="Resources\FrameworkStrings.cs" />
     <Compile Include="Resources\ResourceException.cs" />
+    <Compile Include="Runtime\CompilerServices\CompilerException.cs" />
+    <Compile Include="Runtime\CompilerServices\SourceCompiler.cs" />
     <Compile Include="Utils\AssemblyUtil.cs" />
     <Compile Include="Utils\ByteArrayUtil.cs" />
     <Compile Include="Utils\CollectionUtil.cs" />

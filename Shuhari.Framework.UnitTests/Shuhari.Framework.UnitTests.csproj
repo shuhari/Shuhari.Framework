@@ -50,6 +50,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AssemblyResourceTest.cs" />
+    <Compile Include="Runtime\CompilerServices\SourceCompilerTest.cs" />
     <Compile Include="Utils\AssemblyUtilTest.cs" />
     <Compile Include="Utils\ByteArrayUtilTest.cs" />
     <Compile Include="Utils\CollectionUtilTest.cs" />
