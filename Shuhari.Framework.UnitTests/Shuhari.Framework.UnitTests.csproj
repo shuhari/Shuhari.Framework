@@ -35,6 +35,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,10 +52,13 @@
     <Compile Include="Resources\AssemblyResourceTest.cs" />
     <Compile Include="Utils\AssemblyUtilTest.cs" />
     <Compile Include="Utils\ByteArrayUtilTest.cs" />
+    <Compile Include="Utils\CollectionUtilTest.cs" />
     <Compile Include="Utils\EncodingUtilTest.cs" />
+    <Compile Include="Utils\EnumUtilTest.cs" />
     <Compile Include="Utils\ExceptionUtilTest.cs" />
     <Compile Include="Utils\ExpectTest.cs" />
     <Compile Include="Utils\NullableUtilTest.cs" />
+    <Compile Include="Utils\ObservableCollectionUtilTest.cs" />
     <Compile Include="Utils\StreamUtilTest.cs" />
     <Compile Include="Utils\StringUtilTest.cs" />
     <Compile Include="Utils\XamlUtilTest.cs" />

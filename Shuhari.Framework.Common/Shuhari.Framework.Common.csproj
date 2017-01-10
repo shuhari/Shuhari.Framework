@@ -37,6 +37,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -55,12 +56,15 @@
     <Compile Include="Resources\ResourceException.cs" />
     <Compile Include="Utils\AssemblyUtil.cs" />
     <Compile Include="Utils\ByteArrayUtil.cs" />
+    <Compile Include="Utils\CollectionUtil.cs" />
     <Compile Include="Utils\EncodingUtil.cs" />
+    <Compile Include="Utils\EnumUtil.cs" />
     <Compile Include="Utils\ExceptionBuilder.cs" />
     <Compile Include="Utils\ExceptionUtil.cs" />
     <Compile Include="Utils\Expect.cs" />
     <Compile Include="Utils\ExpectionException.cs" />
     <Compile Include="Utils\NullableUtil.cs" />
+    <Compile Include="Utils\ObservableCollectionUtil.cs" />
     <Compile Include="Utils\StreamUtil.cs" />
     <Compile Include="Utils\StringUtil.cs" />
     <Compile Include="Utils\XamlUtil.cs" />

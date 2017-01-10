@@ -29,6 +29,13 @@ namespace Shuhari.Framework.UnitTests.Utils
             Assert.Throws<ExpectionException>(() => type.GetNullableBaseType());
         }
 
+        [TestCase(typeof(int?), typeof(int))]
+        [TestCase(typeof(FileMode?), typeof(FileMode))]
+        public void GetNullableBaseType(Type nullableType, Type baseType)
+        {
+            Assert.AreEqual(baseType, nullableType.GetNullableBaseType());
+        }
+
         [TestCase(typeof(int?))]
         [TestCase(typeof(string))]
         public void MakeNullableType_BaseTypeNotValueType_ShouldThrow(Type type)

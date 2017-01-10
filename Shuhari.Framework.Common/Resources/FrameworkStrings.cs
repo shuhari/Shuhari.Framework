@@ -55,5 +55,10 @@
         /// Expect value type
         /// </summary>
         public const string ERROR_EXPECT_VALUETYPE = "Type {0} is not a value type";
+
+        /// <summary>
+        /// Not a enum type
+        /// </summary>
+        public const string ERROR_NOT_ENUM = "Type {0} is not a enum";
     }
 }

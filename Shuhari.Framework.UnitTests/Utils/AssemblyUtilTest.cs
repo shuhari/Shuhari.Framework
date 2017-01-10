@@ -18,8 +18,6 @@ namespace Shuhari.Framework.UnitTests.Utils
         public void GetAllResources(string resourcePath)
         {
             var resources = GetType().Assembly.GetAllResources();
-            foreach (var res in resources)
-                Console.WriteLine(res.ResourcePath);
             Assert.IsTrue(resources.Any(x => x.ResourcePath.EqualsNoCase(resourcePath)));
         }
     }
