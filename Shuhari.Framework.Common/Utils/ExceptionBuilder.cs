@@ -1,4 +1,5 @@
-﻿using Shuhari.Framework.Resources;
+﻿using System;
+using Shuhari.Framework.Resources;
 
 namespace Shuhari.Framework.Utils
 {
@@ -27,6 +28,17 @@ namespace Shuhari.Framework.Utils
         public static ResourceException Resource(string format, params object[] args)
         {
             return new ResourceException(string.Format(format, args));
+        }
+
+        /// <summary>
+        /// Create NotSupportedException
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static NotSupportedException NotSupported(string format, params object[] args)
+        {
+            return new NotSupportedException(string.Format(format, args));
         }
     }
 }

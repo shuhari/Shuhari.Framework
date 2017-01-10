@@ -37,6 +37,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,9 +49,17 @@
     <Compile Include="..\Shuhari.Framework.Common\Properties\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="ComponentModel\DateTimeValueSerializerTest.cs" />
+    <Compile Include="ComponentModel\GenericTypeConverterTest.cs" />
+    <Compile Include="DomainModel\SigninModelTest.cs" />
+    <Compile Include="DomainModel\UserInfoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AssemblyResourceTest.cs" />
     <Compile Include="Runtime\CompilerServices\SourceCompilerTest.cs" />
+    <Compile Include="Security\BasePasswordBuilderTest.cs" />
+    <Compile Include="Security\EncryptionTest.cs" />
+    <Compile Include="Security\SimplePasswordBuilderTest.cs" />
+    <Compile Include="Text\Templating\VelocityTemplateTest.cs" />
     <Compile Include="Utils\AssemblyUtilTest.cs" />
     <Compile Include="Utils\ByteArrayUtilTest.cs" />
     <Compile Include="Utils\CollectionUtilTest.cs" />
@@ -89,6 +98,10 @@
   <ItemGroup>
     <Resource Include="ResourceFiles\res.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFiles\res.vm" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
