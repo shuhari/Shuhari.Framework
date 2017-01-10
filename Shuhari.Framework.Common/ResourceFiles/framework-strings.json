@@ -1,0 +1,159 @@
+{
+  "Ok": {
+    "en": "OK",
+    "zh-CN": "确定"
+  },
+  "Cancel": {
+    "en": "Cancel",
+    "zh-CN": "取消"
+  },
+  "Signin": {
+    "en": "Sign in",
+    "zh-CN": "登录"
+  },
+  "Signout": {
+    "en": "Sign out",
+    "zh-CN": "注销"
+  },
+  "Create": {
+    "en": "Create",
+    "zh-CN": "新建"
+  },
+  "Edit": {
+    "en": "Edit",
+    "zh-CN": "编辑"
+  },
+  "View": {
+    "en": "View",
+    "zh-CN": "查看"
+  },
+  "Delete": {
+    "en": "Sign out",
+    "zh-CN": "删除"
+  },
+  "Submit": {
+    "en": "Submit",
+    "zh-CN": "提交"
+  },
+  "Save": {
+    "en": "Save",
+    "zh-CN": "保存"
+  },
+  "Search": {
+    "en": "Search",
+    "zh-CN": "搜索"
+  },
+  "Find": {
+    "en": "Find",
+    "zh-CN": "查找"
+  },
+  "Enable": {
+    "en": "Enable",
+    "zh-CN": "启用"
+  },
+  "Disable": {
+    "en": "Disable",
+    "zh-CN": "禁用"
+  },
+  "SelectAll": {
+    "en": "Select All",
+    "zh-CN": "全部选中"
+  },
+  "SelectNone": {
+    "en": "Select None",
+    "zh-CN": "全部不选"
+  },
+  "SelectInvert": {
+    "en": "Invert Selection",
+    "zh-CN": "反转选择"
+  },
+  "Import": {
+    "en": "Import",
+    "zh-CN": "导入"
+  },
+  "Export": {
+    "en": "Export",
+    "zh-CN": "导出"
+  },
+  "Download": {
+    "en": "Download",
+    "zh-CN": "下载"
+  },
+  "Upload": {
+    "en": "Upload",
+    "zh-CN": "上传"
+  },
+  "Navigation": {
+    "en": "Navigation",
+    "zh-CN": "导航"
+  },
+  "Sitemap": {
+    "en": "Sitemap",
+    "zh-CN": "站点地图"
+  },
+
+  "Name": {
+    "en": "Name",
+    "zh-CN": "名称"
+  },
+  "DisplayName": {
+    "en": "Display Name",
+    "zh-CN": "显示名称"
+  },
+  "Description": {
+    "en": "Description",
+    "zh-CN": "描述"
+  },
+  "Disabled": {
+    "en": "Disabled",
+    "zh-CN": "是否禁用"
+  },
+  "CreateBy": {
+    "en": "Create By",
+    "zh-CN": "创建用户"
+  },
+  "CreateAt": {
+    "en": "Create At",
+    "zh-CN": "创建时间"
+  },
+  "UpdateBy": {
+    "en": "Update By",
+    "zh-CN": "更新用户"
+  },
+  "UpdateAt": {
+    "en": "Update At",
+    "zh-CN": "更新时间"
+  },
+  "StartTime": {
+    "en": "Start Time",
+    "zh-CN": "开始时间"
+  },
+  "EndTime": {
+    "en": "End Time",
+    "zh-CN": "结束时间"
+  },
+  "Password": {
+    "en": "Password",
+    "zh-CN": "密码"
+  },
+  "OldPassword": {
+    "en": "Password",
+    "zh-CN": "密码"
+  },
+  "NewPassword": {
+    "en": "New Password",
+    "zh-CN": "新密码"
+  },
+  "ConfirmPassword": {
+    "en": "Confirm Password",
+    "zh-CN": "确认密码"
+  },
+  "SigninModel.UserName": {
+    "en": "Sign out",
+    "zh-CN": "注销"
+  },
+  "SigninModel.RememberMe": {
+    "en": "Remember Me",
+    "zh-CN": "记住登录用户"
+  }
+}
