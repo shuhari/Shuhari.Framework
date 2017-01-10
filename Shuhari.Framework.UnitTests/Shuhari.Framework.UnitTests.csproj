@@ -48,6 +48,17 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AssemblyResourceTest.cs" />
+    <Compile Include="Utils\AssemblyUtilTest.cs" />
+    <Compile Include="Utils\ByteArrayUtilTest.cs" />
+    <Compile Include="Utils\EncodingUtilTest.cs" />
+    <Compile Include="Utils\ExceptionUtilTest.cs" />
+    <Compile Include="Utils\ExpectTest.cs" />
+    <Compile Include="Utils\NullableUtilTest.cs" />
+    <Compile Include="Utils\StreamUtilTest.cs" />
+    <Compile Include="Utils\StringUtilTest.cs" />
+    <Compile Include="Utils\XamlUtilTest.cs" />
+    <Compile Include="Utils\XmlUtilTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shuhari.Framework.Common\Shuhari.Framework.Common.csproj">
@@ -69,6 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFiles\res.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
