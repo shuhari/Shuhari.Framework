@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Shuhari.Framework.Resources;
 
 namespace Shuhari.Framework.Utils
@@ -39,6 +40,17 @@ namespace Shuhari.Framework.Utils
         public static NotSupportedException NotSupported(string format, params object[] args)
         {
             return new NotSupportedException(string.Format(format, args));
+        }
+
+        /// <summary>
+        /// Create Key not found exception
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static KeyNotFoundException KeyNotFound(string format, params object[] args)
+        {
+            return new KeyNotFoundException(string.Format(format, args));
         }
     }
 }

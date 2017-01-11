@@ -60,8 +60,23 @@
   <ItemGroup>
     <Compile Include="ComponentModel\DateTimeValueSerializer.cs" />
     <Compile Include="ComponentModel\GenericTypeConverter.cs" />
+    <Compile Include="Data\Common\DbEngine.cs" />
+    <Compile Include="Data\Common\Session.cs" />
+    <Compile Include="Data\Common\SessionFactory.cs" />
+    <Compile Include="Data\DatabaseType.cs" />
+    <Compile Include="Data\DbRegistry.cs" />
+    <Compile Include="Data\IDbEngine.cs" />
+    <Compile Include="Data\ISession.cs" />
+    <Compile Include="Data\ISessionFactory.cs" />
+    <Compile Include="Data\Mappings\FieldAttribute.cs" />
+    <Compile Include="Data\Mappings\FieldFlags.cs" />
+    <Compile Include="Data\Mappings\TableAttribute.cs" />
+    <Compile Include="Data\SqlServer\SqlDbEngine.cs" />
+    <Compile Include="Data\Utils\ParamConverter.cs" />
+    <Compile Include="DomainModel\BaseEntity{TID}.cs" />
     <Compile Include="DomainModel\BaseSitemapResolver.cs" />
     <Compile Include="DomainModel\FileItem.cs" />
+    <Compile Include="DomainModel\IEntity{TID}.cs" />
     <Compile Include="DomainModel\IPagination.cs" />
     <Compile Include="DomainModel\ISitemapResolver.cs" />
     <Compile Include="DomainModel\NamedQueryDTO.cs" />
@@ -117,6 +132,7 @@
     <None Include="packages.config" />
     <Resource Include="ResourceFiles\framework-strings.json" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

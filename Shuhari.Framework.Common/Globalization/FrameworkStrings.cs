@@ -84,5 +84,29 @@ namespace Shuhari.Framework.Globalization
         /// </summary>
         [Display]
         internal static readonly string ErrorNumberShouldBePositive = ResourceRegistry.GetString("Error.NumberShouldBePositive");
+
+        /// <summary>
+        /// Key not found
+        /// </summary>
+        [Display]
+        internal static readonly string ErrorKeyNotFound = ResourceRegistry.GetString("Error.KeyNotFound");
+
+        /// <summary>
+        /// Unknown database type
+        /// </summary>
+        [Display]
+        internal static readonly string ErrorUnknownDbType = ResourceRegistry.GetString("Error.UnknownDbType");
+
+        /// <summary>
+        /// Unsupported type
+        /// </summary>
+        [Display]
+        internal static readonly string ErrorUnsupportedType = ResourceRegistry.GetString("Error.UnsupportedType");
+
+        /// <summary>
+        /// Unsupported type with value displayed
+        /// </summary>
+        [Display]
+        internal static readonly string ErrorUnsupportedTypeWithValue = ResourceRegistry.GetString("Error.UnsupportedTypeWithValue");
     }
 }

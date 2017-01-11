@@ -54,10 +54,6 @@
       <Project>{d3ad108a-1ebb-43ca-9854-32ceb2fcba7f}</Project>
       <Name>Shuhari.Framework.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Shuhari.Framework.Data\Shuhari.Framework.Data.csproj">
-      <Project>{06333fa1-d425-4115-bcb3-07c6cbb8336a}</Project>
-      <Name>Shuhari.Framework.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
