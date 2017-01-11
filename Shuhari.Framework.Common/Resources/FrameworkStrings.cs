@@ -65,5 +65,20 @@
         /// Expected target have parse method
         /// </summary>
         internal const string ERROR_PARSE_METHOD_EXPECTED = "Expected static {0} Parse(string) method in type {0}, but could not found one";
+
+        /// <summary>
+        /// Page parameter invalid
+        /// </summary>
+        internal const string ERROR_PAGE_INVALID = "page should be >=0";
+
+        /// <summary>
+        /// PerPage parameter invalid
+        /// </summary>
+        internal const string ERROR_PERPAGE_INVALID = "perPage should be >= 0";
+
+        /// <summary>
+        /// Number should be great or equal than zero
+        /// </summary>
+        internal const string ERROR_NUMBER_POSITIVE = "Number should be >= 0";
     }
 }
