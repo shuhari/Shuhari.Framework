@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Resources;
 
 namespace Shuhari.Framework.Utils
@@ -37,7 +38,7 @@ namespace Shuhari.Framework.Utils
 
             if (str.StartsWith("0x", StringComparison.InvariantCultureIgnoreCase))
                 str = str.Substring(2);
-            Expect.That(str.Length % 2 == 0, () => new FormatException(FrameworkStrings.ERROR_BYTES_FORMAT));
+            Expect.That(str.Length % 2 == 0, () => new FormatException(FrameworkStrings.ErrorBytesFormat));
             var bytes = new List<byte>();
             for (int i = 0; i < str.Length / 2; i++)
                 bytes.Add(byte.Parse(str.Substring(i * 2, 2), NumberStyles.AllowHexSpecifier));

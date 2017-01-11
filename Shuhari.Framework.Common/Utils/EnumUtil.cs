@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Resources;
 
 namespace Shuhari.Framework.Utils
@@ -21,7 +22,7 @@ namespace Shuhari.Framework.Utils
             where T : struct
         {
             var type = typeof(T);
-            Expect.That(type.IsEnum, string.Format(FrameworkStrings.ERROR_NOT_ENUM, type.FullName));
+            Expect.That(type.IsEnum, string.Format(FrameworkStrings.ErrorTypeNotEnum, type.FullName));
             var nValue = Convert.ToInt32(value);
 
             var fields = type.GetFields(BindingFlags.Public | BindingFlags.Static);

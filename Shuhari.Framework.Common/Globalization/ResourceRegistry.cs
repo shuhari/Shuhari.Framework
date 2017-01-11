@@ -22,7 +22,7 @@ namespace Shuhari.Framework.Globalization
         static ResourceRegistry()
         {
             _providers = new List<IResourceProvider>();
-            Clear(false);
+            Reset();
         }
 
         private static List<IResourceProvider> _providers;
@@ -30,15 +30,10 @@ namespace Shuhari.Framework.Globalization
         /// <summary>
         /// Clear all registered providers
         /// </summary>
-        /// <param name="includeInternal">If true, then internal defined provider should also be removed;
-        /// or else custom registered will be removed, internal return</param>
-        public static void Clear(bool includeInternal = false)
+        public static void Reset()
         {
             _providers.Clear();
-            if (!includeInternal)
-            {
-                _providers.Add(JsonResourceProvider.GetPredefined());
-            }
+            _providers.Add(JsonResourceProvider.GetPredefined());
         }
 
         /// <summary>

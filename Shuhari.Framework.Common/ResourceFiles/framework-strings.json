@@ -155,5 +155,44 @@
   "SigninModel.RememberMe": {
     "en": "Remember Me",
     "zh-CN": "记住登录用户"
+  },
+  "Expect.NotNull": {
+    "en": "Parameter {0} should not be null."
+  },
+  "Expect.NotBlank": {
+    "en": "Parameter {0} should not be a blank string."
+  },
+  "Expect.True": {
+    "en": "The result should evaluate to true."
+  },
+  "Expect.FileExist": {
+    "en": "File not exist: {0}"
+  },
+  "Expect.DirectoryExist": {
+    "en": "Directory not exist: {0}"
+  },
+  "Error.ResourceNotFound": {
+    "en": "Could not found resource {1} in assembly {0}"
+  },
+  "Error.BytesFormat": {
+    "en": "Bytes string should have even length"
+  },
+  "Error.TypeNotNullable": {
+    "en": "Type {0} is not nullable"
+  },
+  "Error.TypeNotValueType": {
+    "en": "Type {0} is not a value type"
+  },
+  "Error.TypeNotEnum": {
+    "en": "Type {0} is not a enum"
+  },
+  "Error.ParseMethodNotExist": {
+    "en": "Expected static {0} Parse(string) method in type {0}, but could not found one"
+  },
+  "Exception.TraceFormat": {
+    "en": "Exception raised at {0:yyyy-MM-dd HH:mm:ss}\r\n  Messsage: {1}\r\n  Type: {2}\r\n  Stacktrace: {3}\r\n\r\n"
+  },
+  "Error.NumberShouldBePositive": {
+    "en": "number should be >=0"
   }
 }

@@ -12,15 +12,7 @@ namespace Shuhari.Framework.UnitTests.Globalization
         [SetUp]
         public void SetUp()
         {
-            ResourceRegistry.Clear(false);
-        }
-
-        [Test]
-        public void Clear_IncludeInternal_ShouldHaveNoProviders()
-        {
-            ResourceRegistry.Clear(true);
-
-            CollectionAssert.IsEmpty(ResourceRegistry.Providers);
+            ResourceRegistry.Reset();
         }
 
         [Test]

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-using Shuhari.Framework.Resources;
+using Shuhari.Framework.Globalization;
 
 namespace Shuhari.Framework.Utils
 {
@@ -20,11 +20,9 @@ namespace Shuhari.Framework.Utils
             Expect.IsNotNull(exp, nameof(exp));
 
             var sb = new StringBuilder();
-            var crlf = Environment.NewLine;
             while (exp != null)
             {
-                sb.AppendFormat(FrameworkStrings.EXCEPTION_TRACE_FORMAT,
-                    crlf,
+                sb.AppendFormat(FrameworkStrings.ExceptionTraceFormat,
                     DateTime.Now,
                     exp.Message,
                     exp.GetType().FullName,

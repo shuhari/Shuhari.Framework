@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using Shuhari.Framework.Resources;
+using Shuhari.Framework.Globalization;
 
 namespace Shuhari.Framework.Utils
 {
@@ -19,7 +19,7 @@ namespace Shuhari.Framework.Utils
         public static void IsNotNull(object param, string paramName)
         {
             if (param == null)
-                throw ExceptionBuilder.Expection(FrameworkStrings.EXPECT_NOTNULL, paramName);
+                throw ExceptionBuilder.Expection(FrameworkStrings.ExpectNotNull, paramName);
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Shuhari.Framework.Utils
         public static void IsNotBlank(string param, string paramName)
         {
             if (string.IsNullOrWhiteSpace(param))
-                throw ExceptionBuilder.Expection(FrameworkStrings.EXPECT_NOTBLANK, paramName);
+                throw ExceptionBuilder.Expection(FrameworkStrings.ExpectNotBlank, paramName);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Shuhari.Framework.Utils
         {
             if (!predicate)
             {
-                message = message ?? FrameworkStrings.EXPECT_TRUE;
+                message = message ?? FrameworkStrings.ExpectTrue;
                 throw ExceptionBuilder.Expection(message);
             }
         }
@@ -74,7 +74,7 @@ namespace Shuhari.Framework.Utils
             Expect.IsNotBlank(filePath, nameof(filePath));
 
             if (!File.Exists(filePath))
-                throw ExceptionBuilder.Expection(FrameworkStrings.EXPECT_FILEEXIST, filePath);
+                throw ExceptionBuilder.Expection(FrameworkStrings.ExpectFileExist, filePath);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Shuhari.Framework.Utils
             Expect.IsNotBlank(dirPath, nameof(dirPath));
 
             if (!Directory.Exists(dirPath))
-                throw ExceptionBuilder.Expection(FrameworkStrings.EXPECT_DIREXIST, dirPath);
+                throw ExceptionBuilder.Expection(FrameworkStrings.ExpectDirectoryExist, dirPath);
         }
     }
 }

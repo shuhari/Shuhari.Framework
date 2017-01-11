@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Resources;
 using Shuhari.Framework.Utils;
 
@@ -27,7 +28,7 @@ namespace Shuhari.Framework.ComponentModel
             _parseMethod = typeof(T).GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .SingleOrDefault(IsParseMethod);
             Expect.That(_parseMethod != null, () => 
-                ExceptionBuilder.NotSupported(FrameworkStrings.ERROR_PARSE_METHOD_EXPECTED, typeof(T).FullName));
+                ExceptionBuilder.NotSupported(FrameworkStrings.ErrorParseMethodNotExist, typeof(T).FullName));
         }
 
         private readonly MethodInfo _parseMethod;

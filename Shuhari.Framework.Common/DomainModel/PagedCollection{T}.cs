@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Shuhari.Framework.Resources;
+using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.DomainModel
@@ -49,7 +49,7 @@ namespace Shuhari.Framework.DomainModel
         /// <returns></returns>
         public PagedCollection<T> SetData(int total, IEnumerable<T> data)
         {
-            Expect.That(total >= 0, FrameworkStrings.ERROR_NUMBER_POSITIVE);
+            Expect.That(total >= 0, FrameworkStrings.ErrorNumberShouldBePositive);
             Expect.IsNotNull(data, nameof(data));
 
             this.Total = total;

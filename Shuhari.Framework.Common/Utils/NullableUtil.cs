@@ -1,4 +1,5 @@
 ﻿using System;
+using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Resources;
 
 namespace Shuhari.Framework.Utils
@@ -30,7 +31,7 @@ namespace Shuhari.Framework.Utils
         public static Type MakeNullableType(this Type type)
         {
             Expect.IsNotNull(type, nameof(type));
-            Expect.That(type.IsValueType && !type.IsNullableType(), string.Format(FrameworkStrings.ERROR_EXPECT_VALUETYPE, type.FullName));
+            Expect.That(type.IsValueType && !type.IsNullableType(), string.Format(FrameworkStrings.ErrorTypeNotValueType, type.FullName));
 
             return typeof(Nullable<>).MakeGenericType(type);
         }
@@ -43,7 +44,7 @@ namespace Shuhari.Framework.Utils
         public static Type GetNullableBaseType(this Type type)
         {
             Expect.IsNotNull(type, nameof(type));
-            Expect.That(type.IsNullableType(), string.Format(FrameworkStrings.ERROR_NOT_NULLABLE, type.FullName));
+            Expect.That(type.IsNullableType(), string.Format(FrameworkStrings.ErrorTypeNotNullable, type.FullName));
 
             return type.GetGenericArguments()[0];
         }

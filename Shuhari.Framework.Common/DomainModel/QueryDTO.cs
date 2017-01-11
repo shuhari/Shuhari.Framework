@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Resources;
 using Shuhari.Framework.Utils;
 
@@ -52,8 +53,8 @@ namespace Shuhari.Framework.DomainModel
         /// <param name="perPage"></param>
         public void SetPagination(int page, int perPage)
         {
-            Expect.That(page >= 0, FrameworkStrings.ERROR_PAGE_INVALID);
-            Expect.That(perPage >= 0, FrameworkStrings.ERROR_PERPAGE_INVALID);
+            Expect.That(page >= 0, FrameworkStrings.ErrorNumberShouldBePositive);
+            Expect.That(perPage >= 0, FrameworkStrings.ErrorNumberShouldBePositive);
 
             this.Page = page;
             this.PerPage = perPage;

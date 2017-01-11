@@ -81,10 +81,11 @@
     <Compile Include="Globalization\ResxResourceProvider.cs" />
     <Compile Include="IO\Compression\GZip.cs" />
     <Compile Include="IO\StreamDecorator.cs" />
+    <Compile Include="Linq\ExpressionBuilder.cs" />
     <Compile Include="Properties\SharedAssemblyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AssemblyResource.cs" />
-    <Compile Include="Resources\FrameworkStrings.cs" />
+    <Compile Include="Globalization\FrameworkStrings.cs" />
     <Compile Include="Resources\ResourceException.cs" />
     <Compile Include="Runtime\CompilerServices\CompilerException.cs" />
     <Compile Include="Runtime\CompilerServices\SourceCompiler.cs" />

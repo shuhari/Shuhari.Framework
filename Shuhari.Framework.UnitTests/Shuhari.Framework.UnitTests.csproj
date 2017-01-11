@@ -74,12 +74,14 @@
     <Compile Include="DomainModel\SitemapTest.cs" />
     <Compile Include="DomainModel\UserInfoTest.cs" />
     <Compile Include="Fixtures.cs" />
+    <Compile Include="Globalization\FrameworkStringsTest.cs" />
     <Compile Include="Globalization\JsonResourceProviderTest.cs" />
     <Compile Include="Globalization\ResourceItemTest.cs" />
     <Compile Include="Globalization\ResourceRegistryTest.cs" />
     <Compile Include="Globalization\ResxResourceProviderTest.cs" />
     <Compile Include="IO\Compression\GZipTest.cs" />
     <Compile Include="IO\StreamDecoratorTest.cs" />
+    <Compile Include="Linq\ExpressionBuilderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceFiles\TestResources.Designer.cs">
       <AutoGen>True</AutoGen>

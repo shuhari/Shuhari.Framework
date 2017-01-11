@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Resources;
 using System.Text;
+using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Resources
@@ -60,7 +61,7 @@ namespace Shuhari.Framework.Resources
                 }
             }
 
-            throw ExceptionBuilder.Resource(FrameworkStrings.ERROR_RES_NOT_FOUND,
+            throw ExceptionBuilder.Resource(FrameworkStrings.ErrorResourceNotFound,
                 Assembly.GetName().Name, ResourcePath);
         }
 
