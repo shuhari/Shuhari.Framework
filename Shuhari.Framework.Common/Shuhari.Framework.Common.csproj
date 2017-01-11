@@ -70,6 +70,11 @@
     <Compile Include="Data\ISessionFactory.cs" />
     <Compile Include="Data\Mappings\FieldAttribute.cs" />
     <Compile Include="Data\Mappings\FieldFlags.cs" />
+    <Compile Include="Data\Mappings\IEntityMapper{T}.cs" />
+    <Compile Include="Data\Mappings\IEntityReader{T}.cs" />
+    <Compile Include="Data\Mappings\IFieldMapper{T}.cs" />
+    <Compile Include="Data\Mappings\SchemaColumn.cs" />
+    <Compile Include="Data\Mappings\SchemaTable.cs" />
     <Compile Include="Data\Mappings\TableAttribute.cs" />
     <Compile Include="Data\SqlServer\SqlDbEngine.cs" />
     <Compile Include="Data\Utils\ParamConverter.cs" />
