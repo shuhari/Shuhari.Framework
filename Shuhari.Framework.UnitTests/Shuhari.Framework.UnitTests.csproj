@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="ComponentModel\DateTimeValueSerializerTest.cs" />
     <Compile Include="ComponentModel\GenericTypeConverterTest.cs" />
+    <Compile Include="DomainModel\BaseSitemapResolverTest.cs" />
     <Compile Include="DomainModel\FileItemTest.cs" />
     <Compile Include="DomainModel\NamedQueryDTOTest.cs" />
     <Compile Include="DomainModel\PagedCollectionTest.cs" />
@@ -70,7 +71,9 @@
     <Compile Include="DomainModel\ResultDTOTest.cs" />
     <Compile Include="DomainModel\SelectItemDTOTest.cs" />
     <Compile Include="DomainModel\SigninModelTest.cs" />
+    <Compile Include="DomainModel\SitemapTest.cs" />
     <Compile Include="DomainModel\UserInfoTest.cs" />
+    <Compile Include="Fixtures.cs" />
     <Compile Include="Globalization\JsonResourceProviderTest.cs" />
     <Compile Include="Globalization\ResourceItemTest.cs" />
     <Compile Include="Globalization\ResourceRegistryTest.cs" />
@@ -136,6 +139,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>TestResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFiles\sitemap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

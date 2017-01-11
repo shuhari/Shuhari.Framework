@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sitemap xmlns="https://shuhari.github.io/schemas/shuhari.framework/xaml/2017">
+
+    <SitemapItem Title="Admin">
+        <SitemapItem Title="User" Permission="user" Url="~/Admin/User" />
+        <SitemapItem Title="Role" Permission="role" Url="~/Admin/Role" />
+    </SitemapItem>
+
+    <SitemapItem Title="NoPermParent">
+        <SitemapItem Title="NoPerm" Permission="noPermission" Url="~/Test/NoPermission" />
+    </SitemapItem>
+    
+</Sitemap>
+ 
