@@ -16,7 +16,7 @@ namespace Shuhari.Framework.Data.Mappings
         {
         }
 
-        /// <summary>
+        /*/// <summary>
         /// Helper ctor to build a valid column
         /// </summary>
         /// <param name="columnName"></param>
@@ -30,7 +30,7 @@ namespace Shuhari.Framework.Data.Mappings
             this.ColumnName = columnName;
             this.DataType = dataType;
             this.AllowDBNull = allowDbNull;
-        }
+        }*/
 
         /// <summary>
         /// Base column name

@@ -34,7 +34,7 @@ namespace Shuhari.Framework.Data.Mappings
         /// </summary>
         /// <param name="columnName"></param>
         /// <returns></returns>
-        public SchemaColumn GetColumn(string columnName)
+        public SchemaColumn FindColumn(string columnName)
         {
             Expect.IsNotBlank(columnName, nameof(columnName));
 

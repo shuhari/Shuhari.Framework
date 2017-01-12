@@ -9,6 +9,7 @@ using Shuhari.Framework;
 [assembly: Guid("d3ad108a-1ebb-43ca-9854-32ceb2fcba7f")]
 
 [assembly: InternalsVisibleTo("Shuhari.Framework.UnitTests")]
+[assembly: InternalsVisibleTo("Shuhari.Framework.IntegrationTests")]
 
 [assembly: XmlnsDefinition(AssemblyInfo.XAML_NAMESPACE, "Shuhari.Framework.DomainModel")]
 [assembly: XmlnsPrefix(AssemblyInfo.XAML_NAMESPACE, AssemblyInfo.XAML_PREFIX)]

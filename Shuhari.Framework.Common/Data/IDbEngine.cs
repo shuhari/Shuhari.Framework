@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.Common;
+using Shuhari.Framework.Resources;
+using Shuhari.Framework.Text;
 
 namespace Shuhari.Framework.Data
 {
@@ -37,5 +39,23 @@ namespace Shuhari.Framework.Data
         /// <param name="value"></param>
         /// <returns></returns>
         DbParameter CreateParameter(string paramName, DbType dbType, object value);
+
+        /// <summary>
+        /// Execute management command
+        /// </summary>
+        /// <param name="options">command options</param>
+        /// <returns>execute output</returns>
+        string ExecuteCommand(DbManagementCommandOptions options);
+
+        /// <summary>
+        /// Execute script compiled as assembly resource
+        /// </summary>
+        /// <param name="resource">script resource</param>
+        /// <param name="options">Command options, or null if no options required</param>
+        /// <param name="replacer">Optional replace one string in script. Useful for test when actual database name
+        /// should changed to test database name</param>
+        /// <returns></returns>
+        string ExecuteResourceScript(AssemblyResource resource, DbManagementCommandOptions options = null,
+            StringReplacer replacer = null);
     }
 }

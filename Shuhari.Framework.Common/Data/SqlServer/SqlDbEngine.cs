@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.IO;
 using Shuhari.Framework.Data.Common;
 using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Utils;
@@ -64,6 +65,26 @@ namespace Shuhari.Framework.Data.SqlServer
             if (_knownDbTypes.ContainsKey(dbType))
                 return _knownDbTypes[dbType];
             throw ExceptionBuilder.NotSupported(FrameworkStrings.ErrorUnsupportedType, dbType);
+        }
+
+        /// <inheritdoc />
+        public override string ExecuteCommand(DbManagementCommandOptions options)
+        {
+            string cmd = "sqlcmd.exe", workDir = "";
+            var args = new List<string>();
+
+            if (options.FileName.IsNotBlank())
+            {
+                workDir = Path.GetDirectoryName(options.FileName);
+                if (options.FileEncoding != null)
+                {
+                    args.Add("-f");
+                    args.Add(options.FileEncoding.CodePage.ToString());
+                }
+                args.Add("-i");
+                args.Add(string.Format("\"{0}\"", Path.GetFileName(options.FileName)));
+            }
+            return ShellExec(cmd, workDir, args);
         }
     }
 }

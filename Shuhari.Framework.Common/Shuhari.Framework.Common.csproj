@@ -64,6 +64,7 @@
     <Compile Include="Data\Common\Session.cs" />
     <Compile Include="Data\Common\SessionFactory.cs" />
     <Compile Include="Data\DatabaseType.cs" />
+    <Compile Include="Data\DbManagementCommandOptions.cs" />
     <Compile Include="Data\DbRegistry.cs" />
     <Compile Include="Data\IDbEngine.cs" />
     <Compile Include="Data\ISession.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Security\IPasswordBuilder.cs" />
     <Compile Include="Security\PasswordPair.cs" />
     <Compile Include="Security\SimplePasswordBuilder.cs" />
+    <Compile Include="Text\StringReplacer.cs" />
     <Compile Include="Text\Templating\VelocityTemplate.cs" />
     <Compile Include="Text\Templating\﻿ITemplate.cs" />
     <Compile Include="Utils\AssemblyUtil.cs" />

@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.Common;
 using System.IO;
 using NUnit.Framework;
+using Shuhari.Framework.Data;
 using Shuhari.Framework.Data.Common;
 
 namespace Shuhari.Framework.UnitTests.Data.Common
@@ -13,6 +14,11 @@ namespace Shuhari.Framework.UnitTests.Data.Common
         class TestEngine : DbEngine
         {
             public override IDbConnection CreateConnection()
+            {
+                throw new NotImplementedException();
+            }
+
+            public override string ExecuteCommand(DbManagementCommandOptions options)
             {
                 throw new NotImplementedException();
             }

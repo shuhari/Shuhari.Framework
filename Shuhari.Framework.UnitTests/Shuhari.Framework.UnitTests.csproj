@@ -66,6 +66,7 @@
     <Compile Include="Data\Common\DbEngineTest.cs" />
     <Compile Include="Data\Common\SessionFactoryTest.cs" />
     <Compile Include="Data\DbRegistryTest.cs" />
+    <Compile Include="Data\Mappings\SchemaTableTest.cs" />
     <Compile Include="Data\SqlServer\SqlDbEngineTest.cs" />
     <Compile Include="Data\Utils\ParamConverterTest.cs" />
     <Compile Include="DomainModel\BaseEntityTest.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Security\BasePasswordBuilderTest.cs" />
     <Compile Include="Security\EncryptionTest.cs" />
     <Compile Include="Security\SimplePasswordBuilderTest.cs" />
+    <Compile Include="Text\StringReplacerTest.cs" />
     <Compile Include="Text\Templating\VelocityTemplateTest.cs" />
     <Compile Include="Utils\AssemblyUtilTest.cs" />
     <Compile Include="Utils\ByteArrayUtilTest.cs" />
