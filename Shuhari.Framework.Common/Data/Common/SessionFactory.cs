@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Data.Common
@@ -31,9 +32,18 @@ namespace Shuhari.Framework.Data.Common
         public string ConnectionString { get; private set; }
 
         /// <inheritdoc />
-        public ISession OpenSession(object parametes = null)
+        public ISession OpenSession(object parameters = null)
         {
-            return new Session(this);
+            return new Session(this, parameters);
+        }
+
+        /// <inheritdoc />
+        public IDbConnection OpenConnection(object parameters = null)
+        {
+            var connection = Engine.CreateConnection();
+            connection.ConnectionString = this.ConnectionString;
+            connection.Open();
+            return connection;
         }
     }
 }

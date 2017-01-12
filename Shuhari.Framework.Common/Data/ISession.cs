@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace Shuhari.Framework.Data
 {
@@ -12,5 +13,10 @@ namespace Shuhari.Framework.Data
         /// Owned session factory
         /// </summary>
         ISessionFactory SessionFactory { get; }
+
+        /// <summary>
+        /// Connection. It should be initialized the first time this property is visited
+        /// </summary>
+        IDbConnection Connection { get; }
     }
 }

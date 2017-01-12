@@ -49,6 +49,8 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Data\DbFixtures.cs" />
+    <Compile Include="Data\DbTestBase.cs" />
+    <Compile Include="Data\SessionTest.cs" />
     <Compile Include="Data\SqlServer\SqlDbEngineTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,9 +59,9 @@
       <Project>{d3ad108a-1ebb-43ca-9854-32ceb2fcba7f}</Project>
       <Name>Shuhari.Framework.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Shuhari.Framework.UnitTests\Shuhari.Framework.UnitTests.csproj">
-      <Project>{e11c3058-1d76-402d-b663-19370f006bb2}</Project>
-      <Name>Shuhari.Framework.UnitTests</Name>
+    <ProjectReference Include="..\Shuhari.Framework.Testing.NUnit\Shuhari.Framework.Testing.NUnit.csproj">
+      <Project>{30b90498-913b-41a9-9022-e5df25c59e37}</Project>
+      <Name>Shuhari.Framework.Testing.NUnit</Name>
     </ProjectReference>
     <ProjectReference Include="..\Shuhari.Framework.Web.Mvc\Shuhari.Framework.Web.Mvc.csproj">
       <Project>{e84902cf-a6b5-4130-b832-0fd80f4017e6}</Project>

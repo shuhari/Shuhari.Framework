@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Configuration;
+using Shuhari.Framework.Data;
 using Shuhari.Framework.Data.SqlServer;
 using Shuhari.Framework.Text;
 using Shuhari.Framework.Utils;
@@ -27,6 +29,14 @@ namespace Shuhari.Framework.IntegrationTests.Data
             var output = engine.ExecuteResourceScript(resource, null, replacer);
             if (showOutput)
                 Console.WriteLine(output);
+        }
+
+        public static ISession OpenSession()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["testdb"].ConnectionString;
+            var engine = DbRegistry.GetEngine(DatabaseType.SqlServer);
+            var sessionFactory = engine.CreateSessionFactory(connStr);
+            return sessionFactory.OpenSession();
         }
     }
 }
