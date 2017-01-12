@@ -16,22 +16,6 @@ namespace Shuhari.Framework.Data.Mappings
         {
         }
 
-        /*/// <summary>
-        /// Helper ctor to build a valid column
-        /// </summary>
-        /// <param name="columnName"></param>
-        /// <param name="dataType"></param>
-        /// <param name="allowDbNull"></param>
-        public SchemaColumn(string columnName, Type dataType, bool allowDbNull)
-        {
-            Expect.IsNotBlank(columnName, nameof(columnName));
-            Expect.IsNotNull(dataType, nameof(dataType));
-
-            this.ColumnName = columnName;
-            this.DataType = dataType;
-            this.AllowDBNull = allowDbNull;
-        }*/
-
         /// <summary>
         /// Base column name
         /// </summary>
@@ -58,6 +42,20 @@ namespace Shuhari.Framework.Data.Mappings
             ColumnName = (string)row["ColumnName"];
             DataType = (Type)row["DataType"];
             AllowDBNull = (bool)row["AllowDBNull"];
+        }
+
+        /// <summary>
+        /// Get Clr type for property
+        /// </summary>
+        public Type ClrType
+        {
+            get
+            {
+                var clrType = DataType;
+                if (clrType.IsValueType && !clrType.IsNullableType() && AllowDBNull)
+                    clrType = clrType.MakeNullableType();
+                return clrType;
+            }
         }
 
         /// <inheritdoc />

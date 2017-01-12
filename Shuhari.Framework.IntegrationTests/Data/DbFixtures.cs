@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Configuration;
 using Shuhari.Framework.Data;
+using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.Data.SqlServer;
 using Shuhari.Framework.Text;
+using Shuhari.Framework.UnitTests.Data;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.IntegrationTests.Data
@@ -36,6 +38,7 @@ namespace Shuhari.Framework.IntegrationTests.Data
             string connStr = ConfigurationManager.ConnectionStrings["testdb"].ConnectionString;
             var engine = DbRegistry.GetEngine(DatabaseType.SqlServer);
             var sessionFactory = engine.CreateSessionFactory(connStr);
+            sessionFactory.MapEntitiesWithAnnonations(typeof(NotNullEntity).Assembly);
             return sessionFactory.OpenSession();
         }
     }

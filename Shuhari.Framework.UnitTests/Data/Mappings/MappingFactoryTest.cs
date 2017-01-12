@@ -1,4 +1,7 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.Configuration;
+using NUnit.Framework;
+using Shuhari.Framework.Data;
 using Shuhari.Framework.Data.Mappings;
 
 namespace Shuhari.Framework.UnitTests.Data.Mappings
@@ -6,6 +9,19 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
     [TestFixture]
     public class MappingFactoryTest
     {
+        [TestCase(typeof(NotNullEntity))]
+        [TestCase(typeof(NullableEntity))]
+        [TestCase(typeof(DerivedEntity))]
+        public void MapEntitiesWithAnnonations(Type entityType)
+        {
+            var engine = DbRegistry.GetEngine(DatabaseType.SqlServer);
+            var connStr = ConfigurationManager.ConnectionStrings["tempdb"].ConnectionString;
+            var sessionFactory = engine.CreateSessionFactory(connStr);
+            MappingFactory.MapEntitiesWithAnnonations(sessionFactory, typeof(NotNullEntity).Assembly);
+
+            Assert.IsNotNull(sessionFactory.GetMapper(entityType));
+        }
+
         [Test]
         public void EntityMapping_NotNull_TableInfo()
         {

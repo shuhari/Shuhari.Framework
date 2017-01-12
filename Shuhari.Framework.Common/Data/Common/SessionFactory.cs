@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Data.Common
@@ -19,9 +21,13 @@ namespace Shuhari.Framework.Data.Common
             Expect.IsNotNull(engine, nameof(engine));
             Expect.IsNotBlank(connectionString, nameof(connectionString));
 
+            _mappers = new Dictionary<Type, object>();
+
             this.Engine = engine;
             this.ConnectionString = connectionString;
         }
+
+        private Dictionary<Type, object> _mappers;
 
         /// <inheritdoc />
         public IDbEngine Engine { get; private set; }
@@ -44,6 +50,34 @@ namespace Shuhari.Framework.Data.Common
             connection.ConnectionString = this.ConnectionString;
             connection.Open();
             return connection;
+        }
+
+        /// <inheritdoc />
+        public void RegisterMapper(Type entityType, object mapper)
+        {
+            Expect.IsNotNull(entityType, nameof(entityType));
+            Expect.IsNotNull(mapper, nameof(mapper));
+
+            _mappers[entityType] = mapper;
+        }
+
+        /// <inheritdoc />
+        public object GetMapper(Type entityType)
+        {
+            Expect.IsNotNull(entityType, nameof(entityType));
+
+            return _mappers.ContainsKey(entityType) ? _mappers[entityType] : null;
+        }
+
+        /// <summary>
+        /// Get mapper for entity
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public IEntityMapper<T> GetMapper<T>()
+            where T : class
+        {
+            return (IEntityMapper<T>)GetMapper(typeof(T));
         }
     }
 }

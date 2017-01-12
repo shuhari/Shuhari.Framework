@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
+using Shuhari.Framework.Data.Mappings;
 
 namespace Shuhari.Framework.Data
 {
@@ -29,5 +31,26 @@ namespace Shuhari.Framework.Data
         /// <param name="parameters">Parameters when creating session object</param>
         /// <returns></returns>
         IDbConnection OpenConnection(object parameters = null);
+
+        /// <summary>
+        /// Register mapper
+        /// </summary>
+        /// <param name="entityType"></param>
+        /// <param name="mapper"></param>
+        void RegisterMapper(Type entityType, object mapper);
+
+        /// <summary>
+        /// Get mapper, generic version
+        /// </summary>
+        /// <param name="entityType">Type of entity</param>
+        /// <returns></returns>
+        object GetMapper(Type entityType);
+
+        /// <summary>
+        /// Get registered mapper for entity
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        IEntityMapper<T> GetMapper<T>() where T : class;
     }
 }

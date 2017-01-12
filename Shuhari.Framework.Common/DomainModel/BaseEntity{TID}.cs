@@ -8,7 +8,7 @@ namespace Shuhari.Framework.DomainModel
     /// Base entity
     /// </summary>
     /// <typeparam name="TID"></typeparam>
-    public class BaseEntity<TID> : IEntity<TID>
+    public class BaseEntity<TID> : IEntity<TID>, IExtensibleProperties
         where TID: struct
     {
         /// <inheritdoc />

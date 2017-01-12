@@ -209,5 +209,11 @@
   },
   "Error.PrimaryKeyNotFound": {
     "en": "Primary key not defined for entity: {0}"
+  },
+  "Error.MapperNotFound": {
+    "en": "Mapping information not exist: {0}"
+  },
+  "Error.FieldCountNotMatch": {
+    "en": "Field count different from reader count. Field count={0}, reader count={1}"
   }
 }

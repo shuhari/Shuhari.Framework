@@ -48,8 +48,13 @@
     <Compile Include="..\Shuhari.Framework.Common\Properties\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\Shuhari.Framework.UnitTests\Data\Models.cs">
+      <Link>Data\Models.cs</Link>
+    </Compile>
     <Compile Include="Data\DbFixtures.cs" />
     <Compile Include="Data\DbTestBase.cs" />
+    <Compile Include="Data\Query{T}ReadTest.cs" />
+    <Compile Include="Data\GenericQueryReadTest.cs" />
     <Compile Include="Data\SessionTest.cs" />
     <Compile Include="Data\SqlServer\SqlDbEngineTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

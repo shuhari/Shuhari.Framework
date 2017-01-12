@@ -79,13 +79,18 @@ namespace Shuhari.Framework.Data.Mappings
         /// <inheritdoc />
         public object GetSchema(IDataReader reader)
         {
-            throw new NotImplementedException();
+            return new EntityReader<T>(this, reader);
         }
 
         /// <inheritdoc />
         public void Map(IDataReader reader, T entity, object schema)
         {
-            throw new NotImplementedException();
+            Expect.IsNotNull(reader, nameof(reader));
+            Expect.IsNotNull(entity, nameof(entity));
+            Expect.IsNotNull(schema, nameof(schema));
+
+            var entityReader = (EntityReader<T>)schema;
+            entityReader.SetEntity(reader, entity);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Data.Mappings
 {

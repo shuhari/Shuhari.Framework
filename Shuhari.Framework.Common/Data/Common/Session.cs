@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Data.Common
@@ -53,6 +54,29 @@ namespace Shuhari.Framework.Data.Common
                 _connection.Dispose();
                 _connection = null;
             }
+        }
+
+        /// <inheritdoc />
+        public IGenericQuery CreateQuery(string sql)
+        {
+            Expect.IsNotBlank(sql, nameof(sql));
+
+            return new Query(this, sql);
+        }
+
+        /// <inheritdoc />
+        public IQuery<T> CreateQuery<T>(string sql, IEntityMapper<T> mapper) 
+            where T : class, new()
+        {
+            return new Query<T>(this, sql, mapper);
+        }
+
+        internal IDbCommand CreateCommand()
+        {
+            var command = Connection.CreateCommand();
+            // if (_transaction != null)
+            //     command.Transaction = _transaction.InnerTransaction;
+            return command;
         }
     }
 }

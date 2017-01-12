@@ -136,7 +136,33 @@ namespace Shuhari.Framework.Data.Mappings
         /// <inheritdoc />
         public bool Match(SchemaColumn column)
         {
-            throw new NotImplementedException();
+            if (!FieldName.EqualsNoCase(column.ColumnName))
+                return false;
+
+            var columnType = column.ClrType;
+            if (PropertyType.IsNullableType() && columnType.IsNullableType())
+            {
+                if (MatchType(PropertyType.GetNullableBaseType(), columnType.GetNullableBaseType()))
+                    return true;
+            }
+
+            return MatchType(PropertyType, columnType);
+        }
+
+        /// <summary>
+        /// Enum mapped to int, others as is
+        /// </summary>
+        /// <param name="columnType"></param>
+        /// <param name="propType"></param>
+        /// <returns></returns>
+        private bool MatchType(Type propType, Type columnType)
+        {
+            Expect.IsNotNull(columnType, nameof(columnType));
+            Expect.IsNotNull(propType, nameof(propType));
+
+            if (columnType == typeof(int) && propType.IsEnum)
+                return true;
+            return columnType == propType;
         }
 
         /// <inheritdoc />

@@ -7,7 +7,7 @@ namespace Shuhari.Framework.Data.Mappings
     /// Mapping information for single field
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IFieldMapper<T>
+    public interface IFieldMapper<T> : IFieldReader<T>
         where T : class
     {
         /// <summary>
@@ -24,11 +24,6 @@ namespace Shuhari.Framework.Data.Mappings
         /// Property
         /// </summary>
         PropertyInfo Property { get; }
-
-        /// <summary>
-        /// Property type
-        /// </summary>
-        Type PropertyType { get; }
 
         /// <summary>
         /// Include on insert
@@ -49,20 +44,6 @@ namespace Shuhari.Framework.Data.Mappings
         /// Whether the field is primary key
         /// </summary>
         bool IsPrimaryKey { get; }
-
-        /// <summary>
-        /// Check if match column
-        /// </summary>
-        /// <param name="column"></param>
-        /// <returns></returns>
-        bool Match(SchemaColumn column);
-
-        /// <summary>
-        /// Set entity value
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <param name="value"></param>
-        void SetValue(T entity, object value);
 
         /// <summary>
         /// Get value from entity

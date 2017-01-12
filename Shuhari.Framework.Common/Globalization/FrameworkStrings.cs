@@ -114,5 +114,17 @@ namespace Shuhari.Framework.Globalization
         /// </summary>
         [Display]
         internal static readonly string ErrorPrimaryKeyNotFound = ResourceRegistry.GetString("Error.PrimaryKeyNotFound");
+
+        /// <summary>
+        /// Mapping information not found
+        /// </summary>
+        [Display]
+        public static readonly string ErrorMappingNotFound = ResourceRegistry.GetString("Error.MapperNotFound");
+
+        /// <summary>
+        /// Field count different than reader count
+        /// </summary>
+        [Display]
+        public static readonly string ErrorFieldCountNotMatch = ResourceRegistry.GetString("Error.FieldCountNotMatch");
     }
 }
