@@ -24,13 +24,8 @@ namespace Shuhari.Framework.Data.Mappings
         Update = 0x2,
 
         /// <summary>
-        /// Primary key
-        /// </summary>
-        PrimaryKey = 0x4,
-
-        /// <summary>
         /// Identify
         /// </summary>
-        Identity = 0x8,
+        Identity = 0x4,
     }
 }

@@ -108,5 +108,11 @@ namespace Shuhari.Framework.Globalization
         /// </summary>
         [Display]
         internal static readonly string ErrorUnsupportedTypeWithValue = ResourceRegistry.GetString("Error.UnsupportedTypeWithValue");
+
+        /// <summary>
+        /// Primary key not defined
+        /// </summary>
+        [Display]
+        internal static readonly string ErrorPrimaryKeyNotFound = ResourceRegistry.GetString("Error.PrimaryKeyNotFound");
     }
 }

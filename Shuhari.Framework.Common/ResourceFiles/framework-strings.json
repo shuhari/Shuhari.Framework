@@ -206,5 +206,8 @@
   },
   "Error.UnsupportedTypeWithValue": {
     "en": "Unsupported type={0}, value={1}"
+  },
+  "Error.PrimaryKeyNotFound": {
+    "en": "Primary key not defined for entity: {0}"
   }
 }

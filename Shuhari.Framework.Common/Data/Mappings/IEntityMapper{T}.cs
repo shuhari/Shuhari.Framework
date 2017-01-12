@@ -25,7 +25,7 @@ namespace Shuhari.Framework.Data.Mappings
         /// Expect the entity should have one and only primar key.
         /// </summary>
         /// <returns>Primary key</returns>
-        /// <exception cref="ExpectionException">Throw if entity has no or more-then-2 primary keys</exception>
-        IFieldMapper<T> ExpectPrimaryKey();
+        /// <exception cref="MappingException">Throw if entity has no or more-then-2 primary keys</exception>
+        IFieldMapper<T> GetPrimaryKey();
     }
 }

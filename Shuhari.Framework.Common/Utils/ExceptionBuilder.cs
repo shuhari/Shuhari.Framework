@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.Resources;
 
 namespace Shuhari.Framework.Utils
@@ -51,6 +52,17 @@ namespace Shuhari.Framework.Utils
         public static KeyNotFoundException KeyNotFound(string format, params object[] args)
         {
             return new KeyNotFoundException(string.Format(format, args));
+        }
+
+        /// <summary>
+        /// Create mapping exception
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static MappingException Mapping(string format, params object[] args)
+        {
+            return new MappingException(string.Format(format, args));
         }
     }
 }
