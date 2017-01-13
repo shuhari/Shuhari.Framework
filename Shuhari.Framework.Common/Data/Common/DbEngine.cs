@@ -145,10 +145,7 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        public virtual IQueryBuilder<T> CreateQueryBuilder<T>() 
-            where T : class, new()
-        {
-            return new QueryBuilder<T>(this);
-        }
+        public abstract IQueryBuilder<T> CreateQueryBuilder<T>()
+            where T : class, new();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using Shuhari.Framework.Data.Mappings;
+using Shuhari.Framework.DomainModel;
 
 namespace Shuhari.Framework.Data
 {
@@ -87,5 +88,16 @@ namespace Shuhari.Framework.Data
         /// <returns></returns>
         IQuery<T> UpdatePartial(ISession session, T entity, params 
             Expression<Func<T, object>>[] propSelectors);
+
+        /// <summary>
+        /// Create paged query
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="baseSql"></param>
+        /// <param name="orderField"></param>
+        /// <param name="qdata"></param>
+        /// <returns></returns>
+        Tuple<IQuery<T>, IQuery<T>> CreatePagedQueryTuple(ISession session, 
+            string baseSql, OrderCritia<T> orderField, QueryDTO qdata);
     }
 }

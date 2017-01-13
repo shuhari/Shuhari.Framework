@@ -89,5 +89,28 @@ namespace Shuhari.Framework.Data.Common
             return GetQueryBuilder().DeleteById(Session, id)
                 .ExecNonQuery();
         }
+
+        /// <inheritdoc />
+        public OrderCritia<TEntity> OrderBy(Expression<Func<TEntity, object>> selector, bool ascending = true)
+        {
+            Expect.IsNotNull(selector, nameof(selector));
+
+            return new OrderCritia<TEntity>(selector, null, ascending);
+        }
+
+        /// <inheritdoc />
+        public PagedCollection<TEntity> QueryPaged(string baseSql, OrderCritia<TEntity> orderField, QueryDTO qdata)
+        {
+            Expect.IsNotBlank(baseSql, nameof(baseSql));
+            Expect.IsNotNull(orderField, nameof(orderField));
+            Expect.IsNotNull(qdata, nameof(qdata));
+
+            var result = new PagedCollection<TEntity>();
+            result.SetPagination(qdata);
+            var queryPair = GetQueryBuilder().CreatePagedQueryTuple(Session, baseSql, orderField, qdata);
+            result.Total = queryPair.Item1.ExecInt();
+            result.Data = queryPair.Item2.GetAll();
+            return result;
+        }
     }
 }

@@ -103,6 +103,7 @@
     <Compile Include="Data\OrderCritia{T}.cs" />
     <Compile Include="Data\IRepository{T}.cs" />
     <Compile Include="Data\SqlServer\SqlDbEngine.cs" />
+    <Compile Include="Data\SqlServer\SqlQueryBuilder{T}.cs" />
     <Compile Include="Data\Utils\ParamConverter.cs" />
     <Compile Include="DomainModel\BaseEntity{TID}.cs" />
     <Compile Include="DomainModel\BaseSitemapResolver.cs" />

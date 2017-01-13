@@ -77,7 +77,7 @@ namespace Shuhari.Framework.DomainModel
         /// can override and set custom parameters.
         /// </summary>
         /// <param name="query"></param>
-        public virtual void SetQuery(IGenericQuery query)
+        public virtual void SetQuery(IQuery query)
         {
             Expect.IsNotNull(query, nameof(query));
 

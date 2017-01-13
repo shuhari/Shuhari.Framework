@@ -36,16 +36,18 @@ namespace Shuhari.Framework.Data.Common
             get { return _session; }
         }
 
-        protected void SetCore(string paramName, object value)
+        /// <inheritdoc />
+        public void Set(string paramName, object value)
         {
             Expect.IsNotBlank(paramName, nameof(paramName));
             Expect.IsNotNull(value, nameof(value));
 
             var dbType = _session.SessionFactory.Engine.GetDbType(value.GetType());
-            SetCore(paramName, dbType, value);
+            Set(paramName, dbType, value);
         }
 
-        protected void SetCore(string paramName, DbType paramType, object value)
+        /// <inheritdoc />
+        public void Set(string paramName, DbType paramType, object value)
         {
             Expect.IsNotBlank(paramName, nameof(paramName));
 
@@ -54,31 +56,11 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        IGenericQuery IGenericQuery.Set(string paramName, object value)
-        {
-            Expect.IsNotBlank(paramName, nameof(paramName));
-            Expect.IsNotNull(value, nameof(value));
-
-            SetCore(paramName, value);
-            return this;
-        }
-
-        /// <inheritdoc />
-        IGenericQuery IGenericQuery.Set(string paramName, DbType paramType, object value)
-        {
-            Expect.IsNotBlank(paramName, nameof(paramName));
-
-            SetCore(paramName, paramType, value);
-            return this;
-        }
-
-        /// <inheritdoc />
-        IGenericQuery IGenericQuery.SetPaginiation(QueryDTO q)
+        public void SetPaginiation(QueryDTO q)
         {
             Expect.IsNotNull(q, nameof(q));
 
             q.SetQuery(this);
-            return this;
         }
 
         private IDbCommand CreateCommand()

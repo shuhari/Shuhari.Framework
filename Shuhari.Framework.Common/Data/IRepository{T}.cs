@@ -58,5 +58,22 @@ namespace Shuhari.Framework.Data
         /// </summary>
         /// <param name="id"></param>
         int DeleteById(TID id);
+
+        /// <summary>
+        /// Create order critia
+        /// </summary>
+        /// <param name="selector"></param>
+        /// <param name="ascending"></param>
+        /// <returns></returns>
+        OrderCritia<TEntity> OrderBy(Expression<Func<TEntity, object>> selector, bool ascending = true);
+
+        /// <summary>
+        /// Query data with current page and total record count
+        /// </summary>
+        /// <param name="baseSql"></param>
+        /// <param name="orderField"></param>
+        /// <param name="qdata"></param>
+        /// <returns></returns>
+        PagedCollection<TEntity> QueryPaged(string baseSql, OrderCritia<TEntity> orderField, QueryDTO qdata);
     }
 }

@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using Shuhari.Framework.Data.Mappings;
+using Shuhari.Framework.DomainModel;
 using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Linq;
 using Shuhari.Framework.Utils;
@@ -14,7 +15,7 @@ namespace Shuhari.Framework.Data.Common
     /// Query builder
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class QueryBuilder<T> : IQueryBuilder<T>
+    public abstract class QueryBuilder<T> : IQueryBuilder<T>
         where T : class, new()
     {
         /// <summary>
@@ -207,5 +208,9 @@ namespace Shuhari.Framework.Data.Common
             Expect.IsNotNull(fieldMapper, nameof(fieldMapper));
             return fieldMapper;
         }
+
+        /// <inheritdoc />
+        public abstract Tuple<IQuery<T>, IQuery<T>> CreatePagedQueryTuple(ISession session,
+            string baseSql, OrderCritia<T> orderField, QueryDTO qdata);
     }
 }

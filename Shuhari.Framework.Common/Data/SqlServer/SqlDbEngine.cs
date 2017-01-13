@@ -101,5 +101,11 @@ namespace Shuhari.Framework.Data.SqlServer
             }
             return ShellExec(cmd, workDir, args);
         }
+
+        /// <inheritdoc />
+        public override IQueryBuilder<T> CreateQueryBuilder<T>()
+        {
+            return new SqlQueryBuilder<T>(this);
+        }
     }
 }

@@ -14,9 +14,9 @@ namespace Shuhari.Framework.IntegrationTests.Data
         [Test]
         public void GetAll()
         {
-            var result = Session.CreateQuery<NotNullEntity>("select * from TNotNullEntity where FID=@ID")
-                .Set("ID", 1)
-                .GetAll();
+            var query = Session.CreateQuery<NotNullEntity>("select * from TNotNullEntity where FID=@ID");
+            query.Set("ID", 1);
+            var result = query.GetAll();
 
             CollectionAssert.IsNotEmpty(result);
         }

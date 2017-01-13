@@ -47,9 +47,9 @@ namespace Shuhari.Framework.IntegrationTests.Data
         [Test]
         public void GetAll_WithParams()
         {
-            var result = Session.CreateQuery("select * from TNotNullEntity where FID=@ID")
-                .Set("ID", 1)
-                .GetAll<NotNullEntity>();
+            var query = Session.CreateQuery("select * from TNotNullEntity where FID=@ID");
+            query.Set("ID", 1);
+            var result = query.GetAll<NotNullEntity>();
 
             CollectionAssert.IsNotEmpty(result);
         }
@@ -57,9 +57,9 @@ namespace Shuhari.Framework.IntegrationTests.Data
         [Test]
         public void GetFirst_Exist()
         {
-            var entity = Session.CreateQuery("select * from TNotNullEntity where FID=@ID")
-                .Set("ID", 1)
-                .GetFirst<NotNullEntity>();
+            var query = Session.CreateQuery("select * from TNotNullEntity where FID=@ID");
+            query.Set("ID", 1);
+            var entity = query.GetFirst<NotNullEntity>();
 
             Assert.IsNotNull(entity);
         }

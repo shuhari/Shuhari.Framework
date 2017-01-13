@@ -28,34 +28,6 @@ namespace Shuhari.Framework.Data.Common
         private readonly IEntityMapper<T> _mapper;
 
         /// <inheritdoc />
-        IQuery<T> IQuery<T>.Set(string paramName, object value)
-        {
-            Expect.IsNotBlank(paramName, nameof(paramName));
-            Expect.IsNotNull(value, nameof(value));
-
-            SetCore(paramName, value);
-            return this;
-        }
-
-        /// <inheritdoc />
-        IQuery<T> IQuery<T>.Set(string paramName, DbType paramType, object value)
-        {
-            Expect.IsNotBlank(paramName, nameof(paramName));
-
-            SetCore(paramName, paramType, value);
-            return this;
-        }
-
-        /// <inheritdoc />
-        IQuery<T> IQuery<T>.SetPaginiation(QueryDTO q)
-        {
-            Expect.IsNotNull(q, nameof(q));
-
-            q.SetQuery(this);
-            return this;
-        }
-
-        /// <inheritdoc />
         T[] IQuery<T>.GetAll()
         {
             return base.GetAll(_mapper);

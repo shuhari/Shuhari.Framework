@@ -18,6 +18,11 @@ namespace Shuhari.Framework.UnitTests.Data.Common
                 throw new NotImplementedException();
             }
 
+            public override IQueryBuilder<T> CreateQueryBuilder<T>()
+            {
+                throw new NotImplementedException();
+            }
+
             public override string ExecuteCommand(DbManagementCommandOptions options)
             {
                 throw new NotImplementedException();
