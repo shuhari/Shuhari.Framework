@@ -20,7 +20,7 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
 
         [TestCase("StringProp")]
         [TestCase("BinaryProp")]
-        public void NotNullEntity_GetValue_Null(string propName)
+        public void NotNullEntity_GetValue_Null(string propName, object value = null)
         {
             AssertGet<NotNullEntity>(propName, null);
         }
@@ -45,7 +45,7 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
         }
 
         [Test, TestCaseSource("NullableEntity_NullSources")]
-        public void NullableEntity_GetValue_Null(string propName)
+        public void NullableEntity_GetValue_Null(string propName, object value = null)
         {
             AssertGet<NullableEntity>(propName, null);
         }
@@ -57,7 +57,7 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
         }
 
         [Test, TestCaseSource("NullableEntity_NullSources")]
-        public void NullableEntity_SetValue_Null(string propName)
+        public void NullableEntity_SetValue_Null(string propName, object value = null)
         {
             AssertSet<NullableEntity>(propName, null);
         }
@@ -84,18 +84,21 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
         {
             get
             {
-                yield return TestColumnOf<NotNullEntity, int>(x => x.IntProp, 123);
-                yield return TestColumnOf<NotNullEntity, short>(x => x.ShortProp, 123);
-                yield return TestColumnOf<NotNullEntity, long>(x => x.LongProp, 123L);
-                yield return TestColumnOf<NotNullEntity, float>(x => x.FloatProp, 123F);
-                yield return TestColumnOf<NotNullEntity, double>(x => x.DoubleProp, 123D);
-                yield return TestColumnOf<NotNullEntity, decimal>(x => x.DecimalProp, 123M);
-                yield return TestColumnOf<NotNullEntity, bool>(x => x.BoolProp, true);
-                yield return TestColumnOf<NotNullEntity, string>(x => x.StringProp, "abc");
-                yield return TestColumnOf<NotNullEntity, DateTime>(x => x.DateTimeProp, DateTime.Now);
-                yield return TestColumnOf<NotNullEntity, byte[]>(x => x.BinaryProp, new byte[0]);
-                yield return TestColumnOf<NotNullEntity, Guid>(x => x.GuidProp, Guid.NewGuid());
-                yield return TestColumnOf<NotNullEntity, FileMode>(x => x.EnumProp, FileMode.Create);
+                return new TestCaseDataBuilder<NotNullEntity>("NotNullEntity_NotNullSources")
+                    .CaseOf(x => x.IntProp, 123)
+                    .CaseOf(x => x.ShortProp, (short)123)
+                    .CaseOf(x => x.LongProp, 123L)
+                    .CaseOf(x => x.LongProp, 123L)
+                    .CaseOf(x => x.FloatProp, 123F)
+                    .CaseOf(x => x.DoubleProp, 123D)
+                    .CaseOf(x => x.DecimalProp, 123M)
+                    .CaseOf(x => x.BoolProp, true)
+                    .CaseOf(x => x.StringProp, "abc")
+                    .CaseOf(x => x.DateTimeProp, DateTime.Now)
+                    .CaseOf(x => x.BinaryProp, new byte[0])
+                    .CaseOf(x => x.GuidProp, Guid.NewGuid())
+                    .CaseOf(x => x.EnumProp, FileMode.Create)
+                    .Data;
             }
         }
 
@@ -103,16 +106,18 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
         {
             get
             {
-                yield return TestColumnOf<NullableEntity, int?>(x => x.IntProp, 123);
-                yield return TestColumnOf<NullableEntity, short?>(x => x.ShortProp, 123);
-                yield return TestColumnOf<NullableEntity, long?>(x => x.LongProp, 123L);
-                yield return TestColumnOf<NullableEntity, float?>(x => x.FloatProp, 123F);
-                yield return TestColumnOf<NullableEntity, double?>(x => x.DoubleProp, 123D);
-                yield return TestColumnOf<NullableEntity, decimal?>(x => x.DecimalProp, 123M);
-                yield return TestColumnOf<NullableEntity, bool?>(x => x.BoolProp, true);
-                yield return TestColumnOf<NullableEntity, DateTime?>(x => x.DateTimeProp, DateTime.Now);
-                yield return TestColumnOf<NullableEntity, Guid?>(x => x.GuidProp, Guid.NewGuid());
-                yield return TestColumnOf<NullableEntity, FileMode?>(x => x.EnumProp, FileMode.Create);
+                return new TestCaseDataBuilder<NullableEntity>("NullableEntity_NotNullSources")
+                    .CaseOf(x => x.IntProp, 123)
+                    .CaseOf(x => x.ShortProp, (short)123)
+                    .CaseOf(x => x.LongProp, 123L)
+                    .CaseOf(x => x.FloatProp, 123F)
+                    .CaseOf(x => x.DoubleProp, 123D)
+                    .CaseOf(x => x.DecimalProp, 123M)
+                    .CaseOf(x => x.BoolProp, true)
+                    .CaseOf(x => x.DateTimeProp, DateTime.Now)
+                    .CaseOf(x => x.GuidProp, Guid.NewGuid())
+                    .CaseOf(x => x.EnumProp, FileMode.Create)
+                    .Data;
             }
         }
 
@@ -120,16 +125,18 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
         {
             get
             {
-                yield return TestColumnOf<NullableEntity, int?>(x => x.IntProp, null);
-                yield return TestColumnOf<NullableEntity, short?>(x => x.ShortProp, null);
-                yield return TestColumnOf<NullableEntity, long?>(x => x.LongProp, null);
-                yield return TestColumnOf<NullableEntity, float?>(x => x.FloatProp, null);
-                yield return TestColumnOf<NullableEntity, double?>(x => x.DoubleProp, null);
-                yield return TestColumnOf<NullableEntity, decimal?>(x => x.DecimalProp, null);
-                yield return TestColumnOf<NullableEntity, bool?>(x => x.BoolProp, null);
-                yield return TestColumnOf<NullableEntity, DateTime?>(x => x.DateTimeProp, null);
-                yield return TestColumnOf<NullableEntity, Guid?>(x => x.GuidProp, null);
-                yield return TestColumnOf<NullableEntity, FileMode?>(x => x.EnumProp, null);
+                return new TestCaseDataBuilder<NullableEntity>("NullableEntity_NullSources")
+                    .CaseOf(x => x.IntProp, null)
+                    .CaseOf(x => x.ShortProp, null)
+                    .CaseOf(x => x.LongProp, null)
+                    .CaseOf(x => x.FloatProp, null)
+                    .CaseOf(x => x.DoubleProp, 123D)
+                    .CaseOf(x => x.DecimalProp, null)
+                    .CaseOf(x => x.BoolProp, null)
+                    .CaseOf(x => x.DateTimeProp, null)
+                    .CaseOf(x => x.GuidProp, null)
+                    .CaseOf(x => x.EnumProp, null)
+                    .Data;
             }
         }
 
@@ -137,10 +144,12 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
         {
             get
             {
-                yield return TestColumnOf<DerivedEntity, int>(x => x.CreateBy, 123);
-                yield return TestColumnOf<DerivedEntity, DateTime>(x => x.CreateAt, DateTime.Now);
-                yield return TestColumnOf<DerivedEntity, int>(x => x.UpdateBy, 123);
-                yield return TestColumnOf<DerivedEntity, DateTime>(x => x.UpdateAt, DateTime.Now);
+                return new TestCaseDataBuilder<DerivedEntity>("DerivedEntity_NotNullSources")
+                    .CaseOf(x => x.CreateBy, 123)
+                    .CaseOf(x => x.CreateAt, DateTime.Now)
+                    .CaseOf(x => x.UpdateBy, 123)
+                    .CaseOf(x => x.UpdateAt, DateTime.Now)
+                    .Data;
             }
         }
 
@@ -170,6 +179,32 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
             var prop = typeof(T).GetProperty(propName);
             var mapper = MappingFactory.CreateEntityMappingFromAnnonations<T>();
             return mapper.FindByProperty(propName);
+        }
+    }
+
+    class TestCaseDataBuilder<T>
+    {
+        public TestCaseDataBuilder(string prefix)
+        {
+            _prefix = prefix;
+            _datas = new List<TestCaseData>();
+        }
+
+        private string _prefix;
+
+        private List<TestCaseData> _datas;
+
+        public TestCaseDataBuilder<T> CaseOf<TProp>(Expression<Func<T, TProp>> selector, TProp value)
+        {
+            var prop = ExpressionBuilder.GetProperty(selector);
+            var data = new TestCaseData(prop.Name, value).SetName(string.Format("{0}.{1}", _prefix, prop.Name));
+            _datas.Add(data);
+            return this;
+        }
+
+        public IEnumerable<TestCaseData> Data
+        {
+            get { return _datas.AsReadOnly(); }
         }
     }
 }
