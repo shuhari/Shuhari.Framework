@@ -9,24 +9,35 @@ namespace Shuhari.Framework.Data.Mappings
     /// <summary>
     /// Read schema from data reader
     /// </summary>
-    public class SchemaTable
+    public class SchemaMapping
     {
         /// <summary>
         /// Initialize
         /// </summary>
-        public SchemaTable()
+        public SchemaMapping()
         {
-            _columns = new List<SchemaColumn>();
+            _columns = new List<SchemaMappingColumn>();
         }
 
-        private List<SchemaColumn> _columns;
+        private List<SchemaMappingColumn> _columns;
 
         /// <summary>
         /// All columns
         /// </summary>
-        public IEnumerable<SchemaColumn> Columns
+        public IEnumerable<SchemaMappingColumn> Columns
         {
             get { return _columns.AsReadOnly(); }
+        }
+
+        /// <summary>
+        /// Add column
+        /// </summary>
+        /// <param name="column"></param>
+        public void AddColumn(SchemaMappingColumn column)
+        {
+            Expect.IsNotNull(column, nameof(column));
+
+            _columns.Add(column);
         }
 
         /// <summary>
@@ -34,7 +45,7 @@ namespace Shuhari.Framework.Data.Mappings
         /// </summary>
         /// <param name="columnName"></param>
         /// <returns></returns>
-        public SchemaColumn FindColumn(string columnName)
+        public SchemaMappingColumn FindColumn(string columnName)
         {
             Expect.IsNotBlank(columnName, nameof(columnName));
 
@@ -53,9 +64,9 @@ namespace Shuhari.Framework.Data.Mappings
             for (int i = 0; i < table.Rows.Count; i++)
             {
                 var row = table.Rows[i];
-                var column = new SchemaColumn();
+                var column = new SchemaMappingColumn();
                 column.Load(row);
-                _columns.Add(column);
+                AddColumn(column);
             }
         }
 

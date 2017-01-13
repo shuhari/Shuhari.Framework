@@ -19,7 +19,7 @@ namespace Shuhari.Framework.Data.Mappings
         /// </summary>
         /// <param name="column"></param>
         /// <returns></returns>
-        bool Match(SchemaColumn column);
+        bool Match(SchemaMappingColumn column);
 
         /// <summary>
         /// Set entity value

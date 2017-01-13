@@ -66,12 +66,16 @@
     <Compile Include="ComponentModel\GenericTypeConverterTest.cs" />
     <Compile Include="Data\Common\DbEngineTest.cs" />
     <Compile Include="Data\Common\SessionFactoryTest.cs" />
+    <Compile Include="Data\DbManagementCommandOptionsTest.cs" />
     <Compile Include="Data\DbRegistryTest.cs" />
     <Compile Include="Data\DbTestBaseTest.cs" />
+    <Compile Include="Data\Mappings\EntityReaderTest.cs" />
     <Compile Include="Data\Mappings\FieldMapperTest.cs" />
     <Compile Include="Data\Mappings\MappingFactoryTest.cs" />
-    <Compile Include="Data\Mappings\SchemaTableTest.cs" />
+    <Compile Include="Data\Mappings\SchemaMappingColumnTest.cs" />
+    <Compile Include="Data\Mappings\SchemaMappingTest.cs" />
     <Compile Include="Data\Models.cs" />
+    <Compile Include="Data\DataSourceBuilderTest.cs" />
     <Compile Include="Data\SqlServer\SqlDbEngineTest.cs" />
     <Compile Include="Data\Utils\ParamConverterTest.cs" />
     <Compile Include="DomainModel\BaseEntityTest.cs" />

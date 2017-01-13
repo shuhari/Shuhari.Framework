@@ -79,7 +79,9 @@ namespace Shuhari.Framework.Data.Mappings
         /// <inheritdoc />
         public object GetSchema(IDataReader reader)
         {
-            return new EntityReader<T>(this, reader);
+            Expect.IsNotNull(reader, nameof(reader));
+
+            return new EntityReader<T>(this, reader.GetSchemaTable());
         }
 
         /// <inheritdoc />
@@ -91,6 +93,22 @@ namespace Shuhari.Framework.Data.Mappings
 
             var entityReader = (EntityReader<T>)schema;
             entityReader.SetEntity(reader, entity);
+        }
+
+        /// <summary>
+        /// Get field mapper if mapping exist, or map to generic property if not mapped
+        /// </summary>
+        /// <param name="column"></param>
+        /// <returns></returns>
+        internal IFieldReader<T> GetFieldReader(SchemaMappingColumn column)
+        {
+            Expect.IsNotNull(column, nameof(column));
+
+            var fieldMapper = FieldMappers.FirstOrDefault(x => x.Match(column));
+            if (fieldMapper != null)
+                return fieldMapper;
+            else
+                return new GenericFieldReader<T>(column.ColumnName, column.ClrType);
         }
     }
 }

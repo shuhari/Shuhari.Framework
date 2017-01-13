@@ -82,14 +82,13 @@
     <Compile Include="Data\Mappings\FieldMapper{T}.cs" />
     <Compile Include="Data\Mappings\GenericFieldReader{T}.cs" />
     <Compile Include="Data\Mappings\IEntityMapper{T}.cs" />
-    <Compile Include="Data\Mappings\IEntityReader{T}.cs" />
     <Compile Include="Data\Mappings\IFieldMapper{T}.cs" />
     <Compile Include="Data\Mappings\IFieldReader{T}.cs" />
     <Compile Include="Data\Mappings\MappingException.cs" />
     <Compile Include="Data\Mappings\MappingFactory.cs" />
     <Compile Include="Data\Mappings\PrimaryKeyAttribute.cs" />
-    <Compile Include="Data\Mappings\SchemaColumn.cs" />
-    <Compile Include="Data\Mappings\SchemaTable.cs" />
+    <Compile Include="Data\Mappings\SchemaMappingColumn.cs" />
+    <Compile Include="Data\Mappings\SchemaMapping.cs" />
     <Compile Include="Data\Mappings\TableAttribute.cs" />
     <Compile Include="Data\SqlServer\SqlDbEngine.cs" />
     <Compile Include="Data\Utils\ParamConverter.cs" />

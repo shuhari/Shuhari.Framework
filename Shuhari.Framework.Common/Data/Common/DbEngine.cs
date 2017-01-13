@@ -114,7 +114,7 @@ namespace Shuhari.Framework.Data.Common
         /// <param name="workDir"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        protected string ShellExec(string cmd, string workDir, IEnumerable<string> args)
+        protected internal string ShellExec(string cmd, string workDir, IEnumerable<string> args)
         {
             Expect.IsNotBlank(cmd, nameof(cmd));
             Expect.IsNotNull(args, nameof(args));

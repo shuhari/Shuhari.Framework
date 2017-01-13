@@ -82,5 +82,12 @@ namespace Shuhari.Framework.UnitTests.Data.Common
         {
             Assert.AreEqual(DbType.Int32, _engine.GetDbType(clrType));
         }
+
+        [Test]
+        public void ShellExec()
+        {
+            var output = _engine.ShellExec("ipconfig", null, new string[0] {});
+            Assert.IsNotEmpty(output);
+        }
     }
 }

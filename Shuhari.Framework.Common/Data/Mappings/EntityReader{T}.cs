@@ -17,33 +17,19 @@ namespace Shuhari.Framework.Data.Mappings
         /// Initialize
         /// </summary>
         /// <param name="entityMapper"></param>
-        /// <param name="reader"></param>
-        public EntityReader(IEntityMapper<T> entityMapper, IDataReader reader)
+        /// <param name="schemaTable"></param>
+        public EntityReader(EntityMapper<T> entityMapper, DataTable schemaTable)
         {
             Expect.IsNotNull(entityMapper, nameof(entityMapper));
-            Expect.IsNotNull(reader, nameof(reader));
+            Expect.IsNotNull(schemaTable, nameof(schemaTable));
 
-            var schema = new SchemaTable();
-            schema.Load(reader.GetSchemaTable());
+            var schema = new SchemaMapping();
+            schema.Load(schemaTable);
 
-            _entityMapper = entityMapper;
-            _fieldReaders = schema.Columns.Select(GetFieldReader).ToArray();
+            _fieldReaders = schema.Columns.Select(x => entityMapper.GetFieldReader(x)).ToArray();
         }
-
-        private IEntityMapper<T> _entityMapper;
 
         private IFieldReader<T>[] _fieldReaders;
-
-        private IFieldReader<T> GetFieldReader(SchemaColumn column)
-        {
-            Expect.IsNotNull(column, nameof(column));
-
-            var fieldMapper = _entityMapper.FieldMappers.FirstOrDefault(x => x.Match(column));
-            if (fieldMapper != null)
-                return fieldMapper;
-            else
-                return new GenericFieldReader<T>(column.ColumnName, column.ClrType);
-        }
 
         /// <summary>
         /// Set entity properties

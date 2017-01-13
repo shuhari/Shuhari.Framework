@@ -22,7 +22,7 @@ namespace Shuhari.Framework.Data.Common
         public Query(Session session, string sql, IEntityMapper<T> provided) 
             : base(session, sql)
         {
-            _mapper = (IEntityMapper<T>)EnsureMapper(provided);
+            _mapper = EnsureMapper(provided);
         }
 
         private readonly IEntityMapper<T> _mapper;

@@ -120,7 +120,7 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        public T[] GetAll<T>(IEntityReader<T> mapper = null) 
+        public T[] GetAll<T>(IEntityMapper<T> mapper = null) 
             where T : class, new()
         {
             mapper = EnsureMapper(mapper);
@@ -148,7 +148,7 @@ namespace Shuhari.Framework.Data.Common
         /// <typeparam name="T"></typeparam>
         /// <param name="provided"></param>
         /// <returns></returns>
-        protected IEntityReader<T> EnsureMapper<T>(IEntityReader<T> provided)
+        protected IEntityMapper<T> EnsureMapper<T>(IEntityMapper<T> provided)
             where T : class
         {
             var mapper = provided;
@@ -162,7 +162,7 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        public T GetFirst<T>(IEntityReader<T> mapper = null)
+        public T GetFirst<T>(IEntityMapper<T> mapper = null)
             where T : class, new()
         {
             mapper = EnsureMapper(mapper);

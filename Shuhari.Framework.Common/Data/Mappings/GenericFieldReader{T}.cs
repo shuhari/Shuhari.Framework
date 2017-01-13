@@ -32,7 +32,7 @@ namespace Shuhari.Framework.Data.Mappings
         public Type PropertyType { get; private set; }
 
         /// <inheritdoc />
-        public bool Match(SchemaColumn column)
+        public bool Match(SchemaMappingColumn column)
         {
             return true;
         }

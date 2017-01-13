@@ -41,7 +41,7 @@ namespace Shuhari.Framework.Data
         /// <typeparam name="T">Entity type</typeparam>
         /// <param name="mapper">Custom entity mapper, or null to use <see cref="ISessionFactory"/> defined mapper</param>
         /// <returns>All matched records</returns>
-        T[] GetAll<T>(IEntityReader<T> mapper = null) where T : class, new();
+        T[] GetAll<T>(IEntityMapper<T> mapper = null) where T : class, new();
 
         /// <summary>
         /// Get just one record from query, such as GetById()
@@ -49,6 +49,6 @@ namespace Shuhari.Framework.Data
         /// <typeparam name="T">Entity type</typeparam>
         /// <param name="mapper">Custom entity mapper, or null to use <see cref="ISessionFactory"/> defined mapper</param>
         /// <returns>First matched record, or null if no records to return</returns>
-        T GetFirst<T>(IEntityReader<T> mapper = null) where T : class, new();
+        T GetFirst<T>(IEntityMapper<T> mapper = null) where T : class, new();
     }
 }

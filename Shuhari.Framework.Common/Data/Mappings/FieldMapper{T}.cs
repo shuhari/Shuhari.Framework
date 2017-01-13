@@ -134,7 +134,7 @@ namespace Shuhari.Framework.Data.Mappings
         }
 
         /// <inheritdoc />
-        public bool Match(SchemaColumn column)
+        public bool Match(SchemaMappingColumn column)
         {
             if (!FieldName.EqualsNoCase(column.ColumnName))
                 return false;
