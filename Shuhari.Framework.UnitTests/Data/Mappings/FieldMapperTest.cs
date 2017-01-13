@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq.Expressions;
 using NUnit.Framework;
 using Shuhari.Framework.Data.Mappings;
+using Shuhari.Framework.Linq;
 
 namespace Shuhari.Framework.UnitTests.Data.Mappings
 {
@@ -72,22 +74,28 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
             AssertSet<DerivedEntity>(propName, value);
         }
 
+        private static TestCaseData TestColumnOf<T, TProp>(Expression<Func<T, TProp>> selector, TProp value)
+        {
+            var prop = ExpressionBuilder.GetProperty(selector);
+            return new TestCaseData(prop.Name, value).SetName(prop.Name);
+        }
+
         public static IEnumerable<TestCaseData> NotNullEntity_NotNullSources
         {
             get
             {
-                yield return new TestCaseData("IntProp", 123).SetName("IntProp");
-                yield return new TestCaseData("ShortProp", (short)123).SetName("ShortProp");
-                yield return new TestCaseData("LongProp", 123L).SetName("LongProp");
-                yield return new TestCaseData("FloatProp", 123F).SetName("FloatProp");
-                yield return new TestCaseData("DoubleProp", 123D).SetName("DoubleProp");
-                yield return new TestCaseData("DecimalProp", 123M).SetName("DecimalProp");
-                yield return new TestCaseData("BoolProp", true).SetName("BoolProp");
-                yield return new TestCaseData("StringProp", "abc").SetName("StringProp");
-                yield return new TestCaseData("DateTimeProp", DateTime.Now).SetName("DateTimeProp");
-                yield return new TestCaseData("BinaryProp", new byte[0]).SetName("BinaryProp");
-                yield return new TestCaseData("GuidProp", Guid.NewGuid()).SetName("GuidProp");
-                yield return new TestCaseData("EnumProp", FileMode.Create).SetName("EnumProp");
+                yield return TestColumnOf<NotNullEntity, int>(x => x.IntProp, 123);
+                yield return TestColumnOf<NotNullEntity, short>(x => x.ShortProp, 123);
+                yield return TestColumnOf<NotNullEntity, long>(x => x.LongProp, 123L);
+                yield return TestColumnOf<NotNullEntity, float>(x => x.FloatProp, 123F);
+                yield return TestColumnOf<NotNullEntity, double>(x => x.DoubleProp, 123D);
+                yield return TestColumnOf<NotNullEntity, decimal>(x => x.DecimalProp, 123M);
+                yield return TestColumnOf<NotNullEntity, bool>(x => x.BoolProp, true);
+                yield return TestColumnOf<NotNullEntity, string>(x => x.StringProp, "abc");
+                yield return TestColumnOf<NotNullEntity, DateTime>(x => x.DateTimeProp, DateTime.Now);
+                yield return TestColumnOf<NotNullEntity, byte[]>(x => x.BinaryProp, new byte[0]);
+                yield return TestColumnOf<NotNullEntity, Guid>(x => x.GuidProp, Guid.NewGuid());
+                yield return TestColumnOf<NotNullEntity, FileMode>(x => x.EnumProp, FileMode.Create);
             }
         }
 
@@ -95,16 +103,16 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
         {
             get
             {
-                yield return new TestCaseData("IntProp", 123).SetName("IntProp");
-                yield return new TestCaseData("ShortProp", (short)123).SetName("ShortProp");
-                yield return new TestCaseData("LongProp", 123L).SetName("LongProp");
-                yield return new TestCaseData("FloatProp", 123F).SetName("FloatProp");
-                yield return new TestCaseData("DoubleProp", 123D).SetName("DoubleProp");
-                yield return new TestCaseData("DecimalProp", 123M).SetName("DecimalProp");
-                yield return new TestCaseData("BoolProp", true).SetName("BoolProp");
-                yield return new TestCaseData("DateTimeProp", DateTime.Now).SetName("DateTimeProp");
-                yield return new TestCaseData("GuidProp", Guid.NewGuid()).SetName("GuidProp");
-                yield return new TestCaseData("EnumProp", FileMode.Create).SetName("EnumProp");
+                yield return TestColumnOf<NullableEntity, int?>(x => x.IntProp, 123);
+                yield return TestColumnOf<NullableEntity, short?>(x => x.ShortProp, 123);
+                yield return TestColumnOf<NullableEntity, long?>(x => x.LongProp, 123L);
+                yield return TestColumnOf<NullableEntity, float?>(x => x.FloatProp, 123F);
+                yield return TestColumnOf<NullableEntity, double?>(x => x.DoubleProp, 123D);
+                yield return TestColumnOf<NullableEntity, decimal?>(x => x.DecimalProp, 123M);
+                yield return TestColumnOf<NullableEntity, bool?>(x => x.BoolProp, true);
+                yield return TestColumnOf<NullableEntity, DateTime?>(x => x.DateTimeProp, DateTime.Now);
+                yield return TestColumnOf<NullableEntity, Guid?>(x => x.GuidProp, Guid.NewGuid());
+                yield return TestColumnOf<NullableEntity, FileMode?>(x => x.EnumProp, FileMode.Create);
             }
         }
 
@@ -112,16 +120,16 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
         {
             get
             {
-                yield return new TestCaseData("IntProp").SetName("IntProp");
-                yield return new TestCaseData("ShortProp").SetName("ShortProp");
-                yield return new TestCaseData("LongProp").SetName("LongProp");
-                yield return new TestCaseData("FloatProp").SetName("FloatProp");
-                yield return new TestCaseData("DoubleProp").SetName("DoubleProp");
-                yield return new TestCaseData("DecimalProp").SetName("DecimalProp");
-                yield return new TestCaseData("BoolProp").SetName("BoolProp");
-                yield return new TestCaseData("DateTimeProp").SetName("DateTimeProp");
-                yield return new TestCaseData("GuidProp").SetName("GuidProp");
-                yield return new TestCaseData("EnumProp").SetName("EnumProp");
+                yield return TestColumnOf<NullableEntity, int?>(x => x.IntProp, null);
+                yield return TestColumnOf<NullableEntity, short?>(x => x.ShortProp, null);
+                yield return TestColumnOf<NullableEntity, long?>(x => x.LongProp, null);
+                yield return TestColumnOf<NullableEntity, float?>(x => x.FloatProp, null);
+                yield return TestColumnOf<NullableEntity, double?>(x => x.DoubleProp, null);
+                yield return TestColumnOf<NullableEntity, decimal?>(x => x.DecimalProp, null);
+                yield return TestColumnOf<NullableEntity, bool?>(x => x.BoolProp, null);
+                yield return TestColumnOf<NullableEntity, DateTime?>(x => x.DateTimeProp, null);
+                yield return TestColumnOf<NullableEntity, Guid?>(x => x.GuidProp, null);
+                yield return TestColumnOf<NullableEntity, FileMode?>(x => x.EnumProp, null);
             }
         }
 
@@ -129,10 +137,10 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
         {
             get
             {
-                yield return new TestCaseData("CreateBy", 123).SetName("CreateBy");
-                yield return new TestCaseData("CreateAt", DateTime.Now).SetName("CreateAt");
-                yield return new TestCaseData("UpdateBy", 123).SetName("UpdateBy");
-                yield return new TestCaseData("UpdateAt", DateTime.Now).SetName("UpdateAt");
+                yield return TestColumnOf<DerivedEntity, int>(x => x.CreateBy, 123);
+                yield return TestColumnOf<DerivedEntity, DateTime>(x => x.CreateAt, DateTime.Now);
+                yield return TestColumnOf<DerivedEntity, int>(x => x.UpdateBy, 123);
+                yield return TestColumnOf<DerivedEntity, DateTime>(x => x.UpdateAt, DateTime.Now);
             }
         }
 

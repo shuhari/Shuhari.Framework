@@ -114,14 +114,10 @@ namespace Shuhari.Framework.UnitTests.Data
             AssertSchemaTable(schema, columns);
 
             Assert.IsTrue(reader.Read());
-            Assert.AreEqual(data[0][0], reader[0]);
-            Assert.AreEqual(data[0][1], reader[1]);
-            Assert.AreEqual(data[0][2], reader[2]);
+            CollectionAssert.AreEqual(data[0], new object[] { reader[0], reader[1], reader[2] });
 
             Assert.IsTrue(reader.Read());
-            Assert.AreEqual(data[1][0], reader[0]);
-            Assert.AreEqual(data[1][1], reader[1]);
-            Assert.AreEqual(data[1][2], reader[2]);
+            CollectionAssert.AreEqual(data[1], new object[] { reader[0], reader[1], reader[2] });
 
             Assert.IsFalse(reader.Read());
         }
