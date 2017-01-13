@@ -126,5 +126,47 @@ namespace Shuhari.Framework.Globalization
         /// </summary>
         [Display]
         public static readonly string ErrorFieldCountNotMatch = ResourceRegistry.GetString("Error.FieldCountNotMatch");
+
+        /// <summary>
+        /// Field count different than reader count
+        /// </summary>
+        [Display]
+        public static readonly string ErrorPrimaryKeyTypeUnmatch = ResourceRegistry.GetString("Error.PrimaryKeyTypeUnmatch");
+
+        /// <summary>
+        /// No fields specified
+        /// </summary>
+        [Display]
+        public static readonly string ErrorNoFieldsSepecified = ResourceRegistry.GetString("Error.NoFieldsSepecified");
+
+        /// <summary>
+        /// Property value is null
+        /// </summary>
+        [Display]
+        public static readonly string ErrorPropertyValueNull = ResourceRegistry.GetString("Error.PropertyValueNull");
+
+        /// <summary>
+        /// DbContext has no repository
+        /// </summary>
+        [Display]
+        public static readonly string ErrorNoRepository = ResourceRegistry.GetString("Error.NoRepository");
+
+        /// <summary>
+        /// Repository has no session
+        /// </summary>
+        [Display]
+        public static readonly string ErrorNoSession = ResourceRegistry.GetString("Error.NoSession");
+
+        /// <summary>
+        /// A db transaction already inplace
+        /// </summary>
+        [Display]
+        public static readonly string ErrorTransactionAlreadyExist = ResourceRegistry.GetString("Error.TransactionAlreadyExist");
+
+        /// <summary>
+        /// Transaction is managed by other session
+        /// </summary>
+        [Display]
+        public static readonly string ErrorTransactionBelongToOther = ResourceRegistry.GetString("Error.TransactionBelongToOther");
     }
 }

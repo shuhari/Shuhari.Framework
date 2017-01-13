@@ -64,5 +64,27 @@ namespace Shuhari.Framework.Utils
         {
             return new MappingException(string.Format(format, args));
         }
+
+        /// <summary>
+        /// Create invalid operation exception
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static InvalidOperationException InvalidOperation(string format, params object[] args)
+        {
+            return new InvalidOperationException(string.Format(format, args));
+        }
+
+        /// <summary>
+        /// Create type access exception
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static TypeAccessException TypeAccess(string format, params object[] args)
+        {
+            return new TypeAccessException(string.Format(format, args));
+        }
     }
 }

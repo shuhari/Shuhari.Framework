@@ -52,6 +52,21 @@ namespace Shuhari.Framework.Data.SqlServer
         }
 
         /// <inheritdoc />
+        public override string GetDbTypeName(Type clrType)
+        {
+            Expect.IsNotNull(clrType, nameof(clrType));
+
+            if (clrType == typeof(int))
+                return "int";
+            else if (clrType == typeof(long))
+                return "bigint";
+            else if (clrType == typeof(Guid))
+                return "uniqueidentifier";
+            else
+                return base.GetDbTypeName(clrType);
+        }
+
+        /// <inheritdoc />
         protected override DbParameter CreateVendorParameter(string paramName, DbType dbType, object value)
         {
             var sqlType = GetSqlDbType(dbType);

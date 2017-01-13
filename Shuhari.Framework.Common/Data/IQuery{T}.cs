@@ -7,7 +7,7 @@ namespace Shuhari.Framework.Data
     /// Strongly type query. It's mapper are assigned on initialize rather than on method-level.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IQuery<T>
+    public interface IQuery<T> : IQuery
         where T: class, new()
     {
         /// <summary>

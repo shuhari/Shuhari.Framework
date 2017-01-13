@@ -21,6 +21,12 @@ namespace Shuhari.Framework.Data
         IDbConnection Connection { get; }
 
         /// <summary>
+        /// Create transaction
+        /// </summary>
+        /// <returns></returns>
+        IDbTransaction BeginTransaction();
+
+        /// <summary>
         /// Create generic query
         /// </summary>
         /// <param name="sql"></param>

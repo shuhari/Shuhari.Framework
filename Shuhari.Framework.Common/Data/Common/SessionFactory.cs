@@ -79,5 +79,17 @@ namespace Shuhari.Framework.Data.Common
         {
             return (IEntityMapper<T>)GetMapper(typeof(T));
         }
+
+        /// <inheritdoc />
+        public IQueryBuilder<T> GetQueryBuilder<T>() 
+            where T : class, new()
+        {
+            var mapper = GetMapper<T>();
+            Expect.IsNotNull(mapper, nameof(mapper));
+
+            var queryBuilder = Engine.CreateQueryBuilder<T>();
+            queryBuilder.Mapper = mapper;
+            return queryBuilder;
+        }
     }
 }

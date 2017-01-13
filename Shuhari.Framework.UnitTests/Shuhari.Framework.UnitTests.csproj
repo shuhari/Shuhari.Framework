@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="ComponentModel\DateTimeValueSerializerTest.cs" />
     <Compile Include="ComponentModel\GenericTypeConverterTest.cs" />
+    <Compile Include="Data\Common\BaseDbContextTest.cs" />
     <Compile Include="Data\Common\DbEngineTest.cs" />
     <Compile Include="Data\Common\SessionFactoryTest.cs" />
     <Compile Include="Data\DbManagementCommandOptionsTest.cs" />

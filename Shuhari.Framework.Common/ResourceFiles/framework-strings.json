@@ -215,5 +215,26 @@
   },
   "Error.FieldCountNotMatch": {
     "en": "Field count different from reader count. Field count={0}, reader count={1}"
+  },
+  "Error.PrimaryKeyTypeUnmatch": {
+    "en": "Entity {0} expect primar key type {1}, got {2}"
+  },
+  "Error.NoFieldsSepecified": {
+    "en": "No fields specified"
+  },
+  "Error.PropertyValueNull": {
+    "en": "Property {0} has null value"
+  },
+  "Error.NoRepository": {
+    "en": "DbContext {0} has no repositories"
+  },
+  "Error.NoSession": {
+    "en": "Repository has no session"
+  },
+  "Error.TransactionAlreadyExist": {
+    "en": "A transaction is already active in the session"
+  },
+  "Error.TransactionBelongToOther": {
+    "en": "The transaction belongs to another session"
   }
 }

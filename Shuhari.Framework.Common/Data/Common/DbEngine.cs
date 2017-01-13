@@ -59,6 +59,14 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
+        public virtual string GetDbTypeName(Type clrType)
+        {
+            Expect.IsNotNull(clrType, nameof(clrType));
+
+            throw ExceptionBuilder.NotSupported(FrameworkStrings.ErrorUnsupportedType, clrType.FullName);
+        }
+
+        /// <inheritdoc />
         public DbParameter CreateParameter(string paramName, DbType dbType, object value)
         {
             Expect.IsNotBlank(paramName, nameof(paramName));
@@ -134,6 +142,13 @@ namespace Shuhari.Framework.Data.Common
                 process.WaitForExit();
                 return process.StandardOutput.ReadToEnd();
             }
+        }
+
+        /// <inheritdoc />
+        public virtual IQueryBuilder<T> CreateQueryBuilder<T>() 
+            where T : class, new()
+        {
+            return new QueryBuilder<T>(this);
         }
     }
 }

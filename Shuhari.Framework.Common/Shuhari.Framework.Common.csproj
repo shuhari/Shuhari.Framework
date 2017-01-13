@@ -60,18 +60,28 @@
   <ItemGroup>
     <Compile Include="ComponentModel\DateTimeValueSerializer.cs" />
     <Compile Include="ComponentModel\GenericTypeConverter.cs" />
+    <Compile Include="Data\Common\BaseDbContext.cs" />
+    <Compile Include="Data\Common\BaseRepository.cs" />
+    <Compile Include="Data\Common\BaseRepository{T}.cs" />
     <Compile Include="Data\Common\Query.cs" />
     <Compile Include="Data\Common\DbEngine.cs" />
+    <Compile Include="Data\Common\QueryBuilder{T}.cs" />
     <Compile Include="Data\Common\Query{T}.cs" />
     <Compile Include="Data\Common\Session.cs" />
     <Compile Include="Data\Common\SessionFactory.cs" />
+    <Compile Include="Data\Common\SessionManager.cs" />
+    <Compile Include="Data\Common\SessionTransactionWrapper.cs" />
     <Compile Include="Data\DatabaseType.cs" />
     <Compile Include="Data\DbManagementCommandOptions.cs" />
     <Compile Include="Data\DbRegistry.cs" />
+    <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IDbEngine.cs" />
     <Compile Include="Data\IGenericQuery.cs" />
     <Compile Include="Data\IQuery.cs" />
+    <Compile Include="Data\IQueryBuilder{T}.cs" />
     <Compile Include="Data\IQuery{T}.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\IRepositoryContainer.cs" />
     <Compile Include="Data\ISession.cs" />
     <Compile Include="Data\ISessionFactory.cs" />
     <Compile Include="Data\Mappings\EntityMapper{T}.cs" />
@@ -90,6 +100,8 @@
     <Compile Include="Data\Mappings\SchemaMappingColumn.cs" />
     <Compile Include="Data\Mappings\SchemaMapping.cs" />
     <Compile Include="Data\Mappings\TableAttribute.cs" />
+    <Compile Include="Data\OrderCritia{T}.cs" />
+    <Compile Include="Data\IRepository{T}.cs" />
     <Compile Include="Data\SqlServer\SqlDbEngine.cs" />
     <Compile Include="Data\Utils\ParamConverter.cs" />
     <Compile Include="DomainModel\BaseEntity{TID}.cs" />

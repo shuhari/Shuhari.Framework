@@ -51,12 +51,17 @@
     <Compile Include="..\Shuhari.Framework.UnitTests\Data\Models.cs">
       <Link>Data\Models.cs</Link>
     </Compile>
+    <Compile Include="Data\Common\BaseRepositoryWriteTest.cs" />
+    <Compile Include="Data\Common\BaseRepositoryReadTest.cs" />
     <Compile Include="Data\DbFixtures.cs" />
     <Compile Include="Data\DbTestBase.cs" />
     <Compile Include="Data\Query{T}ReadTest.cs" />
     <Compile Include="Data\GenericQueryReadTest.cs" />
     <Compile Include="Data\SessionTest.cs" />
+    <Compile Include="Data\SqlServer\QueryBuilder{T}WriteTest.cs" />
+    <Compile Include="Data\SqlServer\QueryBuilder{T}ReadTest.cs" />
     <Compile Include="Data\SqlServer\SqlDbEngineTest.cs" />
+    <Compile Include="Data\TransactionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using Shuhari.Framework.Data.Mappings;
+using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Data.Common
@@ -19,6 +19,7 @@ namespace Shuhari.Framework.Data.Common
 
             _sessionFactory = sessionFactory;
             _parameters = parameters;
+            _transaction = null;
         }
 
         private readonly SessionFactory _sessionFactory;
@@ -26,6 +27,8 @@ namespace Shuhari.Framework.Data.Common
         private object _parameters;
 
         private IDbConnection _connection;
+
+        private SessionTransactionWrapper _transaction;
 
         /// <inheritdoc />
         public ISessionFactory SessionFactory
@@ -44,6 +47,17 @@ namespace Shuhari.Framework.Data.Common
                 }
                 return _connection;
             }
+        }
+
+        /// <inheritdoc />
+        public IDbTransaction BeginTransaction()
+        {
+            if (_transaction != null)
+                throw ExceptionBuilder.InvalidOperation(FrameworkStrings.ErrorTransactionAlreadyExist);
+
+            var innerTransaction = Connection.BeginTransaction();
+            _transaction = new SessionTransactionWrapper(this, innerTransaction);
+            return _transaction;
         }
 
         /// <inheritdoc />
@@ -74,9 +88,22 @@ namespace Shuhari.Framework.Data.Common
         internal IDbCommand CreateCommand()
         {
             var command = Connection.CreateCommand();
-            // if (_transaction != null)
-            //     command.Transaction = _transaction.InnerTransaction;
+            if (_transaction != null)
+                command.Transaction = _transaction.InnerTransaction;
             return command;
+        }
+
+        /// <summary>
+        /// Transaction disposed notify
+        /// </summary>
+        /// <param name="transaction"></param>
+        internal void OnTransactionDisposed(IDbTransaction transaction)
+        {
+            Expect.IsNotNull(transaction, nameof(transaction));
+            Expect.That(transaction == _transaction, 
+                () => ExceptionBuilder.InvalidOperation(FrameworkStrings.ErrorTransactionBelongToOther));
+
+            _transaction = null;
         }
     }
 }

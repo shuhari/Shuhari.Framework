@@ -52,5 +52,12 @@ namespace Shuhari.Framework.Data
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         IEntityMapper<T> GetMapper<T>() where T : class;
+
+        /// <summary>
+        /// Get query builder
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        IQueryBuilder<T> GetQueryBuilder<T>() where T : class, new();
     }
 }

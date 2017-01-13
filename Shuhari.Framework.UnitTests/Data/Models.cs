@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using Shuhari.Framework.Data;
+using Shuhari.Framework.Data.Common;
 using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.DomainModel;
 
@@ -105,5 +107,27 @@ namespace Shuhari.Framework.UnitTests.Data
     [Table("TDerivedEntity")]
     public class DerivedEntity : UpdateEntity
     {
+    }
+
+    public class NotNullEntityRepository : BaseRepository<int, NotNullEntity>
+    {
+    }
+
+    public class NullableEntityRepository : BaseRepository<int, NullableEntity>
+    {
+    }
+
+    public class TestDbContext : BaseDbContext
+    {
+        public TestDbContext(ISessionFactory sessionFactory)
+            : base(sessionFactory)
+        {
+            NotNullEntityRepository = new NotNullEntityRepository();
+            NullableEntityRepository = new NullableEntityRepository();
+        }
+
+        public NotNullEntityRepository NotNullEntityRepository { get; set; }
+
+        public NullableEntityRepository NullableEntityRepository { get; set; }
     }
 }

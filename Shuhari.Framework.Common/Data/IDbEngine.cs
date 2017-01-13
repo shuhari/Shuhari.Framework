@@ -32,6 +32,15 @@ namespace Shuhari.Framework.Data
         DbType GetDbType(Type clrType);
 
         /// <summary>
+        /// Get type name for specified CLR type, 
+        /// used in case such as include primary key in query.
+        /// Currently only int/long/guid are required.
+        /// </summary>
+        /// <param name="clrType"></param>
+        /// <returns></returns>
+        string GetDbTypeName(Type clrType);
+
+        /// <summary>
         /// Create vendor-specified parameter
         /// </summary>
         /// <param name="paramName"></param>
@@ -57,5 +66,12 @@ namespace Shuhari.Framework.Data
         /// <returns></returns>
         string ExecuteResourceScript(AssemblyResource resource, DbManagementCommandOptions options = null,
             StringReplacer replacer = null);
+
+        /// <summary>
+        /// Create query builder
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        IQueryBuilder<T> CreateQueryBuilder<T>() where T : class, new();
     }
 }

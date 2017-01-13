@@ -113,13 +113,13 @@ namespace Shuhari.Framework.Data.Mappings
         /// <inheritdoc />
         public bool Insert
         {
-            get { return Flags.HasFlag(FieldFlags.Insert); }
+            get { return Flags.HasFlag(FieldFlags.Insert) && !Flags.HasFlag(FieldFlags.Identity); }
         }
 
         /// <inheritdoc />
         public bool Update
         {
-            get { return Flags.HasFlag(FieldFlags.Update); }
+            get { return Flags.HasFlag(FieldFlags.Update) && !Flags.HasFlag(FieldFlags.Identity); }
         }
 
         /// <inheritdoc />
