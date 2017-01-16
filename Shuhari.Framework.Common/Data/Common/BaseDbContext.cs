@@ -75,7 +75,7 @@ namespace Shuhari.Framework.Data.Common
         /// <inheritdoc />
         public void CloseSession()
         {
-            SessionManager.CloseSession(SessionFactory, this);
+            SessionManager.CloseSession(this);
         }
 
         /// <inheritdoc />

@@ -6,7 +6,7 @@ namespace Shuhari.Framework.Data.Common
     /// <summary>
     /// Manage session for multiple repositories
     /// </summary>
-    internal static class SessionManager
+    public static class SessionManager
     {
         /// <summary>
         /// Open session for target
@@ -32,11 +32,9 @@ namespace Shuhari.Framework.Data.Common
         /// <summary>
         /// Close session
         /// </summary>
-        /// <param name="sessionFatory"></param>
         /// <param name="container"></param>
-        public static void CloseSession(ISessionFactory sessionFatory, IRepositoryContainer container)
+        public static void CloseSession(IRepositoryContainer container)
         {
-            Expect.IsNotNull(sessionFatory, nameof(sessionFatory));
             Expect.IsNotNull(container, nameof(container));
 
             var repositories = container.Repositories
