@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
+using Shuhari.Framework.Data;
 using Shuhari.Framework.DomainModel;
 using Shuhari.Framework.Utils;
 
@@ -22,6 +24,17 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         public void Ctor_PageInvalid_ShouldThrow()
         {
             Assert.Throws<ExpectionException>(() => new QueryDTO(-1, -1));
+        }
+
+        [Test]
+        public void SetQuery()
+        {
+            var mockQuery = new Mock<IQuery>();
+            var q = new QueryDTO(2, 20);
+            q.SetQuery(mockQuery.Object);
+
+            mockQuery.Verify(m => m.Set(QueryDTO.PARAM_OFFSET, 40));
+            mockQuery.Verify(m => m.Set(QueryDTO.PARAM_LIMIT, 20));
         }
     }
 }

@@ -116,7 +116,6 @@
     <Compile Include="DomainModel\BaseEntityTest.cs" />
     <Compile Include="DomainModel\BaseSitemapResolverTest.cs" />
     <Compile Include="DomainModel\FileItemTest.cs" />
-    <Compile Include="DomainModel\NamedQueryDTOTest.cs" />
     <Compile Include="DomainModel\PagedCollectionTest.cs" />
     <Compile Include="DomainModel\QueryDTOTest.cs" />
     <Compile Include="DomainModel\ResultDTOTest.cs" />

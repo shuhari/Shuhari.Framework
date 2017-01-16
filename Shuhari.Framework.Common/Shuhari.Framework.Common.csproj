@@ -114,7 +114,6 @@
     <Compile Include="DomainModel\IExtensibleProperties.cs" />
     <Compile Include="DomainModel\IPagination.cs" />
     <Compile Include="DomainModel\ISitemapResolver.cs" />
-    <Compile Include="DomainModel\NamedQueryDTO.cs" />
     <Compile Include="DomainModel\PagedCollection{T}.cs" />
     <Compile Include="DomainModel\Pager.cs" />
     <Compile Include="DomainModel\PagerItem.cs" />
