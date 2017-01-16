@@ -137,6 +137,7 @@ namespace Shuhari.Framework.Data.Common
             };
             if (workDir.IsNotBlank())
                 psi.WorkingDirectory = workDir;
+
             using (var process = Process.Start(psi))
             {
                 process.WaitForExit();

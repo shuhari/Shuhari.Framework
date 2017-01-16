@@ -6,3 +6,5 @@ DONE:
 * NEW: EnumUtil.FromFlags / ToFlags
 * NEW: PagedCollection.CalculatePager
 * REMOVED: NamedQueryDTO
+* FIXED: ExecuteResourceScript return full path
+* NEW: Add ScriptBook

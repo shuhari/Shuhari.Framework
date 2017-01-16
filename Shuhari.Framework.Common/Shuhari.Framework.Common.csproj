@@ -104,6 +104,7 @@
     <Compile Include="Data\Mappings\TableAttribute.cs" />
     <Compile Include="Data\OrderCritia{T}.cs" />
     <Compile Include="Data\IRepository{T}.cs" />
+    <Compile Include="Data\ScriptBook.cs" />
     <Compile Include="Data\SqlServer\SqlDbEngine.cs" />
     <Compile Include="Data\SqlServer\SqlQueryBuilder{T}.cs" />
     <Compile Include="Data\Utils\ParamConverter.cs" />

@@ -146,7 +146,7 @@ namespace Shuhari.Framework.Data.Common
                 replacer.ApplyToFile(filePath);
 
             options = options ?? DbManagementCommandOptions.GetDefault();
-            options.FileName = scriptPath;
+            options.FileName = filePath;
             return Engine.ExecuteCommand(options);
         }
     }
