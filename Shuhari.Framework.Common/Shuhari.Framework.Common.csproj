@@ -116,6 +116,8 @@
     <Compile Include="DomainModel\ISitemapResolver.cs" />
     <Compile Include="DomainModel\NamedQueryDTO.cs" />
     <Compile Include="DomainModel\PagedCollection{T}.cs" />
+    <Compile Include="DomainModel\Pager.cs" />
+    <Compile Include="DomainModel\PagerItem.cs" />
     <Compile Include="DomainModel\QueryDTO.cs" />
     <Compile Include="DomainModel\ResultDTO.cs" />
     <Compile Include="DomainModel\SelectItemDTO{TID}.cs" />

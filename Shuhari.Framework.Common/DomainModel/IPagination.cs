@@ -19,5 +19,11 @@
         /// Total record count
         /// </summary>
         int Total { get; set; }
+
+        /// <summary>
+        /// Calculate pager result
+        /// </summary>
+        /// <returns></returns>
+        Pager CalculatePager();
     }
 }
