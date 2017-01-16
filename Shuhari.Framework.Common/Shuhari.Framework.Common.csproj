@@ -46,6 +46,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xaml" />
@@ -63,6 +64,7 @@
     <Compile Include="Data\Common\BaseDbContext.cs" />
     <Compile Include="Data\Common\BaseRepository.cs" />
     <Compile Include="Data\Common\BaseRepository{T}.cs" />
+    <Compile Include="Data\Common\FrameworkDatabase{T}.cs" />
     <Compile Include="Data\Common\Query.cs" />
     <Compile Include="Data\Common\DbEngine.cs" />
     <Compile Include="Data\Common\QueryBuilder{T}.cs" />

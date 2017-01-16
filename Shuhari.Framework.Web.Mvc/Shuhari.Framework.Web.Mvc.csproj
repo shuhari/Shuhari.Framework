@@ -89,6 +89,7 @@
     <Compile Include="Mvc\CustomJsonResult.cs" />
     <Compile Include="Mvc\Filters\InjectSessionFilter.cs" />
     <Compile Include="Mvc\Filters\PermissionAttribute.cs" />
+    <Compile Include="Mvc\FrameworkController.cs" />
     <Compile Include="Mvc\FrameworkModelMetadataProvider.cs" />
     <Compile Include="Mvc\NinjectDependencyResolver.cs" />
     <Compile Include="Mvc\RedirectData.cs" />
