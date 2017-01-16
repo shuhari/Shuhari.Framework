@@ -1,0 +1,13 @@
+platform: Any CPU
+configuration: Release
+
+build:
+  project: Shuhari.Framework.sln
+  verbosity: normal
+
+before_build:
+  - nuget restore Shuhari.Framework.sln
+
+test:
+  assemblies:
+    - Shuhari.Framework.UnitTests.dll
