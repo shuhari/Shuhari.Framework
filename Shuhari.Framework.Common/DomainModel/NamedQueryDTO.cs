@@ -1,4 +1,7 @@
-﻿namespace Shuhari.Framework.DomainModel
+﻿using System.Data;
+using Shuhari.Framework.Data;
+
+namespace Shuhari.Framework.DomainModel
 {
     /// <summary>
     /// Query with only a name critia
@@ -29,5 +32,18 @@
         /// Name
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// parameter name
+        /// </summary>
+        public const string PARAM_NAME = "Name";
+
+        /// <inheritdoc />
+        public override void SetQuery(IQuery query)
+        {
+            base.SetQuery(query);
+
+            query.Set(PARAM_NAME, DbType.String, Name);
+        }
     }
 }

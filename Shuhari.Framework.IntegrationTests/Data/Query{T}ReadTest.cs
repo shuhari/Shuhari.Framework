@@ -20,5 +20,15 @@ namespace Shuhari.Framework.IntegrationTests.Data
 
             CollectionAssert.IsNotEmpty(result);
         }
+
+        [Test]
+        public void SetByExpression()
+        {
+            var query = Session.CreateQuery<NotNullEntity>("select * from TNotNullEntity where FID=@FID");
+            query.Set(x => x.Id, 1);
+            var result = query.GetAll();
+
+            CollectionAssert.IsNotEmpty(result);
+        }
     }
 }

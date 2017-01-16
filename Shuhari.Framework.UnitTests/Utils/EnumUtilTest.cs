@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using NUnit.Framework;
 using Shuhari.Framework.Utils;
 
@@ -42,6 +43,29 @@ namespace Shuhari.Framework.UnitTests.Utils
         public void GetDisplayName_WithFlags_ShouldReturnCombined()
         {
             Assert.AreEqual("MyBit1,MyBit2", EnumUtil.GetDisplayName(FlaggedEnum.Bit1 | FlaggedEnum.Bit2));
+        }
+
+        [Test]
+        public void ToFlags()
+        {
+            var flags = EnumUtil.ToFlags(FileAttributes.Hidden | FileAttributes.System,
+                new[]
+                {
+                    FileAttributes.Hidden,
+                    FileAttributes.System,
+                    FileAttributes.Archive,
+                    FileAttributes.ReadOnly
+                });
+            CollectionAssert.Contains(flags, FileAttributes.Hidden);
+            CollectionAssert.Contains(flags, FileAttributes.System);
+            CollectionAssert.DoesNotContain(flags, FileAttributes.ReadOnly);
+        }
+
+        [Test]
+        public void FromFlags()
+        {
+            var flags = new[] { FileAttributes.Hidden, FileAttributes.System };
+            Assert.AreEqual(FileAttributes.Hidden | FileAttributes.System, EnumUtil.FromFlags(flags));
         }
     }
 }

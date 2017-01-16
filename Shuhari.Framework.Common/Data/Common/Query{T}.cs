@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
+using System.Linq.Expressions;
 using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.DomainModel;
+using Shuhari.Framework.Linq;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Data.Common
@@ -37,6 +40,19 @@ namespace Shuhari.Framework.Data.Common
         T IQuery<T>.GetFirst()
         {
             return base.GetFirst(_mapper);
+        }
+
+        /// <inheritdoc />
+        public void Set<TProp>(Expression<Func<T, TProp>> selector, TProp value)
+        {
+            Expect.IsNotNull(selector, nameof(selector));
+            var prop = ExpressionBuilder.GetProperty(selector);
+            Expect.IsNotNull(prop, nameof(prop));
+
+            var fieldMapper = _mapper.FieldMappers.FirstOrDefault(x => x.PropertyName == prop.Name);
+            Expect.IsNotNull(fieldMapper, nameof(fieldMapper));
+            var engine = Session.SessionFactory.Engine;
+            Set(fieldMapper.FieldName, engine.GetDbType(prop.PropertyType), value);
         }
     }
 }

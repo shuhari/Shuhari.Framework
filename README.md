@@ -42,6 +42,11 @@ References:
 
 Release History:
 
+**v0.1.0.3 (2017-01-16**
+Fix NamedQueryDTO.SetQuery as derived
+Add IQuery<T>.Set(x => x)
+Add EnumUtil.FromFlags / ToFlags
+
 **v0.1.0.2 (2017-01-16**
 Add FrameworkDbContext
 

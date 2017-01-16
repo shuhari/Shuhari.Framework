@@ -56,5 +56,44 @@ namespace Shuhari.Framework.Utils
                 return attr.Name;
             return field.Name;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="flags"></param>
+        /// <returns></returns>
+        public static T FromFlags<T>(IEnumerable<T> flags)
+            where T: struct
+        {
+            Expect.That(typeof(T).IsEnum, "Expect enum type");
+
+            int result = 0;
+            foreach (var flag in flags)
+                result |= Convert.ToInt32(flag);
+            return (T)Enum.ToObject(typeof(T), result);
+        }
+
+        /// <summary>
+        /// convert value to flags
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value"></param>
+        /// <param name="checkFlags"></param>
+        /// <returns></returns>
+        public static T[] ToFlags<T>(T value, params T[] checkFlags)
+        {
+            Expect.That(typeof(T).IsEnum, "Expect enum type");
+
+            var result = new List<T>();
+            var nValue = Convert.ToInt32(value);
+            foreach (var flag in checkFlags)
+            {
+                var flagValue = Convert.ToInt32(flag);
+                if ((nValue & flagValue) == flagValue)
+                    result.Add(flag);
+            }
+            return result.ToArray();
+        }
     }
 }
