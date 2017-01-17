@@ -41,6 +41,25 @@ namespace Shuhari.Framework.Web.Mvc
             return ResourceRegistry.GetUiString(key);
         }
 
+        /// <summary>
+        /// Convert to select item
+        /// </summary>
+        /// <typeparam name="TID"></typeparam>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public SelectListItem ToSelectItem<TID>(SelectItemDTO<TID> item)
+            where TID: struct
+        {
+            Expect.IsNotNull(item, nameof(item));
+
+            return new SelectListItem
+            {
+                Text = item.Name,
+                Value = item.Id.ToString(),
+                Selected = item.Selected
+            };
+        }
+
         /*/// <summary>
         /// Entity descriptor
         /// </summary>

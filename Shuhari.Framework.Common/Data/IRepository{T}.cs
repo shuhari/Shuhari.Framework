@@ -60,6 +60,13 @@ namespace Shuhari.Framework.Data
         int DeleteById(TID id);
 
         /// <summary>
+        /// List all entity
+        /// </summary>
+        /// <param name="orderField"></param>
+        /// <returns></returns>
+        TEntity[] ListAll(OrderCritia<TEntity> orderField = null);
+
+        /// <summary>
         /// Create order critia
         /// </summary>
         /// <param name="selector"></param>

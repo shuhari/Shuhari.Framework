@@ -51,5 +51,16 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
         {
             Assert.AreEqual("OK", _page.ResString("Ok"));
         }
+
+        [Test]
+        public void ToSelectItem()
+        {
+            var dto = new SelectItemDTO<int>(12, "n", true);
+            var item = _page.ToSelectItem(dto);
+
+            Assert.AreEqual("12", item.Value);
+            Assert.AreEqual("n", item.Text);
+            Assert.IsTrue(item.Selected);
+        }
     }
 }

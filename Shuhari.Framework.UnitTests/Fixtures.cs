@@ -1,5 +1,7 @@
 ﻿using Shuhari.Framework.Data;
+using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.DomainModel;
+using Shuhari.Framework.UnitTests.Data;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.UnitTests
@@ -17,7 +19,9 @@ namespace Shuhari.Framework.UnitTests
             {
                 var engine = DbRegistry.GetEngine(DatabaseType.SqlServer);
                 string connStr = @"Data Source=.;Initial Catalog=tempdb; Integrated Security=SSPI;";
-                return engine.CreateSessionFactory(connStr);
+                var sessionFactory = engine.CreateSessionFactory(connStr);
+                sessionFactory.MapEntitiesWithAnnonations(typeof(NotNullEntity).Assembly);
+                return sessionFactory;
             }
         }
     }

@@ -14,6 +14,11 @@ namespace Shuhari.Framework.Data
         ISession Session { get; }
 
         /// <summary>
+        /// Sql command
+        /// </summary>
+        string Sql { get; }
+
+        /// <summary>
         /// Set query parameter. Parameter type are guessed from value type, 
         /// so <strong>value could not be null</strong>.
         /// </summary>

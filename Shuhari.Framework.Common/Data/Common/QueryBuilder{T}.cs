@@ -212,5 +212,25 @@ namespace Shuhari.Framework.Data.Common
         /// <inheritdoc />
         public abstract Tuple<IQuery<T>, IQuery<T>> CreatePagedQueryTuple(ISession session,
             string baseSql, OrderCritia<T> orderField, QueryDTO qdata);
+
+        /// <inheritdoc />
+        public IQuery<T> ListAll(ISession session, OrderCritia<T> orderField)
+        {
+            var fieldNames = string.Join(", ", Mapper.FieldMappers.Select(x => x.FieldName));
+            string sql = string.Format("select {0} from {1}",
+                string.Join(", ", fieldNames),
+                Mapper.TableName);
+            if (orderField != null)
+            {
+                var orderProp = ExpressionBuilder.GetProperty(orderField.Selector);
+                var field = Mapper.FieldMappers.FirstOrDefault(x => x.PropertyName == orderProp.Name);
+                Expect.IsNotNull(field, nameof(field));
+                sql += string.Format(" order by {0} {1}",
+                    field.FieldName,
+                    orderField.Ascending ? "asc" : "desc");
+            }
+            var query = session.CreateQuery<T>(sql);
+            return query;
+        }
     }
 }

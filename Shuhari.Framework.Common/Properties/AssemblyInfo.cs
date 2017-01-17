@@ -11,8 +11,8 @@ using Shuhari.Framework;
 [assembly: InternalsVisibleTo("Shuhari.Framework.UnitTests")]
 [assembly: InternalsVisibleTo("Shuhari.Framework.IntegrationTests")]
 
-[assembly: XmlnsDefinition(AssemblyInfo.XAML_NAMESPACE, "Shuhari.Framework.DomainModel")]
-[assembly: XmlnsPrefix(AssemblyInfo.XAML_NAMESPACE, AssemblyInfo.XAML_PREFIX)]
+[assembly: XmlnsDefinition(FrameworkAssemblyInfo.XAML_NAMESPACE, "Shuhari.Framework.DomainModel")]
+[assembly: XmlnsPrefix(FrameworkAssemblyInfo.XAML_NAMESPACE, FrameworkAssemblyInfo.XAML_PREFIX)]
 
 
 namespace Shuhari.Framework
@@ -20,7 +20,7 @@ namespace Shuhari.Framework
     /// <summary>
     /// Global constants
     /// </summary>
-    public static class AssemblyInfo
+    public static class FrameworkAssemblyInfo
     {
         /// <summary>
         /// Xaml namespace

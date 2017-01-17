@@ -19,14 +19,12 @@ namespace Shuhari.Framework.Data.Common
             Expect.IsNotNull(session, nameof(session));
             Expect.IsNotBlank(sql, nameof(sql));
 
+            this.Sql = sql;
             _session = session;
-            _sql = sql;
             _parameters = new Dictionary<string, DbParameter>();
         }
 
         protected readonly Session _session;
-
-        protected string _sql;
 
         protected Dictionary<string, DbParameter> _parameters;
 
@@ -35,6 +33,9 @@ namespace Shuhari.Framework.Data.Common
         {
             get { return _session; }
         }
+
+        /// <inheritdoc />
+        public string Sql { get; private set; }
 
         /// <inheritdoc />
         public void Set(string paramName, object value)
@@ -66,7 +67,7 @@ namespace Shuhari.Framework.Data.Common
         private IDbCommand CreateCommand()
         {
             var cmd = _session.CreateCommand();
-            cmd.CommandText = _sql;
+            cmd.CommandText = Sql;
             cmd.CommandType = CommandType.Text;
 
             foreach (var param in _parameters.Values)

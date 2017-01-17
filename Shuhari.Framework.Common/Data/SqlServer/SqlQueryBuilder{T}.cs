@@ -24,7 +24,7 @@ namespace Shuhari.Framework.Data.SqlServer
         public override Tuple<IQuery<T>, IQuery<T>> CreatePagedQueryTuple(ISession session, 
             string baseSql, OrderCritia<T> orderField, QueryDTO qdata)
         {
-            var re = new Regex(@"(select\s+)+(.+)(\s+from .+)", RegexOptions.IgnoreCase);
+            var re = new Regex(@"(select\s+)(.+)(\s+from[\s\S]+)", RegexOptions.IgnoreCase);
             var match = re.Match(baseSql);
             if (!match.Success)
                 throw new ArgumentException("Unsupport sql: " + baseSql);

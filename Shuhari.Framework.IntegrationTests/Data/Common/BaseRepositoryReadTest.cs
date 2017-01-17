@@ -52,5 +52,21 @@ namespace Shuhari.Framework.IntegrationTests.Data.Common
             Assert.AreEqual(1, result.Total);
             Assert.AreEqual(1, result.Data.Length);
         }
+
+        [Test]
+        public void ListAll_NoOrder()
+        {
+            var result = _repository.ListAll();
+
+            Assert.AreEqual(1, result.Length);
+        }
+
+        [Test]
+        public void ListAll_WithOrder()
+        {
+            var result = _repository.ListAll(_repository.OrderBy(x => x.Id));
+
+            Assert.AreEqual(1, result.Length);
+        }
     }
 }

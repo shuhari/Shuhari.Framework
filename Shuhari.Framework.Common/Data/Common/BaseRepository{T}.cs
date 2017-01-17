@@ -112,5 +112,12 @@ namespace Shuhari.Framework.Data.Common
             result.Data = queryPair.Item2.GetAll();
             return result;
         }
+
+        /// <inheritdoc />
+        public TEntity[] ListAll(OrderCritia<TEntity> orderField = null)
+        {
+            return GetQueryBuilder().ListAll(Session, orderField)
+                .GetAll();
+        }
     }
 }

@@ -8,3 +8,7 @@ DONE:
 * REMOVED: NamedQueryDTO
 * FIXED: ExecuteResourceScript return full path
 * NEW: Add ScriptBook
+* FIXED: CreatePagedQueryTuple support crlf
+* FIXED: AssemblyInfo renamed to FrameworkAssemblyInfo
+* NEW: ViewPage add ToSelectItem
+* NEW: IRepository<T>.ListAll
