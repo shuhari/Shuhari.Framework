@@ -12,3 +12,6 @@ DONE:
 * FIXED: DateTimeValueSerializer renamed to DefaultDateTimeValueSerializer
 * NEW: Exception.LogToFile
 * FIXED: GZip.ComparessFiles renamed to CompressFiles
+* NEW: Add ValidationResultDTO
+* NEW: FrameworkController.TempMessage
+* NEW: FrameworkController.ExecuteAjax

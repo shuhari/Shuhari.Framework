@@ -125,6 +125,7 @@
     <Compile Include="DomainModel\SigninModelTest.cs" />
     <Compile Include="DomainModel\SitemapTest.cs" />
     <Compile Include="DomainModel\UserInfoTest.cs" />
+    <Compile Include="DomainModel\ValidationResultDTOTest.cs" />
     <Compile Include="Fixtures.cs" />
     <Compile Include="Globalization\FrameworkStringsTest.cs" />
     <Compile Include="Globalization\JsonResourceProviderTest.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Utils\XmlUtilTest.cs" />
     <Compile Include="Web\MockHttpContextTest.cs" />
     <Compile Include="Web\Mvc\Filters\PermissionAttributeTest.cs" />
+    <Compile Include="Web\Mvc\FrameworkControllerTest.cs" />
     <Compile Include="Web\Mvc\FrameworkModelMetadataProviderTest.cs" />
     <Compile Include="Web\Mvc\NinjectDependencyResolverTest.cs" />
     <Compile Include="Web\Mvc\RedirectDataTest.cs" />

@@ -1,8 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using Shuhari.Framework.Web.Mvc;
 
 namespace Shuhari.Framework.UnitTests.Web.Mvc
 {
-    public class TestController : Controller
+    public class TestController : FrameworkController
     {
     }
 }

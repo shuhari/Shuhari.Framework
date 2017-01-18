@@ -42,6 +42,11 @@ References:
 
 Release History:
 
+**v0.1.0.9 (2017-01-18)**
+* NEW: Add ValidationResultDTO
+* NEW: FrameworkController.TempMessage
+* NEW: FrameworkController.ExecuteAjax
+
 **v0.1.0.8 (2017-01-18)**
 * FIXED: GZip.ComparessFiles renamed to CompressFiles
 * Add some commonly-used resource strings
