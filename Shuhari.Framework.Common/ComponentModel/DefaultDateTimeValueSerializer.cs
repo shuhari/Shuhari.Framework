@@ -7,7 +7,7 @@ namespace Shuhari.Framework.ComponentModel
     /// <summary>
     /// Used in xaml serialization to standarlize date time format
     /// </summary>
-    public class DateTimeValueSerializer : ValueSerializer
+    public class DefaultDateTimeValueSerializer : ValueSerializer
     {
         /// <summary>
         /// Datetime format

@@ -94,7 +94,7 @@ namespace Shuhari.Framework.DomainModel
             var pager = new Pager();
             pager.Total = Total;
             pager.StartIndex = Page * PerPage;
-            pager.EndIndex = Math.Max(0, Math.Min((Page + 1) * PerPage, Total - 1));
+            pager.EndIndex = Math.Max(0, Math.Min((Page + 1) * PerPage - 1, Total - 1));
 
             if (Total > 0)
             {

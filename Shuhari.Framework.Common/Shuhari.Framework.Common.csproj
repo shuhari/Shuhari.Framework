@@ -59,7 +59,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComponentModel\DateTimeValueSerializer.cs" />
+    <Compile Include="ComponentModel\DefaultDateTimeValueSerializer.cs" />
     <Compile Include="ComponentModel\GenericTypeConverter.cs" />
     <Compile Include="Data\Common\BaseDbContext.cs" />
     <Compile Include="Data\Common\BaseRepository.cs" />

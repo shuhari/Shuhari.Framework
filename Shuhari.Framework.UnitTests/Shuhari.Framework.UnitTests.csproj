@@ -95,7 +95,7 @@
     <Compile Include="..\Shuhari.Framework.Common\Properties\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ComponentModel\DateTimeValueSerializerTest.cs" />
+    <Compile Include="ComponentModel\DefaultDateTimeValueSerializerTest.cs" />
     <Compile Include="ComponentModel\GenericTypeConverterTest.cs" />
     <Compile Include="Data\Common\BaseDbContextTest.cs" />
     <Compile Include="Data\Common\DbEngineTest.cs" />

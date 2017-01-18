@@ -87,7 +87,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         {
             var result = CalculatePager(51, 1);
 
-            AssertPager(result, 51, 20, 40, 3);
+            AssertPager(result, 51, 20, 39, 3);
             var items = result.Items.ToArray();
             AssertPagerItem(items[0], 0, "<<", true);
             AssertPagerItem(items[1], 1, "2", false);
@@ -99,7 +99,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         {
             var result = CalculatePager(1995, 24);
 
-            AssertPager(result, 1995, 480, 500, 13);
+            AssertPager(result, 1995, 480, 499, 13);
             var items = result.Items.ToArray();
             AssertPagerItem(items[0], 0, "<<", true);
             AssertPagerItem(items[1], 1, "2", true);

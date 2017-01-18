@@ -4,7 +4,6 @@
     /// Select list item
     /// </summary>
     public class SelectItemDTO<TID>
-        where TID : struct
     {
         /// <summary>
         /// Initialize

@@ -5,15 +5,15 @@ using Shuhari.Framework.ComponentModel;
 namespace Shuhari.Framework.UnitTests.ComponentModel
 {
     [TestFixture]
-    public class DateTimeValueSerializerTest
+    public class DefaultDateTimeValueSerializerTest
     {
         [SetUp]
         public void SetUp()
         {
-            _serializer = new DateTimeValueSerializer();
+            _serializer = new DefaultDateTimeValueSerializer();
         }
 
-        private DateTimeValueSerializer _serializer;
+        private DefaultDateTimeValueSerializer _serializer;
         private const string DATE_STER = "2016-12-31 01:02:03";
         private DateTime _dateValue = new DateTime(2016, 12, 31, 1, 2, 3);
 
