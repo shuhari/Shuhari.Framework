@@ -11,3 +11,4 @@ DONE:
 * FIXED: PagedCollection.CalcPager, endIndex should -1
 * FIXED: DateTimeValueSerializer renamed to DefaultDateTimeValueSerializer
 * NEW: Exception.LogToFile
+* FIXED: GZip.ComparessFiles renamed to CompressFiles

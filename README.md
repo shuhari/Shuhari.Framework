@@ -42,17 +42,12 @@ References:
 
 Release History:
 
-**v0.1.0.3 (2017-01-16**
+**v0.1.0.8 (2017-01-18)**
+* FIXED: GZip.ComparessFiles renamed to CompressFiles
+* Add some commonly-used resource strings
+
+**v0.1.0.3 (2017-01-16)**
 Fix NamedQueryDTO.SetQuery as derived
 Add IQuery<T>.Set(x => x)
 Add EnumUtil.FromFlags / ToFlags
-
-**v0.1.0.2 (2017-01-16**
-Add FrameworkDbContext
-
-**v0.1.0.1 (2017-01-16**
-Add FrameworkController
-
-**v0.1.0.0 (2017-01-16**
-Add initial project
 

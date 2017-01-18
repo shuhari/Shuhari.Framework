@@ -17,7 +17,7 @@ namespace Shuhari.Framework.IO.Compression
         /// <param name="fileName"></param>
         /// <param name="files"></param>
         /// <returns></returns>
-        public static FileItem ComparessFiles(string fileName, IEnumerable<FileItem> files)
+        public static FileItem CompressFiles(string fileName, IEnumerable<FileItem> files)
         {
             Expect.IsNotBlank(fileName, nameof(fileName));
             Expect.IsNotNull(files, nameof(files));

@@ -31,6 +31,10 @@
     "en": "Sign out",
     "zh-CN": "删除"
   },
+  "Display": {
+    "en": "Display",
+    "zh-CN": "显示"
+  },
   "Submit": {
     "en": "Submit",
     "zh-CN": "提交"
@@ -106,7 +110,11 @@
   },
   "Disabled": {
     "en": "Disabled",
-    "zh-CN": "是否禁用"
+    "zh-CN": "禁用"
+  },
+  "Deletable": {
+    "en": "Deletable",
+    "zh-CN": "可删除"
   },
   "CreateBy": {
     "en": "Create By",
@@ -149,13 +157,38 @@
     "zh-CN": "确认密码"
   },
   "SigninModel.UserName": {
-    "en": "Sign out",
-    "zh-CN": "注销"
+    "en": "User name",
+    "zh-CN": "用户名"
   },
   "SigninModel.RememberMe": {
     "en": "Remember Me",
     "zh-CN": "记住登录用户"
   },
+  "User": {
+    "en": "User",
+    "zh-CN": "用户"
+  },
+  "Role": {
+    "en": "Role",
+    "zh-CN": "角色"
+  },
+  "Permission": {
+    "en": "Permission",
+    "zh-CN": "权限"
+  },
+  "Log": {
+    "en": "Log",
+    "zh-CN": "日志"
+  },
+  "Administration": {
+    "en": "Administration",
+    "zh-CN": "系统管理"
+  },
+  "Type": {
+    "en": "Type",
+    "zh-CN": "类型"
+  },
+
   "Expect.NotNull": {
     "en": "Parameter {0} should not be null."
   },
