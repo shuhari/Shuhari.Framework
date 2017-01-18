@@ -1,4 +1,6 @@
 TODO:
+* ViewPage.TempMessage
+* ResString: Homepage
 
 DONE:
 * FIXED: ExecuteResourceScript return full path
