@@ -1,4 +1,7 @@
 TODO:
+* CritiaList (AddIf, ToString)
+* Pager result set Disabled and Active
+* Pager always set text to number
 
 DONE:
 * FIXED: DateTimeValueSerializer renamed to DefaultDateTimeValueSerializer
