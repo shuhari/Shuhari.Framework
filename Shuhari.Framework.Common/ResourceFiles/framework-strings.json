@@ -188,6 +188,10 @@
     "en": "Type",
     "zh-CN": "类型"
   },
+  "Homepage": {
+    "en": "Homepage",
+    "zh-CN": "主页"
+  },
 
   "Expect.NotNull": {
     "en": "Parameter {0} should not be null."

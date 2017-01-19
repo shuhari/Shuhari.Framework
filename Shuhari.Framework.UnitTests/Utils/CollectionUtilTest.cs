@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using NUnit.Framework;
+using Shuhari.Framework.DomainModel;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.UnitTests.Utils
@@ -7,7 +8,7 @@ namespace Shuhari.Framework.UnitTests.Utils
     [TestFixture]
     public class CollectionUtilTest
     {
-        public class TestItem
+        public class TestItem : INamed
         {
             public TestItem(int id, string name)
             {
@@ -54,6 +55,24 @@ namespace Shuhari.Framework.UnitTests.Utils
         {
             var item = TestCollection.FindBy(x => x.Name, name, ignoreCase);
             Assert.AreEqual(found, item != null);
+        }
+
+        [Test]
+        public void FindByName_Exist_ShouldFound()
+        {
+            Assert.AreEqual("item1", TestCollection.FindByName("item1").Name);
+        }
+
+        [Test]
+        public void FindByName_NotExist_ShouldReturnNull()
+        {
+            Assert.IsNull(TestCollection.FindByName("item3"));
+        }
+
+        [Test]
+        public void FindByName_IgnoreCase_ShouldFoundMatched()
+        {
+            Assert.AreEqual("item1", TestCollection.FindByName("ITEM1", true).Name);
         }
     }
 }

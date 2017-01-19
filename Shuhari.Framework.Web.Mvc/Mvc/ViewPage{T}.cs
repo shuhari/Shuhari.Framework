@@ -60,6 +60,22 @@ namespace Shuhari.Framework.Web.Mvc
             };
         }
 
+        /// <summary>
+        /// Temp message
+        /// </summary>
+        protected internal string TempMessage
+        {
+            get
+            {
+                return TempData.ContainsKey(MvcConstants.KEY_TEMP_MSG) ?
+                    (string)TempData[MvcConstants.KEY_TEMP_MSG] : null;
+            }
+            set
+            {
+                TempData[MvcConstants.KEY_TEMP_MSG] = value;
+            }
+        }
+
         /*/// <summary>
         /// Entity descriptor
         /// </summary>

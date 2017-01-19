@@ -42,6 +42,12 @@ References:
 
 Release History:
 
+**v0.1.0.10 (2017-01-19)**
+* NEW: ResString Homepage
+* NEW: ViewPage.TempMessage
+* NEW: Add INamed
+* NEW: Add CollectionUtil.FindByName
+
 **v0.1.0.9 (2017-01-18)**
 * NEW: Add ValidationResultDTO
 * NEW: FrameworkController.TempMessage

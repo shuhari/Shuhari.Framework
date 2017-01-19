@@ -62,5 +62,17 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
             Assert.AreEqual("n", item.Text);
             Assert.IsTrue(item.Selected);
         }
+
+        [Test]
+        public void TempMessage()
+        {
+            const string MSG = "test msg";
+            var setup = new UserManagerSetup();
+            var mockView = new Mock<IView>();
+            _page.ViewContext = setup.HttpContext.CreateViewContext(new TestController(), mockView.Object);
+
+            _page.TempMessage = MSG;
+            Assert.AreEqual(MSG, _page.TempMessage);
+        }
     }
 }

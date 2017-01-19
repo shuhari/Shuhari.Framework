@@ -24,8 +24,6 @@ namespace Shuhari.Framework.Web.Mvc
             return new CustomJsonResult(data, behavior);
         }
 
-        private const string KEY_TEMP_MSG = "__message";
-
         /// <summary>
         /// Temp message
         /// </summary>
@@ -33,13 +31,15 @@ namespace Shuhari.Framework.Web.Mvc
         {
             get
             {
-                return TempData.ContainsKey(KEY_TEMP_MSG) ? (string)TempData[KEY_TEMP_MSG] : null;
+                return TempData.ContainsKey(MvcConstants.KEY_TEMP_MSG) ? 
+                    (string)TempData[MvcConstants.KEY_TEMP_MSG] : null;
             }
             set
             {
-                TempData[KEY_TEMP_MSG] = value;
+                TempData[MvcConstants.KEY_TEMP_MSG] = value;
             }
         }
+
         /// <summary>
         /// Get current user
         /// </summary>

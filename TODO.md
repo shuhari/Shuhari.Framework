@@ -1,6 +1,4 @@
 TODO:
-* ViewPage.TempMessage
-* ResString: Homepage
 
 DONE:
 * FIXED: ExecuteResourceScript return full path
@@ -17,3 +15,7 @@ DONE:
 * NEW: Add ValidationResultDTO
 * NEW: FrameworkController.TempMessage
 * NEW: FrameworkController.ExecuteAjax
+* NEW: ResString Homepage
+* NEW: ViewPage.TempMessage
+* NEW: Add INamed
+* NEW: Add CollectionUtil.FindByName

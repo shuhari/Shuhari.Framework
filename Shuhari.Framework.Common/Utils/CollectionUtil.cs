@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Shuhari.Framework.DomainModel;
 
 namespace Shuhari.Framework.Utils
 {
@@ -39,6 +40,23 @@ namespace Shuhari.Framework.Utils
             Expect.IsNotNull(selector, nameof(selector));
 
             return collection.FirstOrDefault(x => object.Equals(selector(x), value));
+        }
+
+        /// <summary>
+        /// Find object by name, or return null if not found.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <param name="name">Name to find</param>
+        /// <param name="ignoreCase">Use case-ignored string comparasion if set</param>
+        /// <returns></returns>
+        public static T FindByName<T>(this IEnumerable<T> collection, string name, bool ignoreCase = false)
+            where T : INamed
+        {
+            Expect.IsNotNull(collection, nameof(collection));
+
+            StringComparison flags = ignoreCase ? StringComparison.CurrentCultureIgnoreCase : StringComparison.CurrentCulture;
+            return collection.FirstOrDefault(x => string.Equals(x.Name, name, flags));
         }
 
         /// <summary>

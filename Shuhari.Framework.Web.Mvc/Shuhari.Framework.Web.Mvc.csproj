@@ -91,6 +91,7 @@
     <Compile Include="Mvc\Filters\PermissionAttribute.cs" />
     <Compile Include="Mvc\FrameworkController.cs" />
     <Compile Include="Mvc\FrameworkModelMetadataProvider.cs" />
+    <Compile Include="Mvc\MvcConstants.cs" />
     <Compile Include="Mvc\NinjectDependencyResolver.cs" />
     <Compile Include="Mvc\RedirectData.cs" />
     <Compile Include="Mvc\ViewPage{T}.cs" />

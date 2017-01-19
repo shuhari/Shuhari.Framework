@@ -113,6 +113,7 @@
     <Compile Include="DomainModel\FileItem.cs" />
     <Compile Include="DomainModel\IEntity{TID}.cs" />
     <Compile Include="DomainModel\IExtensibleProperties.cs" />
+    <Compile Include="DomainModel\INamed.cs" />
     <Compile Include="DomainModel\IPagination.cs" />
     <Compile Include="DomainModel\ISitemapResolver.cs" />
     <Compile Include="DomainModel\PagedCollection{T}.cs" />
