@@ -162,6 +162,7 @@
     <Compile Include="Utils\ExceptionUtil.cs" />
     <Compile Include="Utils\Expect.cs" />
     <Compile Include="Utils\ExpectionException.cs" />
+    <Compile Include="Utils\MemberUtil.cs" />
     <Compile Include="Utils\NullableUtil.cs" />
     <Compile Include="Utils\ObservableCollectionUtil.cs" />
     <Compile Include="Utils\StreamUtil.cs" />

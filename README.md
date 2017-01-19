@@ -42,6 +42,12 @@ References:
 
 Release History:
 
+**v0.1.0.11 (2017-01-19)**
+* FIX: ExecuteAndRedirect set TempMessage
+* NEW: ExecuteAndRedirect successMessage can be null
+* NEW: ExecuteAndRedirect redirect param set to url
+* NEW: MemberUtil
+
 **v0.1.0.10 (2017-01-19)**
 * NEW: ResString Homepage
 * NEW: ViewPage.TempMessage

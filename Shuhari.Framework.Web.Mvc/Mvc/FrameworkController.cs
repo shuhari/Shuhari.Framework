@@ -64,6 +64,7 @@ namespace Shuhari.Framework.Web.Mvc
         /// <param name="model"></param>
         /// <param name="redirect"></param>
         /// <param name="successMessage"></param>
+        [Obsolete("User ExecuteAndRedirect() with string redirect instead")]
         protected internal ActionResult ExecuteAndRedirect<T>(T model, Action<T> action, 
             string successMessage, RedirectData redirect, 
             ActionExecutionFlags flags = ActionExecutionFlags.Default)
@@ -83,8 +84,55 @@ namespace Shuhari.Framework.Web.Mvc
             {
                 action(model);
                 // successMessage = successMessage ?? GetSuccessMessage(model);
-                TempData["message"] = successMessage;
+                TempMessage = successMessage;
                 return RedirectToAction(redirect.ActionName, redirect.ControllerName, redirect.RouteValues);
+            }
+            catch (Exception exp)
+            {
+                HandleActionException(exp);
+                ModelState.Clear();
+                ModelState.AddModelError("", exp.Message);
+                return View(model);
+            }
+        }
+
+        /// <summary>
+        /// Execute following steps in sequence:
+        /// <ol>
+        ///   <li>Check for ModelState, and return to origin view if any error exists;</li>
+        ///   <li>Execute method specified by <paramref name="action"/></li>
+        ///   <li>If action success, then set TempData.message to <paramref name="successMessage"/> 
+        ///       and return <paramref name="redirectUrl"/>;</li>
+        ///   <li>If action execute failed, then call <see cref="HandleErrorAttribute"/> and return origin view;</li>
+        /// </ol>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        /// <param name="flags"></param>
+        /// <param name="model"></param>
+        /// <param name="redirectUrl"></param>
+        /// <param name="successMessage"></param>
+        protected internal ActionResult ExecuteAndRedirect<T>(T model, Action<T> action,
+            string redirectUrl, string successMessage,
+            ActionExecutionFlags flags = ActionExecutionFlags.Default)
+        {
+            Expect.IsNotNull(model, nameof(model));
+            Expect.IsNotNull(action, nameof(action));
+            Expect.IsNotBlank(redirectUrl, nameof(redirectUrl));
+
+            if (!flags.HasFlag(ActionExecutionFlags.NoCheckModelState))
+            {
+                if (!ModelState.IsValid)
+                    return View(model);
+            }
+
+            try
+            {
+                action(model);
+                // successMessage = successMessage ?? GetSuccessMessage(model);
+                if (successMessage.IsNotBlank())
+                    TempMessage = successMessage;
+                return Redirect(redirectUrl);
             }
             catch (Exception exp)
             {

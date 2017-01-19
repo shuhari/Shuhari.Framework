@@ -156,6 +156,7 @@
     <Compile Include="Utils\EnumUtilTest.cs" />
     <Compile Include="Utils\ExceptionUtilTest.cs" />
     <Compile Include="Utils\ExpectTest.cs" />
+    <Compile Include="Utils\MemberUtilTest.cs" />
     <Compile Include="Utils\NullableUtilTest.cs" />
     <Compile Include="Utils\ObservableCollectionUtilTest.cs" />
     <Compile Include="Utils\StreamUtilTest.cs" />
