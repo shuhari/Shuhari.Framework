@@ -93,7 +93,6 @@
     <Compile Include="Mvc\FrameworkModelMetadataProvider.cs" />
     <Compile Include="Mvc\MvcConstants.cs" />
     <Compile Include="Mvc\NinjectDependencyResolver.cs" />
-    <Compile Include="Mvc\RedirectData.cs" />
     <Compile Include="Mvc\ViewPage{T}.cs" />
     <Compile Include="Mvc\WebSitemapResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

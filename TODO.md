@@ -1,5 +1,4 @@
 TODO:
-* CritiaList (AddIf, ToString)
 * Pager result set Disabled and Active
 * Pager always set text to number
 
@@ -18,4 +17,5 @@ DONE:
 * NEW: ExecuteAndRedirect successMessage can be null
 * NEW: ExecuteAndRedirect redirect param set to url
 * NEW: MemberUtil
-
+* NEW: CritiaList
+* REMOVED: RedirectData and FrameworkController.ExecuteAndRedirect(RedirectData)

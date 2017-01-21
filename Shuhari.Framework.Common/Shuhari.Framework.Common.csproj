@@ -73,6 +73,7 @@
     <Compile Include="Data\Common\SessionFactory.cs" />
     <Compile Include="Data\Common\SessionManager.cs" />
     <Compile Include="Data\Common\SessionTransactionWrapper.cs" />
+    <Compile Include="Data\CritiaList.cs" />
     <Compile Include="Data\DatabaseType.cs" />
     <Compile Include="Data\DbManagementCommandOptions.cs" />
     <Compile Include="Data\DbRegistry.cs" />

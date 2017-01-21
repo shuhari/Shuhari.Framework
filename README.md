@@ -42,6 +42,10 @@ References:
 
 Release History:
 
+**v0.1.0.12 (2017-01-21)**
+* NEW: CritiaList
+* REMOVED: RedirectData and FrameworkController.ExecuteAndRedirect(RedirectData)
+
 **v0.1.0.11 (2017-01-19)**
 * FIX: ExecuteAndRedirect set TempMessage
 * NEW: ExecuteAndRedirect successMessage can be null
@@ -63,8 +67,4 @@ Release History:
 * FIXED: GZip.ComparessFiles renamed to CompressFiles
 * Add some commonly-used resource strings
 
-**v0.1.0.3 (2017-01-16)**
-Fix NamedQueryDTO.SetQuery as derived
-Add IQuery<T>.Set(x => x)
-Add EnumUtil.FromFlags / ToFlags
 

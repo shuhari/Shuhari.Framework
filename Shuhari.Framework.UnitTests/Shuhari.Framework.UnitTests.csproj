@@ -100,6 +100,7 @@
     <Compile Include="Data\Common\BaseDbContextTest.cs" />
     <Compile Include="Data\Common\DbEngineTest.cs" />
     <Compile Include="Data\Common\SessionFactoryTest.cs" />
+    <Compile Include="Data\CritiaListTest.cs" />
     <Compile Include="Data\DbManagementCommandOptionsTest.cs" />
     <Compile Include="Data\DbRegistryTest.cs" />
     <Compile Include="Data\DbTestBaseTest.cs" />
@@ -168,7 +169,6 @@
     <Compile Include="Web\Mvc\FrameworkControllerTest.cs" />
     <Compile Include="Web\Mvc\FrameworkModelMetadataProviderTest.cs" />
     <Compile Include="Web\Mvc\NinjectDependencyResolverTest.cs" />
-    <Compile Include="Web\Mvc\RedirectDataTest.cs" />
     <Compile Include="Web\Mvc\TestController.cs" />
     <Compile Include="Web\Mvc\ViewPageTest.cs" />
     <Compile Include="Web\Security\TestUserManager.cs" />
