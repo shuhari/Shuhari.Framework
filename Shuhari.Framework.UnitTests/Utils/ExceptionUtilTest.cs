@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using NUnit.Framework;
 using Shuhari.Framework.Utils;
 
@@ -32,6 +33,25 @@ namespace Shuhari.Framework.UnitTests.Utils
 
             StringAssert.Contains(outerMsg, trace);
             StringAssert.Contains(innerMsg, trace);
+        }
+
+        [Test]
+        public void LogToFile()
+        {
+            string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "exception.log");
+            File.Delete(logPath);
+            const string MSG = "test error";
+
+            try
+            {
+                throw new ApplicationException(MSG);
+            }
+            catch(Exception exp)
+            {
+                exp.LogToFile(logPath);
+            }
+
+            StringAssert.Contains(MSG, File.ReadAllText(logPath));
         }
     }
 }

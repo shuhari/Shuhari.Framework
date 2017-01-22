@@ -9,7 +9,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         [SetUp]
         public void SetUp()
         {
-            _sitemap = Fixtures.ResourceSitemap;
+            _sitemap = Fixtures.Sitemap;
         }
 
         private Sitemap _sitemap;
@@ -18,6 +18,15 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         public void FromResource_ShouldBeValid()
         {
             Assert.IsNotNull(_sitemap);
+        }
+
+        [Test]
+        public void FromFile_ShouldBeValid()
+        {
+            var filePath = Fixtures.SitemapResource.CopyToBaseDirectory();
+            var sitemap = Sitemap.FromFile(filePath);
+
+            Assert.IsNotNull(sitemap);
         }
     }
 }

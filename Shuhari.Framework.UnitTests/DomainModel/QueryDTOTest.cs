@@ -37,5 +37,11 @@ namespace Shuhari.Framework.UnitTests.DomainModel
             mockQuery.Verify(m => m.SetParam(QueryDTO.PARAM_OFFSET, DbType.Int32, 40));
             mockQuery.Verify(m => m.SetParam(QueryDTO.PARAM_LIMIT, DbType.Int32, 20));
         }
+
+        [Test]
+        public void ToCritias()
+        {
+            Assert.IsNotNull(new QueryDTO().ToCritias());
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Shuhari.Framework.Data;
 using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.DomainModel;
+using Shuhari.Framework.Resources;
 using Shuhari.Framework.UnitTests.Data;
 using Shuhari.Framework.Utils;
 
@@ -8,9 +9,14 @@ namespace Shuhari.Framework.UnitTests
 {
     internal static class Fixtures
     {
-        internal static Sitemap ResourceSitemap
+        internal static AssemblyResource SitemapResource
         {
-            get { return Sitemap.FromResource(typeof(Fixtures).Assembly.GetResource("ResourceFiles/sitemap.xaml")); }
+            get { return typeof(Fixtures).Assembly.GetResource("ResourceFiles/sitemap.xaml"); }
+        }
+
+        internal static Sitemap Sitemap
+        {
+            get { return Sitemap.FromResource(SitemapResource); }
         }
 
         internal static ISessionFactory SqlSessionFactory

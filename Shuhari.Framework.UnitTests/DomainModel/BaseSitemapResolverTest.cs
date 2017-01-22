@@ -16,7 +16,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
             _mockResolver = new Mock<BaseSitemapResolver>(_user);
             _mockResolver.Setup(m => m.ResolveUrl(It.IsAny<string>()))
                 .Returns<string>(x => x.Replace("~", "@"));
-            _sitemap = Fixtures.ResourceSitemap;
+            _sitemap = Fixtures.Sitemap;
             _mockResolver.Object.Resolve(_sitemap);
         }
 

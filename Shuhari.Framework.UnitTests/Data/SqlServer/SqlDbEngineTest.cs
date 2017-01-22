@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.IO;
 using NUnit.Framework;
 using Shuhari.Framework.Data.SqlServer;
 using Shuhari.Framework.Utils;
@@ -109,6 +110,20 @@ namespace Shuhari.Framework.UnitTests.Data.SqlServer
             Assert.AreEqual(name, sqlParam.ParameterName);
             Assert.AreEqual(sqlType, sqlParam.SqlDbType);
             Assert.AreEqual(value, sqlParam.Value);
+        }
+
+        [TestCase(typeof(FileInfo))]
+        public void GetDbTypeName_NotSupported_ShouldThrow(Type clrType)
+        {
+            Assert.Throws<NotSupportedException>(() => _engine.GetDbTypeName(clrType));
+        }
+
+        [TestCase(typeof(int), "int")]
+        [TestCase(typeof(long), "bigint")]
+        [TestCase(typeof(Guid), "uniqueidentifier")]
+        public void GetDbTypeName_Supported(Type clrType, string typeName)
+        {
+            Assert.AreEqual(typeName, _engine.GetDbTypeName(clrType));
         }
     }
 }
