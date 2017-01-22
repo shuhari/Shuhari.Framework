@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Shuhari.Framework.Data.Common;
+using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.DomainModel;
 using Shuhari.Framework.Linq;
 using Shuhari.Framework.Utils;
@@ -15,8 +16,8 @@ namespace Shuhari.Framework.Data.SqlServer
     internal class SqlQueryBuilder<T> : QueryBuilder<T>
         where T : class, new()
     {
-        public SqlQueryBuilder(IDbEngine engine) 
-            : base(engine)
+        public SqlQueryBuilder(IDbEngine engine, IEntityMapper<T> mapper) 
+            : base(engine, mapper)
         {
         }
 

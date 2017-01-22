@@ -22,18 +22,21 @@ namespace Shuhari.Framework.Data.Common
         /// Initialize
         /// </summary>
         /// <param name="engine"></param>
-        public QueryBuilder(IDbEngine engine)
+        /// <param name="mapper"></param>
+        public QueryBuilder(IDbEngine engine, IEntityMapper<T> mapper)
         {
             Expect.IsNotNull(engine, nameof(engine));
+            Expect.IsNotNull(mapper, nameof(mapper));
 
             this.Engine = engine;
+            this.Mapper = mapper;
         }
 
         /// <inheritdoc />
         public IDbEngine Engine { get; private set; }
 
         /// <inheritdoc />
-        public IEntityMapper<T> Mapper { get; set; }
+        public IEntityMapper<T> Mapper { get; private set; }
 
         /// <inheritdoc />
         public OrderCritia<T> OrderBy(Expression<Func<T, object>> selector,
@@ -48,7 +51,6 @@ namespace Shuhari.Framework.Data.Common
         public IQuery<T> GetById(ISession session, object id)
         {
             Expect.IsNotNull(session, nameof(session));
-            Expect.IsNotNull(Mapper, nameof(Mapper));
             Expect.IsNotNull(id, nameof(id));
 
             var pk = Mapper.GetPrimaryKey();
@@ -68,7 +70,6 @@ namespace Shuhari.Framework.Data.Common
         public IQuery<T> QueryAll(ISession session, OrderCritia<T> orderBy)
         {
             Expect.IsNotNull(session, nameof(session));
-            Expect.IsNotNull(Mapper, nameof(Mapper));
 
             var fieldNames = string.Join(", ", Mapper.FieldMappers.Select(x => x.FieldName));
             var sql = string.Format("select {0} from {1}", fieldNames, Mapper.TableName);
@@ -85,7 +86,6 @@ namespace Shuhari.Framework.Data.Common
         private string AppendOrder(string baseSql, OrderCritia<T> orderBy)
         {
             Expect.IsNotBlank(baseSql, nameof(baseSql));
-            Expect.IsNotNull(Mapper, nameof(Mapper));
 
             string result = baseSql;
             if (orderBy != null)
@@ -105,7 +105,6 @@ namespace Shuhari.Framework.Data.Common
         public IQuery<T> Count(ISession session)
         {
             Expect.IsNotNull(session, nameof(session));
-            Expect.IsNotNull(Mapper, nameof(Mapper));
 
             string sql = string.Format("select count(*) from {0}", Mapper.TableName);
             return session.CreateQuery<T>(sql, Mapper);
@@ -115,7 +114,6 @@ namespace Shuhari.Framework.Data.Common
         public IQuery<T> DeleteById(ISession session, object id)
         {
             Expect.IsNotNull(session, nameof(session));
-            Expect.IsNotNull(Mapper, nameof(Mapper));
             Expect.IsNotNull(id, nameof(id));
 
             var pk = Mapper.GetPrimaryKey();
@@ -130,7 +128,6 @@ namespace Shuhari.Framework.Data.Common
         public IQuery<T> Insert(ISession session, T entity)
         {
             Expect.IsNotNull(session, nameof(session));
-            Expect.IsNotNull(Mapper, nameof(Mapper));
             Expect.IsNotNull(entity, nameof(entity));
 
             var fields = Mapper.FieldMappers.Where(x => x.Insert).ToArray();
@@ -153,7 +150,6 @@ namespace Shuhari.Framework.Data.Common
         public IQuery<T> Update(ISession session, T entity)
         {
             Expect.IsNotNull(session, nameof(session));
-            Expect.IsNotNull(Mapper, nameof(Mapper));
             Expect.IsNotNull(entity, nameof(entity));
 
             var fields = Mapper.FieldMappers.Where(x => x.Update).ToArray();
@@ -164,7 +160,6 @@ namespace Shuhari.Framework.Data.Common
             IEnumerable<IFieldMapper<T>> updateFields)
         {
             Expect.IsNotNull(session, nameof(session));
-            Expect.IsNotNull(Mapper, nameof(Mapper));
             Expect.IsNotNull(entity, nameof(entity));
             Expect.IsNotNull(updateFields, nameof(updateFields));
 
@@ -187,7 +182,6 @@ namespace Shuhari.Framework.Data.Common
             params Expression<Func<T, object>>[] propSelectors)
         {
             Expect.IsNotNull(session, nameof(session));
-            Expect.IsNotNull(Mapper, nameof(Mapper));
             Expect.IsNotNull(entity, nameof(entity));
             Expect.IsNotNull(propSelectors, nameof(propSelectors));
 

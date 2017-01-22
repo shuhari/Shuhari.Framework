@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
+using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.Data.Utils;
 using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Resources;
@@ -146,7 +147,7 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        public abstract IQueryBuilder<T> CreateQueryBuilder<T>()
+        public abstract IQueryBuilder<T> CreateQueryBuilder<T>(IEntityMapper<T> mapper)
             where T : class, new();
     }
 }

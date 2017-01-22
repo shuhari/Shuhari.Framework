@@ -87,8 +87,7 @@ namespace Shuhari.Framework.Data.Common
             var mapper = GetMapper<T>();
             Expect.IsNotNull(mapper, nameof(mapper));
 
-            var queryBuilder = Engine.CreateQueryBuilder<T>();
-            queryBuilder.Mapper = mapper;
+            var queryBuilder = Engine.CreateQueryBuilder<T>(mapper);
             return queryBuilder;
         }
     }

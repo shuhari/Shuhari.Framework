@@ -20,7 +20,7 @@ namespace Shuhari.Framework.Data
         /// <summary>
         /// Entity mapper
         /// </summary>
-        IEntityMapper<T> Mapper { get; set; }
+        IEntityMapper<T> Mapper { get; }
 
         /// <summary>
         /// Create order critia

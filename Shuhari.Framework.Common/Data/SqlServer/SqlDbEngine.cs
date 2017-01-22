@@ -5,6 +5,7 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.IO;
 using Shuhari.Framework.Data.Common;
+using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Utils;
 
@@ -103,9 +104,10 @@ namespace Shuhari.Framework.Data.SqlServer
         }
 
         /// <inheritdoc />
-        public override IQueryBuilder<T> CreateQueryBuilder<T>()
+        public override IQueryBuilder<T> CreateQueryBuilder<T>(IEntityMapper<T> mapper)
         {
-            return new SqlQueryBuilder<T>(this);
+            Expect.IsNotNull(mapper, nameof(mapper));
+            return new SqlQueryBuilder<T>(this, mapper);
         }
     }
 }

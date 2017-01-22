@@ -5,6 +5,7 @@ using System.IO;
 using NUnit.Framework;
 using Shuhari.Framework.Data;
 using Shuhari.Framework.Data.Common;
+using Shuhari.Framework.Data.Mappings;
 
 namespace Shuhari.Framework.UnitTests.Data.Common
 {
@@ -18,7 +19,7 @@ namespace Shuhari.Framework.UnitTests.Data.Common
                 throw new NotImplementedException();
             }
 
-            public override IQueryBuilder<T> CreateQueryBuilder<T>()
+            public override IQueryBuilder<T> CreateQueryBuilder<T>(IEntityMapper<T> mapper)
             {
                 throw new NotImplementedException();
             }
