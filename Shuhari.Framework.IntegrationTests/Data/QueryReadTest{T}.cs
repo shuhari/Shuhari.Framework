@@ -4,9 +4,9 @@ using Shuhari.Framework.UnitTests.Data;
 namespace Shuhari.Framework.IntegrationTests.Data
 {
     [TestFixture]
-    public class QueryTReadTest : DbTestBase
+    public class QueryOfTReadTest : DbTestBase
     {
-        public QueryTReadTest() 
+        public QueryOfTReadTest() 
             : base(true)
         {
         }
@@ -24,10 +24,9 @@ namespace Shuhari.Framework.IntegrationTests.Data
         [Test]
         public void SetByExpression()
         {
-            var query = Session.CreateQuery<NotNullEntity>("select * from TNotNullEntity where FID=@FID");
-            query.Set(x => x.Id, 1);
-            var result = query.GetAll();
-
+            var result = Session.CreateQuery<NotNullEntity>("select * from TNotNullEntity where FID=@FID")
+                .Set(x => x.Id, 1)
+                .GetAll();
             CollectionAssert.IsNotEmpty(result);
         }
     }

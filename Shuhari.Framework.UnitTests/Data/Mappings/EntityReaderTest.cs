@@ -31,10 +31,7 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
             };
             SetEntity(null, columnNames, data);
 
-            Assert.AreEqual(data[0][0], _entity.Id);
-            Assert.AreEqual(data[0][1], _entity.IntProp);
-            Assert.AreEqual(data[0][2], _entity.ShortProp);
-            Assert.AreEqual(data[0][2], _entity.LongProp);
+            AssertEntityProperties(data[0]);
         }
 
         [Test]
@@ -49,11 +46,17 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
             };
             SetEntity(new[] { additionColumn }, columnNames, data);
 
-            Assert.AreEqual(data[0][0], _entity.Id);
-            Assert.AreEqual(data[0][1], _entity.IntProp);
-            Assert.AreEqual(data[0][2], _entity.ShortProp);
-            Assert.AreEqual(data[0][2], _entity.LongProp);
-            Assert.AreEqual(data[0][13], _entity["FOtherProp"]);
+            AssertEntityProperties(data[0]);
+        }
+
+        private void AssertEntityProperties(object[] row)
+        {
+            Assert.AreEqual(row[0], _entity.Id);
+            Assert.AreEqual(row[1], _entity.IntProp);
+            Assert.AreEqual(row[2], _entity.ShortProp);
+            Assert.AreEqual(row[2], _entity.LongProp);
+            if (_entity.HasProperty("FOtherProp"))
+                Assert.AreEqual(row[13], _entity["FOtherProp"]);
         }
 
         private void SetEntity(SchemaMappingColumn[] additionalColumns, string[] sortNames, object[][] data)

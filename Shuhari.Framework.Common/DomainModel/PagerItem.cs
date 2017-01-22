@@ -46,5 +46,24 @@
         /// Flag for placeholders which is not navigatable
         /// </summary>
         public bool Disabled { get; set; }
+
+        /// <inheritdoc />
+        public override bool Equals(object obj)
+        {
+            var other = obj as PagerItem;
+            if (other == null)
+                return false;
+
+            return this.Page == other.Page &&
+                this.DisplayName == other.DisplayName &&
+                this.IsCurrent == other.IsCurrent &&
+                this.Disabled == other.Disabled;
+        }
+
+        /// <inheritdoc />
+        public override int GetHashCode()
+        {
+            return Page.GetHashCode();
+        }
     }
 }

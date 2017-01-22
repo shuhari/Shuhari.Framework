@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using Shuhari.Framework.DomainModel;
 
@@ -59,7 +60,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         {
             var result = CalculatePager(0, 0);
 
-            AssertPager(result, 0, 0, 0, 0);
+            AssertPager(result, 0, 0, 0, new PagerItem[0]);
         }
 
         [Test]
@@ -67,8 +68,10 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         {
             var result = CalculatePager(3, 0);
 
-            AssertPager(result, 3, 0, 2, 1);
-            AssertPagerItem(result.Items.First(), 0, "1", true, true);
+            AssertPager(result, 3, 0, 2, new[]
+            {
+                new PagerItem(0, "1", true, true)
+            });
         }
 
         [Test]
@@ -76,10 +79,11 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         {
             var result = CalculatePager(24, 1);
 
-            AssertPager(result, 24, 20, 23, 2);
-            var items = result.Items.ToArray();
-            AssertPagerItem(items[0], 0, "1", false, false);
-            AssertPagerItem(items[1], 1, "2", true, true);
+            AssertPager(result, 24, 20, 23, new[]
+            {
+                new PagerItem(0, "1", false, false),
+                new PagerItem(1, "2", true, true),
+            });
         }
 
         [Test]
@@ -87,11 +91,12 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         {
             var result = CalculatePager(51, 1);
 
-            AssertPager(result, 51, 20, 39, 3);
-            var items = result.Items.ToArray();
-            AssertPagerItem(items[0], 0, "1", false, false);
-            AssertPagerItem(items[1], 1, "2", true, true);
-            AssertPagerItem(items[2], 2, "3", false, false);
+            AssertPager(result, 51, 20, 39, new[]
+            {
+                new PagerItem(0, "1", false, false),
+                new PagerItem(1, "2", true, true),
+                new PagerItem(2, "3", false, false),
+            });
         }
 
         [Test]
@@ -99,37 +104,30 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         {
             var result = CalculatePager(1995, 24);
 
-            AssertPager(result, 1995, 480, 499, 13);
-            var items = result.Items.ToArray();
-            AssertPagerItem(items[0], 0, "1", false, false);
-            AssertPagerItem(items[1], 1, "2", false, false);
-            AssertPagerItem(items[2], 2, "3", false, false);
-            AssertPagerItem(items[3], -1, "...", false, true);
-            AssertPagerItem(items[4], 22, "23", false, false);
-            AssertPagerItem(items[5], 23, "24", false, false);
-            AssertPagerItem(items[6], 24, "25", true, true);
-            AssertPagerItem(items[7], 25, "26", false, false);
-            AssertPagerItem(items[8], 26, "27", false, false);
-            AssertPagerItem(items[9], -1, "...", false, true);
-            AssertPagerItem(items[10], 97, "98", false, false);
-            AssertPagerItem(items[11], 98, "99", false, false);
-            AssertPagerItem(items[12], 99, "100", false, false);
+            AssertPager(result, 1995, 480, 499, new[]
+            {
+                new PagerItem(0, "1", false, false),
+                new PagerItem(1, "2", false, false),
+                new PagerItem(2, "3", false, false),
+                new PagerItem(-1, "...", false, true),
+                new PagerItem(22, "23", false, false),
+                new PagerItem(23, "24", false, false),
+                new PagerItem(24, "25", true, true),
+                new PagerItem(25, "26", false, false),
+                new PagerItem(26, "27", false, false),
+                new PagerItem(-1, "...", false, true),
+                new PagerItem(97, "98", false, false),
+                new PagerItem(98, "99", false, false),
+                new PagerItem(99, "100", false, false),
+            });
         }
 
-        private void AssertPager(Pager pager, int total, int startIndex, int endIndex, int itemCount)
+        private void AssertPager(Pager pager, int total, int startIndex, int endIndex, IEnumerable<PagerItem> items)
         {
             Assert.AreEqual(total, pager.Total, "Expected total={0}, got {1}", total, pager.Total);
             Assert.AreEqual(startIndex, pager.StartIndex, "Expect startIndex={0}, got {1}", startIndex, pager.StartIndex);
             Assert.AreEqual(endIndex, pager.EndIndex, "Expect endIndex={0}, got {1}", endIndex, pager.EndIndex);
-            Assert.AreEqual(itemCount, pager.Items.Count(), "Expect item count={0}, got {1}", itemCount, pager.Items.Count());
-        }
-
-        private void AssertPagerItem(PagerItem item, int page, string text, bool isCurrent, bool disabled)
-        {
-            Assert.AreEqual(page, item.Page, "Expect page={0}, got {1}", page, item.Page);
-            Assert.AreEqual(text, item.DisplayName);
-            Assert.AreEqual(isCurrent, item.IsCurrent, "Expect page {0} isCurrent={1}", text, isCurrent);
-            Assert.AreEqual(disabled, item.Disabled, "Expect page {0} disabled={1}", text, disabled);
+            CollectionAssert.AreEqual(items, pager.Items);
         }
     }
 }

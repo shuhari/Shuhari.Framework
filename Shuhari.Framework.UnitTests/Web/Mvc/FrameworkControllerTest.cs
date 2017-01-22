@@ -34,22 +34,22 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
         {
             _controller.ModelState.AddModelError("", "test error");
             var resultData = ExecAjax("abc", x => { }, "success");
-
-            Assert.IsFalse(resultData.Success);
-            Assert.AreEqual(1, resultData.Errors.Length);
-            Assert.AreEqual("", resultData.Errors[0].Property);
-            Assert.AreEqual("test error", resultData.Errors[0].Message);
+            AssertResultSingleError(resultData, "", "test error");
         }
 
         [Test]
         public void ExecuteAjax_ActionThrow_ShouldReturnError()
         {
             var resultData = ExecAjax("abc", x => { throw new Exception("test exception"); }, "success");
+            AssertResultSingleError(resultData, "", "test exception");
+        }
 
-            Assert.IsFalse(resultData.Success);
-            Assert.AreEqual(1, resultData.Errors.Length);
-            Assert.AreEqual("", resultData.Errors[0].Property);
-            Assert.AreEqual("test exception", resultData.Errors[0].Message);
+        private void AssertResultSingleError(ValidationResultDTO result, string propName, string message)
+        {
+            Assert.IsFalse(result.Success);
+            Assert.AreEqual(1, result.Errors.Length);
+            Assert.AreEqual(propName, result.Errors[0].Property);
+            Assert.AreEqual(message, result.Errors[0].Message);
         }
 
         [Test]

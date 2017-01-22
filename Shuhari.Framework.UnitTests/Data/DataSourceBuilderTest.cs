@@ -10,18 +10,25 @@ namespace Shuhari.Framework.UnitTests.Data
     [TestFixture]
     public class DataSourceBuilderTest
     {
+        private SchemaMappingColumn[] TestColumns
+        {
+            get
+            {
+                return new[]
+                {
+                    new SchemaMappingColumn("IntProp", typeof(int), false),
+                    new SchemaMappingColumn("StringProp", typeof(string), true),
+                    new SchemaMappingColumn("DateTimeProp", typeof(DateTime), false)
+                };
+            }
+        }
+
         [Test]
         public void BuildSchemaTable()
         {
-            var columns = new[]
-            {
-                new SchemaMappingColumn("IntProp", typeof(int), false),
-                new SchemaMappingColumn("StringProp", typeof(string), true),
-                new SchemaMappingColumn("DateTimeProp", typeof(DateTime), false)
-            };
-            var table = DataSourceBuilder.BuildSchemaTable(columns);
+            var table = DataSourceBuilder.BuildSchemaTable(TestColumns);
 
-            AssertSchemaTable(table, columns);
+            AssertSchemaTable(table, TestColumns);
         }
 
         private void AssertSchemaTable(DataTable table, SchemaMappingColumn[] columns)
@@ -108,10 +115,10 @@ namespace Shuhari.Framework.UnitTests.Data
                 new object[] { 1, "row1", DateTime.Now },
                 new object[] { 2, "row2", DateTime.Now },
             };
-            var reader = DataSourceBuilder.BuildDataReader(columns, data);
+            var reader = DataSourceBuilder.BuildDataReader(TestColumns, data);
             var schema = reader.GetSchemaTable();
 
-            AssertSchemaTable(schema, columns);
+            AssertSchemaTable(schema, TestColumns);
 
             Assert.IsTrue(reader.Read());
             CollectionAssert.AreEqual(data[0], new object[] { reader[0], reader[1], reader[2] });
