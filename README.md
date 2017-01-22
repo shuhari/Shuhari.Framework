@@ -42,6 +42,9 @@ References:
 
 Release History:
 
+**v0.1.0.13 (2017-01-22)**
+* NEW: Add ContentReplacer/WorkingDirectory parameter to FrameworkDatabase
+
 **v0.1.0.12 (2017-01-21)**
 * NEW: CritiaList
 * REMOVED: RedirectData and FrameworkController.ExecuteAndRedirect(RedirectData)

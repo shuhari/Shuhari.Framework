@@ -19,3 +19,4 @@ DONE:
 * NEW: MemberUtil
 * NEW: CritiaList
 * REMOVED: RedirectData and FrameworkController.ExecuteAndRedirect(RedirectData)
+* NEW: Add ContentReplacer/WorkingDirectory parameter to FrameworkDatabase

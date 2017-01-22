@@ -115,16 +115,18 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <summary>
-        /// 测试用，将资源脚本拷贝到应用程序根目录
+        /// For test, copy resource script to specified directory
         /// </summary>
         /// <param name="scriptPath"></param>
+        /// <param name="workDir">Working directory, or point to AppDomain's BaseDirectory if not set</param>
         /// <returns></returns>
-        public string CopyScriptResourceToBaseDir(string scriptPath)
+        public string CopyScriptResourceToBaseDir(string scriptPath, string workDir = null)
         {
             Expect.IsNotBlank(scriptPath, nameof(scriptPath));
+            workDir = workDir ?? AppDomain.CurrentDomain.BaseDirectory;
 
             var resource = GetScriptResource(scriptPath);
-            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Path.GetFileName(scriptPath));
+            var filePath = Path.Combine(workDir, Path.GetFileName(scriptPath));
             resource.CopyToFile(filePath);
             return filePath;
         }
@@ -134,16 +136,15 @@ namespace Shuhari.Framework.Data.Common
         /// </summary>
         /// <param name="scriptPath"></param>
         /// <param name="options"></param>
-        /// <param name="replacer">Optional. Replace string in script before execute, for example changed database name</param>
         /// <returns></returns>
-        public string ExecuteScriptResource(string scriptPath, DbManagementCommandOptions options,
-            StringReplacer replacer = null)
+        public string ExecuteScriptResource(string scriptPath, DbManagementCommandOptions options)
         {
             Expect.IsNotBlank(scriptPath, nameof(scriptPath));
+            options = options ?? DbManagementCommandOptions.GetDefault();
 
-            var filePath = CopyScriptResourceToBaseDir(scriptPath);
-            if (replacer != null)
-                replacer.ApplyToFile(filePath);
+            var filePath = CopyScriptResourceToBaseDir(scriptPath, options.WorkingDirectory);
+            if (options.ContentReplacer != null)
+                options.ContentReplacer.ApplyToFile(filePath);
 
             options = options ?? DbManagementCommandOptions.GetDefault();
             options.FileName = filePath;

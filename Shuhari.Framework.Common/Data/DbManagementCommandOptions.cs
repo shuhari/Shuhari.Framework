@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Shuhari.Framework.Text;
 
 namespace Shuhari.Framework.Data
 {
@@ -16,6 +17,16 @@ namespace Shuhari.Framework.Data
         /// File encoding, or null if use default
         /// </summary>
         public Encoding FileEncoding { get; set; }
+
+        /// <summary>
+        /// Optional. Replace string in script before execute, for example changed database name
+        /// </summary>
+        public StringReplacer ContentReplacer { get; set; }
+
+        /// <summary>
+        /// Working directory to save script files
+        /// </summary>
+        public string WorkingDirectory { get; set; }
 
         /// <summary>
         /// Get default options
