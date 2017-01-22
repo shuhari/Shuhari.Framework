@@ -22,3 +22,4 @@ DONE:
 * FIXED: Pager always set text to number
 * REFACTOR: Query and Query<T> return self
 * NEW: QueryDTO.ToCritias
+* FIXED: IQuery<T>.Set unified

@@ -52,7 +52,7 @@ namespace Shuhari.Framework.Data.Common
         /// <inheritdoc />
         public IQuery<T> Set(string paramName, DbType paramType, object value)
         {
-            SetCore(paramName, paramType, value);
+            SetParam(paramName, paramType, value);
             return this;
         }
 
@@ -74,7 +74,7 @@ namespace Shuhari.Framework.Data.Common
             var fieldMapper = _mapper.FieldMappers.FirstOrDefault(x => x.PropertyName == prop.Name);
             Expect.IsNotNull(fieldMapper, nameof(fieldMapper));
             var engine = Session.SessionFactory.Engine;
-            SetCore(fieldMapper.FieldName, engine.GetDbType(prop.PropertyType), value);
+            SetParam(fieldMapper.FieldName, engine.GetDbType(prop.PropertyType), value);
             return this;
         }
     }

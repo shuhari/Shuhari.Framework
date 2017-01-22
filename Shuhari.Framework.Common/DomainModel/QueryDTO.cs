@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Data;
+using Newtonsoft.Json;
 using Shuhari.Framework.Data;
 using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Resources;
@@ -77,27 +78,12 @@ namespace Shuhari.Framework.DomainModel
         /// can override and set custom parameters.
         /// </summary>
         /// <param name="query"></param>
-        public virtual void SetQuery(IQuery query)
+        public virtual void SetQuery(IQueryBase query)
         {
             Expect.IsNotNull(query, nameof(query));
 
-            query.Set(PARAM_OFFSET, Offset);
-            query.Set(PARAM_LIMIT, PerPage);
-        }
-
-        /// <summary>
-        /// Set query parameter.
-        /// Base class set pagination info only, derived class
-        /// can override and set custom parameters.
-        /// </summary>
-        /// <param name="query"></param>
-        public virtual void SetQuery<T>(IQuery<T> query)
-            where T: class, new()
-        {
-            Expect.IsNotNull(query, nameof(query));
-
-            query.Set(PARAM_OFFSET, Offset);
-            query.Set(PARAM_LIMIT, PerPage);
+            query.SetParam(PARAM_OFFSET, DbType.Int32, Offset);
+            query.SetParam(PARAM_LIMIT, DbType.Int32, PerPage);
         }
 
         /// <summary>

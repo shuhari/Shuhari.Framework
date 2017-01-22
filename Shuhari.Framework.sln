@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{6206AB72-E
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
 		build.cmd = build.cmd
+		HISTORY.md = HISTORY.md
 		README.md = README.md
 		TODO.md = TODO.md
 	EndProjectSection

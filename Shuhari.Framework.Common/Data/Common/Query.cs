@@ -25,7 +25,7 @@ namespace Shuhari.Framework.Data.Common
         /// <inheritdoc />
         public IQuery Set(string paramName, DbType paramType, object value)
         {
-            SetCore(paramName, paramType, value);
+            SetParam(paramName, paramType, value);
             return this;
         }
 

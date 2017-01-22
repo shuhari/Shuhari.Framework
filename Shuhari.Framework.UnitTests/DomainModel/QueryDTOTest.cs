@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using System.Data;
+using Moq;
 using NUnit.Framework;
 using Shuhari.Framework.Data;
 using Shuhari.Framework.DomainModel;
@@ -29,12 +30,12 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         [Test]
         public void SetQuery()
         {
-            var mockQuery = new Mock<IQuery>();
+            var mockQuery = new Mock<IQueryBase>();
             var q = new QueryDTO(2, 20);
             q.SetQuery(mockQuery.Object);
 
-            mockQuery.Verify(m => m.Set(QueryDTO.PARAM_OFFSET, 40));
-            mockQuery.Verify(m => m.Set(QueryDTO.PARAM_LIMIT, 20));
+            mockQuery.Verify(m => m.SetParam(QueryDTO.PARAM_OFFSET, DbType.Int32, 40));
+            mockQuery.Verify(m => m.SetParam(QueryDTO.PARAM_LIMIT, DbType.Int32, 20));
         }
     }
 }

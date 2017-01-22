@@ -155,21 +155,17 @@ namespace Shuhari.Framework.Data.Common
             Expect.IsNotNull(value, nameof(value));
 
             var dbType = _session.SessionFactory.Engine.GetDbType(value.GetType());
-            SetCore(paramName, dbType, value);
+            SetParam(paramName, dbType, value);
         }
 
-        /// <summary>
-        /// Base implementation logic
-        /// </summary>
-        /// <param name="paramName"></param>
-        /// <param name="paramType"></param>
-        /// <param name="value"></param>
-        protected void SetCore(string paramName, DbType paramType, object value)
+        /// <inheritdoc />
+        public IQueryBase SetParam(string paramName, DbType paramType, object value)
         {
             Expect.IsNotBlank(paramName, nameof(paramName));
 
             var param = _session.SessionFactory.Engine.CreateParameter(paramName, paramType, value);
             _parameters[param.ParameterName] = param;
+            return this;
         }
     }
 }

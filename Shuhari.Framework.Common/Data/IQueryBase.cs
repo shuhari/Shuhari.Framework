@@ -19,6 +19,16 @@ namespace Shuhari.Framework.Data
         string Sql { get; }
 
         /// <summary>
+        /// In case value can be null, it is impossible to guess parameter type
+        /// from value type, thus caller should pass <paramref name="paramType"/> manually.
+        /// </summary>
+        /// <param name="paramName">Parameter name</param>
+        /// <param name="paramType">Parameter type</param>
+        /// <param name="value">Parameter value</param>
+        /// <returns>This query</returns>
+        IQueryBase SetParam(string paramName, DbType paramType, object value);
+
+        /// <summary>
         /// Wrapped method for <see cref="IDbCommand.ExecuteScalar"/>
         /// </summary>
         /// <returns></returns>
