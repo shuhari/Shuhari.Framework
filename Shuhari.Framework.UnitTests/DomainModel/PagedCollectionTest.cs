@@ -68,7 +68,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
             var result = CalculatePager(3, 0);
 
             AssertPager(result, 3, 0, 2, 1);
-            AssertPagerItem(result.Items.First(), 0, "1", false);
+            AssertPagerItem(result.Items.First(), 0, "1", true, true);
         }
 
         [Test]
@@ -78,8 +78,8 @@ namespace Shuhari.Framework.UnitTests.DomainModel
 
             AssertPager(result, 24, 20, 23, 2);
             var items = result.Items.ToArray();
-            AssertPagerItem(items[0], 0, "<<", true);
-            AssertPagerItem(items[1], 1, "2", false);
+            AssertPagerItem(items[0], 0, "1", false, false);
+            AssertPagerItem(items[1], 1, "2", true, true);
         }
 
         [Test]
@@ -89,9 +89,9 @@ namespace Shuhari.Framework.UnitTests.DomainModel
 
             AssertPager(result, 51, 20, 39, 3);
             var items = result.Items.ToArray();
-            AssertPagerItem(items[0], 0, "<<", true);
-            AssertPagerItem(items[1], 1, "2", false);
-            AssertPagerItem(items[2], 2, ">>", true);
+            AssertPagerItem(items[0], 0, "1", false, false);
+            AssertPagerItem(items[1], 1, "2", true, true);
+            AssertPagerItem(items[2], 2, "3", false, false);
         }
 
         [Test]
@@ -101,19 +101,19 @@ namespace Shuhari.Framework.UnitTests.DomainModel
 
             AssertPager(result, 1995, 480, 499, 13);
             var items = result.Items.ToArray();
-            AssertPagerItem(items[0], 0, "<<", true);
-            AssertPagerItem(items[1], 1, "2", true);
-            AssertPagerItem(items[2], 2, "3", true);
-            AssertPagerItem(items[3], -1, "...", false);
-            AssertPagerItem(items[4], 22, "23", true);
-            AssertPagerItem(items[5], 23, "24", true);
-            AssertPagerItem(items[6], 24, "25", false);
-            AssertPagerItem(items[7], 25, "26", true);
-            AssertPagerItem(items[8], 26, "27", true);
-            AssertPagerItem(items[9], -1, "...", false);
-            AssertPagerItem(items[10], 97, "98", true);
-            AssertPagerItem(items[11], 98, "99", true);
-            AssertPagerItem(items[12], 99, ">>", true);
+            AssertPagerItem(items[0], 0, "1", false, false);
+            AssertPagerItem(items[1], 1, "2", false, false);
+            AssertPagerItem(items[2], 2, "3", false, false);
+            AssertPagerItem(items[3], -1, "...", false, true);
+            AssertPagerItem(items[4], 22, "23", false, false);
+            AssertPagerItem(items[5], 23, "24", false, false);
+            AssertPagerItem(items[6], 24, "25", true, true);
+            AssertPagerItem(items[7], 25, "26", false, false);
+            AssertPagerItem(items[8], 26, "27", false, false);
+            AssertPagerItem(items[9], -1, "...", false, true);
+            AssertPagerItem(items[10], 97, "98", false, false);
+            AssertPagerItem(items[11], 98, "99", false, false);
+            AssertPagerItem(items[12], 99, "100", false, false);
         }
 
         private void AssertPager(Pager pager, int total, int startIndex, int endIndex, int itemCount)
@@ -124,11 +124,12 @@ namespace Shuhari.Framework.UnitTests.DomainModel
             Assert.AreEqual(itemCount, pager.Items.Count(), "Expect item count={0}, got {1}", itemCount, pager.Items.Count());
         }
 
-        private void AssertPagerItem(PagerItem item, int page, string text, bool navigate)
+        private void AssertPagerItem(PagerItem item, int page, string text, bool isCurrent, bool disabled)
         {
             Assert.AreEqual(page, item.Page, "Expect page={0}, got {1}", page, item.Page);
             Assert.AreEqual(text, item.DisplayName);
-            Assert.AreEqual(navigate, item.Navigate, "Expect page {0} navigate={1}", text, navigate);
+            Assert.AreEqual(isCurrent, item.IsCurrent, "Expect page {0} isCurrent={1}", text, isCurrent);
+            Assert.AreEqual(disabled, item.Disabled, "Expect page {0} disabled={1}", text, disabled);
         }
     }
 }

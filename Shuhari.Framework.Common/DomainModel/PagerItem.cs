@@ -17,12 +17,14 @@
         /// </summary>
         /// <param name="page"></param>
         /// <param name="displayName"></param>
-        /// <param name="navigate"></param>
-        public PagerItem(int page, string displayName, bool navigate)
+        /// <param name="isCurrent"></param>
+        /// <param name="disabled"></param>
+        public PagerItem(int page, string displayName, bool isCurrent, bool disabled)
         {
             this.Page = page;
             this.DisplayName = displayName;
-            this.Navigate = navigate;
+            this.IsCurrent = isCurrent;
+            this.Disabled = disabled;
         }
 
         /// <summary>
@@ -36,8 +38,13 @@
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// If the page is different than current (thus can navigate to)
+        /// If is current page
         /// </summary>
-        public bool Navigate { get; set; }
+        public bool IsCurrent { get; set; }
+
+        /// <summary>
+        /// Flag for placeholders which is not navigatable
+        /// </summary>
+        public bool Disabled { get; set; }
     }
 }

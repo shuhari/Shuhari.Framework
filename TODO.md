@@ -1,6 +1,4 @@
 TODO:
-* Pager result set Disabled and Active
-* Pager always set text to number
 
 DONE:
 * FIXED: DateTimeValueSerializer renamed to DefaultDateTimeValueSerializer
@@ -20,3 +18,7 @@ DONE:
 * NEW: CritiaList
 * REMOVED: RedirectData and FrameworkController.ExecuteAndRedirect(RedirectData)
 * NEW: Add ContentReplacer/WorkingDirectory parameter to FrameworkDatabase
+* FIXED: Pager result set Disabled and Active
+* FIXED: Pager always set text to number
+* REFACTOR: Query and Query<T> return self
+* NEW: QueryDTO.ToCritias

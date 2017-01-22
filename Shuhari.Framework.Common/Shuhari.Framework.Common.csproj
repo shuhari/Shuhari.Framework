@@ -62,6 +62,7 @@
     <Compile Include="ComponentModel\DefaultDateTimeValueSerializer.cs" />
     <Compile Include="ComponentModel\GenericTypeConverter.cs" />
     <Compile Include="Data\Common\BaseDbContext.cs" />
+    <Compile Include="Data\Common\BaseQuery.cs" />
     <Compile Include="Data\Common\BaseRepository.cs" />
     <Compile Include="Data\Common\BaseRepository{T}.cs" />
     <Compile Include="Data\Common\FrameworkDatabase{T}.cs" />
@@ -79,8 +80,8 @@
     <Compile Include="Data\DbRegistry.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IDbEngine.cs" />
-    <Compile Include="Data\IGenericQuery.cs" />
     <Compile Include="Data\IQuery.cs" />
+    <Compile Include="Data\IQueryBase.cs" />
     <Compile Include="Data\IQueryBuilder{T}.cs" />
     <Compile Include="Data\IQuery{T}.cs" />
     <Compile Include="Data\IRepository.cs" />

@@ -31,7 +31,7 @@ namespace Shuhari.Framework.Data
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
-        IGenericQuery CreateQuery(string sql);
+        IQuery CreateQuery(string sql);
 
         /// <summary>
         /// Create strongly-typed query

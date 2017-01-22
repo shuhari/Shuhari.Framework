@@ -103,22 +103,22 @@ namespace Shuhari.Framework.DomainModel
                 int prevTo = Math.Max(0, Page - PAGINATION_EXPAND);
                 int firstTo = Math.Min(PAGINATION_EXPAND, prevTo - 1);
                 for (int pageNo = 0; pageNo <= firstTo; pageNo++)
-                    items.Add(CreatePaginationItem(pageNo));
+                    items.Add(CreatePaginationItem(pageNo, null, false));
                 if (firstTo >= 0 && firstTo < prevTo - 1)
-                    items.Add(CreatePaginationItem(-1, "..."));
+                    items.Add(CreatePaginationItem(-1, "...", true));
                 for (int pageNo = prevTo; pageNo < Page; pageNo++)
-                    items.Add(CreatePaginationItem(pageNo));
+                    items.Add(CreatePaginationItem(pageNo, null, false));
 
-                items.Add(CreatePaginationItem(Page, string.Format("{0}", Page + 1)));
+                items.Add(CreatePaginationItem(Page, null, true));
 
                 var nextTo = Math.Min(Page + PAGINATION_EXPAND, TotalPages - 1);
                 var lastTo = Math.Max(nextTo + 1, TotalPages - 1 - PAGINATION_EXPAND);
                 for (int pageNo = Page + 1; pageNo <= nextTo; pageNo++)
-                    items.Add(CreatePaginationItem(pageNo));
+                    items.Add(CreatePaginationItem(pageNo, null, false));
                 if (nextTo < lastTo - 1)
-                    items.Add(CreatePaginationItem(-1, "..."));
+                    items.Add(CreatePaginationItem(-1, "...", true));
                 for (int pageNo = lastTo; pageNo <= TotalPages - 1; pageNo++)
-                    items.Add(CreatePaginationItem(pageNo));
+                    items.Add(CreatePaginationItem(pageNo, null, false));
 
                 pager.Items = items.ToArray();
             }
@@ -126,19 +126,13 @@ namespace Shuhari.Framework.DomainModel
             return pager;
         }
 
-        private PagerItem CreatePaginationItem(int pageNo, string displayName = null)
+        private PagerItem CreatePaginationItem(int pageNo, string displayName, bool disabled)
         {
-            if (displayName == null)
-            {
-                if (pageNo == 0 && pageNo != Page)
-                    displayName = "<<";
-                else if (pageNo == TotalPages - 1 && pageNo != Page)
-                    displayName = ">>";
-                else
-                    displayName = string.Format("{0}", pageNo + 1);
-            }
-            bool navigate = (pageNo >= 0 && pageNo != this.Page);
-            return new PagerItem(pageNo, displayName, navigate);
+            displayName = displayName ?? string.Format("{0}", pageNo + 1);
+            bool isCurrent = (pageNo == this.Page);
+            if (pageNo < 0 || isCurrent)
+                disabled = true;
+            return new PagerItem(pageNo, displayName, isCurrent, disabled);
         }
     }
 }

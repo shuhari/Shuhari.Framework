@@ -71,7 +71,7 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        public IGenericQuery CreateQuery(string sql)
+        public IQuery CreateQuery(string sql)
         {
             Expect.IsNotBlank(sql, nameof(sql));
 

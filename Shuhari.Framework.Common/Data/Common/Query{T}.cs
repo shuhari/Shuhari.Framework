@@ -13,7 +13,7 @@ namespace Shuhari.Framework.Data.Common
     /// Strongly-typed query
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class Query<T> : Query, IQuery<T>
+    class Query<T> : BaseQuery, IQuery<T>
         where T : class, new()
     {
         /// <summary>
@@ -31,19 +31,41 @@ namespace Shuhari.Framework.Data.Common
         private readonly IEntityMapper<T> _mapper;
 
         /// <inheritdoc />
-        T[] IQuery<T>.GetAll()
+        public T[] GetAll()
         {
-            return base.GetAll(_mapper);
+            return GetAllCore(_mapper);
         }
 
         /// <inheritdoc />
-        T IQuery<T>.GetFirst()
+        public T GetFirst()
         {
-            return base.GetFirst(_mapper);
+            return GetFirstCore(_mapper);
         }
 
         /// <inheritdoc />
-        public void Set<TProp>(Expression<Func<T, TProp>> selector, TProp value)
+        public IQuery<T> Set(string paramName, object value)
+        {
+            SetCore(paramName, value);
+            return this;
+        }
+
+        /// <inheritdoc />
+        public IQuery<T> Set(string paramName, DbType paramType, object value)
+        {
+            SetCore(paramName, paramType, value);
+            return this;
+        }
+
+        /// <inheritdoc />
+        public IQuery<T> SetPaginiation(QueryDTO q)
+        {
+            Expect.IsNotNull(q, nameof(q));
+            q.SetQuery(this);
+            return this;
+        }
+
+        /// <inheritdoc />
+        public IQuery<T> Set<TProp>(Expression<Func<T, TProp>> selector, TProp value)
         {
             Expect.IsNotNull(selector, nameof(selector));
             var prop = ExpressionBuilder.GetProperty(selector);
@@ -52,7 +74,8 @@ namespace Shuhari.Framework.Data.Common
             var fieldMapper = _mapper.FieldMappers.FirstOrDefault(x => x.PropertyName == prop.Name);
             Expect.IsNotNull(fieldMapper, nameof(fieldMapper));
             var engine = Session.SessionFactory.Engine;
-            Set(fieldMapper.FieldName, engine.GetDbType(prop.PropertyType), value);
+            SetCore(fieldMapper.FieldName, engine.GetDbType(prop.PropertyType), value);
+            return this;
         }
     }
 }

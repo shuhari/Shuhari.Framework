@@ -42,6 +42,12 @@ References:
 
 Release History:
 
+**v0.1.0.14 (2017-01-22)**
+* FIXED: Pager result set Disabled and Active
+* FIXED: Pager always set text to number
+* REFACTOR: Query and Query<T> return self
+* NEW: QueryDTO.ToCritias
+
 **v0.1.0.13 (2017-01-22)**
 * NEW: Add ContentReplacer/WorkingDirectory parameter to FrameworkDatabase
 

@@ -84,5 +84,29 @@ namespace Shuhari.Framework.DomainModel
             query.Set(PARAM_OFFSET, Offset);
             query.Set(PARAM_LIMIT, PerPage);
         }
+
+        /// <summary>
+        /// Set query parameter.
+        /// Base class set pagination info only, derived class
+        /// can override and set custom parameters.
+        /// </summary>
+        /// <param name="query"></param>
+        public virtual void SetQuery<T>(IQuery<T> query)
+            where T: class, new()
+        {
+            Expect.IsNotNull(query, nameof(query));
+
+            query.Set(PARAM_OFFSET, Offset);
+            query.Set(PARAM_LIMIT, PerPage);
+        }
+
+        /// <summary>
+        /// Generate critia list. Can be overrided by children
+        /// </summary>
+        /// <returns></returns>
+        public virtual CritiaList ToCritias()
+        {
+            return new CritiaList();
+        }
     }
 }
