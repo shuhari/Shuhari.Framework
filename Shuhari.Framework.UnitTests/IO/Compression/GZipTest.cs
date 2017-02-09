@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NUnit.Framework;
 using Shuhari.Framework.DomainModel;
 using Shuhari.Framework.IO.Compression;
@@ -9,7 +10,7 @@ namespace Shuhari.Framework.UnitTests.IO.Compression
     public class GZipTest
     {
         [Test]
-        public void Compress_Decompress()
+        public void CompressFiles_DecompressFiles()
         {
             var f1 = new FileItem("folder/f1", "", new byte[] { 0x1, 0x2 });
             var f2 = new FileItem("folder/f2", "", new byte[] { 0xfe, 0xff });
@@ -19,6 +20,18 @@ namespace Shuhari.Framework.UnitTests.IO.Compression
 
             Assert.IsTrue(files.Any(x => x.Name == f1.Name && x.Content.SequenceEqual(f1.Content)));
             Assert.IsTrue(files.Any(x => x.Name == f2.Name && x.Content.SequenceEqual(f2.Content)));
+        }
+
+        [Test]
+        public void Compress_Decompress()
+        {
+            var buf = new byte[256];
+            new Random().NextBytes(buf);
+
+            var compressed = GZip.Compress(buf);
+            var decompressed = GZip.Decompress(compressed);
+
+            CollectionAssert.AreEqual(buf, decompressed);
         }
     }
 }

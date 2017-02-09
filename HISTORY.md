@@ -1,4 +1,14 @@
-**v0.1.0.14 (2017-01-22)**
+**v0.1.1.1 (2017-02-09)**
+* Add -v parameter to DbManagementCommandOptions
+* Add Find/FindIndex to CollectionUtil
+* CollectionUTil.FindBy/FindByName marked as obsolute
+
+**v0.1.1.0 (2017-02-09)**
+* Add -v parameter to DbManagementCommandOptions
+* Add Find/FindIndex to CollectionUtil
+* CollectionUTil.FindBy/FindByName marked as obsolute
+
+**v0.1.0.15 (2017-01-22)**
 * FIXED: IQuery<T>.Set unified
 
 **v0.1.0.14 (2017-01-22)**

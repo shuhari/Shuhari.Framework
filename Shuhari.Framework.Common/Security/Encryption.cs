@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Security.Cryptography;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Security
@@ -25,6 +20,21 @@ namespace Shuhari.Framework.Security
             using (var md5 = new MD5CryptoServiceProvider())
             {
                 return md5.ComputeHash(data);
+            }
+        }
+
+        /// <summary>
+        /// Compute sha1 result
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static byte[] SHA1(byte[] data)
+        {
+            Expect.IsNotNull(data, nameof(data));
+
+            using (var sha1 = System.Security.Cryptography.SHA1.Create())
+            {
+                return sha1.ComputeHash(data);
             }
         }
 

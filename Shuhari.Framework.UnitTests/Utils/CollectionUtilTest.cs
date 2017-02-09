@@ -40,41 +40,6 @@ namespace Shuhari.Framework.UnitTests.Utils
             CollectionAssert.AreEqual(new[] { "item1x", "item2x" }, collection.Select(x => x.Name));
         }
 
-        [Test]
-        public void FindBy_Generic()
-        {
-            Assert.IsNotNull(TestCollection.FindBy(x => x.Id, 1));
-            Assert.IsNull(TestCollection.FindBy(x => x.Id, 999));
-        }
-
-        [TestCase("item1", false, true)]
-        [TestCase("item999", false, false)]
-        [TestCase("Item1", false, false)]
-        [TestCase("Item1", true, true)]
-        public void FindBy_String(string name, bool ignoreCase, bool found)
-        {
-            var item = TestCollection.FindBy(x => x.Name, name, ignoreCase);
-            Assert.AreEqual(found, item != null);
-        }
-
-        [Test]
-        public void FindByName_Exist_ShouldFound()
-        {
-            Assert.AreEqual("item1", TestCollection.FindByName("item1").Name);
-        }
-
-        [Test]
-        public void FindByName_NotExist_ShouldReturnNull()
-        {
-            Assert.IsNull(TestCollection.FindByName("item3"));
-        }
-
-        [Test]
-        public void FindByName_IgnoreCase_ShouldFoundMatched()
-        {
-            Assert.AreEqual("item1", TestCollection.FindByName("ITEM1", true).Name);
-        }
-
         [TestCase(1, true)]
         [TestCase(-1, false)]
         public void Find(int id, bool found)

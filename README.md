@@ -42,6 +42,11 @@ References:
 
 Release History:
 
+**v0.1.1.1 (2017-02-09)**
+* Add -v parameter to DbManagementCommandOptions
+* Add Find/FindIndex to CollectionUtil
+* CollectionUTil.FindBy/FindByName marked as obsolute
+
 **v0.1.1.0 (2017-02-09)**
 * Add -v parameter to DbManagementCommandOptions
 * Add Find/FindIndex to CollectionUtil

@@ -45,10 +45,9 @@ namespace Shuhari.Framework.UnitTests.DomainModel
             Assert.AreEqual("@/Admin/User", FindItem(admin, "User").Url);
         }
 
-
         private SitemapItem FindItem(SitemapContainer container, string title)
         {
-            return container.Children.OfType<SitemapItem>().FindBy(x => x.Title, title, true);
+            return container.Children.OfType<SitemapItem>().Find(x => x.Title.EqualsNoCase(title));
         }
     }
 }

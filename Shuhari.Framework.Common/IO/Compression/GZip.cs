@@ -80,5 +80,46 @@ namespace Shuhari.Framework.IO.Compression
 
             return files.ToArray();
         }
+
+        /// <summary>
+        /// Compress bytes data
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static byte[] Compress(byte[] data)
+        {
+            Expect.IsNotNull(data, nameof(data));
+
+            using (var ms = new MemoryStream())
+            {
+                using (var zis = new GZipStream(ms, CompressionMode.Compress))
+                {
+                    zis.Write(data, 0, data.Length);
+                    zis.Flush();
+                }
+                return ms.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// Decompress bytes data
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static byte[] Decompress(byte[] data)
+        {
+            Expect.IsNotNull(data, nameof(data));
+
+            using (var mis = new MemoryStream(data))
+            {
+                using (var zos = new GZipStream(mis, CompressionMode.Decompress))
+                using (var mos = new MemoryStream())
+                {
+                    zos.CopyTo(mos);
+                    zos.Flush();
+                    return mos.ToArray();
+                }
+            }
+        }
     }
 }
