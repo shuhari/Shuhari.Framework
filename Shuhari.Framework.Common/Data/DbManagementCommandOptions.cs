@@ -29,6 +29,11 @@ namespace Shuhari.Framework.Data
         public string WorkingDirectory { get; set; }
 
         /// <summary>
+        /// Define variable
+        /// </summary>
+        public string Variable { get; set; }
+
+        /// <summary>
         /// Get default options
         /// </summary>
         /// <returns></returns>

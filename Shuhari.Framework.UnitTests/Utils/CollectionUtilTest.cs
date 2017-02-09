@@ -74,5 +74,20 @@ namespace Shuhari.Framework.UnitTests.Utils
         {
             Assert.AreEqual("item1", TestCollection.FindByName("ITEM1", true).Name);
         }
+
+        [TestCase(1, true)]
+        [TestCase(-1, false)]
+        public void Find(int id, bool found)
+        {
+            Assert.AreEqual(found, TestCollection.Find(x => x.Id == id) != null);
+        }
+
+        [TestCase(1, 0)]
+        [TestCase(2, 1)]
+        [TestCase(999, -1)]
+        public void FindIndex(int id, int result)
+        {
+            Assert.AreEqual(result, TestCollection.FindIndex(x => x.Id == id));
+        }
     }
 }

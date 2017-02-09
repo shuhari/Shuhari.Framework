@@ -34,6 +34,7 @@ namespace Shuhari.Framework.Utils
         /// <param name="selector"></param>
         /// <param name="value"></param>
         /// <returns></returns>
+        [Obsolete("Use Find() instead")]
         public static T FindBy<T, TProp>(this IEnumerable<T> collection, Func<T, TProp> selector, TProp value)
         {
             Expect.IsNotNull(collection, nameof(collection));
@@ -50,6 +51,7 @@ namespace Shuhari.Framework.Utils
         /// <param name="name">Name to find</param>
         /// <param name="ignoreCase">Use case-ignored string comparasion if set</param>
         /// <returns></returns>
+        [Obsolete("Use Find() instead")]
         public static T FindByName<T>(this IEnumerable<T> collection, string name, bool ignoreCase = false)
             where T : INamed
         {
@@ -68,6 +70,7 @@ namespace Shuhari.Framework.Utils
         /// <param name="value"></param>
         /// <param name="ignoreCase"></param>
         /// <returns></returns>
+        [Obsolete("Use Find() instead")]
         public static T FindBy<T>(this IEnumerable<T> collection, Func<T, string> selector, 
             string value, bool ignoreCase)
         {
@@ -76,6 +79,49 @@ namespace Shuhari.Framework.Utils
 
             var flag = ignoreCase ? StringComparison.InvariantCultureIgnoreCase : StringComparison.InvariantCulture;
             return collection.FirstOrDefault(x => string.Equals(selector(x), value, flag));
+        }
+
+        /// <summary>
+        /// Find first matched elements
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <param name="predicate"></param>
+        public static T Find<T>(this IEnumerable<T> collection, Predicate<T> predicate)
+            where T: class
+        {
+            Expect.IsNotNull(collection, nameof(collection));
+            Expect.IsNotNull(predicate, nameof(predicate));
+
+            foreach (var item in collection)
+                if (predicate(item))
+                    return item;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Find index of first matched element, or -1 if not found.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public static int FindIndex<T>(this IEnumerable<T> collection, Predicate<T> predicate)
+        {
+            Expect.IsNotNull(collection, nameof(collection));
+            Expect.IsNotNull(predicate, nameof(predicate));
+
+            int index = 0;
+            foreach (var item in collection)
+            {
+                if (predicate(item))
+                    return index;
+                else
+                    index++;
+            }
+
+            return -1;
         }
     }
 }

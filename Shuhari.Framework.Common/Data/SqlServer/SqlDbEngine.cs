@@ -100,6 +100,13 @@ namespace Shuhari.Framework.Data.SqlServer
                 args.Add("-i");
                 args.Add(string.Format("\"{0}\"", Path.GetFileName(options.FileName)));
             }
+
+            if (options.Variable.IsNotBlank())
+            {
+                args.Add("-v");
+                args.Add(options.Variable);
+            }
+
             return ShellExec(cmd, workDir, args);
         }
 

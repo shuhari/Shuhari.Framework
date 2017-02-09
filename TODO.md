@@ -23,3 +23,6 @@ DONE:
 * REFACTOR: Query and Query<T> return self
 * NEW: QueryDTO.ToCritias
 * FIXED: IQuery<T>.Set unified
+* Add -v parameter to DbManagementCommandOptions
+* Add Find/FindIndex to CollectionUtil
+* CollectionUTil.FindBy/FindByName marked as obsolute
