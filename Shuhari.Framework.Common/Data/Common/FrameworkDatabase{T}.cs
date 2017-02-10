@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using Shuhari.Framework.Data.Mappings;
-using Shuhari.Framework.Resources;
-using Shuhari.Framework.Text;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Data.Common
@@ -31,23 +28,24 @@ namespace Shuhari.Framework.Data.Common
             Expect.IsNotNull(entityAssembly, nameof(entityAssembly));
             Expect.IsNotNull(repositoryAssembly, nameof(repositoryAssembly));
 
-            var config = ConfigurationManager.ConnectionStrings[connectionName];
-            if (config == null || config.ConnectionString.IsBlank())
-                throw new ConfigurationErrorsException("Connection string not configurated: " + connectionName);
-            ConnectionString = config.ConnectionString;
-            Engine = DbRegistry.GetEngine(dbType);
-
-            SessionFactory = Engine.CreateSessionFactory(ConnectionString);
-            MappingFactory.MapEntitiesWithAnnonations(SessionFactory, entityAssembly);
-
+            _connectionName = connectionName;
+            _entityAssembly = entityAssembly;
+            _repositoryAssembly = repositoryAssembly;
             _repositoryImpls = new Dictionary<PropertyInfo, Type>();
-            RegisterRepositoryTypes(repositoryAssembly);
+
+            Engine = DbRegistry.GetEngine(dbType);
         }
 
-        /// <summary>
-        /// Connection string
-        /// </summary>
-        public string ConnectionString { get; private set; }
+
+        private readonly string _connectionName;
+
+        private readonly Assembly _entityAssembly;
+
+        private readonly Assembly _repositoryAssembly;
+
+        private ISessionFactory _sessionFactory;
+
+        private Dictionary<PropertyInfo, Type> _repositoryImpls;
 
         /// <summary>
         /// Db engine
@@ -57,23 +55,35 @@ namespace Shuhari.Framework.Data.Common
         /// <summary>
         /// Session factory
         /// </summary>
-        public ISessionFactory SessionFactory { get; private set; }
+        public ISessionFactory SessionFactory
+        {
+            get
+            {
+                if (_sessionFactory == null)
+                {
+                    var config = ConfigurationManager.ConnectionStrings[_connectionName];
+                    if (config == null || config.ConnectionString.IsBlank())
+                        throw new ConfigurationErrorsException("Connection string not configurated: " + _connectionName);
+                    var connectionString = config.ConnectionString;
 
-        private Dictionary<PropertyInfo, Type> _repositoryImpls;
+                    _sessionFactory = Engine.CreateSessionFactory(connectionString);
+                    MappingFactory.MapEntitiesWithAnnonations(_sessionFactory, _entityAssembly);
+                    RegisterRepositoryTypes();
+                }
+                return _sessionFactory;
+            }
+        }
 
         /// <summary>
         /// Lookup <typeparamref name="TContext"/> for repository properties,
-        /// and find implemention class in <paramref name="assembly"/>
+        /// and find implemention class in repositoryAssembly
         /// </summary>
-        /// <param name="assembly"></param>
-        private void RegisterRepositoryTypes(Assembly assembly)
+        private void RegisterRepositoryTypes()
         {
-            Expect.IsNotNull(assembly, nameof(assembly));
-
             var reposIntfs = typeof(TContext).GetProperties(BindingFlags.Public | BindingFlags.Instance)
                 .Where(t => typeof(IRepository).IsAssignableFrom(t.PropertyType))
                 .ToList();
-            foreach (var type in assembly.GetExportedTypes())
+            foreach (var type in _repositoryAssembly.GetExportedTypes())
             foreach (var reposIntf in reposIntfs.ToArray())
             {
                 if (type.IsClass && !type.IsAbstract && reposIntf.PropertyType.IsAssignableFrom(type))
@@ -101,54 +111,6 @@ namespace Shuhari.Framework.Data.Common
                 kv.Key.SetValue(context, repos);
             }
             return context;
-        }
-
-        /// <summary>
-        /// 脚本嵌入程序集资源
-        /// </summary>
-        /// <param name="scriptPath"></param>
-        /// <returns></returns>
-        public AssemblyResource GetScriptResource(string scriptPath)
-        {
-            Expect.IsNotBlank(scriptPath, nameof(scriptPath));
-            return GetType().Assembly.GetResource(scriptPath);
-        }
-
-        /// <summary>
-        /// For test, copy resource script to specified directory
-        /// </summary>
-        /// <param name="scriptPath"></param>
-        /// <param name="workDir">Working directory, or point to AppDomain's BaseDirectory if not set</param>
-        /// <returns></returns>
-        public string CopyScriptResourceToBaseDir(string scriptPath, string workDir = null)
-        {
-            Expect.IsNotBlank(scriptPath, nameof(scriptPath));
-            workDir = workDir ?? AppDomain.CurrentDomain.BaseDirectory;
-
-            var resource = GetScriptResource(scriptPath);
-            var filePath = Path.Combine(workDir, Path.GetFileName(scriptPath));
-            resource.CopyToFile(filePath);
-            return filePath;
-        }
-
-        /// <summary>
-        /// Execute resource script
-        /// </summary>
-        /// <param name="scriptPath"></param>
-        /// <param name="options"></param>
-        /// <returns></returns>
-        public string ExecuteScriptResource(string scriptPath, DbManagementCommandOptions options)
-        {
-            Expect.IsNotBlank(scriptPath, nameof(scriptPath));
-            options = options ?? DbManagementCommandOptions.GetDefault();
-
-            var filePath = CopyScriptResourceToBaseDir(scriptPath, options.WorkingDirectory);
-            if (options.ContentReplacer != null)
-                options.ContentReplacer.ApplyToFile(filePath);
-
-            options = options ?? DbManagementCommandOptions.GetDefault();
-            options.FileName = filePath;
-            return Engine.ExecuteCommand(options);
         }
     }
 }

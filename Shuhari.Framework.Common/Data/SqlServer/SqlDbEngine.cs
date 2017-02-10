@@ -84,33 +84,6 @@ namespace Shuhari.Framework.Data.SqlServer
         }
 
         /// <inheritdoc />
-        public override string ExecuteCommand(DbManagementCommandOptions options)
-        {
-            string cmd = "sqlcmd.exe", workDir = "";
-            var args = new List<string>();
-
-            if (options.FileName.IsNotBlank())
-            {
-                workDir = Path.GetDirectoryName(options.FileName);
-                if (options.FileEncoding != null)
-                {
-                    args.Add("-f");
-                    args.Add(options.FileEncoding.CodePage.ToString());
-                }
-                args.Add("-i");
-                args.Add(string.Format("\"{0}\"", Path.GetFileName(options.FileName)));
-            }
-
-            if (options.Variable.IsNotBlank())
-            {
-                args.Add("-v");
-                args.Add(options.Variable);
-            }
-
-            return ShellExec(cmd, workDir, args);
-        }
-
-        /// <inheritdoc />
         public override IQueryBuilder<T> CreateQueryBuilder<T>(IEntityMapper<T> mapper)
         {
             Expect.IsNotNull(mapper, nameof(mapper));

@@ -51,24 +51,6 @@ namespace Shuhari.Framework.Data
         DbParameter CreateParameter(string paramName, DbType dbType, object value);
 
         /// <summary>
-        /// Execute management command
-        /// </summary>
-        /// <param name="options">command options</param>
-        /// <returns>execute output</returns>
-        string ExecuteCommand(DbManagementCommandOptions options);
-
-        /// <summary>
-        /// Execute script compiled as assembly resource
-        /// </summary>
-        /// <param name="resource">script resource</param>
-        /// <param name="options">Command options, or null if no options required</param>
-        /// <param name="replacer">Optional replace one string in script. Useful for test when actual database name
-        /// should changed to test database name</param>
-        /// <returns></returns>
-        string ExecuteResourceScript(AssemblyResource resource, DbManagementCommandOptions options = null,
-            StringReplacer replacer = null);
-
-        /// <summary>
         /// Create query builder
         /// </summary>
         /// <typeparam name="T"></typeparam>

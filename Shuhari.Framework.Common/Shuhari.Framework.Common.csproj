@@ -76,8 +76,8 @@
     <Compile Include="Data\Common\SessionTransactionWrapper.cs" />
     <Compile Include="Data\CritiaList.cs" />
     <Compile Include="Data\DatabaseType.cs" />
-    <Compile Include="Data\DbManagementCommandOptions.cs" />
     <Compile Include="Data\DbRegistry.cs" />
+    <Compile Include="Data\DbScriptExecuteOptions.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IDbEngine.cs" />
     <Compile Include="Data\IQuery.cs" />
@@ -136,6 +136,7 @@
     <Compile Include="Globalization\ResourceItem.cs" />
     <Compile Include="Globalization\ResourceRegistry.cs" />
     <Compile Include="Globalization\ResxResourceProvider.cs" />
+    <Compile Include="IO\CommandLine.cs" />
     <Compile Include="IO\Compression\GZip.cs" />
     <Compile Include="IO\StreamDecorator.cs" />
     <Compile Include="Linq\ExpressionBuilder.cs" />
@@ -152,7 +153,6 @@
     <Compile Include="Security\IPasswordBuilder.cs" />
     <Compile Include="Security\PasswordPair.cs" />
     <Compile Include="Security\SimplePasswordBuilder.cs" />
-    <Compile Include="Text\StringReplacer.cs" />
     <Compile Include="Text\Templating\VelocityTemplate.cs" />
     <Compile Include="Text\Templating\﻿ITemplate.cs" />
     <Compile Include="Utils\AssemblyUtil.cs" />

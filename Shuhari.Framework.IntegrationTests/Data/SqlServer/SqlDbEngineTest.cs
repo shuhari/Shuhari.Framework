@@ -2,8 +2,8 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using NUnit.Framework;
+using Shuhari.Framework.Data;
 using Shuhari.Framework.Data.SqlServer;
-using Shuhari.Framework.Text;
 
 namespace Shuhari.Framework.IntegrationTests.Data.SqlServer
 {
@@ -22,8 +22,8 @@ namespace Shuhari.Framework.IntegrationTests.Data.SqlServer
         [Ignore("Manual inspect create output")]
         public void ExecResourceScript_Create()
         {
-            DbFixtures.CreateDatabase(null, true);
-
+            var options = new DbScriptExecuteOptions("Shuhari_Framework_TestDb", null, true);
+            DbFixtures.CreateDatabase(options);
             AssertDbExist("Shuhari_Framework_TestDb", true);
         }
 
@@ -31,8 +31,8 @@ namespace Shuhari.Framework.IntegrationTests.Data.SqlServer
         [Ignore("Manual inspect create output for test")]
         public void ExecResourceScript_Create_ReplaceDbName()
         {
-            DbFixtures.CreateDatabase(new StringReplacer("Shuhari_Framework_TestDb", "Shuhari_Framework_OtherDb"), true);
-
+            var options = new DbScriptExecuteOptions("Shuhari_Framework_OtherDb", null, true);
+            DbFixtures.CreateDatabase(options);
             AssertDbExist("Shuhari_Framework_OtherDb", true);
         }
 
@@ -40,8 +40,8 @@ namespace Shuhari.Framework.IntegrationTests.Data.SqlServer
         [Ignore("Manual inspect drop output")]
         public void ExecuteResourceScript_Drop()
         {
-            DbFixtures.DropDatabase(true);
-
+            var options = new DbScriptExecuteOptions("Shuhari_Framework_TestDb", null, true);
+            DbFixtures.DropDatabase(options);
             AssertDbExist("Shuhari_Framework_TestDb", false);
         }
 

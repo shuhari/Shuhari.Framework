@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Configuration;
+using System.IO;
 using Shuhari.Framework.Data;
 using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.Data.SqlServer;
-using Shuhari.Framework.Text;
+using Shuhari.Framework.IO;
 using Shuhari.Framework.UnitTests.Data;
 using Shuhari.Framework.Utils;
 
@@ -14,23 +15,31 @@ namespace Shuhari.Framework.IntegrationTests.Data
         /// <summary>
         /// Create testbase
         /// </summary>
-        public static void CreateDatabase(StringReplacer replacer = null, bool showOutput = false)
+        public static void CreateDatabase(DbScriptExecuteOptions options)
         {
-            ExecuteResourceScript("Data/Scripts/create.sql", replacer, showOutput);
+            ExecuteResourceScript(options, "Data/Scripts/create.sql");
         }
 
-        public static void DropDatabase(bool showOutput = false)
+        public static void DropDatabase(DbScriptExecuteOptions options)
         {
-            ExecuteResourceScript("Data/Scripts/drop.sql", null, showOutput);
+            ExecuteResourceScript(options, "Data/Scripts/drop.sql");
         }
 
-        private static void ExecuteResourceScript(string scriptPath, StringReplacer replacer, bool showOutput)
+        private static void ExecuteResourceScript(DbScriptExecuteOptions options, string scriptPath)
         {
             var engine = new SqlDbEngine();
-            var resource = typeof(DbFixtures).Assembly.GetResource(scriptPath);
-            var output = engine.ExecuteResourceScript(resource, null, replacer);
-            if (showOutput)
-                Console.WriteLine(output);
+            string filePath = Path.Combine(options.WorkDirectory, Path.GetFileName(scriptPath));
+            typeof(DbFixtures).Assembly.GetResource(scriptPath).CopyToFile(filePath);
+
+            var response = new CommandLine("sqlcmd")
+                .SetWorkingDirectory(options.WorkDirectory)
+                .AddArg("-i")
+                .AddArg(Path.GetFileName(scriptPath))
+                .AddArg("-v")
+                .AddArg(string.Format("db=\"{0}\"", options.DbName))
+                .Exec();
+            if (options.Output)
+                Console.WriteLine(response);
         }
 
         public static ISession OpenSession()

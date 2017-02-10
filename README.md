@@ -42,6 +42,13 @@ References:
 
 Release History:
 
+**v0.1.2.0 (2017-02-10)**
+* REMOVED: IDbEngine.ExecuteCommand
+* REMOVED: TextReplacer
+* NEW: DbSriptExecuteOptions
+* NEW: CommandLine
+* FrameworkDatabase use lazy creation of sessionFactory
+
 **v0.1.1.1 (2017-02-09)**
 * Add -v parameter to DbManagementCommandOptions
 * Add Find/FindIndex to CollectionUtil

@@ -24,11 +24,6 @@ namespace Shuhari.Framework.UnitTests.Data.Common
                 throw new NotImplementedException();
             }
 
-            public override string ExecuteCommand(DbManagementCommandOptions options)
-            {
-                throw new NotImplementedException();
-            }
-
             protected override DbParameter CreateVendorParameter(string paramName, DbType dbType, object value)
             {
                 throw new NotImplementedException();
@@ -87,13 +82,6 @@ namespace Shuhari.Framework.UnitTests.Data.Common
         public void GetDbType_EnumTypes_ShouldReturnInt(Type clrType)
         {
             Assert.AreEqual(DbType.Int32, _engine.GetDbType(clrType));
-        }
-
-        [Test]
-        public void ShellExec()
-        {
-            var output = _engine.ShellExec("ipconfig", null, new string[0] {});
-            Assert.IsNotEmpty(output);
         }
     }
 }

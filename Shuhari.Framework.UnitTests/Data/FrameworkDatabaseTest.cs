@@ -7,7 +7,7 @@ using Shuhari.Framework.Data.SqlServer;
 namespace Shuhari.Framework.UnitTests.Data
 {
     [TestFixture]
-    public class BaseApplicationDatabaseTest
+    public class FrameworkDatabaseTest
     {
         class TestDatabase : FrameworkDatabase<TestDbContext>
         {
@@ -26,9 +26,9 @@ namespace Shuhari.Framework.UnitTests.Data
         private TestDatabase _db;
 
         [Test]
-        public void Ctor_ConnectionNameNotExist_ShouldThrow()
+        public void SessionFactory_ConnectionNameNotExist_ShouldThrow()
         {
-            Assert.Throws<ConfigurationErrorsException>(() => new TestDatabase("invalid_conn"));
+            Assert.Throws<ConfigurationErrorsException>(() => { var obj = new TestDatabase("invalid_conn").SessionFactory; });
         }
 
         [Test]

@@ -1,4 +1,5 @@
-﻿using Shuhari.Framework.Data;
+﻿using System.IO;
+using Shuhari.Framework.Data;
 
 namespace Shuhari.Framework.IntegrationTests.Data
 {
@@ -9,14 +10,23 @@ namespace Shuhari.Framework.IntegrationTests.Data
         {
         }
 
+        private DbScriptExecuteOptions Options
+        {
+            get
+            {
+                var workDir = Path.GetDirectoryName(GetType().Assembly.Location);
+                return new DbScriptExecuteOptions("Shuhari_Framework_TestDb", workDir, false);
+            }
+        }
+
         protected internal override void CreateDatabase()
         {
-            DbFixtures.CreateDatabase();
+            DbFixtures.CreateDatabase(Options);
         }
 
         protected internal override void DropDatabase()
         {
-            DbFixtures.DropDatabase();
+            DbFixtures.DropDatabase(Options);
         }
 
         protected internal override ISession OpenSession()

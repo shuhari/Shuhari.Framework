@@ -101,7 +101,6 @@
     <Compile Include="Data\Common\DbEngineTest.cs" />
     <Compile Include="Data\Common\SessionFactoryTest.cs" />
     <Compile Include="Data\CritiaListTest.cs" />
-    <Compile Include="Data\DbManagementCommandOptionsTest.cs" />
     <Compile Include="Data\DbRegistryTest.cs" />
     <Compile Include="Data\DbTestBaseTest.cs" />
     <Compile Include="Data\FrameworkDatabaseTest.cs" />
@@ -134,6 +133,7 @@
     <Compile Include="Globalization\ResourceItemTest.cs" />
     <Compile Include="Globalization\ResourceRegistryTest.cs" />
     <Compile Include="Globalization\ResxResourceProviderTest.cs" />
+    <Compile Include="IO\CommandLineTest.cs" />
     <Compile Include="IO\Compression\GZipTest.cs" />
     <Compile Include="IO\StreamDecoratorTest.cs" />
     <Compile Include="Linq\ExpressionBuilderTest.cs" />
@@ -148,7 +148,6 @@
     <Compile Include="Security\BasePasswordBuilderTest.cs" />
     <Compile Include="Security\EncryptionTest.cs" />
     <Compile Include="Security\SimplePasswordBuilderTest.cs" />
-    <Compile Include="Text\StringReplacerTest.cs" />
     <Compile Include="Text\Templating\VelocityTemplateTest.cs" />
     <Compile Include="Utils\AssemblyUtilTest.cs" />
     <Compile Include="Utils\AssertExTest.cs" />

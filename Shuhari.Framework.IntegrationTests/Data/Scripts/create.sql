@@ -1,15 +1,15 @@
 ﻿use tempdb;
-if db_id('Shuhari_Framework_TestDb') is not null
+if db_id('$(db)') is not null
 begin
-  alter database Shuhari_Framework_TestDb set single_user with rollback immediate;
-  drop database Shuhari_Framework_TestDb;
+  alter database $(db) set single_user with rollback immediate;
+  drop database $(db);
 end
 go
-create database Shuhari_Framework_TestDb;
+create database $(db);
 go
-alter database Shuhari_Framework_TestDb set recovery simple with no_wait;
+alter database $(db) set recovery simple with no_wait;
 go
-use Shuhari_Framework_TestDb;
+use $(db);
 go
 
 create table TNotNullEntity

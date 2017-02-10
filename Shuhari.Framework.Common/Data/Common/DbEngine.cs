@@ -99,54 +99,6 @@ namespace Shuhari.Framework.Data.Common
         protected abstract DbParameter CreateVendorParameter(string paramName, DbType dbType, object value);
 
         /// <inheritdoc />
-        public abstract string ExecuteCommand(DbManagementCommandOptions options);
-
-        /// <inheritdoc />
-        public string ExecuteResourceScript(AssemblyResource resource, DbManagementCommandOptions options = null,
-            StringReplacer replacer = null)
-        {
-            Expect.IsNotNull(resource, nameof(resource));
-            options = options ?? DbManagementCommandOptions.GetDefault();
-
-            string filePath = resource.CopyToBaseDirectory();
-            if (replacer != null)
-                replacer.ApplyToFile(filePath, options.FileEncoding);
-
-            options.FileName = filePath;
-            return ExecuteCommand(options);
-        }
-
-        /// <summary>
-        /// Helper method to execute database management command and return standard output.
-        /// </summary>
-        /// <param name="cmd"></param>
-        /// <param name="workDir"></param>
-        /// <param name="args"></param>
-        /// <returns></returns>
-        protected internal string ShellExec(string cmd, string workDir, IEnumerable<string> args)
-        {
-            Expect.IsNotBlank(cmd, nameof(cmd));
-            Expect.IsNotNull(args, nameof(args));
-
-            var psi = new ProcessStartInfo()
-            {
-                FileName = cmd,
-                UseShellExecute = false,
-                CreateNoWindow = true,
-                RedirectStandardOutput = true,
-                Arguments = string.Join(" ", args)
-            };
-            if (workDir.IsNotBlank())
-                psi.WorkingDirectory = workDir;
-
-            using (var process = Process.Start(psi))
-            {
-                process.WaitForExit();
-                return process.StandardOutput.ReadToEnd();
-            }
-        }
-
-        /// <inheritdoc />
         public abstract IQueryBuilder<T> CreateQueryBuilder<T>(IEntityMapper<T> mapper)
             where T : class, new();
     }

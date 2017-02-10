@@ -1,4 +1,6 @@
 TODO:
+* FrameworkDatabase lazy create sessionFactory instead of startup
+* DbEngine.ExecuteResourceScript and DbManagementCommandOptions can be removed
 
 DONE:
 * FIXED: IQuery<T>.Set unified
@@ -8,3 +10,8 @@ DONE:
 * NEW: GZip.Compress/Decompress
 * NEW: Encryption.SHA1
 * REMOVED: CollectionUtil.FindBy/FindByName
+* REMOVED: IDbEngine.ExecuteCommand
+* REMOVED: TextReplacer
+* NEW: DbSriptExecuteOptions
+* NEW: CommandLine
+* FrameworkDatabase use lazy creation of sessionFactory
