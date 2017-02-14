@@ -1,9 +1,4 @@
 TODO:
-* RENAMED: IRepository.ListAll renamed to GetAll
-* NEW: IRepository.GetBy
-* NEW: BaseDbContext.CreateSessionScope
-* REMOVED: FrameworkController.ExecuteAjax
-* NEW: FrameworkController.ExecuteJsonResult
 
 DONE:
 * FIXED: IQuery<T>.Set unified
@@ -20,3 +15,8 @@ DONE:
 * FrameworkDatabase use lazy creation of sessionFactory
 * REFACTOR: FrameworkDatabase lazy create sessionFactory instead of startup
 * REMOVED: DbEngine.ExecuteResourceScript/DbManagementCommandOptions
+* RENAMED: IRepository.ListAll renamed to GetAll
+* NEW: IRepository.GetBy
+* NEW: BaseDbContext.CreateSessionScope
+* REMOVED: FrameworkController.ExecuteAjax
+* NEW: FrameworkController.ExecuteJsonResult

@@ -1,3 +1,10 @@
+**v0.1.3.0 (2017-02-14)**
+* RENAMED: IRepository.ListAll renamed to GetAll
+* NEW: IRepository.GetBy
+* NEW: BaseDbContext.CreateSessionScope
+* REMOVED: FrameworkController.ExecuteAjax
+* NEW: FrameworkController.ExecuteJsonResult
+
 **v0.1.2.0 (2017-02-10)**
 * REMOVED: IDbEngine.ExecuteCommand
 * REMOVED: TextReplacer
