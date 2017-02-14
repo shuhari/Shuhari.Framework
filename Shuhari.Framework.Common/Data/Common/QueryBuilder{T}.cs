@@ -192,7 +192,7 @@ namespace Shuhari.Framework.Data.Common
             return CreateUpdateQuery(session, entity, fieldMappers);
         }
 
-        private IFieldMapper<T> GetFieldMapper(Expression<Func<T, object>> propSelector)
+        private IFieldMapper<T> GetFieldMapper<TProp>(Expression<Func<T, TProp>> propSelector)
         {
             Expect.IsNotNull(propSelector, nameof(propSelector));
 
@@ -208,7 +208,7 @@ namespace Shuhari.Framework.Data.Common
             string baseSql, OrderCritia<T> orderField, QueryDTO qdata);
 
         /// <inheritdoc />
-        public IQuery<T> ListAll(ISession session, OrderCritia<T> orderField)
+        public IQuery<T> GetAll(ISession session, OrderCritia<T> orderField)
         {
             var fieldNames = string.Join(", ", Mapper.FieldMappers.Select(x => x.FieldName));
             string sql = string.Format("select {0} from {1}",
@@ -224,6 +224,20 @@ namespace Shuhari.Framework.Data.Common
                     orderField.Ascending ? "asc" : "desc");
             }
             var query = session.CreateQuery<T>(sql);
+            return query;
+        }
+
+        /// <inheritdoc />
+        public IQuery<T> GetBy<TProp>(ISession session, Expression<Func<T, TProp>> selector, TProp value)
+        {
+            Expect.IsNotNull(selector, nameof(selector));
+            var field = GetFieldMapper(selector);
+
+            var fieldNames = string.Join(", ", Mapper.FieldMappers.Select(x => x.FieldName));
+            string sql = string.Format("select {0} from {1} where {2}=@{2}", 
+                fieldNames, Mapper.TableName, field.FieldName);
+            var query = session.CreateQuery<T>(sql, Mapper);
+            query.Set(field.FieldName, Engine.GetDbType(field.PropertyType), value);
             return query;
         }
     }

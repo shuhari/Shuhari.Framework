@@ -57,10 +57,24 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
         {
             var dto = new SelectItemDTO<int>(12, "n", true);
             var item = _page.ToSelectItem(dto);
+            AssertSelectItem(item, "n", "12", true);
+        }
 
-            Assert.AreEqual("12", item.Value);
-            Assert.AreEqual("n", item.Text);
-            Assert.IsTrue(item.Selected);
+        [Test]
+        public void ToSelectItems()
+        {
+            var dto = new SelectItemDTO<int>(12, "n", true);
+            var items = _page.ToSelectItems(new[] { dto });
+
+            Assert.AreEqual(1, items.Length);
+            AssertSelectItem(items[0], "n", "12", true);
+        }
+
+        private void AssertSelectItem(SelectListItem item, string text, string value, bool selected)
+        {
+            Assert.AreEqual(text, item.Text);
+            Assert.AreEqual(value, item.Value);
+            Assert.AreEqual(selected, item.Selected);
         }
 
         [Test]

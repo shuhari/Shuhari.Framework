@@ -114,10 +114,17 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        public TEntity[] ListAll(OrderCritia<TEntity> orderField = null)
+        public TEntity[] GetAll(OrderCritia<TEntity> orderField = null)
         {
-            return GetQueryBuilder().ListAll(Session, orderField)
+            return GetQueryBuilder().GetAll(Session, orderField)
                 .GetAll();
+        }
+
+        /// <inheritdoc />
+        public TEntity GetBy<TProp>(Expression<Func<TEntity, TProp>> selector, TProp value)
+        {
+            Expect.IsNotNull(selector, nameof(selector));
+            return GetQueryBuilder().GetBy(Session, selector, value).GetFirst();
         }
     }
 }

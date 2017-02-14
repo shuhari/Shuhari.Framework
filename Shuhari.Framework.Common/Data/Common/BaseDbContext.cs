@@ -103,5 +103,14 @@ namespace Shuhari.Framework.Data.Common
                 }
             }
         }
+
+        /// <summary>
+        /// Create session scope. the session will be disposed when call Dispose or using (...) leaves.
+        /// </summary>
+        /// <returns></returns>
+        public IDisposable CreateSessionScope()
+        {
+            return new DbContextSessionScope(this);
+        }
     }
 }

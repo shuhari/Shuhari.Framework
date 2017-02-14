@@ -106,6 +106,16 @@ namespace Shuhari.Framework.Data
         /// <param name="session"></param>
         /// <param name="orderField"></param>
         /// <returns></returns>
-        IQuery<T> ListAll(ISession session, OrderCritia<T> orderField);
+        IQuery<T> GetAll(ISession session, OrderCritia<T> orderField);
+
+        /// <summary>
+        /// Create get by query
+        /// </summary>
+        /// <typeparam name="TProp"></typeparam>
+        /// <param name="session"></param>
+        /// <param name="selector"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        IQuery<T> GetBy<TProp>(ISession session, Expression<Func<T, TProp>> selector, TProp value);
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Web.Mvc;
 using NUnit.Framework;
 using Shuhari.Framework.DomainModel;
+using Shuhari.Framework.Web.Mvc;
 
 namespace Shuhari.Framework.UnitTests.Web.Mvc
 {
@@ -23,41 +25,42 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
             Assert.AreEqual(MSG, _controller.TempMessage);
         }
 
-        private ValidationResultDTO ExecAjax<T>(T model, Action<T> action, string successMsg)
+        [Test]
+        public void ExecuteJsonResult_Success_ShouldReturnOk()
         {
-            var result = _controller.ExecuteAjax(model, action, "msg");
-            return (ValidationResultDTO)result.Data;
+            var result = _controller.ExecuteJsonResult("abc", x => { });
+            var dto = (ResultDTO)result.Data;
+            Assert.IsTrue(dto.Success);
         }
 
         [Test]
-        public void ExecuteAjax_HasModelError_ShouldReturnError()
+        public void ExecuteAndRedirect_ActionExecOk_ShouldRedirect()
         {
-            _controller.ModelState.AddModelError("", "test error");
-            var resultData = ExecAjax("abc", x => { }, "success");
-            AssertResultSingleError(resultData, "", "test error");
+            var result = (RedirectResult)_controller.ExecuteAndRedirect("abc", x => { }, "redirect", "msg"); 
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("redirect", result.Url);
         }
 
         [Test]
-        public void ExecuteAjax_ActionThrow_ShouldReturnError()
+        public void ExecuteAndRedirect_Throws_ShouldReturnView()
         {
-            var resultData = ExecAjax("abc", x => { throw new Exception("test exception"); }, "success");
-            AssertResultSingleError(resultData, "", "test exception");
-        }
+            var result = (ViewResult)_controller.ExecuteAndRedirect("abc", 
+                x => { throw new Exception("test error"); }, 
+                "redirect", "msg");
 
-        private void AssertResultSingleError(ValidationResultDTO result, string propName, string message)
-        {
-            Assert.IsFalse(result.Success);
-            Assert.AreEqual(1, result.Errors.Length);
-            Assert.AreEqual(propName, result.Errors[0].Property);
-            Assert.AreEqual(message, result.Errors[0].Message);
+            Assert.IsNotNull(result);
+            Assert.AreEqual("abc", result.Model);
         }
 
         [Test]
-        public void ExecuteAjax_AllSuccess_ShouldReturnSuccess()
+        public void ExecuteJsonResult_Throws_ShouldReturnError()
         {
-            var resultData = ExecAjax("abc", x => { }, "success");
-
-            Assert.IsTrue(resultData.Success);
+            const string msg = "test error";
+            var result = _controller.ExecuteJsonResult("abc", x => { throw new System.Exception(msg); });
+            var dto = (ResultDTO)result.Data;
+            Assert.IsFalse(dto.Success);
+            Assert.AreEqual(msg, dto.Message);
         }
     }
 }

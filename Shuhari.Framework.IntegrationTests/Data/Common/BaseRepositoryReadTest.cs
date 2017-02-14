@@ -54,19 +54,33 @@ namespace Shuhari.Framework.IntegrationTests.Data.Common
         }
 
         [Test]
-        public void ListAll_NoOrder()
+        public void GetAll_NoOrder()
         {
-            var result = _repository.ListAll();
+            var result = _repository.GetAll();
 
             Assert.AreEqual(1, result.Length);
         }
 
         [Test]
-        public void ListAll_WithOrder()
+        public void GetAll_WithOrder()
         {
-            var result = _repository.ListAll(_repository.OrderBy(x => x.Id));
+            var result = _repository.GetAll(_repository.OrderBy(x => x.Id));
 
             Assert.AreEqual(1, result.Length);
+        }
+
+        [Test]
+        public void GetBy_Exist_ShouldReturn()
+        {
+            var e = _repository.GetBy(x => x.StringProp, "abc");
+            Assert.IsNotNull(e);
+            Assert.AreEqual("abc", e.StringProp);
+        }
+
+        [Test]
+        public void GetBy_NotExist_ShouldReturnNull()
+        {
+            Assert.IsNull(_repository.GetBy(x => x.StringProp, "not_prop"));
         }
     }
 }

@@ -69,5 +69,16 @@ namespace Shuhari.Framework.UnitTests.Data.Common
 
             _mockTransaction.Verify(m => m.Rollback());
         }
+
+        [Test]
+        public void CreateSessionScope()
+        {
+            using (var scope = _dbCtx.CreateSessionScope())
+            {
+                _mockSessionFactory.Verify(m => m.OpenSession(It.IsAny<object>()));
+            }
+
+            _mockSession.Verify(m => m.Dispose());
+        }
     }
 }

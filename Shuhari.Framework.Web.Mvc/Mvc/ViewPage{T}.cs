@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 using Shuhari.Framework.DomainModel;
 using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Utils;
@@ -58,6 +60,19 @@ namespace Shuhari.Framework.Web.Mvc
                 Value = item.Id.ToString(),
                 Selected = item.Selected
             };
+        }
+
+        /// <summary>
+        /// Convert to select item
+        /// </summary>
+        /// <typeparam name="TID"></typeparam>
+        /// <param name="items"></param>
+        /// <returns></returns>
+        public SelectListItem[] ToSelectItems<TID>(IEnumerable<SelectItemDTO<TID>> items)
+            where TID : struct
+        {
+            Expect.IsNotNull(items, nameof(items));
+            return items.Select(ToSelectItem).ToArray();
         }
 
         /// <summary>

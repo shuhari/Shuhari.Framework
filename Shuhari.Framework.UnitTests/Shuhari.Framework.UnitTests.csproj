@@ -126,7 +126,6 @@
     <Compile Include="DomainModel\SigninModelTest.cs" />
     <Compile Include="DomainModel\SitemapTest.cs" />
     <Compile Include="DomainModel\UserInfoTest.cs" />
-    <Compile Include="DomainModel\ValidationResultDTOTest.cs" />
     <Compile Include="Fixtures.cs" />
     <Compile Include="Globalization\FrameworkStringsTest.cs" />
     <Compile Include="Globalization\JsonResourceProviderTest.cs" />

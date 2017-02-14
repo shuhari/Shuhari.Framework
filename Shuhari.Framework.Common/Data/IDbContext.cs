@@ -29,5 +29,11 @@ namespace Shuhari.Framework.Data
         /// </summary>
         /// <param name="action"></param>
         void ExecuteTransaction(Action action);
+
+        /// <summary>
+        /// Create session scope
+        /// </summary>
+        /// <returns></returns>
+        IDisposable CreateSessionScope();
     }
 }

@@ -64,7 +64,7 @@ namespace Shuhari.Framework.Data
         /// </summary>
         /// <param name="orderField"></param>
         /// <returns></returns>
-        TEntity[] ListAll(OrderCritia<TEntity> orderField = null);
+        TEntity[] GetAll(OrderCritia<TEntity> orderField = null);
 
         /// <summary>
         /// Create order critia
@@ -82,5 +82,14 @@ namespace Shuhari.Framework.Data
         /// <param name="qdata"></param>
         /// <returns></returns>
         PagedCollection<TEntity> QueryPaged(string baseSql, OrderCritia<TEntity> orderField, QueryDTO qdata);
+
+        /// <summary>
+        /// Select first entity that given property equals <paramref name="value"/>.
+        /// </summary>
+        /// <typeparam name="TProp"></typeparam>
+        /// <param name="selector"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        TEntity GetBy<TProp>(Expression<Func<TEntity, TProp>> selector, TProp value);
     }
 }

@@ -65,6 +65,7 @@
     <Compile Include="Data\Common\BaseQuery.cs" />
     <Compile Include="Data\Common\BaseRepository.cs" />
     <Compile Include="Data\Common\BaseRepository{T}.cs" />
+    <Compile Include="Data\Common\DbContextSessionScope.cs" />
     <Compile Include="Data\Common\FrameworkDatabase{T}.cs" />
     <Compile Include="Data\Common\Query.cs" />
     <Compile Include="Data\Common\DbEngine.cs" />
@@ -129,8 +130,6 @@
     <Compile Include="DomainModel\SitemapContainer.cs" />
     <Compile Include="DomainModel\SitemapItem.cs" />
     <Compile Include="DomainModel\UserInfo.cs" />
-    <Compile Include="DomainModel\ValidationResultDTO.cs" />
-    <Compile Include="DomainModel\ValidationErrorDTO.cs" />
     <Compile Include="Globalization\IResourceProvider.cs" />
     <Compile Include="Globalization\JsonResourceProvider.cs" />
     <Compile Include="Globalization\ResourceItem.cs" />
