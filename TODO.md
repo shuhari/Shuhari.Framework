@@ -1,4 +1,7 @@
 TODO:
+BaseDbContext renamed to FrameworkDbContext
+EnumUtil.ToSelectItems()
+StreamDecorator expose InnerStream
 
 DONE:
 * FIXED: IQuery<T>.Set unified
