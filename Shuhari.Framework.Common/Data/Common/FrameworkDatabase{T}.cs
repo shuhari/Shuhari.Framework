@@ -12,7 +12,7 @@ namespace Shuhari.Framework.Data.Common
     /// Define applilcation level database
     /// </summary>
     public abstract class FrameworkDatabase<TContext>
-        where TContext : BaseDbContext
+        where TContext : FrameworkDbContext
     {
         /// <summary>
         /// Initialize

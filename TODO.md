@@ -1,7 +1,6 @@
 TODO:
-BaseDbContext renamed to FrameworkDbContext
 EnumUtil.ToSelectItems()
-StreamDecorator expose InnerStream
+
 
 DONE:
 * FIXED: IQuery<T>.Set unified
@@ -23,3 +22,7 @@ DONE:
 * NEW: BaseDbContext.CreateSessionScope
 * REMOVED: FrameworkController.ExecuteAjax
 * NEW: FrameworkController.ExecuteJsonResult
+* NEW: StreamDecorator expose InnerStream
+* NEW: AuthenticationResultDTO
+* REFACTOR: UserManager.Signin return user info
+* REFACTOR: BaseDbContext renamed to FrameworkDbContext

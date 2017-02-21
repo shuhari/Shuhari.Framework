@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.IO
@@ -22,70 +17,73 @@ namespace Shuhari.Framework.IO
         {
             Expect.IsNotNull(innerStream, nameof(innerStream));
 
-            _innerstream = innerStream;
+            InnerStream = innerStream;
         }
 
-        private readonly Stream _innerstream;
+        /// <summary>
+        /// Inner stream
+        /// </summary>
+        public Stream InnerStream { get; private set; }
 
         /// <inheritdoc />
         public override bool CanRead
         {
-            get { return _innerstream.CanRead; }
+            get { return InnerStream.CanRead; }
         }
 
         /// <inheritdoc />
         public override bool CanSeek
         {
-            get { return _innerstream.CanSeek; }
+            get { return InnerStream.CanSeek; }
         }
 
         /// <inheritdoc />
         public override bool CanWrite
         {
-            get { return _innerstream.CanWrite; }
+            get { return InnerStream.CanWrite; }
         }
 
         /// <inheritdoc />
         public override long Length
         {
-            get { return _innerstream.Length; }
+            get { return InnerStream.Length; }
         }
 
         /// <inheritdoc />
         public override long Position
         {
-            get { return _innerstream.Position; }
-            set { _innerstream.Position = value; }
+            get { return InnerStream.Position; }
+            set { InnerStream.Position = value; }
         }
 
         /// <inheritdoc />
         public override void Flush()
         {
-            _innerstream.Flush();
+            InnerStream.Flush();
         }
 
         /// <inheritdoc />
         public override long Seek(long offset, SeekOrigin origin)
         {
-            return _innerstream.Seek(offset, origin);
+            return InnerStream.Seek(offset, origin);
         }
 
         /// <inheritdoc />
         public override void SetLength(long value)
         {
-            _innerstream.SetLength(value);
+            InnerStream.SetLength(value);
         }
 
         /// <inheritdoc />
         public override int Read(byte[] buffer, int offset, int count)
         {
-            return _innerstream.Read(buffer, offset, count);
+            return InnerStream.Read(buffer, offset, count);
         }
 
         /// <inheritdoc />
         public override void Write(byte[] buffer, int offset, int count)
         {
-            _innerstream.Write(buffer, offset, count);
+            InnerStream.Write(buffer, offset, count);
         }
     }
 }

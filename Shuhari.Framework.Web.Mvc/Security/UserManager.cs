@@ -50,7 +50,7 @@ namespace Shuhari.Framework.Web.Security
         /// </summary>
         /// <param name="context">http context</param>
         /// <param name="signin">singin information</param>
-        public void Signin(HttpContextBase context, SigninModel signin)
+        public UserInfo Signin(HttpContextBase context, SigninModel signin)
         {
             Expect.IsNotNull(context, nameof(context));
             Expect.IsNotNull(signin, nameof(signin));
@@ -58,6 +58,7 @@ namespace Shuhari.Framework.Web.Security
             var user = _authentication.Authenticate(signin);
             FormsSignin(signin);
             context.Session[USER_KEY] = user;
+            return user;
         }
 
         /// <summary>
@@ -100,8 +101,6 @@ namespace Shuhari.Framework.Web.Security
         {
             Expect.IsNotNull(context, nameof(context));
 
-            if (!context.User.Identity.IsAuthenticated)
-                return null;
             var user = context.Session[USER_KEY] as UserInfo;
             if (user == null)
             {

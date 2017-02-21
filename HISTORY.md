@@ -1,3 +1,9 @@
+**v0.1.4.0 (2017-02-21)**
+* NEW: StreamDecorator expose InnerStream
+* NEW: AuthenticationResultDTO
+* REFACTOR: UserManager.Signin return user info
+* REFACTOR: BaseDbContext renamed to FrameworkDbContext
+
 **v0.1.3.0 (2017-02-14)**
 * RENAMED: IRepository.ListAll renamed to GetAll
 * NEW: IRepository.GetBy
@@ -43,10 +49,4 @@
 * NEW: ExecuteAndRedirect successMessage can be null
 * NEW: ExecuteAndRedirect redirect param set to url
 * NEW: MemberUtil
-
-**v0.1.0.10 (2017-01-19)**
-* NEW: ResString Homepage
-* NEW: ViewPage.TempMessage
-* NEW: Add INamed
-* NEW: Add CollectionUtil.FindByName
 

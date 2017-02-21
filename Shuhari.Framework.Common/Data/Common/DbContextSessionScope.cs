@@ -12,7 +12,7 @@ namespace Shuhari.Framework.Data.Common
         /// Initialize
         /// </summary>
         /// <param name="dbCtx"></param>
-        public DbContextSessionScope(BaseDbContext dbCtx)
+        public DbContextSessionScope(FrameworkDbContext dbCtx)
         {
             Expect.IsNotNull(dbCtx, nameof(dbCtx));
 
@@ -20,7 +20,7 @@ namespace Shuhari.Framework.Data.Common
             _dbCtx.OpenSession();
         }
 
-        private readonly BaseDbContext _dbCtx;
+        private readonly FrameworkDbContext _dbCtx;
 
         /// <summary>
         /// dispose

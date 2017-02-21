@@ -42,6 +42,12 @@ References:
 
 Release History:
 
+**v0.1.4.0 (2017-02-21)**
+* NEW: StreamDecorator expose InnerStream
+* NEW: AuthenticationResultDTO
+* REFACTOR: UserManager.Signin return user info
+* REFACTOR: BaseDbContext renamed to FrameworkDbContext
+
 **v0.1.3.0 (2017-02-14)**
 * RENAMED: IRepository.ListAll renamed to GetAll
 * NEW: IRepository.GetBy

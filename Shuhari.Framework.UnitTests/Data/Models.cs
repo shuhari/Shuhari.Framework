@@ -117,7 +117,7 @@ namespace Shuhari.Framework.UnitTests.Data
     {
     }
 
-    public class TestDbContext : BaseDbContext
+    public class TestDbContext : FrameworkDbContext
     {
         public TestDbContext(ISessionFactory sessionFactory)
             : base(sessionFactory)

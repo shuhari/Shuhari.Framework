@@ -61,7 +61,7 @@
   <ItemGroup>
     <Compile Include="ComponentModel\DefaultDateTimeValueSerializer.cs" />
     <Compile Include="ComponentModel\GenericTypeConverter.cs" />
-    <Compile Include="Data\Common\BaseDbContext.cs" />
+    <Compile Include="Data\Common\FrameworkDbContext.cs" />
     <Compile Include="Data\Common\BaseQuery.cs" />
     <Compile Include="Data\Common\BaseRepository.cs" />
     <Compile Include="Data\Common\BaseRepository{T}.cs" />
@@ -111,6 +111,7 @@
     <Compile Include="Data\SqlServer\SqlDbEngine.cs" />
     <Compile Include="Data\SqlServer\SqlQueryBuilder{T}.cs" />
     <Compile Include="Data\Utils\ParamConverter.cs" />
+    <Compile Include="DomainModel\AuthenticationResultDTO.cs" />
     <Compile Include="DomainModel\BaseEntity{TID}.cs" />
     <Compile Include="DomainModel\BaseSitemapResolver.cs" />
     <Compile Include="DomainModel\FileItem.cs" />

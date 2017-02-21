@@ -10,13 +10,13 @@ namespace Shuhari.Framework.Data.Common
     /// <summary>
     /// Base implementation of <see cref="IDbContext"/>
     /// </summary>
-    public abstract class BaseDbContext : IDbContext
+    public abstract class FrameworkDbContext : IDbContext
     {
         /// <summary>
         /// Initialize
         /// </summary>
         /// <param name="sessionFactory"></param>
-        public BaseDbContext(ISessionFactory sessionFactory)
+        public FrameworkDbContext(ISessionFactory sessionFactory)
         {
             Expect.IsNotNull(sessionFactory, nameof(sessionFactory));
 
