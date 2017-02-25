@@ -109,11 +109,19 @@ namespace Shuhari.Framework.UnitTests.Data
     {
     }
 
-    public class NotNullEntityRepository : BaseRepository<int, NotNullEntity>
+    public interface INotNullEntityRepository : IRepository<int, NotNullEntity>
     {
     }
 
-    public class NullableEntityRepository : BaseRepository<int, NullableEntity>
+    public interface INullableEntityRepository : IRepository<int, NullableEntity>
+    {
+    }
+
+    public class NotNullEntityRepository : BaseRepository<int, NotNullEntity>, INotNullEntityRepository
+    {
+    }
+
+    public class NullableEntityRepository : BaseRepository<int, NullableEntity>, INullableEntityRepository
     {
     }
 

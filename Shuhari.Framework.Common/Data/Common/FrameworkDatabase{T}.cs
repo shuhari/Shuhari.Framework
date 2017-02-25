@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
+﻿using System.Configuration;
 using System.Reflection;
 using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.Utils;
@@ -31,7 +28,6 @@ namespace Shuhari.Framework.Data.Common
             _connectionName = connectionName;
             _entityAssembly = entityAssembly;
             _repositoryAssembly = repositoryAssembly;
-            _repositoryImpls = new Dictionary<PropertyInfo, Type>();
 
             Engine = DbRegistry.GetEngine(dbType);
         }
@@ -45,7 +41,7 @@ namespace Shuhari.Framework.Data.Common
 
         private ISessionFactory _sessionFactory;
 
-        private Dictionary<PropertyInfo, Type> _repositoryImpls;
+        private DbContextFactory<TContext> _factory;
 
         /// <summary>
         /// Db engine
@@ -68,34 +64,21 @@ namespace Shuhari.Framework.Data.Common
 
                     _sessionFactory = Engine.CreateSessionFactory(connectionString);
                     MappingFactory.MapEntitiesWithAnnonations(_sessionFactory, _entityAssembly);
-                    RegisterRepositoryTypes();
                 }
                 return _sessionFactory;
             }
         }
 
-        /// <summary>
-        /// Lookup <typeparamref name="TContext"/> for repository properties,
-        /// and find implemention class in repositoryAssembly
-        /// </summary>
-        private void RegisterRepositoryTypes()
+        private DbContextFactory<TContext> Factory
         {
-            var reposIntfs = typeof(TContext).GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                .Where(t => typeof(IRepository).IsAssignableFrom(t.PropertyType))
-                .ToList();
-            foreach (var type in _repositoryAssembly.GetExportedTypes())
-            foreach (var reposIntf in reposIntfs.ToArray())
+            get
             {
-                if (type.IsClass && !type.IsAbstract && reposIntf.PropertyType.IsAssignableFrom(type))
+                if (_factory == null)
                 {
-                    _repositoryImpls[reposIntf] = type;
-                    reposIntfs.Remove(reposIntf);
+                    _factory = new DbContextFactory<TContext>(SessionFactory, _repositoryAssembly);
                 }
+                return _factory;
             }
-
-            if (reposIntfs.Count > 0)
-                throw new ConfigurationErrorsException(string.Format("Following repositories implementation not found: {0}",
-                    string.Join(", ", reposIntfs.Select(x => x.PropertyType))));
         }
 
         /// <summary>
@@ -104,13 +87,7 @@ namespace Shuhari.Framework.Data.Common
         /// <returns></returns>
         public TContext CreateDbContext()
         {
-            var context = (TContext)Activator.CreateInstance(typeof(TContext), new object[] { SessionFactory });
-            foreach (var kv in _repositoryImpls)
-            {
-                var repos = Activator.CreateInstance(kv.Value);
-                kv.Key.SetValue(context, repos);
-            }
-            return context;
+            return Factory.CreateContext();
         }
     }
 }

@@ -1,3 +1,7 @@
+**v0.1.5.0 (2017-02-25)**
+* REFACTOR: MappingFactory.MapEntitiesWithAnnonations set to public
+* NEW: DbContextFactory
+
 **v0.1.4.0 (2017-02-21)**
 * NEW: StreamDecorator expose InnerStream
 * NEW: AuthenticationResultDTO

@@ -8,7 +8,7 @@ namespace Shuhari.Framework.Data.Mappings
     /// <summary>
     /// Factory to create mapping
     /// </summary>
-    internal static class MappingFactory
+    public static class MappingFactory
     {
         /// <summary>
         /// Create entity mapping by attribute annonations
@@ -28,7 +28,7 @@ namespace Shuhari.Framework.Data.Mappings
         /// </summary>
         /// <param name="sessionFactory"></param>
         /// <param name="assembly"></param>
-        internal static void MapEntitiesWithAnnonations(this ISessionFactory sessionFactory, Assembly assembly)
+        public static void MapEntitiesWithAnnonations(this ISessionFactory sessionFactory, Assembly assembly)
         {
             Expect.IsNotNull(sessionFactory, nameof(sessionFactory));
             Expect.IsNotNull(assembly, nameof(assembly));
