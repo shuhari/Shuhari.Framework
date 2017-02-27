@@ -2,6 +2,8 @@ TODO:
 * EnumUtil.ToSelectItems()
 * Testing.NUnit refactor to Testing.Common/Mvc
 * Framework.WPF, with Show/Hide, Dialog, EnableControls
+* StringList
+* Refactor Testing.NUnit to Testing.Common/Testing.Mvc
 
 DONE:
 * REFACTOR: UserManager.Signin return user info
