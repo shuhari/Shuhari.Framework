@@ -42,6 +42,10 @@ References:
 
 Release History:
 
+**v0.1.6.0 (2017-02-27)**
+* REFACTOR: Framework downlevel to 4.5.2
+* NEW: WPF library project
+
 **v0.1.5.0 (2017-02-25)**
 * REFACTOR: MappingFactory.MapEntitiesWithAnnonations set to public
 * NEW: DbContextFactory

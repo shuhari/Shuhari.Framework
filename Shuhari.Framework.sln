@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.UnitTests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.IntegrationTests", "Shuhari.Framework.IntegrationTests\Shuhari.Framework.IntegrationTests.csproj", "{6838D8D2-1E01-4BF4-8E06-568F42EC5B59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.Wpf", "Shuhari.Framework.Wpf\Shuhari.Framework.Wpf.csproj", "{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{6838D8D2-1E01-4BF4-8E06-568F42EC5B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6838D8D2-1E01-4BF4-8E06-568F42EC5B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6838D8D2-1E01-4BF4-8E06-568F42EC5B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +68,6 @@ Global
 		{30B90498-913B-41A9-9022-E5DF25C59E37} = {D3037DF3-EFC9-461D-81AD-7C1238D0F9D7}
 		{E11C3058-1D76-402D-B663-19370F006BB2} = {E9AD626D-B0C7-4157-A1CF-1B44F12218A8}
 		{6838D8D2-1E01-4BF4-8E06-568F42EC5B59} = {E9AD626D-B0C7-4157-A1CF-1B44F12218A8}
+		{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6} = {D3037DF3-EFC9-461D-81AD-7C1238D0F9D7}
 	EndGlobalSection
 EndGlobal
