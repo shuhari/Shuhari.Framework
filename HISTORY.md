@@ -1,3 +1,9 @@
+**v0.1.7.0 (2017-03-02)**
+* REFACTOR: Testing.NUnit split to Testing.Common/Testing.Mvc
+* NEW: HBox/VBox control
+* NEW: SimpleGrid control
+* New: ElementExtensions
+
 **v0.1.6.0 (2017-02-27)**
 * REFACTOR: Framework downlevel to 4.5.2
 * NEW: WPF library project

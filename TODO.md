@@ -1,6 +1,5 @@
 TODO:
 * EnumUtil.ToSelectItems()
-* Testing.NUnit refactor to Testing.Common/Mvc
 * Framework.WPF, with Show/Hide, Dialog, EnableControls
 * StringList
 * Refactor Testing.NUnit to Testing.Common/Testing.Mvc
@@ -12,3 +11,7 @@ DONE:
 * NEW: DbContextFactory
 * REFACTOR: Framework downlevel to 4.5.2
 * NEW: WPF library project
+* REFACTOR: Testing.NUnit split to Testing.Common/Testing.Mvc
+* NEW: HBox/VBox control
+* NEW: SimpleGrid control
+* New: ElementExtensions

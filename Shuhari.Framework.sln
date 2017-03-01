@@ -20,13 +20,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.Common", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.Web.Mvc", "Shuhari.Framework.Web.Mvc\Shuhari.Framework.Web.Mvc.csproj", "{E84902CF-A6B5-4130-B832-0FD80F4017E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.Testing.NUnit", "Shuhari.Framework.Testing.NUnit\Shuhari.Framework.Testing.NUnit.csproj", "{30B90498-913B-41A9-9022-E5DF25C59E37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.Testing.Common", "Shuhari.Framework.Testing.Common\Shuhari.Framework.Testing.Common.csproj", "{30B90498-913B-41A9-9022-E5DF25C59E37}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.UnitTests", "Shuhari.Framework.UnitTests\Shuhari.Framework.UnitTests.csproj", "{E11C3058-1D76-402D-B663-19370F006BB2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.IntegrationTests", "Shuhari.Framework.IntegrationTests\Shuhari.Framework.IntegrationTests.csproj", "{6838D8D2-1E01-4BF4-8E06-568F42EC5B59}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.Wpf", "Shuhari.Framework.Wpf\Shuhari.Framework.Wpf.csproj", "{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.Testing.Mvc", "Shuhari.Framework.Testing.Mvc\Shuhari.Framework.Testing.Mvc.csproj", "{ABBD3C1F-977B-460A-8B9D-9D6FE0D39EDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +60,10 @@ Global
 		{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABBD3C1F-977B-460A-8B9D-9D6FE0D39EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABBD3C1F-977B-460A-8B9D-9D6FE0D39EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABBD3C1F-977B-460A-8B9D-9D6FE0D39EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABBD3C1F-977B-460A-8B9D-9D6FE0D39EDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +75,6 @@ Global
 		{E11C3058-1D76-402D-B663-19370F006BB2} = {E9AD626D-B0C7-4157-A1CF-1B44F12218A8}
 		{6838D8D2-1E01-4BF4-8E06-568F42EC5B59} = {E9AD626D-B0C7-4157-A1CF-1B44F12218A8}
 		{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6} = {D3037DF3-EFC9-461D-81AD-7C1238D0F9D7}
+		{ABBD3C1F-977B-460A-8B9D-9D6FE0D39EDA} = {D3037DF3-EFC9-461D-81AD-7C1238D0F9D7}
 	EndGlobalSection
 EndGlobal

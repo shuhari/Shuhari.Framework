@@ -42,6 +42,12 @@ References:
 
 Release History:
 
+**v0.1.7.0 (2017-03-02)**
+* REFACTOR: Testing.NUnit split to Testing.Common/Testing.Mvc
+* NEW: HBox/VBox control
+* NEW: SimpleGrid control
+* New: ElementExtensions
+
 **v0.1.6.0 (2017-02-27)**
 * REFACTOR: Framework downlevel to 4.5.2
 * NEW: WPF library project
@@ -49,18 +55,5 @@ Release History:
 **v0.1.5.0 (2017-02-25)**
 * REFACTOR: MappingFactory.MapEntitiesWithAnnonations set to public
 * NEW: DbContextFactory
-
-**v0.1.4.0 (2017-02-21)**
-* NEW: StreamDecorator expose InnerStream
-* NEW: AuthenticationResultDTO
-* REFACTOR: UserManager.Signin return user info
-* REFACTOR: BaseDbContext renamed to FrameworkDbContext
-
-**v0.1.3.0 (2017-02-14)**
-* RENAMED: IRepository.ListAll renamed to GetAll
-* NEW: IRepository.GetBy
-* NEW: BaseDbContext.CreateSessionScope
-* REMOVED: FrameworkController.ExecuteAjax
-* NEW: FrameworkController.ExecuteJsonResult
 
 For full list of release history view [History](https://github.com/shuhari/Shuhari.Framework/blob/master/HISTORY.md)
