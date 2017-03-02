@@ -14,4 +14,5 @@ DONE:
 * REFACTOR: Testing.NUnit split to Testing.Common/Testing.Mvc
 * NEW: HBox/VBox control
 * NEW: SimpleGrid control
-* New: ElementExtensions
+* NEW: ElementExtensions
+* NEW: Rename WPF namespace

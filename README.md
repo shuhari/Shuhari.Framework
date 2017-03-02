@@ -42,6 +42,9 @@ References:
 
 Release History:
 
+**v0.1.7.1 (2017-03-03)**
+* NEW: Rename WPF namespace
+
 **v0.1.7.0 (2017-03-02)**
 * REFACTOR: Testing.NUnit split to Testing.Common/Testing.Mvc
 * NEW: HBox/VBox control
