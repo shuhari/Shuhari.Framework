@@ -42,6 +42,12 @@ References:
 
 Release History:
 
+**v0.1.8.0 (2017-03-06)**
+* NEW: StopEnumerationException
+* REFATOR: XmlUtil.SafeAttr renamed to GetAttr
+* NEW: XmlUtil.SetAttr/AppendElement/ToXmlString
+* NEW: TagExtensions
+
 **v0.1.7.1 (2017-03-03)**
 * NEW: Rename WPF namespace
 
@@ -54,9 +60,5 @@ Release History:
 **v0.1.6.0 (2017-02-27)**
 * REFACTOR: Framework downlevel to 4.5.2
 * NEW: WPF library project
-
-**v0.1.5.0 (2017-02-25)**
-* REFACTOR: MappingFactory.MapEntitiesWithAnnonations set to public
-* NEW: DbContextFactory
 
 For full list of release history view [History](https://github.com/shuhari/Shuhari.Framework/blob/master/HISTORY.md)

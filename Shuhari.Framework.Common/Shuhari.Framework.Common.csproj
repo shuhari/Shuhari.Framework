@@ -132,6 +132,7 @@
     <Compile Include="DomainModel\Sitemap.cs" />
     <Compile Include="DomainModel\SitemapContainer.cs" />
     <Compile Include="DomainModel\SitemapItem.cs" />
+    <Compile Include="DomainModel\StopEnumerationException.cs" />
     <Compile Include="DomainModel\UserInfo.cs" />
     <Compile Include="Globalization\IResourceProvider.cs" />
     <Compile Include="Globalization\JsonResourceProvider.cs" />

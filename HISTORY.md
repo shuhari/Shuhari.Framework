@@ -1,3 +1,9 @@
+**v0.1.8.0 (2017-03-06)**
+* NEW: StopEnumerationException
+* REFATOR: XmlUtil.SafeAttr renamed to GetAttr
+* NEW: XmlUtil.SetAttr/AppendElement/ToXmlString
+* NEW: TagExtensions
+
 **v0.1.7.1 (2017-03-03)**
 * NEW: Rename WPF namespace
 

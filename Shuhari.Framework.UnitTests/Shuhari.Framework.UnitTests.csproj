@@ -173,6 +173,7 @@
     <Compile Include="Web\Mvc\FrameworkControllerTest.cs" />
     <Compile Include="Web\Mvc\FrameworkModelMetadataProviderTest.cs" />
     <Compile Include="Web\Mvc\NinjectDependencyResolverTest.cs" />
+    <Compile Include="Web\Mvc\TagExtensionTest.cs" />
     <Compile Include="Web\Mvc\TestController.cs" />
     <Compile Include="Web\Mvc\ViewPageTest.cs" />
     <Compile Include="Web\Security\TestUserManager.cs" />

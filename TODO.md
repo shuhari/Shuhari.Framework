@@ -1,8 +1,6 @@
 TODO:
 * EnumUtil.ToSelectItems()
-* Framework.WPF, with Show/Hide, Dialog, EnableControls
 * StringList
-* Refactor Testing.NUnit to Testing.Common/Testing.Mvc
 
 DONE:
 * REFACTOR: UserManager.Signin return user info
@@ -16,3 +14,9 @@ DONE:
 * NEW: SimpleGrid control
 * NEW: ElementExtensions
 * NEW: Rename WPF namespace
+* REFACTOR: Testing.NUnit to Testing.Common/Testing.Mvc
+* NEW: Framework.WPF, with Show/Hide, Dialog, EnableControls
+* NEW: StopEnumerationException
+* REFATOR: XmlUtil.SafeAttr renamed to GetAttr
+* NEW: XmlUtil.SetAttr/AppendElement/ToXmlString
+* NEW: TagExtensions
