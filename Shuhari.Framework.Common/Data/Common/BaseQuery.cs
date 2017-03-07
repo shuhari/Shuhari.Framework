@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using Shuhari.Framework.Data.Mappings;
-using Shuhari.Framework.DomainModel;
 using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Utils;
 
@@ -128,7 +127,6 @@ namespace Shuhari.Framework.Data.Common
         {
             mapper = EnsureMapper(mapper);
 
-            var result = new List<T>();
             using (var cmd = CreateCommand())
             using (var reader = cmd.ExecuteReader())
             {

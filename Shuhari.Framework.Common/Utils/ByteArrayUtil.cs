@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Shuhari.Framework.Globalization;
-using Shuhari.Framework.Resources;
 
 namespace Shuhari.Framework.Utils
 {

@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Shuhari.Framework.Globalization;
-using Shuhari.Framework.Resources;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.ComponentModel
@@ -55,7 +51,7 @@ namespace Shuhari.Framework.ComponentModel
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
             if (value is string)
-                return _parseMethod.Invoke(null, new object[] { value });
+                return _parseMethod.Invoke(null, new[] { value });
             return base.ConvertFrom(context, culture, value);
         }
 

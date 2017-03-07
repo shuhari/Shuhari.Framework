@@ -73,7 +73,7 @@ namespace Shuhari.Framework.UnitTests.Data.Common
         [Test]
         public void CreateSessionScope()
         {
-            using (var scope = _dbCtx.CreateSessionScope())
+            using (_dbCtx.CreateSessionScope())
             {
                 _mockSessionFactory.Verify(m => m.OpenSession(It.IsAny<object>()));
             }

@@ -3,13 +3,13 @@
     /// <summary>
     /// Entity interface with primary key
     /// </summary>
-    /// <typeparam name="TID"></typeparam>
-    public interface IEntity<TID>
-        where TID: struct
+    /// <typeparam name="TId"></typeparam>
+    public interface IEntity<TId>
+        where TId: struct
     {
         /// <summary>
         /// Primary key always named Id
         /// </summary>
-        TID Id { get; set; }
+        TId Id { get; set; }
     }
 }

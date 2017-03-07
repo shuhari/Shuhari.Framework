@@ -10,10 +10,10 @@ namespace Shuhari.Framework.Data.Common
     /// Strongly typed Base repository
     /// </summary>
     /// <typeparam name="TEntity">Entity type</typeparam>
-    /// <typeparam name="TID">Id type</typeparam>
-    public abstract class BaseRepository<TID, TEntity> : BaseRepository, IRepository<TID, TEntity>
-        where TID : struct
-        where TEntity : class, IEntity<TID>, new()
+    /// <typeparam name="TId">Id type</typeparam>
+    public abstract class BaseRepository<TId, TEntity> : BaseRepository, IRepository<TId, TEntity>
+        where TId : struct
+        where TEntity : class, IEntity<TId>, new()
     {
         /// <inheritdoc />
         public IQuery<TEntity> CreateQuery(string sql)
@@ -42,7 +42,7 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        public TEntity GetById(TID id)
+        public TEntity GetById(TId id)
         {
             return GetQueryBuilder().GetById(Session, id).GetFirst();
         }
@@ -84,7 +84,7 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        public int DeleteById(TID id)
+        public int DeleteById(TId id)
         {
             return GetQueryBuilder().DeleteById(Session, id)
                 .ExecNonQuery();

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using Moq;
 using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.Utils;
 

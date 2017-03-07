@@ -25,7 +25,7 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
         {
             var columnNames = new[] { "FID", "FIntProp", "FShortProp", "FLongProp", "FFloatProp", "FDoubleProp",
                 "FDecimalProp", "FBoolProp", "FStringProp", "FDateTimeProp", "FBinaryProp", "FGuidProp", "FEnumProp" };
-            var data = new object[][]
+            var data = new[]
             {
                 new object[] { 1, 1, (short)1, 1L, 1F, 1D, 1M, true, "abc", DateTime.Now, new byte[0], Guid.NewGuid(), (int)FileMode.CreateNew },
             };

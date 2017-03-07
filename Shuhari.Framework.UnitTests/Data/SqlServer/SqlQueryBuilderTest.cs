@@ -1,6 +1,4 @@
-﻿using System;
-using NUnit.Framework;
-using Shuhari.Framework.Data.SqlServer;
+﻿using NUnit.Framework;
 using Shuhari.Framework.DomainModel;
 
 namespace Shuhari.Framework.UnitTests.Data.SqlServer

@@ -110,7 +110,7 @@ namespace Shuhari.Framework.UnitTests.Data
                 new SchemaMappingColumn("StringProp", typeof(string), true),
                 new SchemaMappingColumn("DateTimeProp", typeof(DateTime), false)
             };
-            var data = new object[][]
+            var data = new[]
             {
                 new object[] { 1, "row1", DateTime.Now },
                 new object[] { 2, "row2", DateTime.Now },

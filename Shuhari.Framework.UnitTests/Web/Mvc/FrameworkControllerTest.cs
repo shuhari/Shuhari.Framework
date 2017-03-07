@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using NUnit.Framework;
 using Shuhari.Framework.DomainModel;
-using Shuhari.Framework.Web.Mvc;
 
 namespace Shuhari.Framework.UnitTests.Web.Mvc
 {
@@ -57,7 +56,7 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
         public void ExecuteJsonResult_Throws_ShouldReturnError()
         {
             const string msg = "test error";
-            var result = _controller.ExecuteJsonResult("abc", x => { throw new System.Exception(msg); });
+            var result = _controller.ExecuteJsonResult("abc", x => { throw new Exception(msg); });
             var dto = (ResultDTO)result.Data;
             Assert.IsFalse(dto.Success);
             Assert.AreEqual(msg, dto.Message);

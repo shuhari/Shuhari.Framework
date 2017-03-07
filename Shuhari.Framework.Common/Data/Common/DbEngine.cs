@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Diagnostics;
 using Shuhari.Framework.Data.Mappings;
 using Shuhari.Framework.Data.Utils;
 using Shuhari.Framework.Globalization;
-using Shuhari.Framework.Resources;
-using Shuhari.Framework.Text;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Data.Common
@@ -17,7 +14,7 @@ namespace Shuhari.Framework.Data.Common
     /// </summary>
     public abstract class DbEngine : IDbEngine
     {
-        private static Dictionary<Type, DbType> _knownDbTypes = new Dictionary<Type, DbType>
+        private static readonly Dictionary<Type, DbType> _knownDbTypes = new Dictionary<Type, DbType>
         {
             { typeof(byte), DbType.Byte },
             { typeof(short), DbType.Int16 },

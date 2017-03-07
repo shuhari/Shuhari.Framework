@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Utils;
 
@@ -56,7 +52,6 @@ namespace Shuhari.Framework.Data.Utils
             if (dbValue == null || Convert.IsDBNull(dbValue))
                 return null;
 
-            var valueType = dbValue.GetType();
             if (targetType.IsEnum)
                 return ConvertToEnum(dbValue, targetType);
             else if (targetType.IsNullableType() && targetType.GetNullableBaseType().IsEnum)
@@ -71,7 +66,7 @@ namespace Shuhari.Framework.Data.Utils
             Expect.IsNotNull(enumType, nameof(enumType));
             Expect.That(enumType.IsEnum, string.Format(FrameworkStrings.ErrorTypeNotEnum, enumType));
 
-            if (value != null && value.GetType() == typeof(int))
+            if (value != null && value is int)
                 return Enum.ToObject(enumType, value);
             else
                 throw ExceptionBuilder.NotSupported(FrameworkStrings.ErrorUnsupportedType, value.GetType());

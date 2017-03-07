@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
@@ -14,13 +13,6 @@ namespace Shuhari.Framework.Data.Mappings
     public class EntityMapper<T> : IEntityMapper<T>
         where T : class
     {
-        /// <summary>
-        /// Initialize
-        /// </summary>
-        public EntityMapper()
-        {
-        }
-
         /// <inheritdoc />
         public string TableName { get; internal set; }
 

@@ -30,7 +30,6 @@ namespace Shuhari.Framework.Web.Mvc.Filters
             var userManager = DependencyResolver.Current.GetService<UserManager>();
             Expect.IsNotNull(userManager, nameof(userManager));
 
-            var httpCtx = filterContext.HttpContext;
             var user = userManager.GetCurrentUser(filterContext.HttpContext);
             if (user == null)
                 throw new ApplicationException("Could not found current user");

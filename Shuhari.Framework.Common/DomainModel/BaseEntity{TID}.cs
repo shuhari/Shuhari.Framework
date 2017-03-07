@@ -7,14 +7,14 @@ namespace Shuhari.Framework.DomainModel
     /// <summary>
     /// Base entity
     /// </summary>
-    /// <typeparam name="TID"></typeparam>
-    public class BaseEntity<TID> : IEntity<TID>, IExtensibleProperties
-        where TID: struct
+    /// <typeparam name="TId"></typeparam>
+    public class BaseEntity<TId> : IEntity<TId>, IExtensibleProperties
+        where TId: struct
     {
         /// <inheritdoc />
-        public TID Id { get; set; }
+        public TId Id { get; set; }
 
-        private Dictionary<string, object> _properties = null;
+        private Dictionary<string, object> _properties;
 
         /// <summary>
         /// Additional properties, to hold fields from query 

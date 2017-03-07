@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using Shuhari.Framework.DomainModel;
 
 namespace Shuhari.Framework.Data
 {

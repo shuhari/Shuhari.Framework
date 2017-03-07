@@ -41,14 +41,14 @@ namespace Shuhari.Framework.Data.Common
         public T[] GetAll<T>(IEntityMapper<T> mapper = null) 
             where T : class, new()
         {
-            return GetAllCore<T>(mapper);
+            return GetAllCore(mapper);
         }
 
         /// <inheritdoc />
         public T GetFirst<T>(IEntityMapper<T> mapper = null) 
             where T : class, new()
         {
-            return GetFirstCore<T>(mapper);
+            return GetFirstCore(mapper);
         }
     }
 }

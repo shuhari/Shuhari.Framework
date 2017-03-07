@@ -2,8 +2,6 @@
 using System.Data;
 using System.Data.Common;
 using Shuhari.Framework.Data.Mappings;
-using Shuhari.Framework.Resources;
-using Shuhari.Framework.Text;
 
 namespace Shuhari.Framework.Data
 {

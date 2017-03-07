@@ -46,11 +46,11 @@ namespace Shuhari.Framework.Web.Mvc
         /// <summary>
         /// Convert to select item
         /// </summary>
-        /// <typeparam name="TID"></typeparam>
+        /// <typeparam name="TId"></typeparam>
         /// <param name="item"></param>
         /// <returns></returns>
-        public SelectListItem ToSelectItem<TID>(SelectItemDTO<TID> item)
-            where TID: struct
+        public SelectListItem ToSelectItem<TId>(SelectItemDTO<TId> item)
+            where TId: struct
         {
             Expect.IsNotNull(item, nameof(item));
 
