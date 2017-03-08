@@ -1,6 +1,10 @@
 TODO:
 * EnumUtil.ToSelectItems()
 * StringList
+* DTO renamed to Dto
+* Known resource strings
+* Rename ScriptBook?
+* Collection.Safe
 
 DONE:
 * REFACTOR: UserManager.Signin return user info
