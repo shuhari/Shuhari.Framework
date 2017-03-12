@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using Shuhari.Framework.Data;
 using Shuhari.Framework.Globalization;
-using Shuhari.Framework.Resources;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.DomainModel
@@ -10,12 +9,12 @@ namespace Shuhari.Framework.DomainModel
     /// <summary>
     /// Base type for query critias
     /// </summary>
-    public class QueryDTO
+    public class QueryDto
     {
         /// <summary>
         /// Default initialize
         /// </summary>
-        public QueryDTO()
+        public QueryDto()
         {
         }
 
@@ -24,7 +23,7 @@ namespace Shuhari.Framework.DomainModel
         /// </summary>
         /// <param name="page"></param>
         /// <param name="perPage"></param>
-        public QueryDTO(int page, int perPage)
+        public QueryDto(int page, int perPage)
         {
             SetPagination(page, perPage);
         }

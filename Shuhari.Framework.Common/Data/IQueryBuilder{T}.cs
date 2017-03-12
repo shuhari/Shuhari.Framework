@@ -98,7 +98,7 @@ namespace Shuhari.Framework.Data
         /// <param name="qdata"></param>
         /// <returns></returns>
         Tuple<IQuery<T>, IQuery<T>> CreatePagedQueryTuple(ISession session, 
-            string baseSql, OrderCritia<T> orderField, QueryDTO qdata);
+            string baseSql, OrderCritia<T> orderField, QueryDto qdata);
 
         /// <summary>
         /// Create list all query

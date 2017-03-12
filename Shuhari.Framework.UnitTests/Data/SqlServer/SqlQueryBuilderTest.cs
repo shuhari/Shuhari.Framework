@@ -17,7 +17,7 @@ namespace Shuhari.Framework.UnitTests.Data.SqlServer
                 baseSql = @"select * from TNotNullEntity 
                     join TNullableEntity on TNotNullEntity.FID=TNullableEntity.FID
                     where TNotNullEntity.FID=1";
-                var qdata = new QueryDTO();
+                var qdata = new QueryDto();
                 qdata.SetPagination(0, 20);
                 var tuple = builder.CreatePagedQueryTuple(session, baseSql, 
                     builder.OrderBy(x => x.StringProp, "abc"), qdata);

@@ -9,7 +9,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         [Test]
         public void Ctor_ShouldSetProperties()
         {
-            var dto = new SelectItemDTO<int>(1, "name", true);
+            var dto = new SelectItemDto<int>(1, "name", true);
 
             Assert.AreEqual(1, dto.Id);
             Assert.AreEqual("name", dto.Name);

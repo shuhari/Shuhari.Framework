@@ -3,12 +3,12 @@
     /// <summary>
     /// Select list item
     /// </summary>
-    public class SelectItemDTO<TID>
+    public class SelectItemDto<TID>
     {
         /// <summary>
         /// Initialize
         /// </summary>
-        public SelectItemDTO()
+        public SelectItemDto()
         {
 
         }
@@ -19,7 +19,7 @@
         /// <param name="id"></param>
         /// <param name="name"></param>
         /// <param name="selected"></param>
-        public SelectItemDTO(TID id, string name, bool selected = false)
+        public SelectItemDto(TID id, string name, bool selected = false)
         {
             this.Id = id;
             this.Name = name;

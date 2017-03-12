@@ -3,12 +3,12 @@
     /// <summary>
     /// Generic submit result, with if success and error message
     /// </summary>
-    public class ResultDTO
+    public class ResultDto
     {
         /// <summary>
         /// Initialize
         /// </summary>
-        public ResultDTO()
+        public ResultDto()
         {
             SetResult(true);
         }
@@ -28,10 +28,12 @@
         /// </summary>
         /// <param name="success"></param>
         /// <param name="message"></param>
-        public void SetResult(bool success, string message = null)
+        public ResultDto SetResult(bool success, string message = null)
         {
             this.Success = success;
             this.Message = message;
+
+            return this;
         }
     }
 }

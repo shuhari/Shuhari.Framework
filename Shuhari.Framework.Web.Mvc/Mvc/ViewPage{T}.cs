@@ -49,7 +49,7 @@ namespace Shuhari.Framework.Web.Mvc
         /// <typeparam name="TId"></typeparam>
         /// <param name="item"></param>
         /// <returns></returns>
-        public SelectListItem ToSelectItem<TId>(SelectItemDTO<TId> item)
+        public SelectListItem ToSelectItem<TId>(SelectItemDto<TId> item)
             where TId: struct
         {
             Expect.IsNotNull(item, nameof(item));
@@ -68,7 +68,7 @@ namespace Shuhari.Framework.Web.Mvc
         /// <typeparam name="TID"></typeparam>
         /// <param name="items"></param>
         /// <returns></returns>
-        public SelectListItem[] ToSelectItems<TID>(IEnumerable<SelectItemDTO<TID>> items)
+        public SelectListItem[] ToSelectItems<TID>(IEnumerable<SelectItemDto<TID>> items)
             where TID : struct
         {
             Expect.IsNotNull(items, nameof(items));

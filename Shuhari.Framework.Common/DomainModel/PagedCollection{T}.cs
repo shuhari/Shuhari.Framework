@@ -39,7 +39,7 @@ namespace Shuhari.Framework.DomainModel
         /// </summary>
         /// <param name="q"></param>
         /// <returns></returns>
-        public PagedCollection<T> SetPagination(QueryDTO q)
+        public PagedCollection<T> SetPagination(QueryDto q)
         {
             Expect.IsNotNull(q, nameof(q));
 

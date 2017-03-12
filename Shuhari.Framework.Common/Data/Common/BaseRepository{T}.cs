@@ -99,7 +99,7 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        public PagedCollection<TEntity> QueryPaged(string baseSql, OrderCritia<TEntity> orderField, QueryDTO qdata)
+        public PagedCollection<TEntity> QueryPaged(string baseSql, OrderCritia<TEntity> orderField, QueryDto qdata)
         {
             Expect.IsNotBlank(baseSql, nameof(baseSql));
             Expect.IsNotNull(orderField, nameof(orderField));

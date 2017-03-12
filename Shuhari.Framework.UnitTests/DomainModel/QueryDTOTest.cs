@@ -13,7 +13,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         [Test]
         public void SetPagination_ShouldSetOffset()
         {
-            var q = new QueryDTO();
+            var q = new QueryDto();
             q.SetPagination(2, 20);
 
             Assert.AreEqual(2, q.Page);
@@ -24,24 +24,24 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         [Test]
         public void Ctor_PageInvalid_ShouldThrow()
         {
-            Assert.Throws<ExpectionException>(() => new QueryDTO(-1, -1));
+            Assert.Throws<ExpectionException>(() => new QueryDto(-1, -1));
         }
 
         [Test]
         public void SetQuery()
         {
             var mockQuery = new Mock<IQueryBase>();
-            var q = new QueryDTO(2, 20);
+            var q = new QueryDto(2, 20);
             q.SetQuery(mockQuery.Object);
 
-            mockQuery.Verify(m => m.SetParam(QueryDTO.PARAM_OFFSET, DbType.Int32, 40));
-            mockQuery.Verify(m => m.SetParam(QueryDTO.PARAM_LIMIT, DbType.Int32, 20));
+            mockQuery.Verify(m => m.SetParam(QueryDto.PARAM_OFFSET, DbType.Int32, 40));
+            mockQuery.Verify(m => m.SetParam(QueryDto.PARAM_LIMIT, DbType.Int32, 20));
         }
 
         [Test]
         public void ToCritias()
         {
-            Assert.IsNotNull(new QueryDTO().ToCritias());
+            Assert.IsNotNull(new QueryDto().ToCritias());
         }
     }
 }

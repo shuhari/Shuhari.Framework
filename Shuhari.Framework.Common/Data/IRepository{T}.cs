@@ -81,7 +81,7 @@ namespace Shuhari.Framework.Data
         /// <param name="orderField"></param>
         /// <param name="qdata"></param>
         /// <returns></returns>
-        PagedCollection<TEntity> QueryPaged(string baseSql, OrderCritia<TEntity> orderField, QueryDTO qdata);
+        PagedCollection<TEntity> QueryPaged(string baseSql, OrderCritia<TEntity> orderField, QueryDto qdata);
 
         /// <summary>
         /// Select first entity that given property equals <paramref name="value"/>.

@@ -3,7 +3,7 @@
     /// <summary>
     /// Save authentication result
     /// </summary>
-    public class AuthenticationResultDTO : ResultDTO
+    public class AuthenticationResultDto : ResultDto
     {
         /// <summary>
         /// User information, or null if auth failed.

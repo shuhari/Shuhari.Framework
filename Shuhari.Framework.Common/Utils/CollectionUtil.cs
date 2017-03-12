@@ -65,5 +65,17 @@ namespace Shuhari.Framework.Utils
 
             return -1;
         }
+
+        /// <summary>
+        /// Return empty collection if <see paramref="collection"/> is null,
+        /// to avoid NPE exception
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> Safe<T>(this IEnumerable<T> collection)
+        {
+            return collection ?? new T[0];
+        }
     }
 }

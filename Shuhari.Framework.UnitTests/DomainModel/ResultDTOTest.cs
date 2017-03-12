@@ -9,7 +9,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         [Test]
         public void Ctor_ShouldBeSuccess()
         {
-            var dto = new ResultDTO();
+            var dto = new ResultDto();
 
             Assert.IsTrue(dto.Success);
             Assert.IsNull(dto.Message);
@@ -18,7 +18,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         [Test]
         public void SetResult_ShouldSetProperties()
         {
-            var dto = new ResultDTO();
+            var dto = new ResultDto();
             dto.SetResult(false, "error");
 
             Assert.IsFalse(dto.Success);

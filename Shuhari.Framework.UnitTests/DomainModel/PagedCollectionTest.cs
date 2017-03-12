@@ -18,7 +18,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         [Test]
         public void SetPagination()
         {
-            _collection.SetPagination(new QueryDTO(1, 20));
+            _collection.SetPagination(new QueryDto(1, 20));
 
             Assert.AreEqual(1, _collection.Page);
             Assert.AreEqual(20, _collection.PerPage);
@@ -46,7 +46,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
 
         private Pager CalculatePager(int total, int page)
         {
-            var q = new QueryDTO(page, 20);
+            var q = new QueryDto(page, 20);
             var collection = new PagedCollection<int>();
             collection.SetPagination(q);
             collection.Total = total;

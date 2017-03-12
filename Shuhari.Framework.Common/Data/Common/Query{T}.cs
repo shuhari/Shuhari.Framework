@@ -57,7 +57,7 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        public IQuery<T> SetPaginiation(QueryDTO q)
+        public IQuery<T> SetPaginiation(QueryDto q)
         {
             Expect.IsNotNull(q, nameof(q));
             q.SetQuery(this);

@@ -36,7 +36,7 @@ namespace Shuhari.Framework.Data
         /// </summary>
         /// <param name="q">Query parameter</param>
         /// <returns>This query</returns>
-        IQuery<T> SetPaginiation(QueryDTO q);
+        IQuery<T> SetPaginiation(QueryDto q);
 
         /// <summary>
         /// Set query parameter from linq expression

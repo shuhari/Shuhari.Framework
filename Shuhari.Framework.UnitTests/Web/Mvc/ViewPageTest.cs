@@ -55,7 +55,7 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
         [Test]
         public void ToSelectItem()
         {
-            var dto = new SelectItemDTO<int>(12, "n", true);
+            var dto = new SelectItemDto<int>(12, "n", true);
             var item = _page.ToSelectItem(dto);
             AssertSelectItem(item, "n", "12", true);
         }
@@ -63,7 +63,7 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
         [Test]
         public void ToSelectItems()
         {
-            var dto = new SelectItemDTO<int>(12, "n", true);
+            var dto = new SelectItemDto<int>(12, "n", true);
             var items = _page.ToSelectItems(new[] { dto });
 
             Assert.AreEqual(1, items.Length);

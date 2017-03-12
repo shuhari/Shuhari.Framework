@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using Shuhari.Framework.DomainModel;
 using Shuhari.Framework.Utils;
@@ -53,6 +54,23 @@ namespace Shuhari.Framework.UnitTests.Utils
         public void FindIndex(int id, int result)
         {
             Assert.AreEqual(result, TestCollection.FindIndex(x => x.Id == id));
+        }
+
+        [Test]
+        public void Safe_ParamNull_ShouldReturnEmpty()
+        {
+            IEnumerable<int> collection = null;
+            var safe = collection.Safe();
+            Assert.IsNotNull(safe);
+            CollectionAssert.IsEmpty(safe);
+        }
+
+        [Test]
+        public void Safe_ParamNotEmpty_ShouldReturnOrigin()
+        {
+            IEnumerable<int> collection = new[] {1, 2, 3};
+            var safe = collection.Safe();
+            Assert.AreSame(collection, safe);
         }
     }
 }

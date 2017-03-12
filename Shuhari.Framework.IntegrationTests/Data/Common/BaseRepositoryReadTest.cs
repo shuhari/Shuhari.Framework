@@ -45,7 +45,7 @@ namespace Shuhari.Framework.IntegrationTests.Data.Common
         public void QueryPaged()
         {
             string baseSql = @"select * from TNotNullEntity";
-            var qdata = new QueryDTO();
+            var qdata = new QueryDto();
             qdata.SetPagination(0, 20);
             var result = _repository.QueryPaged(baseSql, _repository.OrderBy(x => x.StringProp), qdata);
 

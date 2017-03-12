@@ -1,3 +1,10 @@
+**v0.1.9.0 (2017-03-13)**
+* REFACTOR: DTO class renamed to DTO
+* REFACTOR: ResultDto.SetResult return self
+* NEW: CollectionUtil.Safe
+* NEW: StringParts
+* NEW: Xml serialization support
+
 **v0.1.8.0 (2017-03-06)**
 * NEW: StopEnumerationException
 * REFATOR: XmlUtil.SafeAttr renamed to GetAttr

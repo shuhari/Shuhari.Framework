@@ -205,7 +205,7 @@ namespace Shuhari.Framework.Data.Common
 
         /// <inheritdoc />
         public abstract Tuple<IQuery<T>, IQuery<T>> CreatePagedQueryTuple(ISession session,
-            string baseSql, OrderCritia<T> orderField, QueryDTO qdata);
+            string baseSql, OrderCritia<T> orderField, QueryDto qdata);
 
         /// <inheritdoc />
         public IQuery<T> GetAll(ISession session, OrderCritia<T> orderField)

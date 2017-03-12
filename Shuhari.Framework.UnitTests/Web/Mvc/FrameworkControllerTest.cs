@@ -28,7 +28,7 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
         public void ExecuteJsonResult_Success_ShouldReturnOk()
         {
             var result = _controller.ExecuteJsonResult("abc", x => { });
-            var dto = (ResultDTO)result.Data;
+            var dto = (ResultDto)result.Data;
             Assert.IsTrue(dto.Success);
         }
 
@@ -57,7 +57,7 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
         {
             const string msg = "test error";
             var result = _controller.ExecuteJsonResult("abc", x => { throw new Exception(msg); });
-            var dto = (ResultDTO)result.Data;
+            var dto = (ResultDto)result.Data;
             Assert.IsFalse(dto.Success);
             Assert.AreEqual(msg, dto.Message);
         }

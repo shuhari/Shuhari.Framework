@@ -33,7 +33,7 @@ namespace Shuhari.Framework.Data
         /// </summary>
         /// <param name="q">Query parameter</param>
         /// <returns>This query</returns>
-        IQuery SetPaginiation(QueryDTO q);
+        IQuery SetPaginiation(QueryDto q);
 
         /// <summary>
         /// Get all returned records from query

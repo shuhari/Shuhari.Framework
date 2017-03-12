@@ -113,7 +113,7 @@
     <Compile Include="Data\SqlServer\SqlDbEngine.cs" />
     <Compile Include="Data\SqlServer\SqlQueryBuilder{T}.cs" />
     <Compile Include="Data\Utils\ParamConverter.cs" />
-    <Compile Include="DomainModel\AuthenticationResultDTO.cs" />
+    <Compile Include="DomainModel\AuthenticationResultDto.cs" />
     <Compile Include="DomainModel\BaseEntity{TID}.cs" />
     <Compile Include="DomainModel\BaseSitemapResolver.cs" />
     <Compile Include="DomainModel\FileItem.cs" />
@@ -125,9 +125,9 @@
     <Compile Include="DomainModel\PagedCollection{T}.cs" />
     <Compile Include="DomainModel\Pager.cs" />
     <Compile Include="DomainModel\PagerItem.cs" />
-    <Compile Include="DomainModel\QueryDTO.cs" />
-    <Compile Include="DomainModel\ResultDTO.cs" />
-    <Compile Include="DomainModel\SelectItemDTO{TID}.cs" />
+    <Compile Include="DomainModel\QueryDto.cs" />
+    <Compile Include="DomainModel\ResultDto.cs" />
+    <Compile Include="DomainModel\SelectItemDto{TID}.cs" />
     <Compile Include="DomainModel\SigninModel.cs" />
     <Compile Include="DomainModel\Sitemap.cs" />
     <Compile Include="DomainModel\SitemapContainer.cs" />
@@ -171,9 +171,21 @@
     <Compile Include="Utils\NullableUtil.cs" />
     <Compile Include="Utils\ObservableCollectionUtil.cs" />
     <Compile Include="Utils\StreamUtil.cs" />
+    <Compile Include="Utils\StringParts.cs" />
     <Compile Include="Utils\StringUtil.cs" />
     <Compile Include="Utils\XamlUtil.cs" />
     <Compile Include="Utils\XmlUtil.cs" />
+    <Compile Include="Xml\Serialization\BoolValueSerializer.cs" />
+    <Compile Include="Xml\Serialization\DateTimeValueSerializer.cs" />
+    <Compile Include="Xml\Serialization\DefaultValueSerializer.cs" />
+    <Compile Include="Xml\Serialization\IValueSerializer.cs" />
+    <Compile Include="Xml\Serialization\TypeSerializationDictionary.cs" />
+    <Compile Include="Xml\Serialization\TypeSerializationInfo.cs" />
+    <Compile Include="Xml\Serialization\XmlAttributeInfo{T}.cs" />
+    <Compile Include="Xml\Serialization\XmlOrderAttribute.cs" />
+    <Compile Include="Xml\Serialization\XmlAdditionalAttributeAttribute.cs" />
+    <Compile Include="Xml\Serialization\FrameworkXmlSerializer.cs" />
+    <Compile Include="Xml\Serialization\XmlSerializationContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

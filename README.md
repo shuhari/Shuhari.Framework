@@ -42,6 +42,13 @@ References:
 
 Release History:
 
+**v0.1.9.0 (2017-03-13)**
+* REFACTOR: DTO class renamed to DTO
+* REFACTOR: ResultDto.SetResult return self
+* NEW: CollectionUtil.Safe
+* NEW: StringParts
+* NEW: Xml serialization support
+
 **v0.1.8.0 (2017-03-06)**
 * NEW: StopEnumerationException
 * REFATOR: XmlUtil.SafeAttr renamed to GetAttr
@@ -56,9 +63,5 @@ Release History:
 * NEW: HBox/VBox control
 * NEW: SimpleGrid control
 * New: ElementExtensions
-
-**v0.1.6.0 (2017-02-27)**
-* REFACTOR: Framework downlevel to 4.5.2
-* NEW: WPF library project
 
 For full list of release history view [History](https://github.com/shuhari/Shuhari.Framework/blob/master/HISTORY.md)

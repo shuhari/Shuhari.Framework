@@ -112,7 +112,7 @@ namespace Shuhari.Framework.Web.Mvc
         /// <returns></returns>
         protected internal JsonResult ExecuteJsonResult<T>(T param, Action<T> action)
         {
-            var result = new ResultDTO();
+            var result = new ResultDto();
             try
             {
                 action(param);

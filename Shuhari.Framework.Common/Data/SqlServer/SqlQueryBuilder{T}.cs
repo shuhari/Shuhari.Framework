@@ -23,7 +23,7 @@ namespace Shuhari.Framework.Data.SqlServer
 
         /// <inheritdoc />
         public override Tuple<IQuery<T>, IQuery<T>> CreatePagedQueryTuple(ISession session, 
-            string baseSql, OrderCritia<T> orderField, QueryDTO qdata)
+            string baseSql, OrderCritia<T> orderField, QueryDto qdata)
         {
             var re = new Regex(@"(select\s+)(.+)(\s+from[\s\S]+)", RegexOptions.IgnoreCase);
             var match = re.Match(baseSql);
