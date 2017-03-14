@@ -18,6 +18,12 @@ namespace Shuhari.Framework.UnitTests.IO
         private Mock<Stream> _mockStream;
         private StreamDecorator _decorator;
 
+        [Test]
+        public void InnerStream_ShouldSet()
+        {
+            Assert.IsNotNull(_decorator.InnerStream);
+        }
+
         [TestCase(true)]
         [TestCase(false)]
         public void CanRead(bool value)

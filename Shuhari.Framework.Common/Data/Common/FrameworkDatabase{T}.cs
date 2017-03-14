@@ -46,7 +46,7 @@ namespace Shuhari.Framework.Data.Common
         /// <summary>
         /// Db engine
         /// </summary>
-        public IDbEngine Engine { get; private set; }
+        public IDbEngine Engine { get; }
 
         /// <summary>
         /// Session factory

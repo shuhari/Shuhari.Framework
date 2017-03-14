@@ -25,10 +25,7 @@ namespace Shuhari.Framework.Web
         private readonly MockHttpSession _session;
 
         /// <inheritdoc />
-        public override HttpSessionStateBase Session
-        {
-            get { return _session; }
-        }
+        public override HttpSessionStateBase Session => _session;
 
         /// <inheritdoc />
         public override IPrincipal User { get; set; }

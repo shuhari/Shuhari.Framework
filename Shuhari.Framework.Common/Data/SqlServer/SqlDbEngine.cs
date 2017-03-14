@@ -75,7 +75,7 @@ namespace Shuhari.Framework.Data.SqlServer
             return param;
         }
 
-        public SqlDbType GetSqlDbType(DbType dbType)
+        private SqlDbType GetSqlDbType(DbType dbType)
         {
             if (_knownDbTypes.ContainsKey(dbType))
                 return _knownDbTypes[dbType];

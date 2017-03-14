@@ -21,9 +21,9 @@
         /// <param name="selected"></param>
         public SelectItemDto(TID id, string name, bool selected = false)
         {
-            this.Id = id;
-            this.Name = name;
-            this.Selected = selected;
+            Id = id;
+            Name = name;
+            Selected = selected;
         }
 
         /// <summary>

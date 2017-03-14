@@ -24,7 +24,7 @@ namespace Shuhari.Framework.Data.Common
         }
 
         /// <inheritdoc />
-        public ISessionFactory SessionFactory { get; private set; }
+        public ISessionFactory SessionFactory { get; }
 
         private PropertyInfo[] _repositoryProperties;
 

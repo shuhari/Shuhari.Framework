@@ -14,13 +14,13 @@ namespace Shuhari.Framework.Security
     public sealed class SimplePasswordBuilder : BasePasswordBuilder
     {
         /// <inheritdoc />
-        public override byte[] GenerateSalt()
+        protected override byte[] GenerateSalt()
         {
             return Guid.NewGuid().ToByteArray();
         }
 
         /// <inheritdoc />
-        public override byte[] ComputeHash(string password, byte[] salt)
+        protected override byte[] ComputeHash(string password, byte[] salt)
         {
             Expect.IsNotNull(password, nameof(password));
             Expect.IsNotNull(salt, nameof(salt));

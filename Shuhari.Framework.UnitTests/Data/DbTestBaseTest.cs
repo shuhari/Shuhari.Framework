@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using System.Runtime;
+using Moq;
 using NUnit.Framework;
 using Shuhari.Framework.Data;
 
@@ -11,6 +12,7 @@ namespace Shuhari.Framework.UnitTests.Data
         public void ReadOnly_ShouldCreateOnOneTimeSetUp_AndDropOnOneTimeTearDown()
         {
             var mock = new Mock<DbTestBase>(true);
+            Assert.IsTrue(mock.Object.ReadOnly);
             mock.Object.OneTimeSetUp();
             mock.Verify(m => m.CreateDatabase());
 
@@ -29,6 +31,7 @@ namespace Shuhari.Framework.UnitTests.Data
         public void ReadWrite_ShouldCreateOnSetUp_AndDropOnTearDown()
         {
             var mock = new Mock<DbTestBase>(false);
+            Assert.IsFalse(mock.Object.ReadOnly);
             mock.Object.OneTimeSetUp();
             mock.Verify(m => m.CreateDatabase(), Times.Never());
 

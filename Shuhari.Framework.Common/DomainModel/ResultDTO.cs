@@ -30,8 +30,8 @@
         /// <param name="message"></param>
         public ResultDto SetResult(bool success, string message = null)
         {
-            this.Success = success;
-            this.Message = message;
+            Success = success;
+            Message = message;
 
             return this;
         }

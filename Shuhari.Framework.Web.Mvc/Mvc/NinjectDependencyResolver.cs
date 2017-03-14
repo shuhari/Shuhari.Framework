@@ -21,7 +21,7 @@ namespace Shuhari.Framework.Web.Mvc
         /// <summary>
         /// Ninject kernel
         /// </summary>
-        public IKernel Kernel { get; private set; }
+        public IKernel Kernel { get; }
 
         /// <inheritdoc />
         public object GetService(Type serviceType)

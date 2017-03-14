@@ -9,14 +9,14 @@ namespace Shuhari.Framework.UnitTests.Security
     {
         class TestPasswordBuilder : BasePasswordBuilder
         {
-            public override byte[] ComputeHash(string password, byte[] salt)
+            protected override byte[] ComputeHash(string password, byte[] salt)
             {
                 return Encoding.GetBytes(password)
                     .Concat(salt)
                     .ToArray();
             }
 
-            public override byte[] GenerateSalt()
+            protected override byte[] GenerateSalt()
             {
                 return new byte[] { 0x1, 0x2, 0x3, 0x4 };
             }

@@ -75,7 +75,7 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
         private T CreateModel<T>() 
             where T : BaseSerializeModel, new()
         {
-            var model = new T()
+            var model = new T
             {
                 StrProp = "sp1",
                 StrPropWithName = "sp2",
@@ -91,15 +91,18 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
             return model;
         }
 
-        [Test]
-        public void Serialize_NoNamespace()
+        [TestCase(true)]
+        [TestCase(false)]
+        public void Serialize_NoNamespace(bool format)
         {
             var model = CreateModel<ModelWithNoNamespace>();
-            var serializer = GetSerializer();
+            var serializer = GetSerializer(format);
             var xml = serializer.Serialize(model);
 
             // Console.WriteLine(xml);
-            string expected = @"
+            if (format)
+            {
+                string expected = @"
 <Root StrProp=""sp1"" str-prop-with-name=""sp2"" xml:space=""preserve"">
     <Child>txt</Child>
     <DirectCollection>
@@ -110,9 +113,10 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
     </NestedCollection>
 </Root>
 ".Trim();
-            var expectedLines = expected.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
-            var xmlLines = xml.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
-            CollectionAssert.AreEqual(expectedLines, xmlLines);
+                var expectedLines = expected.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+                var xmlLines = xml.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+                CollectionAssert.AreEqual(expectedLines, xmlLines);
+            }
 
             var deser = serializer.Deserialize<ModelWithNoNamespace>(xml);
             Assert.IsNotNull(deser);
@@ -130,9 +134,12 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
             Assert.IsNotNull(deser);
         }
 
-        private FrameworkXmlSerializer GetSerializer()
+        private FrameworkXmlSerializer GetSerializer(bool format = true)
         {
-            return new FrameworkXmlSerializer();
+            return new FrameworkXmlSerializer
+            {
+                Format = format
+            };
         }
     }
 }

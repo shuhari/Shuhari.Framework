@@ -8,7 +8,7 @@ using Shuhari.Framework.Utils;
 namespace Shuhari.Framework.UnitTests.DomainModel
 {
     [TestFixture]
-    public class QueryDTOTest
+    public class QueryDtoTest
     {
         [Test]
         public void SetPagination_ShouldSetOffset()

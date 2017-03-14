@@ -14,7 +14,7 @@ namespace Shuhari.Framework.Security
         /// Generate a random salt
         /// </summary>
         /// <returns></returns>
-        public abstract byte[] GenerateSalt();
+        protected abstract byte[] GenerateSalt();
 
         /// <summary>
         /// Given password and salt, compute the hash
@@ -22,12 +22,12 @@ namespace Shuhari.Framework.Security
         /// <param name="password">Password in plain text</param>
         /// <param name="salt">Password salt</param>
         /// <returns>Password hash</returns>
-        public abstract byte[] ComputeHash(string password, byte[] salt);
+        protected abstract byte[] ComputeHash(string password, byte[] salt);
 
         /// <summary>
         /// Commonly use utf-8 to encode string, can be overrided by derived class
         /// </summary>
-        public virtual Encoding Encoding => Encoding.UTF8;
+        protected virtual Encoding Encoding => Encoding.UTF8;
 
         /// <summary>
         /// Generate password salt/hash pair

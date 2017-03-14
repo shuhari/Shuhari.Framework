@@ -4,7 +4,7 @@ using Shuhari.Framework.DomainModel;
 namespace Shuhari.Framework.UnitTests.DomainModel
 {
     [TestFixture]
-    public class ResultDTOTest
+    public class ResultDtoTest
     {
         [Test]
         public void Ctor_ShouldBeSuccess()

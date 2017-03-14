@@ -66,10 +66,9 @@ namespace Shuhari.Framework.Data.Utils
             Expect.IsNotNull(enumType, nameof(enumType));
             Expect.That(enumType.IsEnum, string.Format(FrameworkStrings.ErrorTypeNotEnum, enumType));
 
-            if (value != null && value is int)
+            if (value is int)
                 return Enum.ToObject(enumType, value);
-            else
-                throw ExceptionBuilder.NotSupported(FrameworkStrings.ErrorUnsupportedType, value.GetType());
+            throw ExceptionBuilder.NotSupported(FrameworkStrings.ErrorUnsupportedType, value.GetType());
         }
     }
 }

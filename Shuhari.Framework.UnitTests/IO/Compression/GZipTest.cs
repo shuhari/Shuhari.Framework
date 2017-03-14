@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.Design;
+using System.IO;
 using System.Linq;
 using NUnit.Framework;
 using Shuhari.Framework.DomainModel;
@@ -20,6 +22,17 @@ namespace Shuhari.Framework.UnitTests.IO.Compression
 
             Assert.IsTrue(files.Any(x => x.Name == f1.Name && x.Content.SequenceEqual(f1.Content)));
             Assert.IsTrue(files.Any(x => x.Name == f2.Name && x.Content.SequenceEqual(f2.Content)));
+        }
+
+        [Test]
+        public void DecompressFiles_Stream()
+        {
+            var zip = GZip.CompressFiles("zip", new[] {new FileItem("f", null, new byte[] {0x1})});
+            using (var ms = new MemoryStream(zip.Content))
+            {
+                var files = GZip.DecompressFiles(ms);
+                Assert.IsNotNull(files);
+            }
         }
 
         [Test]

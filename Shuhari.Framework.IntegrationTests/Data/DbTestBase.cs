@@ -5,7 +5,7 @@ namespace Shuhari.Framework.IntegrationTests.Data
 {
     public class DbTestBase : Shuhari.Framework.Data.DbTestBase
     {
-        public DbTestBase(bool readOnly) 
+        protected DbTestBase(bool readOnly)
             : base(readOnly)
         {
         }

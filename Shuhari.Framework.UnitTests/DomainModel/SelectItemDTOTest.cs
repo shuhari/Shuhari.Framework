@@ -4,7 +4,7 @@ using Shuhari.Framework.DomainModel;
 namespace Shuhari.Framework.UnitTests.DomainModel
 {
     [TestFixture]
-    public class SelectItemDTOTest
+    public class SelectItemDtoTest
     {
         [Test]
         public void Ctor_ShouldSetProperties()

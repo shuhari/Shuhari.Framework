@@ -17,7 +17,7 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc.Filters
         [SetUp]
         public void SetUp()
         {
-            _user = new UserInfo() { Permissions = new string[0] };
+            _user = new UserInfo { Permissions = new string[0] };
             _mockAuth = new Mock<IAuthentication>();
             _mockAuth.Setup(m => m.GetUser(It.IsAny<string>())).Returns(_user);
             var userManager = new UserManager(_mockAuth.Object);
@@ -27,8 +27,8 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc.Filters
 
             _mockCtx = new MockHttpContext();
             _mockCtx.SetUser("user");
-            new TestController();
-            var controllerCtx = _mockCtx.CreateControllerContext(new TestController());
+            var controller = new TestController();
+            var controllerCtx = _mockCtx.CreateControllerContext(controller);
             var descriptor = new Mock<ActionDescriptor>().Object;
             _execCtx = new ActionExecutingContext(controllerCtx, descriptor, new Dictionary<string, object>());
             _filter = new PermissionAttribute("p1");

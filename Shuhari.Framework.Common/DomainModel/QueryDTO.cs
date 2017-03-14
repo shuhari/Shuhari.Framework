@@ -57,8 +57,8 @@ namespace Shuhari.Framework.DomainModel
             Expect.That(page >= 0, FrameworkStrings.ErrorNumberShouldBePositive);
             Expect.That(perPage >= 0, FrameworkStrings.ErrorNumberShouldBePositive);
 
-            this.Page = page;
-            this.PerPage = perPage;
+            Page = page;
+            PerPage = perPage;
         }
 
         /// <summary>
