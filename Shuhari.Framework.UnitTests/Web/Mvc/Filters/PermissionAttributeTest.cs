@@ -43,7 +43,7 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc.Filters
         [Test]
         public void OnAuthorization_HasPermission_ShouldPassResult()
         {
-            _user.Permissions = new string[] { "p1", "p2" };
+            _user.Permissions = new[] { "p1", "p2" };
 
             _filter.OnActionExecuting(_execCtx);
             Assert.IsNull(_execCtx.Result);

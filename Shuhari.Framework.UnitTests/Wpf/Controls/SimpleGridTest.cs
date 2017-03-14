@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using NUnit.Framework;
 using Shuhari.Framework.Wpf.Controls;
 
@@ -26,6 +27,17 @@ namespace Shuhari.Framework.UnitTests.Wpf.Controls
             Assert.AreEqual(2, grid.ColumnDefinitions.Count);
             Assert.AreEqual(new GridLength(1, GridUnitType.Star), grid.ColumnDefinitions[0].Width);
             Assert.AreEqual(new GridLength(20, GridUnitType.Pixel), grid.ColumnDefinitions[1].Width);
+        }
+
+        [Test]
+        public void ChildMargin()
+        {
+            var margin = new Thickness(10);
+            var grid = new SimpleGrid {ChildMargin = margin};
+            var tb = new TextBlock();
+            grid.Children.Add(tb);
+
+            Assert.AreEqual(margin, tb.Margin);
         }
     }
 }

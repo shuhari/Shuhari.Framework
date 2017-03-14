@@ -70,8 +70,7 @@ namespace Shuhari.Framework.Data.SqlServer
         protected override DbParameter CreateVendorParameter(string paramName, DbType dbType, object value)
         {
             var sqlType = GetSqlDbType(dbType);
-            var param = new SqlParameter(paramName, sqlType);
-            param.Value = value;
+            var param = new SqlParameter(paramName, sqlType) {Value = value};
             return param;
         }
 

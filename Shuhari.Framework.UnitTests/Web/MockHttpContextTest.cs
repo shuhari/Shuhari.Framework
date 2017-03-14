@@ -32,6 +32,26 @@ namespace Shuhari.Framework.UnitTests.Web
         }
 
         [Test]
+        public void SetUserAnonymouse_UserShouldBeAnonymouse()
+        {
+            var result = _ctx.SetUserAnonymous();
+
+            Assert.IsFalse(_ctx.User.Identity.IsAuthenticated);
+            Assert.AreSame(result, _ctx);
+        }
+
+        [Test]
+        public void SetUser_ShouldAuthed()
+        {
+            const string UserName = "testuser";
+            var result = _ctx.SetUser(UserName);
+            Assert.AreSame(_ctx, result);
+
+            Assert.IsTrue(_ctx.User.Identity.IsAuthenticated);
+            Assert.AreEqual(UserName, _ctx.User.Identity.Name);
+        }
+
+        [Test]
         public void CreateControllerContext_ContextShouldBeValid()
         {
             var controller = new TestController();

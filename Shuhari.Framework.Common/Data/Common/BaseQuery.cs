@@ -18,7 +18,7 @@ namespace Shuhari.Framework.Data.Common
         /// </summary>
         /// <param name="session"></param>
         /// <param name="sql"></param>
-        public BaseQuery(Session session, string sql)
+        protected BaseQuery(Session session, string sql)
         {
             Expect.IsNotNull(session, nameof(session));
             Expect.IsNotBlank(sql, nameof(sql));
@@ -28,9 +28,9 @@ namespace Shuhari.Framework.Data.Common
             _parameters = new Dictionary<string, DbParameter>();
         }
 
-        protected readonly Session _session;
+        private readonly Session _session;
 
-        protected readonly Dictionary<string, DbParameter> _parameters;
+        private readonly Dictionary<string, DbParameter> _parameters;
 
         /// <inheritdoc />
         public ISession Session => _session;

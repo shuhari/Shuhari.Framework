@@ -9,7 +9,7 @@ namespace Shuhari.Framework.Xml.Serialization
     /// Save attribute info
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class XmlAttributeInfo<T> : IComparable
+    internal class XmlAttributeInfo<T> : IComparable
         where T: Attribute
     {
         /// <summary>

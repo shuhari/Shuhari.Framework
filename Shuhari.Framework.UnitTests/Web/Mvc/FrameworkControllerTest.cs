@@ -17,6 +17,12 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
         private TestController _controller;
 
         [Test]
+        public void CustomJson()
+        {
+            Assert.IsNotNull(_controller.CustomJson("abc", JsonRequestBehavior.AllowGet));
+        }
+
+        [Test]
         public void TempMessage()
         {
             const string MSG = "test msg";

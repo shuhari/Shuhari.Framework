@@ -116,6 +116,7 @@
     <Compile Include="Data\Mappings\SchemaMappingTest.cs" />
     <Compile Include="Data\Models.cs" />
     <Compile Include="Data\DataSourceBuilderTest.cs" />
+    <Compile Include="Data\RepositoryTestBaseTest.cs" />
     <Compile Include="Data\ScriptBookTest.cs" />
     <Compile Include="Data\SqlServer\SqlDbEngineTest.cs" />
     <Compile Include="Data\SqlServer\SqlQueryBuilderTest.cs" />
@@ -181,6 +182,7 @@
     <Compile Include="Web\Security\UserManagerTest.cs" />
     <Compile Include="Wpf\Controls\ElementExtensionsTest.cs" />
     <Compile Include="Wpf\Controls\GridUtilTest.cs" />
+    <Compile Include="Wpf\Controls\HBoxTest.cs" />
     <Compile Include="Wpf\Controls\SimpleGridTest.cs" />
     <Compile Include="Xml\Serialization\ValueSerializersTest.cs" />
     <Compile Include="Xml\Serialization\FrameworkXmlSerializerTest.cs" />

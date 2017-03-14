@@ -24,7 +24,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         [Test]
         public void Ctor_PageInvalid_ShouldThrow()
         {
-            Assert.Throws<ExpectionException>(() => new QueryDto(-1, -1));
+            Assert.Throws<ExpectionException>(() => new QueryDto(-1, -1).ToString());
         }
 
         [Test]

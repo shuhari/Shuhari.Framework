@@ -27,7 +27,7 @@ namespace Shuhari.Framework.IntegrationTests.Data
 
         private static void ExecuteResourceScript(DbScriptExecuteOptions options, string scriptPath)
         {
-            string filePath = Path.Combine(options.WorkDirectory, Path.GetFileName(scriptPath));
+            var filePath = Path.Combine(options.WorkDirectory, Path.GetFileName(scriptPath));
             typeof(DbFixtures).Assembly.GetResource(scriptPath).CopyToFile(filePath);
 
             var response = new CommandLine("sqlcmd")

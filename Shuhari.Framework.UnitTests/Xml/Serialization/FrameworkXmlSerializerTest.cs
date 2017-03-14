@@ -79,8 +79,8 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
             {
                 StrProp = "sp1",
                 StrPropWithName = "sp2",
+                Child = {Text = "txt"}
             };
-            model.Child.Text = "txt";
             var colElem = new CollectionElem
             {
                 BoolProp = true,

@@ -9,7 +9,7 @@ namespace Shuhari.Framework.UnitTests.Utils
     [TestFixture]
     public class CollectionUtilTest
     {
-        public class TestItem : INamed
+        private class TestItem : INamed
         {
             public TestItem(int id, string name)
             {

@@ -102,17 +102,19 @@ namespace Shuhari.Framework.UnitTests.IO
         [Test]
         public void Read()
         {
-            _decorator.Read(null, 0, 0);
+            var buf = new byte[0];
+            _decorator.Read(buf, 0, 0);
 
-            _mockStream.Verify(m => m.Read(null, 0, 0));
+            _mockStream.Verify(m => m.Read(buf, 0, 0));
         }
 
         [Test]
         public void Write()
         {
-            _decorator.Write(null, 0, 0);
+            var buf = new byte[0];
+            _decorator.Write(buf, 0, 0);
 
-            _mockStream.Verify(m => m.Write(null, 0, 0));
+            _mockStream.Verify(m => m.Write(buf, 0, 0));
         }
     }
 }
