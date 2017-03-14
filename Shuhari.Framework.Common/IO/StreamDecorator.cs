@@ -40,8 +40,8 @@ namespace Shuhari.Framework.IO
         /// <inheritdoc />
         public override long Position
         {
-            get => InnerStream.Position;
-            set => InnerStream.Position = value;
+            get { return InnerStream.Position; }
+            set { InnerStream.Position = value; }
         }
 
         /// <inheritdoc />
