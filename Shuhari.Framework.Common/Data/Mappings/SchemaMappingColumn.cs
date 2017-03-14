@@ -29,9 +29,9 @@ namespace Shuhari.Framework.Data.Mappings
             Expect.IsNotBlank(name, nameof(name));
             Expect.IsNotNull(dataType, nameof(dataType));
 
-            this.ColumnName = name;
-            this.DataType = dataType;
-            this.AllowDBNull = allowDbNull;
+            ColumnName = name;
+            DataType = dataType;
+            AllowDBNull = allowDbNull;
         }
 
         /// <summary>

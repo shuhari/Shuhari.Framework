@@ -23,25 +23,25 @@ namespace Shuhari.Framework.Xml.Serialization
             Expect.IsNotNull(prop, nameof(prop));
             Expect.IsNotNull(attr, nameof(attr));
 
-            this.Property = prop;
-            this.Attribute = attr;
-            this.Order = order;
+            Property = prop;
+            Attribute = attr;
+            Order = order;
         }
 
         /// <summary>
         /// Property
         /// </summary>
-        public PropertyInfo Property { get; private set; }
+        public PropertyInfo Property { get; }
 
         /// <summary>
         /// Attribute
         /// </summary>
-        public T Attribute { get; private set; }
+        public T Attribute { get; }
 
         /// <summary>
         /// Order
         /// </summary>
-        public int Order { get; private set; }
+        public int Order { get; }
 
         /// <inheritdoc />
         public int CompareTo(object obj)

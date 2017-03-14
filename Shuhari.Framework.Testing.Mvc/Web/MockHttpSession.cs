@@ -16,7 +16,7 @@ namespace Shuhari.Framework.Web
             _items = new Dictionary<string, object>();
         }
 
-        private Dictionary<string, object> _items;
+        private readonly Dictionary<string, object> _items;
 
         /// <inheritdoc />
         public override object this[string name]

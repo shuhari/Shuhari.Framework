@@ -17,7 +17,7 @@ namespace Shuhari.Framework.Data
             _critias = new List<string>();
         }
 
-        private List<string> _critias;
+        private readonly List<string> _critias;
 
         /// <summary>
         /// Add critia

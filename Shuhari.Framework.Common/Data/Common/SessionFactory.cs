@@ -23,19 +23,19 @@ namespace Shuhari.Framework.Data.Common
 
             _mappers = new Dictionary<Type, object>();
 
-            this.Engine = engine;
-            this.ConnectionString = connectionString;
+            Engine = engine;
+            ConnectionString = connectionString;
         }
 
         private Dictionary<Type, object> _mappers;
 
         /// <inheritdoc />
-        public IDbEngine Engine { get; private set; }
+        public IDbEngine Engine { get; }
 
         /// <summary>
         /// Connection string
         /// </summary>
-        public string ConnectionString { get; private set; }
+        public string ConnectionString { get; }
 
         /// <inheritdoc />
         public ISession OpenSession(object parameters = null)
@@ -47,7 +47,7 @@ namespace Shuhari.Framework.Data.Common
         public IDbConnection OpenConnection(object parameters = null)
         {
             var connection = Engine.CreateConnection();
-            connection.ConnectionString = this.ConnectionString;
+            connection.ConnectionString = ConnectionString;
             connection.Open();
             return connection;
         }

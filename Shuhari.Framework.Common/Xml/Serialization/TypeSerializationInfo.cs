@@ -18,14 +18,14 @@ namespace Shuhari.Framework.Xml.Serialization
         {
             Expect.IsNotNull(targetType, nameof(targetType));
 
-            this.TargetType = targetType;
+            TargetType = targetType;
             Load();
         }
 
         /// <summary>
         /// Target type
         /// </summary>
-        public Type TargetType { get; private set; }
+        public Type TargetType { get; }
 
         /// <summary>
         /// Attribute infos

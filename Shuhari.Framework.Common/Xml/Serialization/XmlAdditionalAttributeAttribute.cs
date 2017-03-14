@@ -23,25 +23,25 @@ namespace Shuhari.Framework.Xml.Serialization
             Expect.IsNotBlank(name, nameof(name));
             Expect.IsNotBlank(value, nameof(value));
 
-            this.Name = name;
-            this.Value = value;
-            this.Order = order;
+            Name = name;
+            Value = value;
+            Order = order;
         }
 
         /// <summary>
         /// Attribute name
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Attribute value
         /// </summary>
-        public string Value { get; private set; }
+        public string Value { get; }
 
         /// <summary>
         /// Serialize order
         /// </summary>
-        public int Order { get; private set; }
+        public int Order { get; }
 
         /// <inheritdoc />
         public int CompareTo(object obj)

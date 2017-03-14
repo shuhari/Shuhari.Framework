@@ -14,12 +14,12 @@ namespace Shuhari.Framework.Xml.Serialization
         /// <param name="order"></param>
         public XmlOrderAttribute(int order)
         {
-            this.Order = order;
+            Order = order;
         }
 
         /// <summary>
         /// Order
         /// </summary>
-        public int Order { get; private set; }
+        public int Order { get; }
     }
 }

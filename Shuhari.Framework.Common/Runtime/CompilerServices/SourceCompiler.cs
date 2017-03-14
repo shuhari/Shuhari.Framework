@@ -23,8 +23,8 @@ namespace Shuhari.Framework.Runtime.CompilerServices
             };
         }
 
-        private CodeDomProvider _provider;
-        private CompilerParameters _params;
+        private readonly CodeDomProvider _provider;
+        private readonly CompilerParameters _params;
 
         /// <summary>
         /// Add assembly reference

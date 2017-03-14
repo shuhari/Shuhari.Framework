@@ -5,7 +5,7 @@ namespace Shuhari.Framework.Data.Mappings
     /// <summary>
     /// Field mapping
     /// </summary>
-    [AttributeUsage(AttributeTargets.Property, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Property)]
     public sealed class FieldAttribute : FieldAttributeBase
     {
         /// <summary>

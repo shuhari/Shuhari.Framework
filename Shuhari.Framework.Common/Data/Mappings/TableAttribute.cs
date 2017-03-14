@@ -14,12 +14,12 @@ namespace Shuhari.Framework.Data.Mappings
         /// <param name="tableName">Table name. If not specified, then use entity name as table name</param>
         public TableAttribute(string tableName = null)
         {
-            this.TableName = tableName;
+            TableName = tableName;
         }
 
         /// <summary>
         /// Table name. If not specified, then use entity name as table name
         /// </summary>
-        public string TableName { get; private set; }
+        public string TableName { get; }
     }
 }

@@ -13,8 +13,8 @@ namespace Shuhari.Framework.UnitTests.Utils
         {
             public TestItem(int id, string name)
             {
-                this.Id = id;
-                this.Name = name;
+                Id = id;
+                Name = name;
             }
             public int Id { get; set; }
             public string Name { get; set; }

@@ -34,7 +34,7 @@ namespace Shuhari.Framework.Wpf.Controls
         {
             Expect.IsNotNull(owner, nameof(owner));
 
-            this.Owner = owner;
+            Owner = owner;
             return base.ShowDialog();
         }
 

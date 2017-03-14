@@ -17,7 +17,7 @@ namespace Shuhari.Framework.Globalization
             _items = new Dictionary<string, string>();
         }
 
-        private Dictionary<string, string> _items;
+        private readonly Dictionary<string, string> _items;
 
         /// <summary>
         /// Load

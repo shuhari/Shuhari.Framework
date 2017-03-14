@@ -104,12 +104,6 @@ namespace Shuhari.Framework.UnitTests.Data
         [Test]
         public void BuildDataReader()
         {
-            var columns = new[]
-            {
-                new SchemaMappingColumn("IntProp", typeof(int), false),
-                new SchemaMappingColumn("StringProp", typeof(string), true),
-                new SchemaMappingColumn("DateTimeProp", typeof(DateTime), false)
-            };
             var data = new[]
             {
                 new object[] { 1, "row1", DateTime.Now },

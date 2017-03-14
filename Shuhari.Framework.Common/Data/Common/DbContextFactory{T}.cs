@@ -89,8 +89,8 @@ namespace Shuhari.Framework.Data.Common
             Expect.IsNotNull(prop, nameof(prop));
             Expect.IsNotNull(implType, nameof(implType));
 
-            this.Property = prop;
-            this.ImplementationType = implType;
+            Property = prop;
+            ImplementationType = implType;
         }
 
         /// <summary>

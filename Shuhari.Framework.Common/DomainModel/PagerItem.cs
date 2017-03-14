@@ -21,31 +21,31 @@
         /// <param name="disabled"></param>
         public PagerItem(int page, string displayName, bool isCurrent, bool disabled)
         {
-            this.Page = page;
-            this.DisplayName = displayName;
-            this.IsCurrent = isCurrent;
-            this.Disabled = disabled;
+            Page = page;
+            DisplayName = displayName;
+            IsCurrent = isCurrent;
+            Disabled = disabled;
         }
 
         /// <summary>
         /// Page index
         /// </summary>
-        public int Page { get; set; }
+        public int Page { get; }
 
         /// <summary>
         /// Display page
         /// </summary>
-        public string DisplayName { get; set; }
+        public string DisplayName { get; }
 
         /// <summary>
         /// If is current page
         /// </summary>
-        public bool IsCurrent { get; set; }
+        public bool IsCurrent { get; }
 
         /// <summary>
         /// Flag for placeholders which is not navigatable
         /// </summary>
-        public bool Disabled { get; set; }
+        public bool Disabled { get; }
 
         /// <inheritdoc />
         public override bool Equals(object obj)
@@ -54,10 +54,10 @@
             if (other == null)
                 return false;
 
-            return this.Page == other.Page &&
-                this.DisplayName == other.DisplayName &&
-                this.IsCurrent == other.IsCurrent &&
-                this.Disabled == other.Disabled;
+            return Page == other.Page &&
+                DisplayName == other.DisplayName &&
+                IsCurrent == other.IsCurrent &&
+                Disabled == other.Disabled;
         }
 
         /// <inheritdoc />

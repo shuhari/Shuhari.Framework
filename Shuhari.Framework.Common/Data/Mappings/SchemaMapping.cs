@@ -19,7 +19,7 @@ namespace Shuhari.Framework.Data.Mappings
             _columns = new List<SchemaMappingColumn>();
         }
 
-        private List<SchemaMappingColumn> _columns;
+        private readonly List<SchemaMappingColumn> _columns;
 
         /// <summary>
         /// All columns

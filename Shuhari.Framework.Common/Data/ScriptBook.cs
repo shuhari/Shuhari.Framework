@@ -32,7 +32,7 @@ namespace Shuhari.Framework.Data
             _dict = new Dictionary<string, string>();
         }
 
-        private Dictionary<string, string> _dict;
+        private readonly Dictionary<string, string> _dict;
 
         /// <summary>
         /// Load from resource

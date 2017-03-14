@@ -35,7 +35,7 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
 
     abstract class BaseSerializeModel
     {
-        public BaseSerializeModel()
+        protected BaseSerializeModel()
         {
             Child = new ChildElem();
             DirectCollection = new DirectCollection();
@@ -132,9 +132,7 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
 
         private FrameworkXmlSerializer GetSerializer()
         {
-            return new FrameworkXmlSerializer
-            {
-            };
+            return new FrameworkXmlSerializer();
         }
     }
 }

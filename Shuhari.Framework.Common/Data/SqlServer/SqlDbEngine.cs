@@ -43,7 +43,7 @@ namespace Shuhari.Framework.Data.SqlServer
             };
         }
 
-        private Dictionary<DbType, SqlDbType> _knownDbTypes;
+        private readonly Dictionary<DbType, SqlDbType> _knownDbTypes;
 
         /// <inheritdoc />
         public override IDbConnection CreateConnection()

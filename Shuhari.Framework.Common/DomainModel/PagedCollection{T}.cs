@@ -43,8 +43,8 @@ namespace Shuhari.Framework.DomainModel
         {
             Expect.IsNotNull(q, nameof(q));
 
-            this.Page = q.Page;
-            this.PerPage = q.PerPage;
+            Page = q.Page;
+            PerPage = q.PerPage;
 
             return this;
         }

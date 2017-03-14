@@ -22,15 +22,15 @@ namespace Shuhari.Framework.Data
         /// Initialize
         /// </summary>
         /// <param name="readOnly">Read-only mode</param>
-        public DbTestBase(bool readOnly)
+        protected DbTestBase(bool readOnly)
         {
-            this.ReadOnly = readOnly;
+            ReadOnly = readOnly;
         }
 
         /// <summary>
         /// If in read-only mode
         /// </summary>
-        public bool ReadOnly { get; private set; }
+        public bool ReadOnly { get; }
 
         /// <summary>
         /// Session

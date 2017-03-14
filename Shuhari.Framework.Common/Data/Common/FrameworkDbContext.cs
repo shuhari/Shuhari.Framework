@@ -16,11 +16,11 @@ namespace Shuhari.Framework.Data.Common
         /// Initialize
         /// </summary>
         /// <param name="sessionFactory"></param>
-        public FrameworkDbContext(ISessionFactory sessionFactory)
+        protected FrameworkDbContext(ISessionFactory sessionFactory)
         {
             Expect.IsNotNull(sessionFactory, nameof(sessionFactory));
 
-            this.SessionFactory = sessionFactory;
+            SessionFactory = sessionFactory;
         }
 
         /// <inheritdoc />

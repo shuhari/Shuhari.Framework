@@ -24,7 +24,7 @@ namespace Shuhari.Framework.Data
             _rowIndex = -1;
         }
 
-        private DataTable _schemaTable;
+        private readonly DataTable _schemaTable;
         private object[][] _data;
         private int _rowIndex;
 

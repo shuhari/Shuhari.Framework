@@ -53,7 +53,7 @@ namespace Shuhari.Framework.Data.Mappings
                 .Select(FieldMapper<T>.Create)
                 .Where(x => x != null));
 
-            this.FieldMappers = fieldMappers.AsReadOnly();
+            FieldMappers = fieldMappers.AsReadOnly();
         }
 
         /// <summary>

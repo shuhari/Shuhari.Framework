@@ -25,7 +25,7 @@ namespace Shuhari.Framework.IO
 
         private string _workDir;
 
-        private List<string> _args;
+        private readonly List<string> _args;
 
         /// <summary>
         /// Set working directory

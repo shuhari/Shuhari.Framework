@@ -12,16 +12,16 @@ namespace Shuhari.Framework.Data.Mappings
         /// </summary>
         /// <param name="fieldName"></param>
         /// <param name="flags"></param>
-        public FieldAttributeBase(string fieldName, FieldFlags flags)
+        protected FieldAttributeBase(string fieldName, FieldFlags flags)
         {
-            this.FieldName = fieldName;
-            this.Flags = flags;
+            FieldName = fieldName;
+            Flags = flags;
         }
 
         /// <summary>
         /// Field name
         /// </summary>
-        public string FieldName { get; private set; }
+        public string FieldName { get; }
 
         /// <summary>
         /// Flags

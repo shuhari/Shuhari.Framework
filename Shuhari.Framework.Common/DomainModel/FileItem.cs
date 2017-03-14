@@ -26,25 +26,25 @@ namespace Shuhari.Framework.DomainModel
             Expect.IsNotBlank(name, nameof(name));
             Expect.IsNotNull(content, nameof(content));
 
-            this.Name = name;
-            this.MimeType = mimeType;
-            this.Content = content;
+            Name = name;
+            MimeType = mimeType;
+            Content = content;
         }
 
         /// <summary>
         /// File name
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
         /// Mime type
         /// </summary>
-        public string MimeType { get; set; }
+        public string MimeType { get; }
 
         /// <summary>
         /// Content
         /// </summary>
-        public byte[] Content { get; set; }
+        public byte[] Content { get; }
 
         /// <inheritdoc />
         public override bool Equals(object obj)
@@ -71,7 +71,7 @@ namespace Shuhari.Framework.DomainModel
         /// <returns></returns>
         public static bool operator==(FileItem lhs, FileItem rhs)
         {
-            return object.Equals(lhs, rhs);
+            return Equals(lhs, rhs);
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Shuhari.Framework.DomainModel
         /// <returns></returns>
         public static bool operator!=(FileItem lhs, FileItem rhs)
         {
-            return !object.Equals(lhs, rhs);
+            return !Equals(lhs, rhs);
         }
     }
 }

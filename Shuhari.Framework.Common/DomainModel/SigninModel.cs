@@ -22,9 +22,9 @@ namespace Shuhari.Framework.DomainModel
         /// <param name="rememberMe"></param>
         public SigninModel(string userName, string password, bool rememberMe)
         {
-            this.UserName = userName;
-            this.Password = password;
-            this.RememberMe = rememberMe;
+            UserName = userName;
+            Password = password;
+            RememberMe = rememberMe;
         }
 
         /// <summary>

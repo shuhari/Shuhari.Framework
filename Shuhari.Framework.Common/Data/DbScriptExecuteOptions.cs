@@ -19,24 +19,24 @@ namespace Shuhari.Framework.Data
             Expect.IsNotBlank(dbName, nameof(dbName));
             workDir = workDir ?? Directory.GetCurrentDirectory();
 
-            this.DbName = dbName;
-            this.WorkDirectory = workDir;
-            this.Output = output;
+            DbName = dbName;
+            WorkDirectory = workDir;
+            Output = output;
         }
 
         /// <summary>
         /// 数据库名称
         /// </summary>
-        public string DbName { get; private set; }
+        public string DbName { get; }
 
         /// <summary>
         /// 当前目录
         /// </summary>
-        public string WorkDirectory { get; private set; }
+        public string WorkDirectory { get; }
 
         /// <summary>
         /// 是否输出控制台信息
         /// </summary>
-        public bool Output { get; private set; }
+        public bool Output { get; }
     }
 }

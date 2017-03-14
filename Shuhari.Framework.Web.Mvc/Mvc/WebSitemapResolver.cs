@@ -23,7 +23,7 @@ namespace Shuhari.Framework.Web.Mvc
             _context = context;
         }
 
-        private HttpContextBase _context;
+        private readonly HttpContextBase _context;
 
         /// <inheritdoc />
         public override string ResolveUrl(string url)

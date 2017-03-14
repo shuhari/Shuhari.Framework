@@ -11,17 +11,17 @@ namespace Shuhari.Framework.DomainModel
         /// Initialize
         /// </summary>
         /// <param name="user"></param>
-        public BaseSitemapResolver(UserInfo user)
+        protected BaseSitemapResolver(UserInfo user)
         {
             Expect.IsNotNull(user, nameof(user));
 
-            this.User = user;
+            User = user;
         }
 
         /// <summary>
         /// User info
         /// </summary>
-        protected UserInfo User { get; private set; }
+        protected UserInfo User { get; }
 
         /// <summary>
         /// Given a valid url, return resolved url

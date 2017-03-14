@@ -24,7 +24,7 @@ namespace Shuhari.Framework.Data.Common
 
         private readonly SessionFactory _sessionFactory;
 
-        private object _parameters;
+        private readonly object _parameters;
 
         private IDbConnection _connection;
 
@@ -39,14 +39,7 @@ namespace Shuhari.Framework.Data.Common
         /// <inheritdoc />
         public IDbConnection Connection
         {
-            get
-            {
-                if (_connection == null)
-                {
-                    _connection = _sessionFactory.OpenConnection(_parameters);
-                }
-                return _connection;
-            }
+            get { return _connection ?? (_connection = _sessionFactory.OpenConnection(_parameters)); }
         }
 
         /// <inheritdoc />

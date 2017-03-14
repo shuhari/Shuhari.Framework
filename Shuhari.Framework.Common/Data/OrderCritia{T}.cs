@@ -21,24 +21,24 @@ namespace Shuhari.Framework.Data
         {
             Expect.IsNotNull(selector, nameof(selector));
 
-            this.Selector = selector;
-            this.Value = value;
-            this.Ascending = ascending;
+            Selector = selector;
+            Value = value;
+            Ascending = ascending;
         }
 
         /// <summary>
         /// Property selector
         /// </summary>
-        public Expression<Func<T, object>> Selector { get; private set; }
+        public Expression<Func<T, object>> Selector { get; }
 
         /// <summary>
         /// Property value
         /// </summary>
-        public object Value { get; private set; }
+        public object Value { get; }
 
         /// <summary>
         /// Ascending/descending
         /// </summary>
-        public bool Ascending { get; private set; }
+        public bool Ascending { get; }
     }
 }

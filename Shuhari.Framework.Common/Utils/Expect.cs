@@ -71,7 +71,7 @@ namespace Shuhari.Framework.Utils
         /// <exception cref="ExpectionException">Throw if check failed.</exception>
         public static void FileExist(string filePath)
         {
-            Expect.IsNotBlank(filePath, nameof(filePath));
+            IsNotBlank(filePath, nameof(filePath));
 
             if (!File.Exists(filePath))
                 throw ExceptionBuilder.Expection(FrameworkStrings.ExpectFileExist, filePath);
@@ -84,7 +84,7 @@ namespace Shuhari.Framework.Utils
         /// <exception cref="ExpectionException">Throw if check failed.</exception>
         public static void DirectoryExist(string dirPath)
         {
-            Expect.IsNotBlank(dirPath, nameof(dirPath));
+            IsNotBlank(dirPath, nameof(dirPath));
 
             if (!Directory.Exists(dirPath))
                 throw ExceptionBuilder.Expection(FrameworkStrings.ExpectDirectoryExist, dirPath);

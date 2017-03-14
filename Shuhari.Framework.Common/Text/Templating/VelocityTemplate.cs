@@ -70,9 +70,9 @@ namespace Shuhari.Framework.Text.Templating
             _engine.Init();
         }
 
-        private string _templateText;
-        private VelocityEngine _engine;
-        private Dictionary<string, object> _parameters;
+        private readonly string _templateText;
+        private readonly VelocityEngine _engine;
+        private readonly Dictionary<string, object> _parameters;
 
         /// <inheritdoc />
         public ITemplate Set(string paramName, object value)

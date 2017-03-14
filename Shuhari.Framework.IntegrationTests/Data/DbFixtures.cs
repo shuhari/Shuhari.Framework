@@ -27,7 +27,6 @@ namespace Shuhari.Framework.IntegrationTests.Data
 
         private static void ExecuteResourceScript(DbScriptExecuteOptions options, string scriptPath)
         {
-            var engine = new SqlDbEngine();
             string filePath = Path.Combine(options.WorkDirectory, Path.GetFileName(scriptPath));
             typeof(DbFixtures).Assembly.GetResource(scriptPath).CopyToFile(filePath);
 

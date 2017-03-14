@@ -7,7 +7,7 @@ namespace Shuhari.Framework.Data.Mappings
     /// </summary>
     /// <remarks>Entity property of primery key is always <strong>Id</strong>, but
     /// it's field name and flags (identity or not) can be customized</remarks>
-    [AttributeUsage(AttributeTargets.Class, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Class)]
     public sealed class PrimaryKeyAttribute : FieldAttributeBase
     {
         /// <summary>

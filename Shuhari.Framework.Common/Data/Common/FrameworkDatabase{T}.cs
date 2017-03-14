@@ -18,7 +18,7 @@ namespace Shuhari.Framework.Data.Common
         /// <param name="connectionName"></param>
         /// <param name="entityAssembly">Assembly that contains entity definitions</param>
         /// <param name="repositoryAssembly">Assembly that contains repository implementations</param>
-        public FrameworkDatabase(DatabaseType dbType, string connectionName, Assembly entityAssembly,
+        protected FrameworkDatabase(DatabaseType dbType, string connectionName, Assembly entityAssembly,
             Assembly repositoryAssembly)
         {
             Expect.IsNotBlank(connectionName, nameof(connectionName));
@@ -71,14 +71,7 @@ namespace Shuhari.Framework.Data.Common
 
         private DbContextFactory<TContext> Factory
         {
-            get
-            {
-                if (_factory == null)
-                {
-                    _factory = new DbContextFactory<TContext>(SessionFactory, _repositoryAssembly);
-                }
-                return _factory;
-            }
+            get { return _factory ?? (_factory = new DbContextFactory<TContext>(SessionFactory, _repositoryAssembly)); }
         }
 
         /// <summary>

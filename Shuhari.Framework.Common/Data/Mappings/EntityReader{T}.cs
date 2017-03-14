@@ -29,7 +29,7 @@ namespace Shuhari.Framework.Data.Mappings
             _fieldReaders = schema.Columns.Select(x => entityMapper.GetFieldReader(x)).ToArray();
         }
 
-        private IFieldReader<T>[] _fieldReaders;
+        private readonly IFieldReader<T>[] _fieldReaders;
 
         /// <summary>
         /// Set entity properties

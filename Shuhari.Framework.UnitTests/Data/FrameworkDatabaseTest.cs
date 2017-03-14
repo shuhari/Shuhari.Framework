@@ -28,7 +28,7 @@ namespace Shuhari.Framework.UnitTests.Data
         [Test]
         public void SessionFactory_ConnectionNameNotExist_ShouldThrow()
         {
-            Assert.Throws<ConfigurationErrorsException>(() => { var obj = new TestDatabase("invalid_conn").SessionFactory; });
+            Assert.Throws<ConfigurationErrorsException>(() => { new TestDatabase("invalid_conn").SessionFactory.OpenConnection(); });
         }
 
         [Test]

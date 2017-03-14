@@ -23,20 +23,20 @@ namespace Shuhari.Framework.Data.Common
         /// </summary>
         /// <param name="engine"></param>
         /// <param name="mapper"></param>
-        public QueryBuilder(IDbEngine engine, IEntityMapper<T> mapper)
+        protected QueryBuilder(IDbEngine engine, IEntityMapper<T> mapper)
         {
             Expect.IsNotNull(engine, nameof(engine));
             Expect.IsNotNull(mapper, nameof(mapper));
 
-            this.Engine = engine;
-            this.Mapper = mapper;
+            Engine = engine;
+            Mapper = mapper;
         }
 
         /// <inheritdoc />
-        public IDbEngine Engine { get; private set; }
+        public IDbEngine Engine { get; }
 
         /// <inheritdoc />
-        public IEntityMapper<T> Mapper { get; private set; }
+        public IEntityMapper<T> Mapper { get; }
 
         /// <inheritdoc />
         public OrderCritia<T> OrderBy(Expression<Func<T, object>> selector,
@@ -97,7 +97,7 @@ namespace Shuhari.Framework.Data.Common
                 result += string.Format(" order by {0} {1}",
                     fieldMapper.FieldName,
                     orderBy.Ascending ? "asc" : "desc");
-            };
+            }
             return result;
         }
 

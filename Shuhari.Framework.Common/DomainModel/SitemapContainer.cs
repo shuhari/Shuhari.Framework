@@ -14,7 +14,7 @@ namespace Shuhari.Framework.DomainModel
         /// <summary>
         /// Initialize
         /// </summary>
-        public SitemapContainer()
+        protected SitemapContainer()
         {
             Children = new List<SitemapItem>();
         }

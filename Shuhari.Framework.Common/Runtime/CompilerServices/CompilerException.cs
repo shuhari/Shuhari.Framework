@@ -19,13 +19,13 @@ namespace Shuhari.Framework.Runtime.CompilerServices
         {
             Expect.IsNotNull(errors, nameof(errors));
 
-            this.Errors = errors.OfType<CompilerError>().ToArray();
+            Errors = errors.OfType<CompilerError>().ToArray();
         }
 
         /// <summary>
         /// Collection of errors
         /// </summary>
-        public CompilerError[] Errors { get; private set; }
+        public CompilerError[] Errors { get; }
 
         private static string GetErrorMessages(CompilerErrorCollection errors)
         {

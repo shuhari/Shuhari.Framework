@@ -17,8 +17,8 @@ namespace Shuhari.Framework.Web.Mvc
         /// <param name="behavior"></param>
         public CustomJsonResult(object data, JsonRequestBehavior behavior)
         {
-            this.Data = data;
-            this.JsonRequestBehavior = behavior;
+            Data = data;
+            JsonRequestBehavior = behavior;
         }
 
         /// <summary>
@@ -29,12 +29,12 @@ namespace Shuhari.Framework.Web.Mvc
         {
             Expect.IsNotNull(context, nameof(context));
 
-            if (JsonRequestBehavior == JsonRequestBehavior.DenyGet && string.Equals(context.HttpContext.Request.HttpMethod, "GET", StringComparison.OrdinalIgnoreCase))
+            var request = context.HttpContext.Request;
+            var response = context.HttpContext.Response;
+            if (JsonRequestBehavior == JsonRequestBehavior.DenyGet && request.HttpMethod.EqualsNoCase("GET"))
                 throw new InvalidOperationException("JSON GET is not allowed");
 
-            var response = context.HttpContext.Response;
             response.ContentType = string.IsNullOrEmpty(ContentType) ? "application/json" : ContentType;
-
             if (ContentEncoding != null)
                 response.ContentEncoding = ContentEncoding;
             if (Data == null)

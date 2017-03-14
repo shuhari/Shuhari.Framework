@@ -17,18 +17,18 @@ namespace Shuhari.Framework.Security
             Expect.IsNotNull(hash, nameof(hash));
             Expect.IsNotNull(salt, nameof(salt));
 
-            this.Hash = hash;
-            this.Salt = salt;
+            Hash = hash;
+            Salt = salt;
         }
 
         /// <summary>
         /// Password hash
         /// </summary>
-        public byte[] Hash { get; private set; }
+        public byte[] Hash { get; }
 
         /// <summary>
         /// Password salt
         /// </summary>
-        public byte[] Salt { get; private set; }
+        public byte[] Salt { get; }
     }
 }
