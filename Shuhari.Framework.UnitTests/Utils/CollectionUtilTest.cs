@@ -20,17 +20,11 @@ namespace Shuhari.Framework.UnitTests.Utils
             public string Name { get; set; }
         }
 
-        private TestItem[] TestCollection
+        private TestItem[] TestCollection => new[]
         {
-            get
-            {
-                return new[]
-                {
-                    new TestItem(1, "item1"),
-                    new TestItem(2, "item2"),
-                };
-            }
-        }
+            new TestItem(1, "item1"),
+            new TestItem(2, "item2"),
+        };
 
         [Test]
         public void Each()

@@ -24,10 +24,7 @@ namespace Shuhari.Framework.Data.Mappings
         /// <summary>
         /// All columns
         /// </summary>
-        public IEnumerable<SchemaMappingColumn> Columns
-        {
-            get { return _columns.AsReadOnly(); }
-        }
+        public IEnumerable<SchemaMappingColumn> Columns => _columns.AsReadOnly();
 
         /// <summary>
         /// Add column

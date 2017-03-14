@@ -9,15 +9,9 @@ namespace Shuhari.Framework.UnitTests
 {
     internal static class Fixtures
     {
-        internal static AssemblyResource SitemapResource
-        {
-            get { return typeof(Fixtures).Assembly.GetResource("ResourceFiles/sitemap.xaml"); }
-        }
+        internal static AssemblyResource SitemapResource => typeof(Fixtures).Assembly.GetResource("ResourceFiles/sitemap.xaml");
 
-        internal static Sitemap Sitemap
-        {
-            get { return Sitemap.FromResource(SitemapResource); }
-        }
+        internal static Sitemap Sitemap => Sitemap.FromResource(SitemapResource);
 
         internal static ISessionFactory SqlSessionFactory
         {

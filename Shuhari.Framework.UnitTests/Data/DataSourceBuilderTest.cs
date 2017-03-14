@@ -10,18 +10,12 @@ namespace Shuhari.Framework.UnitTests.Data
     [TestFixture]
     public class DataSourceBuilderTest
     {
-        private SchemaMappingColumn[] TestColumns
+        private SchemaMappingColumn[] TestColumns => new[]
         {
-            get
-            {
-                return new[]
-                {
-                    new SchemaMappingColumn("IntProp", typeof(int), false),
-                    new SchemaMappingColumn("StringProp", typeof(string), true),
-                    new SchemaMappingColumn("DateTimeProp", typeof(DateTime), false)
-                };
-            }
-        }
+            new SchemaMappingColumn("IntProp", typeof(int), false),
+            new SchemaMappingColumn("StringProp", typeof(string), true),
+            new SchemaMappingColumn("DateTimeProp", typeof(DateTime), false)
+        };
 
         [Test]
         public void BuildSchemaTable()

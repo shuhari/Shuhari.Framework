@@ -17,7 +17,7 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
             var engine = DbRegistry.GetEngine(DatabaseType.SqlServer);
             var connStr = ConfigurationManager.ConnectionStrings["tempdb"].ConnectionString;
             var sessionFactory = engine.CreateSessionFactory(connStr);
-            MappingFactory.MapEntitiesWithAnnonations(sessionFactory, typeof(NotNullEntity).Assembly);
+            sessionFactory.MapEntitiesWithAnnonations(typeof(NotNullEntity).Assembly);
 
             Assert.IsNotNull(sessionFactory.GetMapper(entityType));
         }

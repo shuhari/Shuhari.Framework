@@ -74,12 +74,6 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
             AssertSet<DerivedEntity>(propName, value);
         }
 
-        private static TestCaseData TestColumnOf<T, TProp>(Expression<Func<T, TProp>> selector, TProp value)
-        {
-            var prop = ExpressionBuilder.GetProperty(selector);
-            return new TestCaseData(prop.Name, value).SetName(prop.Name);
-        }
-
         public static IEnumerable<TestCaseData> NotNullEntity_NotNullSources
         {
             get
@@ -176,7 +170,6 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
         private IFieldMapper<T> GetFieldMapper<T>(string propName)
             where T: class, new()
         {
-            var prop = typeof(T).GetProperty(propName);
             var mapper = MappingFactory.CreateEntityMappingFromAnnonations<T>();
             return mapper.FindByProperty(propName);
         }
@@ -190,9 +183,9 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
             _datas = new List<TestCaseData>();
         }
 
-        private string _prefix;
+        private readonly string _prefix;
 
-        private List<TestCaseData> _datas;
+        private readonly List<TestCaseData> _datas;
 
         public TestCaseDataBuilder<T> CaseOf<TProp>(Expression<Func<T, TProp>> selector, TProp value)
         {
@@ -202,9 +195,6 @@ namespace Shuhari.Framework.UnitTests.Data.Mappings
             return this;
         }
 
-        public IEnumerable<TestCaseData> Data
-        {
-            get { return _datas.AsReadOnly(); }
-        }
+        public IEnumerable<TestCaseData> Data => _datas.AsReadOnly();
     }
 }

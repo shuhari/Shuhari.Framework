@@ -27,19 +27,19 @@ namespace Shuhari.Framework.Resources
             Expect.IsNotNull(assembly, nameof(assembly));
             Expect.IsNotBlank(resourceResourcePath, nameof(resourceResourcePath));
 
-            this.Assembly = assembly;
-            this.ResourcePath = resourceResourcePath;
+            Assembly = assembly;
+            ResourcePath = resourceResourcePath;
         }
 
         /// <summary>
         /// Assembly
         /// </summary>
-        public Assembly Assembly { get; private set; }
+        public Assembly Assembly { get; }
 
         /// <summary>
         /// ResourcePath of file
         /// </summary>
-        public string ResourcePath { get; private set; }
+        public string ResourcePath { get; }
 
         /// <summary>
         /// Open stream for read

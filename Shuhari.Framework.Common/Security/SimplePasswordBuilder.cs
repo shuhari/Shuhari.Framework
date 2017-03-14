@@ -26,7 +26,7 @@ namespace Shuhari.Framework.Security
             Expect.IsNotNull(salt, nameof(salt));
 
             var allBytes = Encoding.GetBytes(password).Concat(salt).ToArray();
-            return Encryption.SHA256(allBytes);
+            return allBytes.SHA256();
         }
     }
 }

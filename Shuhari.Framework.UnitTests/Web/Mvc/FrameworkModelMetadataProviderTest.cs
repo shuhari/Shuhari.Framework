@@ -31,7 +31,7 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
         [Test]
         public void GetMetadata_DisplayNameNotRegistered_ShouldBeNull()
         {
-            var metadata = _provider.GetMetadataForProperty(null, typeof(MetadataEntity), "Prop");
+            var metadata = _provider.GetMetadataForProperty(null, typeof(MetadataEntity), nameof(MetadataEntity.Prop));
             Assert.IsNull(metadata.DisplayName);
         }
 

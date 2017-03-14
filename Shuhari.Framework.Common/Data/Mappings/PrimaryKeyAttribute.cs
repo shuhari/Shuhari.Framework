@@ -11,20 +11,11 @@ namespace Shuhari.Framework.Data.Mappings
     public sealed class PrimaryKeyAttribute : FieldAttributeBase
     {
         /// <summary>
-        /// Initialize with default flags
-        /// </summary>
-        /// <param name="fieldName"></param>
-        public PrimaryKeyAttribute(string fieldName)
-            : base(fieldName, DEFAULT_FLAGS)
-        {
-        }
-
-        /// <summary>
         /// Initialize
         /// </summary>
         /// <param name="fieldName"></param>
         /// <param name="flags"></param>
-        public PrimaryKeyAttribute(string fieldName, FieldFlags flags)
+        public PrimaryKeyAttribute(string fieldName, FieldFlags flags = DEFAULT_FLAGS)
             : base(fieldName, flags)
         {
         }

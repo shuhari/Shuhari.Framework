@@ -23,37 +23,25 @@ namespace Shuhari.Framework.IO
         /// <summary>
         /// Inner stream
         /// </summary>
-        public Stream InnerStream { get; private set; }
+        public Stream InnerStream { get; }
 
         /// <inheritdoc />
-        public override bool CanRead
-        {
-            get { return InnerStream.CanRead; }
-        }
+        public override bool CanRead => InnerStream.CanRead;
 
         /// <inheritdoc />
-        public override bool CanSeek
-        {
-            get { return InnerStream.CanSeek; }
-        }
+        public override bool CanSeek => InnerStream.CanSeek;
 
         /// <inheritdoc />
-        public override bool CanWrite
-        {
-            get { return InnerStream.CanWrite; }
-        }
+        public override bool CanWrite => InnerStream.CanWrite;
 
         /// <inheritdoc />
-        public override long Length
-        {
-            get { return InnerStream.Length; }
-        }
+        public override long Length => InnerStream.Length;
 
         /// <inheritdoc />
         public override long Position
         {
-            get { return InnerStream.Position; }
-            set { InnerStream.Position = value; }
+            get => InnerStream.Position;
+            set => InnerStream.Position = value;
         }
 
         /// <inheritdoc />

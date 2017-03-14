@@ -13,10 +13,7 @@ namespace Shuhari.Framework.IntegrationTests.Data.SqlServer
         [SetUp]
         public void SetUp()
         {
-            _engine = new SqlDbEngine();
         }
-
-        private SqlDbEngine _engine;
 
         [Test]
         [Ignore("Manual inspect create output")]
@@ -47,8 +44,6 @@ namespace Shuhari.Framework.IntegrationTests.Data.SqlServer
 
         private void AssertDbExist(string dbName, bool exist)
         {
-            int count = 0;
-
             string connStr = ConfigurationManager.ConnectionStrings["tempdb"].ConnectionString;
             using (var conn = new SqlConnection(connStr))
             {
@@ -56,11 +51,10 @@ namespace Shuhari.Framework.IntegrationTests.Data.SqlServer
                 string sql = string.Format(@"select count(*) from sys.databases where name='{0}'", dbName);
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    count = Convert.ToInt32(cmd.ExecuteScalar());
+                    var count = Convert.ToInt32(cmd.ExecuteScalar());
+                    Assert.AreEqual(exist, count == 1, string.Format("Assert database {0} exist={1} but failed", dbName, exist));
                 }
             }
-
-            Assert.AreEqual(exist, count == 1, string.Format("Assert database {0} exist={1} but failed", dbName, exist));
         }
     }
 }

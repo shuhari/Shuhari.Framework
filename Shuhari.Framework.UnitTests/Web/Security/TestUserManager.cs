@@ -45,17 +45,14 @@ namespace Shuhari.Framework.UnitTests.Web.Security
             DependencyResolver.SetResolver(Resolver);
         }
 
-        public Mock<IAuthentication> AuthMock { get; private set; }
+        public Mock<IAuthentication> AuthMock { get; }
 
-        public TestUserManager Manager { get; private set; }
+        public TestUserManager Manager { get; }
 
-        public MockHttpContext HttpContext { get; private set; }
+        public MockHttpContext HttpContext { get; }
 
-        public NinjectDependencyResolver Resolver { get; private set; }
+        public NinjectDependencyResolver Resolver { get; }
 
-        public UserInfo CurrentUser
-        {
-            get { return Manager.GetCurrentUser(HttpContext); }
-        }
+        public UserInfo CurrentUser => Manager.GetCurrentUser(HttpContext);
     }
 }

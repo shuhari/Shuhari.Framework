@@ -35,6 +35,16 @@ namespace Shuhari.Framework.UnitTests.Utils
         }
 
         [Test]
+        public void SetAttr()
+        {
+            _doc.DocumentElement.SetAttr("attr1", "value1")
+                .SetAttr("attr2", "value2");
+
+            Assert.AreEqual("value1", _doc.DocumentElement.GetAttr("attr1"));
+            Assert.AreEqual("value2", _doc.DocumentElement.GetAttr("attr2"));
+        }
+
+        [Test]
         public void AppendElement()
         {
             _doc.DocumentElement.AppendElement("child");

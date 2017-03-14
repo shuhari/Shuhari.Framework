@@ -29,10 +29,7 @@ namespace Shuhari.Framework.DomainModel
 
         /// <inheritdoc />
         [JsonIgnore]
-        public int TotalPages
-        {
-            get { return (Total + PerPage - 1) / PerPage; }
-        }
+        public int TotalPages => (Total + PerPage - 1) / PerPage;
 
         /// <summary>
         /// Set pagination info
@@ -60,8 +57,8 @@ namespace Shuhari.Framework.DomainModel
             Expect.That(total >= 0, FrameworkStrings.ErrorNumberShouldBePositive);
             Expect.IsNotNull(data, nameof(data));
 
-            this.Total = total;
-            this.Data = data.ToArray();
+            Total = total;
+            Data = data.ToArray();
 
             return this;
         }
@@ -76,9 +73,11 @@ namespace Shuhari.Framework.DomainModel
         {
             Expect.IsNotNull(mapper, nameof(mapper));
 
-            var result = new PagedCollection<TResult>();
-            result.Page = Page;
-            result.PerPage = PerPage;
+            var result = new PagedCollection<TResult>
+            {
+                Page = Page,
+                PerPage = PerPage
+            };
             result.SetData(Total, Data.Select(mapper));
 
             return result;
@@ -91,10 +90,12 @@ namespace Shuhari.Framework.DomainModel
         {
             Expect.That(PerPage > 0, string.Format("PerPage<={0} could not calculate pagination", PerPage));
 
-            var pager = new Pager();
-            pager.Total = Total;
-            pager.StartIndex = Page * PerPage;
-            pager.EndIndex = Math.Max(0, Math.Min((Page + 1) * PerPage - 1, Total - 1));
+            var pager = new Pager
+            {
+                Total = Total,
+                StartIndex = Page * PerPage,
+                EndIndex = Math.Max(0, Math.Min((Page + 1) * PerPage - 1, Total - 1))
+            };
 
             if (Total > 0)
             {
@@ -129,7 +130,7 @@ namespace Shuhari.Framework.DomainModel
         private PagerItem CreatePaginationItem(int pageNo, string displayName, bool disabled)
         {
             displayName = displayName ?? string.Format("{0}", pageNo + 1);
-            bool isCurrent = (pageNo == this.Page);
+            bool isCurrent = (pageNo == Page);
             if (pageNo < 0 || isCurrent)
                 disabled = true;
             return new PagerItem(pageNo, displayName, isCurrent, disabled);

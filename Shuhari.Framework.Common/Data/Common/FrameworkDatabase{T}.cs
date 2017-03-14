@@ -63,7 +63,7 @@ namespace Shuhari.Framework.Data.Common
                     var connectionString = config.ConnectionString;
 
                     _sessionFactory = Engine.CreateSessionFactory(connectionString);
-                    MappingFactory.MapEntitiesWithAnnonations(_sessionFactory, _entityAssembly);
+                    _sessionFactory.MapEntitiesWithAnnonations(_entityAssembly);
                 }
                 return _sessionFactory;
             }

@@ -96,23 +96,11 @@ namespace Shuhari.Framework.Data.Common
         /// <summary>
         /// Repository interface
         /// </summary>
-        public PropertyInfo Property { get; private set; }
+        public PropertyInfo Property { get; }
 
         /// <summary>
         /// Repository implementation
         /// </summary>
-        public Type ImplementationType { get; private set; }
-
-        /// <summary>
-        /// Create repository property for <paramref name="dbCtx"/>
-        /// </summary>
-        /// <param name="dbCtx"></param>
-        internal void CreateInstance(object dbCtx)
-        {
-            Expect.IsNotNull(dbCtx, nameof(dbCtx));
-
-            var repos = Activator.CreateInstance(ImplementationType);
-            Property.SetValue(dbCtx, repos);
-        }
+        public Type ImplementationType { get; }
     }
 }

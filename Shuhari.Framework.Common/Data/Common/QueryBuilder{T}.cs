@@ -164,12 +164,13 @@ namespace Shuhari.Framework.Data.Common
             Expect.IsNotNull(updateFields, nameof(updateFields));
 
             var pk = Mapper.GetPrimaryKey();
+            var upateFieldArray = updateFields.ToArray();
             string sql = string.Format("update {0} set {1} where {2}",
                 Mapper.TableName,
-                string.Join(", ", updateFields.Select(_ => string.Format("{0}=@{0}", _.FieldName))),
+                string.Join(", ", upateFieldArray.Select(_ => string.Format("{0}=@{0}", _.FieldName))),
                 string.Format("{0}=@{0}", pk.FieldName));
-            var query = session.CreateQuery<T>(sql, Mapper);
-            foreach (var field in updateFields)
+            var query = session.CreateQuery(sql, Mapper);
+            foreach (var field in upateFieldArray)
             {
                 query.Set(field.FieldName, Engine.GetDbType(field.PropertyType), field.GetValue(entity));
             }

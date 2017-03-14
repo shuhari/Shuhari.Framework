@@ -41,9 +41,9 @@ namespace Shuhari.Framework.UnitTests.Web.Mvc
         [Test]
         public void GetServices_BindingDefined_ShouldReturnDefined()
         {
-            var services = _resolver.GetServices(typeof(Intf1));
-            Assert.AreEqual(1, services.Count());
-            Assert.IsInstanceOf<Class1>(services.First());
+            var services = _resolver.GetServices(typeof(Intf1)).ToArray();
+            Assert.AreEqual(1, services.Length);
+            Assert.IsInstanceOf<Class1>(services[0]);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Shuhari.Framework.Resources;
@@ -73,7 +74,7 @@ namespace Shuhari.Framework.Globalization
             Expect.IsNotNull(json, nameof(json));
 
             _items.Clear();
-            foreach (JProperty prop in json.Children())
+            foreach (var prop in json.Children().OfType<JProperty>())
             {
                 var item = new ResourceItem();
                 item.Load(prop);

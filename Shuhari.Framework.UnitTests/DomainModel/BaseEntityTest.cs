@@ -18,7 +18,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         [Test]
         public void GetProperty_NotSet_ShouldThrow()
         {
-            Assert.Throws<KeyNotFoundException>(() => { var value = _entity["Name"]; });
+            Assert.Throws<KeyNotFoundException>(() => { _entity["Name"].ToString(); });
         }
 
         [Test]

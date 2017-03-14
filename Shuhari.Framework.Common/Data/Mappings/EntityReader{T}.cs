@@ -26,7 +26,7 @@ namespace Shuhari.Framework.Data.Mappings
             var schema = new SchemaMapping();
             schema.Load(schemaTable);
 
-            _fieldReaders = schema.Columns.Select(x => entityMapper.GetFieldReader(x)).ToArray();
+            _fieldReaders = schema.Columns.Select(entityMapper.GetFieldReader).ToArray();
         }
 
         private readonly IFieldReader<T>[] _fieldReaders;

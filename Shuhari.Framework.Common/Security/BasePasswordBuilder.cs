@@ -27,10 +27,7 @@ namespace Shuhari.Framework.Security
         /// <summary>
         /// Commonly use utf-8 to encode string, can be overrided by derived class
         /// </summary>
-        public virtual Encoding Encoding
-        {
-            get { return Encoding.UTF8; }
-        }
+        public virtual Encoding Encoding => Encoding.UTF8;
 
         /// <summary>
         /// Generate password salt/hash pair

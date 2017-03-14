@@ -31,16 +31,10 @@ namespace Shuhari.Framework.Data.Common
         private SessionTransactionWrapper _transaction;
 
         /// <inheritdoc />
-        public ISessionFactory SessionFactory
-        {
-            get { return _sessionFactory; }
-        }
+        public ISessionFactory SessionFactory => _sessionFactory;
 
         /// <inheritdoc />
-        public IDbConnection Connection
-        {
-            get { return _connection ?? (_connection = _sessionFactory.OpenConnection(_parameters)); }
-        }
+        public IDbConnection Connection => _connection ?? (_connection = _sessionFactory.OpenConnection(_parameters));
 
         /// <inheritdoc />
         public IDbTransaction BeginTransaction()

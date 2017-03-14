@@ -30,7 +30,7 @@ namespace Shuhari.Framework.UnitTests.Web.Security
         public void GetInstance_NotRegistered_ShouldThrow()
         {
             _setup.Resolver.Kernel.Unbind<UserManager>();
-            Assert.Throws<ConfigurationErrorsException>(() => { var mgr = UserManager.Instance; });
+            Assert.Throws<ConfigurationErrorsException>(() => { UserManager.Instance.ToString(); });
         }
 
         [Test]

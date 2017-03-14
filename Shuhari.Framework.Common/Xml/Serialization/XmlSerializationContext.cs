@@ -21,10 +21,10 @@ namespace Shuhari.Framework.Xml.Serialization
             Expect.IsNotNull(doc, nameof(doc));
             Expect.IsNotNull(root, nameof(root));
 
-            this.Serializer = serializer;
-            this.Document = doc;
-            this.Root = root;
-            this.NamespaceManager = new XmlNamespaceManager(doc.NameTable);
+            Serializer = serializer;
+            Document = doc;
+            Root = root;
+            NamespaceManager = new XmlNamespaceManager(doc.NameTable);
 
             _typeDict = new TypeSerializationDictionary();
         }
@@ -34,22 +34,22 @@ namespace Shuhari.Framework.Xml.Serialization
         /// <summary>
         /// Serializer
         /// </summary>
-        public FrameworkXmlSerializer Serializer { get; private set; }
+        public FrameworkXmlSerializer Serializer { get; }
 
         /// <summary>
         /// Xml
         /// </summary>
-        public XmlDocument Document { get; private set; }
+        public XmlDocument Document { get; }
 
         /// <summary>
         /// Root object
         /// </summary>
-        public object Root { get; private set; }
+        public object Root { get; }
 
         /// <summary>
         /// Namespace manager
         /// </summary>
-        public XmlNamespaceManager NamespaceManager { get; private set; }
+        public XmlNamespaceManager NamespaceManager { get; }
 
         /// <summary>
         /// Serialize
@@ -279,7 +279,7 @@ namespace Shuhari.Framework.Xml.Serialization
 
         private object CreateInstance(XmlElement elem, XmlAttributeInfo<XmlArrayAttribute> info)
         {
-            Type targetType = null;
+            Type targetType;
             var genericArgs = info.Property.PropertyType.GenericTypeArguments;
             if (genericArgs != null && genericArgs.Length == 1 &&
                 !genericArgs[0].IsAbstract)

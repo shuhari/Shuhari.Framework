@@ -27,16 +27,10 @@ namespace Shuhari.Framework.Data.Common
         public IDbTransaction InnerTransaction { get; private set; }
 
         /// <inheritdoc />
-        public IDbConnection Connection
-        {
-            get { return InnerTransaction.Connection; }
-        }
+        public IDbConnection Connection => InnerTransaction.Connection;
 
         /// <inheritdoc />
-        public IsolationLevel IsolationLevel
-        {
-            get { return InnerTransaction.IsolationLevel; }
-        }
+        public IsolationLevel IsolationLevel => InnerTransaction.IsolationLevel;
 
         /// <inheritdoc />
         public void Commit()

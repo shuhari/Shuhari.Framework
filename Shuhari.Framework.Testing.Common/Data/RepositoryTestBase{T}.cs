@@ -11,7 +11,7 @@
         /// Initialize
         /// </summary>
         /// <param name="readOnly"></param>
-        public RepositoryTestBase(bool readOnly) 
+        protected RepositoryTestBase(bool readOnly)
             : base(readOnly)
         {
         }
@@ -26,8 +26,7 @@
         /// </summary>
         protected internal override void AfterSetUp()
         {
-            Repository = new T();
-            Repository.Session = Session;
+            Repository = new T {Session = Session};
         }
     }
 }

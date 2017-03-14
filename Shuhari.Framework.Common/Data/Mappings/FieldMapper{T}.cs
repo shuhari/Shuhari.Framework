@@ -55,10 +55,12 @@ namespace Shuhari.Framework.Data.Mappings
             Expect.IsNotNull(prop, nameof(prop));
             Expect.IsNotNull(attr, nameof(attr));
 
-            var mapper = new FieldMapper<T>();
-            mapper.Property = prop;
-            mapper.FieldName = attr.FieldName.IsNotBlank() ? attr.FieldName : prop.Name;
-            mapper.Flags = attr.Flags;
+            var mapper = new FieldMapper<T>
+            {
+                Property = prop,
+                FieldName = attr.FieldName.IsNotBlank() ? attr.FieldName : prop.Name,
+                Flags = attr.Flags
+            };
 
             return mapper;
         }
@@ -93,34 +95,19 @@ namespace Shuhari.Framework.Data.Mappings
         public FieldFlags Flags { get; private set; }
 
         /// <inheritdoc />
-        public Type PropertyType
-        {
-            get { return Property.PropertyType; }
-        }
+        public Type PropertyType => Property.PropertyType;
 
         /// <inheritdoc />
-        public string PropertyName
-        {
-            get { return Property.Name; }
-        }
+        public string PropertyName => Property.Name;
 
         /// <inheritdoc />
-        public bool Identity
-        {
-            get { return Flags.HasFlag(FieldFlags.Identity); }
-        }
+        public bool Identity => Flags.HasFlag(FieldFlags.Identity);
 
         /// <inheritdoc />
-        public bool Insert
-        {
-            get { return Flags.HasFlag(FieldFlags.Insert) && !Flags.HasFlag(FieldFlags.Identity); }
-        }
+        public bool Insert => Flags.HasFlag(FieldFlags.Insert) && !Flags.HasFlag(FieldFlags.Identity);
 
         /// <inheritdoc />
-        public bool Update
-        {
-            get { return Flags.HasFlag(FieldFlags.Update) && !Flags.HasFlag(FieldFlags.Identity); }
-        }
+        public bool Update => Flags.HasFlag(FieldFlags.Update) && !Flags.HasFlag(FieldFlags.Identity);
 
         /// <inheritdoc />
         public bool IsPrimaryKey { get; private set; }

@@ -28,12 +28,13 @@ namespace Shuhari.Framework.UnitTests.Data
             Assert.AreEqual("where (Name=@Name)", _list.ToString());
         }
 
-        [TestCase(true, "where (Name=@Name) and (Age=@Age)")]
-        [TestCase(false, "where (Name=@Name)")]
+        [TestCase(true, "where (Name=@Name) and (Age=@Age) and (Sex=@Sex)")]
+        [TestCase(false, "where (Name=@Name) and (Sex=@Sex)")]
         public void AddIf(bool predicate, string result)
         {
             _list.Add("Name=@Name")
-                .AddIf(predicate, "Age=@Age");
+                .AddIf(predicate, "Age=@Age")
+                .Add("Sex=@Sex");
 
             Assert.AreEqual(result, _list.ToString());
         }

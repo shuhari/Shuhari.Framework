@@ -26,10 +26,7 @@ namespace Shuhari.Framework.Web.Mvc
         /// <summary>
         /// Get current user
         /// </summary>
-        public UserInfo CurrentUser
-        {
-            get { return UserManager.Instance.GetCurrentUser(ViewContext.HttpContext); }
-        }
+        public UserInfo CurrentUser => UserManager.Instance.GetCurrentUser(ViewContext.HttpContext);
 
         /// <summary>
         /// Get resource string. See <see cref="ResourceRegistry"/>.

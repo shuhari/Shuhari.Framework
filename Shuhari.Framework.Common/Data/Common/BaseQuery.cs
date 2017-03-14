@@ -33,10 +33,7 @@ namespace Shuhari.Framework.Data.Common
         protected readonly Dictionary<string, DbParameter> _parameters;
 
         /// <inheritdoc />
-        public ISession Session
-        {
-            get { return _session; }
-        }
+        public ISession Session => _session;
 
         /// <inheritdoc />
         public string Sql { get; }

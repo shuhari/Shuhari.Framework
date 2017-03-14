@@ -38,13 +38,13 @@ namespace Shuhari.Framework.UnitTests.Globalization
             Assert.AreEqual(result, ResourceRegistry.GetString(key, culture));
         }
 
-        [SetCulture("en"), SetUICulture("en")]
+        [Test, SetCulture("en"), SetUICulture("en")]
         public void GetString_Predefined_CultureNotSet_ShouldUseCurrentCulture_en()
         {
             Assert.AreEqual("OK", ResourceRegistry.GetString("Ok"));
         }
 
-        [SetCulture("zh-CN"), SetUICulture("zh-CN")]
+        [Test, SetCulture("zh-CN"), SetUICulture("zh-CN")]
         public void GetString_Predefined_CultureNotSet_ShouldUseCurrentCulture_zhCN()
         {
             Assert.AreEqual("确定", ResourceRegistry.GetString("Ok"));

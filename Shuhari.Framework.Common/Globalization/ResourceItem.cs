@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json.Linq;
 using Shuhari.Framework.Utils;
 
@@ -29,7 +30,7 @@ namespace Shuhari.Framework.Globalization
 
             foreach (var child in prop.Children())
             {
-                foreach (JProperty cultureItem in child.Children())
+                foreach (var cultureItem in child.Children().OfType<JProperty>())
                 {
                     string cultureName = NormalizeCultureName(cultureItem.Name);
                     _items[cultureName] = (string)cultureItem.Value;

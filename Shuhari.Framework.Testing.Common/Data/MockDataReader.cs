@@ -25,7 +25,7 @@ namespace Shuhari.Framework.Data
         }
 
         private readonly DataTable _schemaTable;
-        private object[][] _data;
+        private readonly object[][] _data;
         private int _rowIndex;
 
         /// <inheritdoc />

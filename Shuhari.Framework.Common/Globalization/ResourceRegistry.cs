@@ -25,7 +25,7 @@ namespace Shuhari.Framework.Globalization
             Reset();
         }
 
-        private static List<IResourceProvider> _providers;
+        private static readonly List<IResourceProvider> _providers;
 
         /// <summary>
         /// Clear all registered providers
@@ -39,10 +39,7 @@ namespace Shuhari.Framework.Globalization
         /// <summary>
         /// Get all providers
         /// </summary>
-        public static IEnumerable<IResourceProvider> Providers
-        {
-            get { return _providers.AsReadOnly(); }
-        }
+        public static IEnumerable<IResourceProvider> Providers => _providers.AsReadOnly();
 
         /// <summary>
         /// Register provider

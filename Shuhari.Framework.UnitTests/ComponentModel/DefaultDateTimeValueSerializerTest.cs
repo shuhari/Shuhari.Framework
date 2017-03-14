@@ -15,7 +15,7 @@ namespace Shuhari.Framework.UnitTests.ComponentModel
 
         private DefaultDateTimeValueSerializer _serializer;
         private const string DATE_STER = "2016-12-31 01:02:03";
-        private DateTime _dateValue = new DateTime(2016, 12, 31, 1, 2, 3);
+        private readonly DateTime _dateValue = new DateTime(2016, 12, 31, 1, 2, 3);
 
         [TestCase("invalid_date", false)]
         [TestCase(DATE_STER, true)]

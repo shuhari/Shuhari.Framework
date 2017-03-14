@@ -27,7 +27,7 @@ namespace Shuhari.Framework.Data.Common
             ConnectionString = connectionString;
         }
 
-        private Dictionary<Type, object> _mappers;
+        private readonly Dictionary<Type, object> _mappers;
 
         /// <inheritdoc />
         public IDbEngine Engine { get; }
