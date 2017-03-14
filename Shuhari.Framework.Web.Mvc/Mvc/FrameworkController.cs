@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
 using System.Web.Mvc;
 using Shuhari.Framework.DomainModel;
 using Shuhari.Framework.Utils;
@@ -29,15 +28,8 @@ namespace Shuhari.Framework.Web.Mvc
         /// </summary>
         protected internal string TempMessage
         {
-            get
-            {
-                return TempData.ContainsKey(MvcConstants.KEY_TEMP_MSG) ? 
-                    (string)TempData[MvcConstants.KEY_TEMP_MSG] : null;
-            }
-            set
-            {
-                TempData[MvcConstants.KEY_TEMP_MSG] = value;
-            }
+            get { return TempData.GetTempMessage(); }
+            set { TempData.SetTempMessage(value); }
         }
 
         /// <summary>
@@ -78,7 +70,6 @@ namespace Shuhari.Framework.Web.Mvc
             try
             {
                 action(model);
-                // successMessage = successMessage ?? GetSuccessMessage(model);
                 if (successMessage.IsNotBlank())
                     TempMessage = successMessage;
                 return Redirect(redirectUrl);
@@ -98,6 +89,7 @@ namespace Shuhari.Framework.Web.Mvc
         /// <param name="exp"></param>
         protected virtual void HandleActionException(Exception exp)
         {
+            Debug.WriteLine(exp.GetFullTrace());
         }
 
         /// <summary>

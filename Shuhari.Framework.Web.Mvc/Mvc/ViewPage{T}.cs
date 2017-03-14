@@ -77,44 +77,8 @@ namespace Shuhari.Framework.Web.Mvc
         /// </summary>
         protected internal string TempMessage
         {
-            get
-            {
-                return TempData.ContainsKey(MvcConstants.KEY_TEMP_MSG) ?
-                    (string)TempData[MvcConstants.KEY_TEMP_MSG] : null;
-            }
-            set
-            {
-                TempData[MvcConstants.KEY_TEMP_MSG] = value;
-            }
+            get { return TempData.GetTempMessage(); }
+            set { TempData.SetTempMessage(value); }
         }
-
-        /*/// <summary>
-        /// Entity descriptor
-        /// </summary>
-        protected IEntityDescriptor EntityDescriptor
-        {
-            get { return DependencyResolver.Current.GetService<IEntityDescriptor>(); }
-        }
-
-        /// <summary>
-        /// Get action title
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public string GetActionTitle(object obj = null)
-        {
-            string action = Convert.ToString(ViewContext.RouteData.Values["action"]);
-            return EntityDescriptor.GetActionTitle(action, obj);
-        }
-
-        /// <summary>
-        /// Get delete prompt
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public string GetDeletePrompt(object obj)
-        {
-            return EntityDescriptor.GetDeletePrompt(obj);
-        }*/
     }
 }

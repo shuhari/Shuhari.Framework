@@ -68,5 +68,16 @@ namespace Shuhari.Framework.Wpf.Controls
 
             elem.Visibility = Visibility.Collapsed;
         }
+
+        /// <summary>
+        /// Set Margin dependency property for element if not specified by user
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <param name="margin"></param>
+        internal static void SetCustomMargin(this FrameworkElement elem, Thickness margin)
+        {
+            if (elem != null && elem.ReadLocalValue(FrameworkElement.MarginProperty) == DependencyProperty.UnsetValue)
+                elem.Margin = margin;
+        }
     }
 }

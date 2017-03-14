@@ -94,10 +94,7 @@ namespace Shuhari.Framework.Wpf.Controls
         protected override void OnVisualChildrenChanged(DependencyObject visualAdded, DependencyObject visualRemoved)
         {
             base.OnVisualChildrenChanged(visualAdded, visualRemoved);
-
-            var addedElem = visualAdded as FrameworkElement;
-            if (addedElem != null && addedElem.ReadLocalValue(MarginProperty) == DependencyProperty.UnsetValue)
-                addedElem.Margin = ChildMargin;
+            (visualAdded as FrameworkElement).SetCustomMargin(ChildMargin);
         }
     }
 }

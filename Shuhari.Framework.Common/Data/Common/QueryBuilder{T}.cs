@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using Shuhari.Framework.Data.Mappings;
@@ -206,26 +205,38 @@ namespace Shuhari.Framework.Data.Common
 
         /// <inheritdoc />
         public abstract Tuple<IQuery<T>, IQuery<T>> CreatePagedQueryTuple(ISession session,
-            string baseSql, OrderCritia<T> orderField, QueryDto qdata);
+            string baseSql, OrderCritia<T> orderCritia, QueryDto qdata);
 
         /// <inheritdoc />
         public IQuery<T> GetAll(ISession session, OrderCritia<T> orderField)
         {
             var fieldNames = string.Join(", ", Mapper.FieldMappers.Select(x => x.FieldName));
             string sql = string.Format("select {0} from {1}",
-                string.Join(", ", fieldNames),
-                Mapper.TableName);
+                string.Join(", ", fieldNames), Mapper.TableName);
             if (orderField != null)
             {
-                var orderProp = ExpressionBuilder.GetProperty(orderField.Selector);
-                var field = Mapper.FieldMappers.FirstOrDefault(x => x.PropertyName == orderProp.Name);
-                Expect.IsNotNull(field, nameof(field));
+                var field = GetOrderField(orderField);
                 sql += string.Format(" order by {0} {1}",
-                    field.FieldName,
-                    orderField.Ascending ? "asc" : "desc");
+                    field.FieldName, orderField.Ascending ? "asc" : "desc");
             }
             var query = session.CreateQuery<T>(sql);
             return query;
+        }
+
+        /// <summary>
+        /// Get field from order critia
+        /// </summary>
+        /// <param name="critia"></param>
+        /// <returns></returns>
+        protected IFieldMapper<T> GetOrderField(OrderCritia<T> critia)
+        {
+            Expect.IsNotNull(critia, nameof(critia));
+
+            var orderProp = ExpressionBuilder.GetProperty(critia.Selector);
+            var field = Mapper.FieldMappers.FirstOrDefault(x => x.PropertyName == orderProp.Name);
+            Expect.That(field != null, string.Format("Could not found order property {1} in entity {0}",
+                typeof(T).Name, orderProp.Name));
+            return field;
         }
 
         /// <inheritdoc />
