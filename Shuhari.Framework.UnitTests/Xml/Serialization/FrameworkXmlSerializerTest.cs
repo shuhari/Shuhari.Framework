@@ -98,8 +98,8 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
             var serializer = GetSerializer();
             var xml = serializer.Serialize(model);
 
-            Console.WriteLine(xml);
-            Assert.AreEqual(@"
+            // Console.WriteLine(xml);
+            string expected = @"
 <Root StrProp=""sp1"" str-prop-with-name=""sp2"" xml:space=""preserve"">
     <Child>txt</Child>
     <DirectCollection>
@@ -109,7 +109,10 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
         <CollectionElem BoolProp=""true"" TimeProp=""2016-01-01 00:00:00"" />
     </NestedCollection>
 </Root>
-".Trim(), xml);
+".Trim();
+            var expectedLines = expected.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+            var xmlLines = xml.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+            CollectionAssert.AreEqual(expectedLines, xmlLines);
 
             var deser = serializer.Deserialize<ModelWithNoNamespace>(xml);
             Assert.IsNotNull(deser);

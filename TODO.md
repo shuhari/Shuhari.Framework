@@ -2,6 +2,7 @@ TODO:
 * EnumUtil.ToSelectItems()
 * Known resource strings
 * Rename ScriptBook?
+* XmlSerializer.TypeFactory incorrect named
 
 DONE:
 * NEW: DbContextFactory
