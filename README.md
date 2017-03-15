@@ -42,6 +42,9 @@ References:
 
 Release History:
 
+**v0.1.10.1 (2017-03-15)**
+* FIXED: Directory.ForceDelete recursive
+
 **v0.1.10.0 (2017-03-15)**
 * NEW: ModelState.GetErrors/GetFirstError
 * NEW: ExecuteJsonResult add default parameter for validation

@@ -29,3 +29,4 @@ DONE:
 * NEW: ExecuteJsonResult add default parameter for validation
 * REFACTOR: ExecuteJsonResult renamed to ExecuteJson
 * NEW: FileSystemExtensions
+* FIXED: Directory.ForceDelete recursive

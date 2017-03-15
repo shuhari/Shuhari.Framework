@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.IO
@@ -34,8 +35,8 @@ namespace Shuhari.Framework.IO
         {
             Expect.IsNotNull(fsi, nameof(fsi));
 
-            var newAttr = GetNewAttributes(fsi.Attributes,
-                toRemove: FileAttributes.Hidden | FileAttributes.System | FileAttributes.ReadOnly);
+            var newAttr = GetNewAttributes(fsi.Attributes, 0,
+                FileAttributes.Hidden | FileAttributes.System | FileAttributes.ReadOnly);
             if (newAttr != fsi.Attributes)
                 fsi.Attributes = newAttr;
 
@@ -73,8 +74,9 @@ namespace Shuhari.Framework.IO
         {
             Expect.IsNotNull(di, nameof(di));
 
+            di.Refresh();
             di.ClearAttributes(true);
-            di.Delete();
+            di.Delete(true);
         }
     }
 }
