@@ -141,6 +141,7 @@
     <Compile Include="Globalization\ResxResourceProvider.cs" />
     <Compile Include="IO\CommandLine.cs" />
     <Compile Include="IO\Compression\GZip.cs" />
+    <Compile Include="IO\FileSystemExtensions.cs" />
     <Compile Include="IO\StreamDecorator.cs" />
     <Compile Include="Linq\ExpressionBuilder.cs" />
     <Compile Include="Properties\SharedAssemblyInfo.cs" />

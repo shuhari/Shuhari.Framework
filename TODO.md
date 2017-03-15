@@ -3,6 +3,7 @@ TODO:
 * Known resource strings
 * Rename ScriptBook?
 * XmlSerializer.TypeFactory incorrect named
+* Collection.LastN
 
 DONE:
 * NEW: DbContextFactory
@@ -24,3 +25,7 @@ DONE:
 * NEW: CollectionUtil.Safe
 * NEW: StringParts
 * NEW: Xml serialization support
+* NEW: ModelState.GetErrors/GetFirstError
+* NEW: ExecuteJsonResult add default parameter for validation
+* REFACTOR: ExecuteJsonResult renamed to ExecuteJson
+* NEW: FileSystemExtensions

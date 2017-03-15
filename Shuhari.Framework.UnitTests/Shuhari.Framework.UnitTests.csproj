@@ -140,6 +140,7 @@
     <Compile Include="Globalization\ResxResourceProviderTest.cs" />
     <Compile Include="IO\CommandLineTest.cs" />
     <Compile Include="IO\Compression\GZipTest.cs" />
+    <Compile Include="IO\FileSystemExtensionsTest.cs" />
     <Compile Include="IO\StreamDecoratorTest.cs" />
     <Compile Include="Linq\ExpressionBuilderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Web\Mvc\Filters\PermissionAttributeTest.cs" />
     <Compile Include="Web\Mvc\FrameworkControllerTest.cs" />
     <Compile Include="Web\Mvc\FrameworkModelMetadataProviderTest.cs" />
+    <Compile Include="Web\Mvc\MvcExtensionsTest.cs" />
     <Compile Include="Web\Mvc\NinjectDependencyResolverTest.cs" />
     <Compile Include="Web\Mvc\TagExtensionTest.cs" />
     <Compile Include="Web\Mvc\TestController.cs" />

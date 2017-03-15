@@ -98,19 +98,30 @@ namespace Shuhari.Framework.Web.Mvc
         /// <typeparam name="T"></typeparam>
         /// <param name="param"></param>
         /// <param name="action"></param>
+        /// <param name="flags"></param>
         /// <returns></returns>
-        protected internal JsonResult ExecuteJsonResult<T>(T param, Action<T> action)
+        protected internal JsonResult ExecuteJson<T>(T param, Action<T> action,
+            ActionExecutionFlags flags = ActionExecutionFlags.Default)
         {
             var result = new ResultDto();
-            try
+
+            if (!flags.HasFlag(ActionExecutionFlags.NoCheckModelState) &&
+                !ModelState.IsValid)
             {
-                action(param);
-                result.SetResult(true);
+                result.SetResult(false, ModelState.GetFirstError().ErrorMessage);
             }
-            catch (Exception exp)
+            else
             {
-                HandleActionException(exp);
-                result.SetResult(false, exp.Message);
+                try
+                {
+                    action(param);
+                    result.SetResult(true);
+                }
+                catch (Exception exp)
+                {
+                    HandleActionException(exp);
+                    result.SetResult(false, exp.Message);
+                }
             }
             return CustomJson(result, JsonRequestBehavior.AllowGet);
         }

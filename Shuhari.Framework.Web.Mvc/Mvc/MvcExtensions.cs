@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Web.Mvc
@@ -6,7 +7,7 @@ namespace Shuhari.Framework.Web.Mvc
     /// <summary>
     /// Extensions for MVC class
     /// </summary>
-    internal static class MvcExtensions
+    public static class MvcExtensions
     {
         /// <summary>
         /// Key of temp message
@@ -35,6 +36,31 @@ namespace Shuhari.Framework.Web.Mvc
             Expect.IsNotNull(tempData, nameof(tempData));
 
             tempData[KEY_TEMP_MSG] = value;
+        }
+
+        /// <summary>
+        /// Get all errors in ModelState
+        /// </summary>
+        /// <param name="modelState"></param>
+        /// <returns></returns>
+        public static ModelError[] GetErrors(this ModelStateDictionary modelState)
+        {
+            Expect.IsNotNull(modelState, nameof(modelState));
+
+            return modelState.Values.SelectMany(x => x.Errors)
+                .ToArray();
+        }
+
+        /// <summary>
+        /// Get first error in ModelState, or null if no error
+        /// </summary>
+        /// <param name="modelState"></param>
+        /// <returns></returns>
+        public static ModelError GetFirstError(this ModelStateDictionary modelState)
+        {
+            Expect.IsNotNull(modelState, nameof(modelState));
+
+            return GetErrors(modelState).FirstOrDefault();
         }
     }
 }

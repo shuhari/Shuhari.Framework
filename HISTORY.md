@@ -1,3 +1,9 @@
+**v0.1.10.0 (2017-03-15)**
+* NEW: ModelState.GetErrors/GetFirstError
+* NEW: ExecuteJsonResult add default parameter for validation
+* REFACTOR: ExecuteJsonResult renamed to ExecuteJson
+* NEW: FileSystemExtensions
+
 **v0.1.9.0 (2017-03-13)**
 * REFACTOR: DTO class renamed to DTO
 * REFACTOR: ResultDto.SetResult return self

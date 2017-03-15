@@ -42,6 +42,12 @@ References:
 
 Release History:
 
+**v0.1.10.0 (2017-03-15)**
+* NEW: ModelState.GetErrors/GetFirstError
+* NEW: ExecuteJsonResult add default parameter for validation
+* REFACTOR: ExecuteJsonResult renamed to ExecuteJson
+* NEW: FileSystemExtensions
+
 **v0.1.9.0 (2017-03-13)**
 * REFACTOR: DTO class renamed to DTO
 * REFACTOR: ResultDto.SetResult return self
@@ -54,14 +60,5 @@ Release History:
 * REFATOR: XmlUtil.SafeAttr renamed to GetAttr
 * NEW: XmlUtil.SetAttr/AppendElement/ToXmlString
 * NEW: TagExtensions
-
-**v0.1.7.1 (2017-03-03)**
-* NEW: Rename WPF namespace
-
-**v0.1.7.0 (2017-03-02)**
-* REFACTOR: Testing.NUnit split to Testing.Common/Testing.Mvc
-* NEW: HBox/VBox control
-* NEW: SimpleGrid control
-* New: ElementExtensions
 
 For full list of release history view [History](https://github.com/shuhari/Shuhari.Framework/blob/master/HISTORY.md)
