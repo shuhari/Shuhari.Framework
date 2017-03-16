@@ -42,6 +42,11 @@ References:
 
 Release History:
 
+**v0.1.11.0 (2017-03-16)**
+* FIXED: FrameworkController.ExecuteJson clear model state
+* FIXED: XmlSerializer.TypeFactory incorrect named
+* NEW: WPF Form Grid
+
 **v0.1.10.1 (2017-03-15)**
 * FIXED: Directory.ForceDelete recursive
 
@@ -57,11 +62,5 @@ Release History:
 * NEW: CollectionUtil.Safe
 * NEW: StringParts
 * NEW: Xml serialization support
-
-**v0.1.8.0 (2017-03-06)**
-* NEW: StopEnumerationException
-* REFATOR: XmlUtil.SafeAttr renamed to GetAttr
-* NEW: XmlUtil.SetAttr/AppendElement/ToXmlString
-* NEW: TagExtensions
 
 For full list of release history view [History](https://github.com/shuhari/Shuhari.Framework/blob/master/HISTORY.md)

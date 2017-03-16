@@ -76,9 +76,7 @@ namespace Shuhari.Framework.Web.Mvc
             }
             catch (Exception exp)
             {
-                HandleActionException(exp);
-                ModelState.Clear();
-                ModelState.AddModelError("", exp.Message);
+                HandleUiException(exp);
                 return View(model);
             }
         }
@@ -90,6 +88,19 @@ namespace Shuhari.Framework.Web.Mvc
         protected virtual void HandleActionException(Exception exp)
         {
             Debug.WriteLine(exp.GetFullTrace());
+        }
+
+        /// <summary>
+        /// Handle error and set ModelState error
+        /// </summary>
+        /// <param name="exp"></param>
+        private void HandleUiException(Exception exp)
+        {
+            Expect.IsNotNull(exp, nameof(exp));
+
+            HandleActionException(exp);
+            ModelState.Clear();
+            ModelState.AddModelError("", exp.Message);
         }
 
         /// <summary>
@@ -119,7 +130,7 @@ namespace Shuhari.Framework.Web.Mvc
                 }
                 catch (Exception exp)
                 {
-                    HandleActionException(exp);
+                    HandleUiException(exp);
                     result.SetResult(false, exp.Message);
                 }
             }

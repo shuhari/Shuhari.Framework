@@ -54,6 +54,10 @@
     <Compile Include="Controls\Box.cs" />
     <Compile Include="Controls\Dialog.cs" />
     <Compile Include="Controls\ElementExtensions.cs" />
+    <Compile Include="Controls\FormGrid.cs" />
+    <Compile Include="Controls\GridCell.cs" />
+    <Compile Include="Controls\GridCellArray.cs" />
+    <Compile Include="Controls\GridCellUsage.cs" />
     <Compile Include="Controls\GridUtil.cs" />
     <Compile Include="Controls\HBox.cs" />
     <Compile Include="Controls\SimpleGrid.cs" />

@@ -183,6 +183,7 @@
     <Compile Include="Web\Security\TestUserManager.cs" />
     <Compile Include="Web\Security\UserManagerTest.cs" />
     <Compile Include="Wpf\Controls\ElementExtensionsTest.cs" />
+    <Compile Include="Wpf\Controls\FromGridTest.cs" />
     <Compile Include="Wpf\Controls\GridUtilTest.cs" />
     <Compile Include="Wpf\Controls\HBoxTest.cs" />
     <Compile Include="Wpf\Controls\SimpleGridTest.cs" />

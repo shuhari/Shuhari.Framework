@@ -29,7 +29,7 @@ namespace Shuhari.Framework.Xml.Serialization
         /// In case the serialize could not tell which type to create (such as collection property
         /// which define base class as element type, but derived class are used
         /// </summary>
-        public Func<string, Type> TypeFatory { get; set; }
+        public Func<string, Type> TypeFactory { get; set; }
 
         /// <summary>
         /// DateTime serialize format. If null then default format 

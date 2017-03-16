@@ -1,3 +1,8 @@
+**v0.1.11.0 (2017-03-16)**
+* FIXED: FrameworkController.ExecuteJson clear model state
+* FIXED: XmlSerializer.TypeFactory incorrect named
+* NEW: WPF Form Grid
+
 **v0.1.10.1 (2017-03-15)**
 * FIXED: Directory.ForceDelete recursive
 

@@ -70,14 +70,17 @@ namespace Shuhari.Framework.Wpf.Controls
         }
 
         /// <summary>
-        /// Set Margin dependency property for element if not specified by user
+        /// Set dependency property if not locally set
         /// </summary>
         /// <param name="elem"></param>
-        /// <param name="margin"></param>
-        internal static void SetCustomMargin(this FrameworkElement elem, Thickness margin)
+        /// <param name="prop"></param>
+        /// <param name="value"></param>
+        public static void SetUserProperty(this FrameworkElement elem, DependencyProperty prop, object value)
         {
-            if (elem != null && elem.ReadLocalValue(FrameworkElement.MarginProperty) == DependencyProperty.UnsetValue)
-                elem.Margin = margin;
+            Expect.IsNotNull(prop, nameof(prop));
+
+            if (elem != null && elem.ReadLocalValue(prop) == DependencyProperty.UnsetValue)
+                elem.SetValue(prop, value);
         }
     }
 }

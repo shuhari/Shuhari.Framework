@@ -1,11 +1,7 @@
 TODO:
 * EnumUtil.ToSelectItems()
-* Known resource strings
 * Rename ScriptBook?
-* XmlSerializer.TypeFactory incorrect named
 * Collection.LastN
-* WPF Form Grid
-* SimpleGrid.SetCell(row, col)
 * BrowseButton?
 
 DONE:
@@ -33,4 +29,6 @@ DONE:
 * REFACTOR: ExecuteJsonResult renamed to ExecuteJson
 * NEW: FileSystemExtensions
 * FIXED: Directory.ForceDelete recursive
- 
+* FIXED: FrameworkController.ExecuteJson clear model state
+* FIXED: XmlSerializer.TypeFactory incorrect named
+* NEW: WPF Form Grid

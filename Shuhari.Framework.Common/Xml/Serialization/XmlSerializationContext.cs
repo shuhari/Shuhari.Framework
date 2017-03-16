@@ -286,9 +286,9 @@ namespace Shuhari.Framework.Xml.Serialization
                 targetType = genericArgs[0];
             else
             {
-                if (Serializer.TypeFatory == null)
+                if (Serializer.TypeFactory == null)
                     throw new InvalidOperationException("Serializer have no type factory");
-                targetType = Serializer.TypeFatory(elem.Name);
+                targetType = Serializer.TypeFactory(elem.Name);
             }
             var instance = Activator.CreateInstance(targetType);
             DeserializeRecursive(elem, instance);
