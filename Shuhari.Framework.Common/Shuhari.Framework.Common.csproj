@@ -183,6 +183,7 @@
     <Compile Include="Xml\Serialization\TypeSerializationDictionary.cs" />
     <Compile Include="Xml\Serialization\TypeSerializationInfo.cs" />
     <Compile Include="Xml\Serialization\XmlAttributeInfo{T}.cs" />
+    <Compile Include="Xml\Serialization\XmlCDataAttribute.cs" />
     <Compile Include="Xml\Serialization\XmlOrderAttribute.cs" />
     <Compile Include="Xml\Serialization\XmlAdditionalAttributeAttribute.cs" />
     <Compile Include="Xml\Serialization\FrameworkXmlSerializer.cs" />

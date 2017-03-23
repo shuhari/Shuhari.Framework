@@ -179,6 +179,16 @@ namespace Shuhari.Framework.Xml.Serialization
                     }
                 }
             }
+
+            foreach (var cdataInfo in typeInfo.CDatas)
+            {
+                var parentelem = elem;
+                if (cdataInfo.Attribute.ElementName.IsNotBlank())
+                    parentelem = AppendElement(parentelem, cdataInfo.Attribute.ElementName);
+                var value = Convert.ToString(cdataInfo.Property.GetValue(target));
+                var cdata = parentelem.OwnerDocument.CreateCDataSection(value);
+                parentelem.AppendChild(cdata);
+            }
         }
 
         private const string NAMESPACE_PREFIX = "_";
@@ -261,6 +271,21 @@ namespace Shuhari.Framework.Xml.Serialization
                             var child = CreateInstance(childElem, info);
                             collection.Add(child);
                         }
+                    }
+                }
+            }
+
+            foreach (var info in typeInfo.CDatas)
+            {
+                var parentElem = elem;
+                if (info.Attribute.ElementName.IsNotBlank())
+                    parentElem = SelectChildElement(elem, info.Attribute.ElementName);
+                if (parentElem != null)
+                {
+                    var cdata = parentElem.ChildNodes.OfType<XmlCDataSection>().FirstOrDefault();
+                    if (cdata != null && cdata.InnerText != null)
+                    {
+                        info.Property.SetValue(target, cdata.InnerText);
                     }
                 }
             }

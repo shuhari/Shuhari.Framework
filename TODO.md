@@ -32,3 +32,4 @@ DONE:
 * FIXED: FrameworkController.ExecuteJson clear model state
 * FIXED: XmlSerializer.TypeFactory incorrect named
 * NEW: WPF Form Grid
+* NEW: XmlSerializer support CDATA

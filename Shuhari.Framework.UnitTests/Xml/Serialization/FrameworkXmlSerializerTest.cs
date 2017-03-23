@@ -56,6 +56,9 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
 
         [XmlArray("NestedCollection")]
         public List<CollectionElem> NestedCollection { get; set; }
+
+        [XmlCData("Content")]
+        public string Content { get; set; }
     }
 
     [XmlRoot("Root")]
@@ -79,7 +82,8 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
             {
                 StrProp = "sp1",
                 StrPropWithName = "sp2",
-                Child = {Text = "txt"}
+                Child = {Text = "txt"},
+                Content = "cdata",
             };
             var colElem = new CollectionElem
             {
@@ -111,6 +115,7 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
     <NestedCollection>
         <CollectionElem BoolProp=""true"" TimeProp=""2016-01-01 00:00:00"" />
     </NestedCollection>
+    <Content><![CDATA[cdata]]></Content>
 </Root>
 ".Trim();
                 var expectedLines = expected.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
@@ -120,6 +125,7 @@ namespace Shuhari.Framework.UnitTests.Xml.Serialization
 
             var deser = serializer.Deserialize<ModelWithNoNamespace>(xml);
             Assert.IsNotNull(deser);
+            Assert.AreEqual("cdata", deser.Content);
         }
 
         [Test]

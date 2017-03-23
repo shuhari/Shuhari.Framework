@@ -42,6 +42,9 @@ References:
 
 Release History:
 
+**v0.1.12.0 (2017-03-23)**
+* NEW: XmlSerializer support CDATA
+
 **v0.1.11.0 (2017-03-16)**
 * FIXED: FrameworkController.ExecuteJson clear model state
 * FIXED: XmlSerializer.TypeFactory incorrect named
@@ -55,12 +58,5 @@ Release History:
 * NEW: ExecuteJsonResult add default parameter for validation
 * REFACTOR: ExecuteJsonResult renamed to ExecuteJson
 * NEW: FileSystemExtensions
-
-**v0.1.9.0 (2017-03-13)**
-* REFACTOR: DTO class renamed to DTO
-* REFACTOR: ResultDto.SetResult return self
-* NEW: CollectionUtil.Safe
-* NEW: StringParts
-* NEW: Xml serialization support
 
 For full list of release history view [History](https://github.com/shuhari/Shuhari.Framework/blob/master/HISTORY.md)

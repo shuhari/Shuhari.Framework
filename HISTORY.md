@@ -1,3 +1,6 @@
+**v0.1.12.0 (2017-03-23)**
+* NEW: XmlSerializer support CDATA
+
 **v0.1.11.0 (2017-03-16)**
 * FIXED: FrameworkController.ExecuteJson clear model state
 * FIXED: XmlSerializer.TypeFactory incorrect named

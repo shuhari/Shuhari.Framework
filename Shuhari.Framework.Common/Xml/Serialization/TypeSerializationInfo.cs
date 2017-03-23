@@ -48,6 +48,11 @@ namespace Shuhari.Framework.Xml.Serialization
         public XmlAttributeInfo<XmlTextAttribute> TextInfo { get; private set; }
 
         /// <summary>
+        /// CDatas
+        /// </summary>
+        public XmlAttributeInfo<XmlCDataAttribute>[] CDatas { get; private set; }
+
+        /// <summary>
         /// Additional attributes
         /// </summary>
         public XmlAdditionalAttributeAttribute[] AdditionalAttributes { get; private set; }
@@ -58,6 +63,7 @@ namespace Shuhari.Framework.Xml.Serialization
             AdditionalAttributes = XmlAdditionalAttributeAttribute.LoadAll(TargetType);
             ElementInfos = XmlAttributeInfo<XmlElementAttribute>.LoadAll(TargetType);
             ArrayInfos = XmlAttributeInfo<XmlArrayAttribute>.LoadAll(TargetType);
+            CDatas = XmlAttributeInfo<XmlCDataAttribute>.LoadAll(TargetType);
             TextInfo = XmlAttributeInfo<XmlTextAttribute>.LoadAll(TargetType).FirstOrDefault();
         }
     }
