@@ -3,6 +3,13 @@ TODO:
 * Rename ScriptBook?
 * Collection.LastN
 * BrowseButton?
+* Check with misc exceptions
+* FileInfo().EnsureDirectory().WriteText()
+* WPF Header control
+* WPF StatusLabel control
+* WPF LogList control?
+* WPF HGridSplitter/VGridSplitter
+* WPF Spacer
 
 DONE:
 * NEW: DbContextFactory
