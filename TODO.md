@@ -8,6 +8,11 @@ TODO:
 * WPF StatusLabel control
 * WPF LogList control?
 * WPF Spacer
+* Observable
+* Browse folter Dialog
+* ISelectable interface
+* VisualTreeHelper.FindParent(predicate)
+* Role for dialog cancel button, to avoid simple close handler
 
 DONE:
 * NEW: DbContextFactory
