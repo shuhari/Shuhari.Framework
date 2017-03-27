@@ -1,3 +1,8 @@
+**v0.1.13.0 (2017-03-27)**
+* NEW: WPF HGridSplitter/VGridSplitter
+* NEW: FileSystemExtensions.EnsureDirectory/WriteText/WriteBytes
+* FIXED: FrameworkStrings use property instead of field to avoid NPE
+
 **v0.1.12.0 (2017-03-23)**
 * NEW: XmlSerializer support CDATA
 

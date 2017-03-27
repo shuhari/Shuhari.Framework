@@ -4,11 +4,9 @@ TODO:
 * Collection.LastN
 * BrowseButton?
 * Check with misc exceptions
-* FileInfo().EnsureDirectory().WriteText()
 * WPF Header control
 * WPF StatusLabel control
 * WPF LogList control?
-* WPF HGridSplitter/VGridSplitter
 * WPF Spacer
 
 DONE:
@@ -40,3 +38,7 @@ DONE:
 * FIXED: XmlSerializer.TypeFactory incorrect named
 * NEW: WPF Form Grid
 * NEW: XmlSerializer support CDATA
+* NEW: WPF HGridSplitter/VGridSplitter
+* NEW: FileSystemExtensions.EnsureDirectory/WriteText/WriteBytes
+* FIXED: FrameworkStrings use property instead of field to avoid NPE
+

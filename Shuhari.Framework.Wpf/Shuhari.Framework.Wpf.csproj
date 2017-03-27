@@ -60,8 +60,11 @@
     <Compile Include="Controls\GridCellUsage.cs" />
     <Compile Include="Controls\GridUtil.cs" />
     <Compile Include="Controls\HBox.cs" />
+    <Compile Include="Controls\HGridSplitter.cs" />
     <Compile Include="Controls\SimpleGrid.cs" />
+    <Compile Include="Controls\SimpleGridSplitter.cs" />
     <Compile Include="Controls\VBox.cs" />
+    <Compile Include="Controls\VGridSplitter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

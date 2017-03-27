@@ -1,5 +1,5 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
+using System.Text;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.IO
@@ -63,6 +63,54 @@ namespace Shuhari.Framework.IO
 
             if (!di.Exists)
                 Directory.CreateDirectory(di.FullName);
+        }
+
+        /// <summary>
+        /// Create parent directory for specified file, if not exist
+        /// </summary>
+        /// <param name="fi"></param>
+        /// <returns></returns>
+        public static FileInfo EnsureDirectory(this FileInfo fi)
+        {
+            Expect.IsNotNull(fi, nameof(fi));
+
+            var dirName = Path.GetDirectoryName(fi.FullName);
+            if (!Directory.Exists(dirName))
+                Directory.CreateDirectory(dirName);
+
+            return fi;
+        }
+
+        /// <summary>
+        /// Write text
+        /// </summary>
+        /// <param name="fi"></param>
+        /// <param name="text"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
+        public static FileInfo WriteText(this FileInfo fi, string text, Encoding encoding = null)
+        {
+            Expect.IsNotNull(fi, nameof(fi));
+            Expect.IsNotNull(text, nameof(text));
+            encoding = encoding ?? Encoding.UTF8;
+
+            File.WriteAllText(fi.FullName, text, encoding);
+            return fi;
+        }
+
+        /// <summary>
+        /// Write file bytes
+        /// </summary>
+        /// <param name="fi"></param>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public static FileInfo WriteBytes(this FileInfo fi, byte[] bytes)
+        {
+            Expect.IsNotNull(fi, nameof(fi));
+            Expect.IsNotNull(bytes, nameof(bytes));
+
+            File.WriteAllBytes(fi.FullName, bytes);
+            return fi;
         }
 
         /// <summary>
