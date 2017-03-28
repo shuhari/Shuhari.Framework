@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using Shuhari.Framework.Utils;
 
 namespace Shuhari.Framework.Wpf.Controls
@@ -81,6 +82,35 @@ namespace Shuhari.Framework.Wpf.Controls
 
             if (elem != null && elem.ReadLocalValue(prop) == DependencyProperty.UnsetValue)
                 elem.SetValue(prop, value);
+        }
+
+        /// <summary>
+        /// Find matched parent throught visual tree until <paramref name="predicate"/> satisfied or no parent
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <param name="predicate"></param>
+        /// <returns>Matched parent </returns>
+        public static DependencyObject FindAncestor(this DependencyObject elem, Predicate<DependencyObject> predicate)
+        {
+            Expect.IsNotNull(predicate, nameof(predicate));
+
+            if (elem == null)
+                return null;
+            if (predicate(elem))
+                return elem;
+            return FindAncestor(VisualTreeHelper.GetParent(elem), predicate);
+        }
+
+        /// <summary>
+        /// Find ancestor for specified type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="elem"></param>
+        /// <returns></returns>
+        public static T FindAncestor<T>(this DependencyObject elem)
+            where T: FrameworkElement
+        {
+            return (T) FindAncestor(elem, x => x is T);
         }
     }
 }

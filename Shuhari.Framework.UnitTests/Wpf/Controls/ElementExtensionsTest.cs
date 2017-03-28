@@ -37,5 +37,29 @@ namespace Shuhari.Framework.UnitTests.Wpf.Controls
 
             Assert.AreEqual(Visibility.Collapsed, btn.Visibility);
         }
+
+        [Test]
+        public void FindAncestor()
+        {
+            var border = new Border();
+            var grid = new Grid();
+            border.Child = grid;
+            var tb = new TextBox();
+            grid.Children.Add(tb);
+
+            Assert.AreSame(border, tb.FindAncestor(x => x is Border));
+        }
+
+        [Test]
+        public void FindAncestor_OfType()
+        {
+            var border = new Border();
+            var grid = new Grid();
+            border.Child = grid;
+            var tb = new TextBox();
+            grid.Children.Add(tb);
+
+            Assert.AreSame(border, tb.FindAncestor<Border>());
+        }
     }
 }

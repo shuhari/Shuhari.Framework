@@ -52,8 +52,10 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Controls\Box.cs" />
+    <Compile Include="Controls\BrowseFolderDialog.cs" />
     <Compile Include="Controls\Dialog.cs" />
     <Compile Include="Controls\ElementExtensions.cs" />
+    <Compile Include="Controls\ElementRole.cs" />
     <Compile Include="Controls\FormGrid.cs" />
     <Compile Include="Controls\GridCell.cs" />
     <Compile Include="Controls\GridCellArray.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="Controls\SimpleGridSplitter.cs" />
     <Compile Include="Controls\VBox.cs" />
     <Compile Include="Controls\VGridSplitter.cs" />
+    <Compile Include="Controls\WindowExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

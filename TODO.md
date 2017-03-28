@@ -8,11 +8,7 @@ TODO:
 * WPF StatusLabel control
 * WPF LogList control?
 * WPF Spacer
-* Observable
-* Browse folter Dialog
 * ISelectable interface
-* VisualTreeHelper.FindParent(predicate)
-* Role for dialog cancel button, to avoid simple close handler
 
 DONE:
 * NEW: DbContextFactory
@@ -46,4 +42,8 @@ DONE:
 * NEW: WPF HGridSplitter/VGridSplitter
 * NEW: FileSystemExtensions.EnsureDirectory/WriteText/WriteBytes
 * FIXED: FrameworkStrings use property instead of field to avoid NPE
+* NEW: Browse folder Dialog
+* NEW: Observable
+* NEW: ElementExtensions.FindAncestor
+* NEW: Cancel Role for dialog
 

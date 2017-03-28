@@ -1,0 +1,13 @@
+﻿<sw:Dialog x:Class="Shuhari.Framework.Wpf.GuiTests.TestDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sw="https://shuhari.github.io/schemas/shuhari.framework/wpf/2017"
+        Title="Test Dialog" Height="300" Width="300">
+
+    <sw:HBox HorizontalAlignment="Right">
+        <Button x:Name="btnOk" Content="Ok" />
+        <Button x:Name="btnCancel" Content="Click to dismiss dialog..." 
+                sw:Dialog.Role="Cancel" />
+    </sw:HBox>
+    
+</sw:Dialog>

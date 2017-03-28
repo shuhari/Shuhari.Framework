@@ -1,3 +1,9 @@
+**v0.1.14.0 (2017-03-28)**
+* NEW: Browse folder Dialog
+* NEW: Observable
+* NEW: ElementExtensions.FindAncestor
+* NEW: Cancel Role for dialog
+
 **v0.1.13.0 (2017-03-27)**
 * NEW: WPF HGridSplitter/VGridSplitter
 * NEW: FileSystemExtensions.EnsureDirectory/WriteText/WriteBytes

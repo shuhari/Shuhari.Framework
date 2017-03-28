@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="ComponentModel\DefaultDateTimeValueSerializer.cs" />
     <Compile Include="ComponentModel\GenericTypeConverter.cs" />
+    <Compile Include="ComponentModel\Observable.cs" />
     <Compile Include="Data\Common\DbContextFactory{T}.cs" />
     <Compile Include="Data\Common\FrameworkDbContext.cs" />
     <Compile Include="Data\Common\BaseQuery.cs" />
@@ -176,6 +177,8 @@
     <Compile Include="Utils\StringUtil.cs" />
     <Compile Include="Utils\XamlUtil.cs" />
     <Compile Include="Utils\XmlUtil.cs" />
+    <Compile Include="Win32\ShellApi.cs" />
+    <Compile Include="Win32\UserApi.cs" />
     <Compile Include="Xml\Serialization\BoolValueSerializer.cs" />
     <Compile Include="Xml\Serialization\DateTimeValueSerializer.cs" />
     <Compile Include="Xml\Serialization\DefaultValueSerializer.cs" />

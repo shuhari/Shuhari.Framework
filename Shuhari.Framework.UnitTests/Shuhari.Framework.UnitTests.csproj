@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="ComponentModel\DefaultDateTimeValueSerializerTest.cs" />
     <Compile Include="ComponentModel\GenericTypeConverterTest.cs" />
+    <Compile Include="ComponentModel\ObservableTest.cs" />
     <Compile Include="Data\Common\BaseDbContextTest.cs" />
     <Compile Include="Data\Common\DbContextFactoryTest.cs" />
     <Compile Include="Data\Common\DbEngineTest.cs" />

@@ -1,0 +1,27 @@
+﻿<Window x:Class="Shuhari.Framework.Wpf.GuiTests.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sw="https://shuhari.github.io/schemas/shuhari.framework/wpf/2017"
+        Title="WPF Controls Test"
+        Loaded="Window_Loaded">
+
+    <TabControl>
+        <TabItem Header="Misc">
+            <sw:VBox>
+                <sw:SimpleGrid Columns="@,*,@">
+                    <Label Grid.Row="0" Grid.Column="0" Content="Browse Folder:" />
+                    <TextBox x:Name="txtFolderName" Grid.Row="0" Grid.Column="1" />
+                    <Button x:Name="btnBrowse" Grid.Row="0" Grid.Column="2" Content="..." Click="btnBrowse_Click" />
+                </sw:SimpleGrid>
+                <GroupBox>
+                    <sw:SimpleGrid x:Name="browseFlagGrid" Rows="@,@,@,@,@,@,@" Columns="*,*,*">
+                    </sw:SimpleGrid>
+                </GroupBox>
+                <sw:HBox>
+                    <Button x:Name="btnTestDialog" Content="Test Dialog" Click="btnTestDialog_Click" />
+                </sw:HBox>
+            </sw:VBox>
+        </TabItem>
+    </TabControl>
+    
+</Window>

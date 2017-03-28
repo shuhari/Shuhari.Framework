@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.Wpf", "Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.Testing.Mvc", "Shuhari.Framework.Testing.Mvc\Shuhari.Framework.Testing.Mvc.csproj", "{ABBD3C1F-977B-460A-8B9D-9D6FE0D39EDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuhari.Framework.Wpf.GuiTests", "Shuhari.Framework.Wpf.GuiTests\Shuhari.Framework.Wpf.GuiTests.csproj", "{85C583F4-EE17-4C6E-87D8-8F7491AEFEB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{ABBD3C1F-977B-460A-8B9D-9D6FE0D39EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABBD3C1F-977B-460A-8B9D-9D6FE0D39EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABBD3C1F-977B-460A-8B9D-9D6FE0D39EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C583F4-EE17-4C6E-87D8-8F7491AEFEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C583F4-EE17-4C6E-87D8-8F7491AEFEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C583F4-EE17-4C6E-87D8-8F7491AEFEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C583F4-EE17-4C6E-87D8-8F7491AEFEB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +82,6 @@ Global
 		{6838D8D2-1E01-4BF4-8E06-568F42EC5B59} = {E9AD626D-B0C7-4157-A1CF-1B44F12218A8}
 		{F42283DA-F5DC-4F3E-89B8-E5D0E25043C6} = {D3037DF3-EFC9-461D-81AD-7C1238D0F9D7}
 		{ABBD3C1F-977B-460A-8B9D-9D6FE0D39EDA} = {D3037DF3-EFC9-461D-81AD-7C1238D0F9D7}
+		{85C583F4-EE17-4C6E-87D8-8F7491AEFEB6} = {E9AD626D-B0C7-4157-A1CF-1B44F12218A8}
 	EndGlobalSection
 EndGlobal
