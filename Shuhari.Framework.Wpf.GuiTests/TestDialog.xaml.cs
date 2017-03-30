@@ -1,4 +1,5 @@
-﻿using Shuhari.Framework.Wpf.Controls;
+﻿using System.Windows;
+using Shuhari.Framework.Wpf.Controls;
 
 namespace Shuhari.Framework.Wpf.GuiTests
 {
@@ -10,6 +11,11 @@ namespace Shuhari.Framework.Wpf.GuiTests
         public TestDialog()
         {
             InitializeComponent();
+        }
+
+        protected override void OnOk()
+        {
+            MessageBox.Show("OK triggered");
         }
     }
 }

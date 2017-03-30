@@ -1,3 +1,6 @@
+**v0.1.15.0 (2017-03-30)**
+* NEW: Ok Role for dialog
+
 **v0.1.14.0 (2017-03-28)**
 * NEW: Browse folder Dialog
 * NEW: Observable

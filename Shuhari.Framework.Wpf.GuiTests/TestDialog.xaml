@@ -4,10 +4,13 @@
         xmlns:sw="https://shuhari.github.io/schemas/shuhari.framework/wpf/2017"
         Title="Test Dialog" Height="300" Width="300">
 
-    <sw:HBox HorizontalAlignment="Right">
-        <Button x:Name="btnOk" Content="Ok" />
-        <Button x:Name="btnCancel" Content="Click to dismiss dialog..." 
+    <sw:VBox>
+        <TextBox />
+        <sw:HBox HorizontalAlignment="Right">
+            <Button x:Name="btnOk" Content="Ok" sw:Dialog.Role="Ok" />
+            <Button x:Name="btnCancel" Content="Click to dismiss dialog..." 
                 sw:Dialog.Role="Cancel" />
-    </sw:HBox>
+        </sw:HBox>
+    </sw:VBox>
     
 </sw:Dialog>

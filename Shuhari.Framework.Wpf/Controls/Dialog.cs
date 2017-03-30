@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using Shuhari.Framework.Utils;
 
@@ -26,7 +28,9 @@ namespace Shuhari.Framework.Wpf.Controls
                 FontSize = mainWin.FontSize;
             }
 
+            _roles = new Dictionary<ElementRole, FrameworkElement>();
             Loaded += Dialog_Loaded;
+            PreviewKeyDown += Dialog_PreviewKeyDown;
         }
 
         /// <summary>
@@ -57,10 +61,42 @@ namespace Shuhari.Framework.Wpf.Controls
                 typeof(ElementRole), typeof(Dialog), 
                 new PropertyMetadata(ElementRole.None));
 
+        private Dictionary<ElementRole, FrameworkElement> _roles;
 
         private void Dialog_Loaded(object sender, RoutedEventArgs e)
         {
             WalkChildrenToApplyRoles(this);
+        }
+
+        private void Dialog_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            var focused = FocusManager.GetFocusedElement(this);
+            if (e.Key == Key.Enter && _roles.ContainsKey(ElementRole.Ok) && !(focused is Button))
+            {
+                OnOk();
+                e.Handled = true;
+            }
+            if (e.Key == Key.Escape && _roles.ContainsKey(ElementRole.Cancel) && !(focused is Button))
+            {
+                OnCancel();
+                e.Handled = true;
+            }
+            
+        }
+
+        /// <summary>
+        /// Executed when ok clicked or enter pressed
+        /// </summary>
+        protected virtual void OnOk()
+        {
+        }
+
+        /// <summary>
+        /// Execute when cancel clicked or esc pressed
+        /// </summary>
+        protected virtual void OnCancel()
+        {
+            Close(false);
         }
 
         private void WalkChildrenToApplyRoles(FrameworkElement target)
@@ -69,10 +105,20 @@ namespace Shuhari.Framework.Wpf.Controls
                 return;
 
             var role = GetRole(target);
-            if (target is Button && role == ElementRole.Cancel)
+            if (role != ElementRole.None && target is Button)
             {
                 var btn = (Button)target;
-                btn.Click += (sender, e) => { Close(false); };
+                _roles[role] = btn;
+                switch (role)
+                {
+                    case ElementRole.Ok:
+                        btn.Click += (sender, e) => { OnOk(); };
+                        break;
+
+                    case ElementRole.Cancel:
+                        btn.Click += (sender, e) => { OnCancel(); };
+                        break;
+                }
             }
 
             var childCount = VisualTreeHelper.GetChildrenCount(target);

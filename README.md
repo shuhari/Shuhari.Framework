@@ -42,6 +42,9 @@ References:
 
 Release History:
 
+**v0.1.15.0 (2017-03-30)**
+* NEW: Ok Role for dialog
+
 **v0.1.14.0 (2017-03-28)**
 * NEW: Browse folder Dialog
 * NEW: Observable
@@ -55,10 +58,5 @@ Release History:
 
 **v0.1.12.0 (2017-03-23)**
 * NEW: XmlSerializer support CDATA
-
-**v0.1.11.0 (2017-03-16)**
-* FIXED: FrameworkController.ExecuteJson clear model state
-* FIXED: XmlSerializer.TypeFactory incorrect named
-* NEW: WPF Form Grid
 
 For full list of release history view [History](https://github.com/shuhari/Shuhari.Framework/blob/master/HISTORY.md)
