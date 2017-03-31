@@ -29,5 +29,18 @@ namespace Shuhari.Framework.UnitTests.Utils
         {
             Assert.AreEqual(result, lhs.EqualsNoCase(rhs));
         }
+
+        [TestCase(null, null, true)]
+        [TestCase(null, "", false)]
+        [TestCase("", null, true)]
+        [TestCase("", "", true)]
+        [TestCase("abc", "ab", true)]
+        [TestCase("abc", "bc", true)]
+        [TestCase("abc", "BC", true)]
+        [TestCase("abc", "bcd", false)]
+        public void ContainsNoCase(string lhs, string rhs, bool result)
+        {
+            Assert.AreEqual(result, lhs.ContainsNoCase(rhs));
+        }
     }
 }

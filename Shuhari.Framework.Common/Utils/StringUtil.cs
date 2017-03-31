@@ -38,5 +38,24 @@ namespace Shuhari.Framework.Utils
         {
             return string.Equals(lhs, rhs, StringComparison.InvariantCultureIgnoreCase);
         }
+
+        /// <summary>
+        /// Check if <paramref name="lhs"/> contains substring <paramref name="rhs"/>
+        /// but ignore case
+        /// </summary>
+        /// <param name="lhs"></param>
+        /// <param name="rhs"></param>
+        /// <returns></returns>
+        public static bool ContainsNoCase(this string lhs, string rhs)
+        {
+            if (rhs == null)
+                return true;
+            if (lhs == null)
+                return false;
+
+            var lhsLower = lhs.ToLowerInvariant();
+            var rhsLower = rhs.ToLowerInvariant();
+            return lhsLower.Contains(rhsLower);
+        }
     }
 }

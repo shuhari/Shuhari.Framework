@@ -28,3 +28,6 @@ DONE:
 * NEW: ElementExtensions.FindAncestor
 * NEW: Cancel Role for dialog
 * NEW: Ok Role for dialog
+
+* NEW: StringUtil.ContainsNoCase
+ 
