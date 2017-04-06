@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Windows;
 using System.Windows.Markup;
 using Shuhari.Framework.Wpf;
 
@@ -7,6 +8,7 @@ using Shuhari.Framework.Wpf;
 [assembly: AssemblyDescription("WPF Extensions")]
 [assembly: Guid("f42283da-f5dc-4f3e-89b8-e5d0e25043c6")]
 
+[assembly: ThemeInfo(ResourceDictionaryLocation.None, ResourceDictionaryLocation.SourceAssembly)]
 [assembly: XmlnsDefinition(WpfAssemblyInfo.XAML_NAMESPACE, "Shuhari.Framework.Wpf.Controls")]
 [assembly: XmlnsPrefix(WpfAssemblyInfo.XAML_NAMESPACE, WpfAssemblyInfo.XAML_PREFIX)]
 

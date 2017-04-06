@@ -1,277 +1,289 @@
 {
-  "Ok": {
-    "en": "OK",
-    "zh-CN": "确定"
-  },
-  "Cancel": {
-    "en": "Cancel",
-    "zh-CN": "取消"
-  },
-  "Signin": {
-    "en": "Sign in",
-    "zh-CN": "登录"
-  },
-  "Signout": {
-    "en": "Sign out",
-    "zh-CN": "注销"
-  },
-  "Create": {
-    "en": "Create",
-    "zh-CN": "新建"
-  },
-  "Edit": {
-    "en": "Edit",
-    "zh-CN": "编辑"
-  },
-  "View": {
-    "en": "View",
-    "zh-CN": "查看"
-  },
-  "Delete": {
-    "en": "Sign out",
-    "zh-CN": "删除"
-  },
-  "Display": {
-    "en": "Display",
-    "zh-CN": "显示"
-  },
-  "Submit": {
-    "en": "Submit",
-    "zh-CN": "提交"
-  },
-  "Save": {
-    "en": "Save",
-    "zh-CN": "保存"
-  },
-  "Search": {
-    "en": "Search",
-    "zh-CN": "搜索"
-  },
-  "Find": {
-    "en": "Find",
-    "zh-CN": "查找"
-  },
-  "Enable": {
-    "en": "Enable",
-    "zh-CN": "启用"
-  },
-  "Disable": {
-    "en": "Disable",
-    "zh-CN": "禁用"
-  },
-  "SelectAll": {
-    "en": "Select All",
-    "zh-CN": "全部选中"
-  },
-  "SelectNone": {
-    "en": "Select None",
-    "zh-CN": "全部不选"
-  },
-  "SelectInvert": {
-    "en": "Invert Selection",
-    "zh-CN": "反转选择"
-  },
-  "Import": {
-    "en": "Import",
-    "zh-CN": "导入"
-  },
-  "Export": {
-    "en": "Export",
-    "zh-CN": "导出"
-  },
-  "Download": {
-    "en": "Download",
-    "zh-CN": "下载"
-  },
-  "Upload": {
-    "en": "Upload",
-    "zh-CN": "上传"
-  },
-  "Navigation": {
-    "en": "Navigation",
-    "zh-CN": "导航"
-  },
-  "Sitemap": {
-    "en": "Sitemap",
-    "zh-CN": "站点地图"
-  },
+    "Ok": {
+        "en": "OK",
+        "zh-CN": "确定"
+    },
+    "Cancel": {
+        "en": "Cancel",
+        "zh-CN": "取消"
+    },
+    "Signin": {
+        "en": "Sign in",
+        "zh-CN": "登录"
+    },
+    "Signout": {
+        "en": "Sign out",
+        "zh-CN": "注销"
+    },
+    "Create": {
+        "en": "Create",
+        "zh-CN": "新建"
+    },
+    "Edit": {
+        "en": "Edit",
+        "zh-CN": "编辑"
+    },
+    "View": {
+        "en": "View",
+        "zh-CN": "查看"
+    },
+    "Delete": {
+        "en": "Sign out",
+        "zh-CN": "删除"
+    },
+    "Display": {
+        "en": "Display",
+        "zh-CN": "显示"
+    },
+    "Submit": {
+        "en": "Submit",
+        "zh-CN": "提交"
+    },
+    "Save": {
+        "en": "Save",
+        "zh-CN": "保存"
+    },
+    "Search": {
+        "en": "Search",
+        "zh-CN": "搜索"
+    },
+    "Find": {
+        "en": "Find",
+        "zh-CN": "查找"
+    },
+    "Enable": {
+        "en": "Enable",
+        "zh-CN": "启用"
+    },
+    "Disable": {
+        "en": "Disable",
+        "zh-CN": "禁用"
+    },
+    "SelectAll": {
+        "en": "Select All",
+        "zh-CN": "全部选中"
+    },
+    "SelectNone": {
+        "en": "Select None",
+        "zh-CN": "全部不选"
+    },
+    "SelectInvert": {
+        "en": "Invert Selection",
+        "zh-CN": "反转选择"
+    },
+    "Import": {
+        "en": "Import",
+        "zh-CN": "导入"
+    },
+    "Export": {
+        "en": "Export",
+        "zh-CN": "导出"
+    },
+    "Download": {
+        "en": "Download",
+        "zh-CN": "下载"
+    },
+    "Upload": {
+        "en": "Upload",
+        "zh-CN": "上传"
+    },
+    "Navigation": {
+        "en": "Navigation",
+        "zh-CN": "导航"
+    },
+    "Sitemap": {
+        "en": "Sitemap",
+        "zh-CN": "站点地图"
+    },
 
-  "Name": {
-    "en": "Name",
-    "zh-CN": "名称"
-  },
-  "DisplayName": {
-    "en": "Display Name",
-    "zh-CN": "显示名称"
-  },
-  "Description": {
-    "en": "Description",
-    "zh-CN": "描述"
-  },
-  "Disabled": {
-    "en": "Disabled",
-    "zh-CN": "禁用"
-  },
-  "Deletable": {
-    "en": "Deletable",
-    "zh-CN": "可删除"
-  },
-  "CreateBy": {
-    "en": "Create By",
-    "zh-CN": "创建用户"
-  },
-  "CreateAt": {
-    "en": "Create At",
-    "zh-CN": "创建时间"
-  },
-  "UpdateBy": {
-    "en": "Update By",
-    "zh-CN": "更新用户"
-  },
-  "UpdateAt": {
-    "en": "Update At",
-    "zh-CN": "更新时间"
-  },
-  "StartTime": {
-    "en": "Start Time",
-    "zh-CN": "开始时间"
-  },
-  "EndTime": {
-    "en": "End Time",
-    "zh-CN": "结束时间"
-  },
-  "Password": {
-    "en": "Password",
-    "zh-CN": "密码"
-  },
-  "OldPassword": {
-    "en": "Password",
-    "zh-CN": "密码"
-  },
-  "NewPassword": {
-    "en": "New Password",
-    "zh-CN": "新密码"
-  },
-  "ConfirmPassword": {
-    "en": "Confirm Password",
-    "zh-CN": "确认密码"
-  },
-  "SigninModel.UserName": {
-    "en": "User name",
-    "zh-CN": "用户名"
-  },
-  "SigninModel.RememberMe": {
-    "en": "Remember Me",
-    "zh-CN": "记住登录用户"
-  },
-  "User": {
-    "en": "User",
-    "zh-CN": "用户"
-  },
-  "Role": {
-    "en": "Role",
-    "zh-CN": "角色"
-  },
-  "Permission": {
-    "en": "Permission",
-    "zh-CN": "权限"
-  },
-  "Log": {
-    "en": "Log",
-    "zh-CN": "日志"
-  },
-  "Administration": {
-    "en": "Administration",
-    "zh-CN": "系统管理"
-  },
-  "Type": {
-    "en": "Type",
-    "zh-CN": "类型"
-  },
-  "Homepage": {
-    "en": "Homepage",
-    "zh-CN": "主页"
-  },
+    "Name": {
+        "en": "Name",
+        "zh-CN": "名称"
+    },
+    "DisplayName": {
+        "en": "Display Name",
+        "zh-CN": "显示名称"
+    },
+    "Description": {
+        "en": "Description",
+        "zh-CN": "描述"
+    },
+    "Disabled": {
+        "en": "Disabled",
+        "zh-CN": "禁用"
+    },
+    "Deletable": {
+        "en": "Deletable",
+        "zh-CN": "可删除"
+    },
+    "CreateBy": {
+        "en": "Create By",
+        "zh-CN": "创建用户"
+    },
+    "CreateAt": {
+        "en": "Create At",
+        "zh-CN": "创建时间"
+    },
+    "UpdateBy": {
+        "en": "Update By",
+        "zh-CN": "更新用户"
+    },
+    "UpdateAt": {
+        "en": "Update At",
+        "zh-CN": "更新时间"
+    },
+    "StartTime": {
+        "en": "Start Time",
+        "zh-CN": "开始时间"
+    },
+    "EndTime": {
+        "en": "End Time",
+        "zh-CN": "结束时间"
+    },
+    "Date": {
+        "en": "Date",
+        "zh-CN": "日期"
+    },
+    "Time": {
+        "en": "Time",
+        "zh-CN": "时间"
+    },
+    "Password": {
+        "en": "Password",
+        "zh-CN": "密码"
+    },
+    "OldPassword": {
+        "en": "Password",
+        "zh-CN": "密码"
+    },
+    "NewPassword": {
+        "en": "New Password",
+        "zh-CN": "新密码"
+    },
+    "ConfirmPassword": {
+        "en": "Confirm Password",
+        "zh-CN": "确认密码"
+    },
+    "SigninModel.UserName": {
+        "en": "User name",
+        "zh-CN": "用户名"
+    },
+    "SigninModel.RememberMe": {
+        "en": "Remember Me",
+        "zh-CN": "记住登录用户"
+    },
+    "User": {
+        "en": "User",
+        "zh-CN": "用户"
+    },
+    "Role": {
+        "en": "Role",
+        "zh-CN": "角色"
+    },
+    "Permission": {
+        "en": "Permission",
+        "zh-CN": "权限"
+    },
+    "Log": {
+        "en": "Log",
+        "zh-CN": "日志"
+    },
+    "Administration": {
+        "en": "Administration",
+        "zh-CN": "系统管理"
+    },
+    "Type": {
+        "en": "Type",
+        "zh-CN": "类型"
+    },
+    "Homepage": {
+        "en": "Homepage",
+        "zh-CN": "主页"
+    },
+    "Content": {
+        "en": "Content",
+        "zh-CN": "内容"
+    },
 
-  "Expect.NotNull": {
-    "en": "Parameter {0} should not be null."
-  },
-  "Expect.NotBlank": {
-    "en": "Parameter {0} should not be a blank string."
-  },
-  "Expect.True": {
-    "en": "The result should evaluate to true."
-  },
-  "Expect.FileExist": {
-    "en": "File not exist: {0}"
-  },
-  "Expect.DirectoryExist": {
-    "en": "Directory not exist: {0}"
-  },
-  "Error.ResourceNotFound": {
-    "en": "Could not found resource {1} in assembly {0}"
-  },
-  "Error.BytesFormat": {
-    "en": "Bytes string should have even length"
-  },
-  "Error.TypeNotNullable": {
-    "en": "Type {0} is not nullable"
-  },
-  "Error.TypeNotValueType": {
-    "en": "Type {0} is not a value type"
-  },
-  "Error.TypeNotEnum": {
-    "en": "Type {0} is not a enum"
-  },
-  "Error.ParseMethodNotExist": {
-    "en": "Expected static {0} Parse(string) method in type {0}, but could not found one"
-  },
-  "Exception.TraceFormat": {
-    "en": "Exception raised at {0:yyyy-MM-dd HH:mm:ss}\r\n  Messsage: {1}\r\n  Type: {2}\r\n  Stacktrace: {3}\r\n\r\n"
-  },
-  "Error.NumberShouldBePositive": {
-    "en": "number should be >=0"
-  },
-  "Error.KeyNotFound": {
-    "en": "Key not found: {0}"
-  },
-  "Error.UnknownDbType": {
-    "en": "Unknown database type: {0}"
-  },
-  "Error.UnsupportedType": {
-    "en": "Unsupported type: {0}"
-  },
-  "Error.UnsupportedTypeWithValue": {
-    "en": "Unsupported type={0}, value={1}"
-  },
-  "Error.PrimaryKeyNotFound": {
-    "en": "Primary key not defined for entity: {0}"
-  },
-  "Error.MapperNotFound": {
-    "en": "Mapping information not exist: {0}"
-  },
-  "Error.FieldCountNotMatch": {
-    "en": "Field count different from reader count. Field count={0}, reader count={1}"
-  },
-  "Error.PrimaryKeyTypeUnmatch": {
-    "en": "Entity {0} expect primar key type {1}, got {2}"
-  },
-  "Error.NoFieldsSepecified": {
-    "en": "No fields specified"
-  },
-  "Error.PropertyValueNull": {
-    "en": "Property {0} has null value"
-  },
-  "Error.NoRepository": {
-    "en": "DbContext {0} has no repositories"
-  },
-  "Error.NoSession": {
-    "en": "Repository has no session"
-  },
-  "Error.TransactionAlreadyExist": {
-    "en": "A transaction is already active in the session"
-  },
-  "Error.TransactionBelongToOther": {
-    "en": "The transaction belongs to another session"
-  }
+    "Expect.NotNull": {
+        "en": "Parameter {0} should not be null."
+    },
+    "Expect.NotBlank": {
+        "en": "Parameter {0} should not be a blank string."
+    },
+    "Expect.True": {
+        "en": "The result should evaluate to true."
+    },
+    "Expect.FileExist": {
+        "en": "File not exist: {0}"
+    },
+    "Expect.DirectoryExist": {
+        "en": "Directory not exist: {0}"
+    },
+    "Error.ResourceNotFound": {
+        "en": "Could not found resource {1} in assembly {0}"
+    },
+    "Error.BytesFormat": {
+        "en": "Bytes string should have even length"
+    },
+    "Error.TypeNotNullable": {
+        "en": "Type {0} is not nullable"
+    },
+    "Error.TypeNotValueType": {
+        "en": "Type {0} is not a value type"
+    },
+    "Error.TypeNotEnum": {
+        "en": "Type {0} is not a enum"
+    },
+    "Error.ParseMethodNotExist": {
+        "en": "Expected static {0} Parse(string) method in type {0}, but could not found one"
+    },
+    "Exception.TraceFormat": {
+        "en": "Exception raised at {0:yyyy-MM-dd HH:mm:ss}\r\n  Messsage: {1}\r\n  Type: {2}\r\n  Stacktrace: {3}\r\n\r\n"
+    },
+    "Error.NumberShouldBePositive": {
+        "en": "number should be >=0"
+    },
+    "Error.KeyNotFound": {
+        "en": "Key not found: {0}"
+    },
+    "Error.UnknownDbType": {
+        "en": "Unknown database type: {0}"
+    },
+    "Error.UnsupportedType": {
+        "en": "Unsupported type: {0}"
+    },
+    "Error.UnsupportedTypeWithValue": {
+        "en": "Unsupported type={0}, value={1}"
+    },
+    "Error.PrimaryKeyNotFound": {
+        "en": "Primary key not defined for entity: {0}"
+    },
+    "Error.MapperNotFound": {
+        "en": "Mapping information not exist: {0}"
+    },
+    "Error.FieldCountNotMatch": {
+        "en": "Field count different from reader count. Field count={0}, reader count={1}"
+    },
+    "Error.PrimaryKeyTypeUnmatch": {
+        "en": "Entity {0} expect primar key type {1}, got {2}"
+    },
+    "Error.NoFieldsSepecified": {
+        "en": "No fields specified"
+    },
+    "Error.PropertyValueNull": {
+        "en": "Property {0} has null value"
+    },
+    "Error.NoRepository": {
+        "en": "DbContext {0} has no repositories"
+    },
+    "Error.NoSession": {
+        "en": "Repository has no session"
+    },
+    "Error.TransactionAlreadyExist": {
+        "en": "A transaction is already active in the session"
+    },
+    "Error.TransactionBelongToOther": {
+        "en": "The transaction belongs to another session"
+    }
 }

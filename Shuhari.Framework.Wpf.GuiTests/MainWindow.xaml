@@ -20,7 +20,24 @@
                 <sw:HBox>
                     <Button x:Name="btnTestDialog" Content="Test Dialog" Click="btnTestDialog_Click" />
                 </sw:HBox>
+                <sw:HeaderLabel Title="Header Label" />
+                <sw:StatusLabel x:Name="statusLabel" />
+                <sw:HBox>
+                    <Button x:Name="btnShowInfo" Content="Show Info" Click="btnShowInfo_Click" />
+                    <Button x:Name="btnShowError" Content="Show Error" Click="btnShowError_Click" />
+                </sw:HBox>
             </sw:VBox>
+        </TabItem>
+        <TabItem Header="LogListView">
+            <sw:SimpleGrid Rows="@,*">
+                <sw:HBox Grid.Row="0">
+                    <Button x:Name="btnLogInfo" Content="Log Info" Click="btnLogInfo_Click" />
+                    <Button x:Name="btnLogError" Content="Log Error" Click="btnLogError_Click" />
+                    <Button x:Name="btnLogClear" Content="Log Clear" Click="btnLogClear_Click" />
+                </sw:HBox>
+                <sw:LogListView x:Name="logList" Grid.Row="1">
+                </sw:LogListView>
+            </sw:SimpleGrid>
         </TabItem>
     </TabControl>
     

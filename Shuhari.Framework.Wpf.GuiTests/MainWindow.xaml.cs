@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Shuhari.Framework.Wpf.Controls;
+using Shuhari.Framework.Wpf.Models;
 using static Shuhari.Framework.Win32.ShellApi;
 
 namespace Shuhari.Framework.Wpf.GuiTests
@@ -70,6 +71,31 @@ namespace Shuhari.Framework.Wpf.GuiTests
         private void btnTestDialog_Click(object sender, RoutedEventArgs e)
         {
             new TestDialog().ShowDialog(this);
+        }
+
+        private void btnShowInfo_Click(object sender, RoutedEventArgs e)
+        {
+            statusLabel.ShowInfo("Show info");
+        }
+
+        private void btnShowError_Click(object sender, RoutedEventArgs e)
+        {
+            statusLabel.ShowError("Show error");
+        }
+
+        private void btnLogInfo_Click(object sender, RoutedEventArgs e)
+        {
+            logList.AddLog(new LogItem(LogType.Info, DateTime.Now, "info log"));
+        }
+
+        private void btnLogError_Click(object sender, RoutedEventArgs e)
+        {
+            logList.AddLog(new LogItem(LogType.Error, DateTime.Now, "error log"));
+        }
+
+        private void btnLogClear_Click(object sender, RoutedEventArgs e)
+        {
+            logList.Clear();
         }
     }
 }

@@ -4,10 +4,6 @@ TODO:
 * Collection.LastN
 * BrowseButton?
 * Check with misc exceptions
-* WPF Header control
-* WPF StatusLabel control
-* WPF LogList control?
-* ISelectable interface
 
 DONE:
 * NEW: Xml serialization support
@@ -30,4 +26,10 @@ DONE:
 * NEW: Ok Role for dialog
 
 * NEW: StringUtil.ContainsNoCase
- 
+* NEW: WPF HeaderLabel control
+* NEW: WPF StatusLabel control
+* NEW: ISelectable interface
+* NEW: Selectable class
+* NEW: WPF LogListView control
+
+

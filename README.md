@@ -42,6 +42,14 @@ References:
 
 Release History:
 
+**v0.1.16.0 (2017-04-06)**
+* NEW: StringUtil.ContainsNoCase
+* NEW: WPF HeaderLabel control
+* NEW: WPF StatusLabel control
+* NEW: ISelectable interface
+* NEW: Selectable class
+* NEW: WPF LogListView control
+
 **v0.1.15.0 (2017-03-30)**
 * NEW: Ok Role for dialog
 
@@ -55,8 +63,5 @@ Release History:
 * NEW: WPF HGridSplitter/VGridSplitter
 * NEW: FileSystemExtensions.EnsureDirectory/WriteText/WriteBytes
 * FIXED: FrameworkStrings use property instead of field to avoid NPE
-
-**v0.1.12.0 (2017-03-23)**
-* NEW: XmlSerializer support CDATA
 
 For full list of release history view [History](https://github.com/shuhari/Shuhari.Framework/blob/master/HISTORY.md)

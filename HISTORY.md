@@ -1,3 +1,11 @@
+**v0.1.16.0 (2017-04-06)**
+* NEW: StringUtil.ContainsNoCase
+* NEW: WPF HeaderLabel control
+* NEW: WPF StatusLabel control
+* NEW: ISelectable interface
+* NEW: Selectable class
+* NEW: WPF LogListView control
+
 **v0.1.15.0 (2017-03-30)**
 * NEW: Ok Role for dialog
 

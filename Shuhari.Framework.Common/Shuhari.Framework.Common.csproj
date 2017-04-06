@@ -62,7 +62,9 @@
   <ItemGroup>
     <Compile Include="ComponentModel\DefaultDateTimeValueSerializer.cs" />
     <Compile Include="ComponentModel\GenericTypeConverter.cs" />
+    <Compile Include="ComponentModel\ISelectable.cs" />
     <Compile Include="ComponentModel\Observable.cs" />
+    <Compile Include="ComponentModel\Selectable.cs" />
     <Compile Include="Data\Common\DbContextFactory{T}.cs" />
     <Compile Include="Data\Common\FrameworkDbContext.cs" />
     <Compile Include="Data\Common\BaseQuery.cs" />
