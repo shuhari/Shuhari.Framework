@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using Shuhari.Framework.DomainModel;
 using Shuhari.Framework.Globalization;
 using Shuhari.Framework.Utils;
-using Shuhari.Framework.Wpf.Models;
 
 namespace Shuhari.Framework.Wpf.Controls
 {

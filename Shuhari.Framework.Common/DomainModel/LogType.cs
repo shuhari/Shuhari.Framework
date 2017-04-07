@@ -1,4 +1,4 @@
-﻿namespace Shuhari.Framework.Wpf.Models
+﻿namespace Shuhari.Framework.DomainModel
 {
     /// <summary>
     /// Log Type

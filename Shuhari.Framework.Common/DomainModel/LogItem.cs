@@ -1,7 +1,7 @@
 ﻿using System;
 using Shuhari.Framework.Utils;
 
-namespace Shuhari.Framework.Wpf.Models
+namespace Shuhari.Framework.DomainModel
 {
     /// <summary>
     /// Log item

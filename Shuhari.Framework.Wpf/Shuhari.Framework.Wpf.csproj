@@ -71,8 +71,6 @@
     <Compile Include="Controls\VBox.cs" />
     <Compile Include="Controls\VGridSplitter.cs" />
     <Compile Include="Controls\WindowExtensions.cs" />
-    <Compile Include="Models\LogItem.cs" />
-    <Compile Include="Models\LogType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +84,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

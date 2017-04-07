@@ -2,7 +2,6 @@ TODO:
 * EnumUtil.ToSelectItems()
 * Rename ScriptBook?
 * Collection.LastN
-* BrowseButton?
 * Check with misc exceptions
 
 DONE:

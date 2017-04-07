@@ -125,6 +125,8 @@
     <Compile Include="DomainModel\INamed.cs" />
     <Compile Include="DomainModel\IPagination.cs" />
     <Compile Include="DomainModel\ISitemapResolver.cs" />
+    <Compile Include="DomainModel\LogItem.cs" />
+    <Compile Include="DomainModel\LogType.cs" />
     <Compile Include="DomainModel\PagedCollection{T}.cs" />
     <Compile Include="DomainModel\Pager.cs" />
     <Compile Include="DomainModel\PagerItem.cs" />

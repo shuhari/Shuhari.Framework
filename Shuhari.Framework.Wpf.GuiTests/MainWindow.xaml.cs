@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Shuhari.Framework.DomainModel;
 using Shuhari.Framework.Wpf.Controls;
-using Shuhari.Framework.Wpf.Models;
 using static Shuhari.Framework.Win32.ShellApi;
 
 namespace Shuhari.Framework.Wpf.GuiTests
@@ -49,7 +49,6 @@ namespace Shuhari.Framework.Wpf.GuiTests
                 VerticalAlignment = VerticalAlignment.Center,
                 IsChecked = selected,
             };
-            System.Diagnostics.Debug.WriteLine(string.Format("row={0}, col={1}", index / colCount, index % colCount));
             Grid.SetRow(cb, index / colCount);
             Grid.SetColumn(cb, index % colCount);
             grid.Children.Add(cb);

@@ -1,3 +1,6 @@
+**v0.1.16.1 (2017-04-07)**
+* REFACTOR: Move LogType/LogItem to Common assembly to avoid reference issues
+
 **v0.1.16.0 (2017-04-06)**
 * NEW: StringUtil.ContainsNoCase
 * NEW: WPF HeaderLabel control
