@@ -5,13 +5,13 @@ namespace Shuhari.Framework.DomainModel
     /// <summary>
     /// Common implementation of <see cref="ISitemapResolver"/>
     /// </summary>
-    public abstract class BaseSitemapResolver : ISitemapResolver
+    public class SitemapResolver : ISitemapResolver
     {
         /// <summary>
         /// Initialize
         /// </summary>
         /// <param name="user"></param>
-        protected BaseSitemapResolver(UserInfo user)
+        protected SitemapResolver(UserInfo user)
         {
             Expect.IsNotNull(user, nameof(user));
 
@@ -24,11 +24,16 @@ namespace Shuhari.Framework.DomainModel
         protected UserInfo User { get; }
 
         /// <summary>
-        /// Given a valid url, return resolved url
+        /// Given a valid url, return resolved url.
+        /// Base implementation only return origin value.
+        /// Can be overriden by derived classes.
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        public abstract string ResolveUrl(string url);
+        public virtual string ResolveUrl(string url)
+        {
+            return url;
+        }
 
         /// <inheritdoc />
         public void Resolve(Sitemap sitemap)

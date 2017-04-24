@@ -8,7 +8,7 @@ namespace Shuhari.Framework.Web.Mvc
     /// <summary>
     /// Sitemap resolver in web context
     /// </summary>
-    public class WebSitemapResolver : BaseSitemapResolver
+    public class WebSitemapResolver : SitemapResolver
     {
         /// <summary>
         /// Initializeo

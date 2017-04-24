@@ -118,7 +118,7 @@
     <Compile Include="Data\Utils\ParamConverter.cs" />
     <Compile Include="DomainModel\AuthenticationResultDto.cs" />
     <Compile Include="DomainModel\BaseEntity{TID}.cs" />
-    <Compile Include="DomainModel\BaseSitemapResolver.cs" />
+    <Compile Include="DomainModel\SitemapResolver.cs" />
     <Compile Include="DomainModel\FileItem.cs" />
     <Compile Include="DomainModel\IEntity{TID}.cs" />
     <Compile Include="DomainModel\IExtensibleProperties.cs" />

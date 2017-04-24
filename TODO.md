@@ -23,7 +23,6 @@ DONE:
 * NEW: ElementExtensions.FindAncestor
 * NEW: Cancel Role for dialog
 * NEW: Ok Role for dialog
-
 * NEW: StringUtil.ContainsNoCase
 * NEW: WPF HeaderLabel control
 * NEW: WPF StatusLabel control
@@ -31,4 +30,4 @@ DONE:
 * NEW: Selectable class
 * NEW: WPF LogListView control
 
-
+* REFACTOR: BaseSitemapResolver renamed to SitemapResolver and not abstract

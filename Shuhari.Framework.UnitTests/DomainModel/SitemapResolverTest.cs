@@ -7,13 +7,13 @@ using Shuhari.Framework.Utils;
 namespace Shuhari.Framework.UnitTests.DomainModel
 {
     [TestFixture]
-    public class BaseSitemapResolverTest
+    public class SitemapResolverTest
     {
         [SetUp]
         public void SetUp()
         {
             _user = new UserInfo { Permissions = new[] { "user", "role" } };
-            _mockResolver = new Mock<BaseSitemapResolver>(_user);
+            _mockResolver = new Mock<SitemapResolver>(_user);
             _mockResolver.Setup(m => m.ResolveUrl(It.IsAny<string>()))
                 .Returns<string>(x => x.Replace("~", "@"));
             _sitemap = Fixtures.Sitemap;
@@ -21,7 +21,7 @@ namespace Shuhari.Framework.UnitTests.DomainModel
         }
 
         private UserInfo _user;
-        private Mock<BaseSitemapResolver> _mockResolver;
+        private Mock<SitemapResolver> _mockResolver;
         private Sitemap _sitemap;
 
         [Test]

@@ -124,7 +124,7 @@
     <Compile Include="Data\SqlServer\SqlQueryBuilderTest.cs" />
     <Compile Include="Data\Utils\ParamConverterTest.cs" />
     <Compile Include="DomainModel\BaseEntityTest.cs" />
-    <Compile Include="DomainModel\BaseSitemapResolverTest.cs" />
+    <Compile Include="DomainModel\SitemapResolverTest.cs" />
     <Compile Include="DomainModel\FileItemTest.cs" />
     <Compile Include="DomainModel\PagedCollectionTest.cs" />
     <Compile Include="DomainModel\PagerItemTest.cs" />
