@@ -1,3 +1,6 @@
+**v0.1.16.2 (2017-06-13)**
+* FIXED: CreatePagedQueryTuple support crlf
+
 **v0.1.16.1 (2017-04-07)**
 * REFACTOR: Move LogType/LogItem to Common assembly to avoid reference issues
 

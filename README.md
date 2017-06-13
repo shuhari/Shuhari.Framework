@@ -42,6 +42,9 @@ References:
 
 Release History:
 
+**v0.1.16.2 (2017-06-13)**
+* FIXED: CreatePagedQueryTuple support crlf
+
 **v0.1.16.1 (2017-04-07)**
 * REFACTOR: Move LogType/LogItem to Common assembly to avoid reference issues
 
@@ -61,10 +64,5 @@ Release History:
 * NEW: Observable
 * NEW: ElementExtensions.FindAncestor
 * NEW: Cancel Role for dialog
-
-**v0.1.13.0 (2017-03-27)**
-* NEW: WPF HGridSplitter/VGridSplitter
-* NEW: FileSystemExtensions.EnsureDirectory/WriteText/WriteBytes
-* FIXED: FrameworkStrings use property instead of field to avoid NPE
 
 For full list of release history view [History](https://github.com/shuhari/Shuhari.Framework/blob/master/HISTORY.md)

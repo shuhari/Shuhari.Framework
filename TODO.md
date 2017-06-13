@@ -29,5 +29,5 @@ DONE:
 * NEW: ISelectable interface
 * NEW: Selectable class
 * NEW: WPF LogListView control
-
 * REFACTOR: BaseSitemapResolver renamed to SitemapResolver and not abstract
+* FIXED: CreatePagedQueryTuple support crlf
